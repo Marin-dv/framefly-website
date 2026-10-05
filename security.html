@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Framefly security: your app stays yours</title>
+<meta name="description" content="How Framefly protects your app and your secrets: the AI never sees a password, three layers of guardrails block destructive actions, data is hosted in the EU, and every video is labeled as AI-made.">
+<link rel="canonical" href="https://framefly.app/security.html">
+<meta property="og:title" content="Framefly security">
+<meta property="og:description" content="The AI never sees a password. Three layers of guardrails. EU hosting.">
+<meta property="og:url" content="https://framefly.app/security.html">
+<!-- @head -->
+<meta name="theme-color" content="#09090a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Framefly">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://framefly.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@MarindeVanssay">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+<!-- /@head -->
+</head>
+<body>
+<!-- @nav -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="product.html">Product</a>
+      <a href="styles.html">Styles</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html" aria-current="page">Security</a>
+      <a href="log.html">Log</a>
+    </nav>
+    <div class="nav-end">
+      <a class="nav-count" href="index.html#premiere"><span class="firefly" aria-hidden="true"></span><span class="lbl" data-when-waiting>Launch in</span><b data-cd-chip>soon</b></a>
+      <a class="btn btn-primary btn-sm" href="beta.html">Apply for the beta</a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list"></use></svg></button>
+    </div>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <a href="product.html">Product<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="styles.html">Styles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta</a>
+  </div>
+</header>
+<!-- /@nav -->
+
+<main id="main">
+  <header class="page-head wrap">
+    <h1>Your app stays yours.</h1>
+    <p class="lead">Letting an AI click around your product is a real decision. Here is exactly what Framefly can see, what it can never do, and what it keeps.</p>
+  </header>
+
+  <section class="section-tight" style="padding-top:0" id="secrets">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>The AI never sees a password.</h2>
+        <p>Secrets are encrypted in a vault and only decrypted inside the short-lived worker that runs your shoot. The model writes a placeholder; the browser fills in the real value. Logging in is never filmed: recording starts after you're signed in.</p>
+      </div>
+      <div class="flow reveal">
+        <div class="flow-node"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-lock-key"></use></svg><b>Vault</b><p>AES-256-GCM, one data key per workspace, held by AWS KMS in Frankfurt.</p></div>
+        <div class="flow-node model"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-brain"></use></svg><b>The model</b><p>Plans the next action with a placeholder, never the value.</p><code>fill("#password", {{secret.password}})</code></div>
+        <div class="flow-node"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-hard-drives"></use></svg><b>Shoot worker</b><p>Swaps the placeholder at the last moment, in memory. Never written to logs.</p></div>
+        <div class="flow-node"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-browser"></use></svg><b>Your app</b><p>Receives a normal sign-in. Each decryption is recorded in your audit log.</p></div>
+      </div>
+      <div class="points reveal">
+        <div class="point"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-trash"></use></svg><b>Deleted when idle</b><p>Secrets of an app with no render for 90 days are purged. Ephemeral mode deletes them after every render.</p></div>
+        <div class="point"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list-checks"></use></svg><b>An audit log</b><p>Who decrypted what, when, and for which render. Filter it by secrets, renders, guardrails, members or API.</p></div>
+        <div class="point"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-eye-slash"></use></svg><b>Write-only</b><p>Once saved, nobody can read a secret back, you included. You can only replace or delete it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="guardrails">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Three checks on every action.</h2>
+        <p>Before the browser runs a click, a form fill or a navigation, the action passes three layers. If the agent hits more than five blocks in one exploration, it stops, keeps your credit and tells you.</p>
+      </div>
+      <figure class="shot reveal">
+        <div class="bezel"><div class="bezel-core"><img src="assets/img/app/guardrails.webp" width="1800" height="1360" loading="lazy" alt="The Guardrails page: three layers, a list of locked action categories such as payments, account deletion and outbound messages, an action tester and guard model sensitivity settings."></div></div>
+        <figcaption><b>Guardrails in the app.</b> Locked categories can't be switched off. You can test any action and see which layer would stop it.</figcaption>
+      </figure>
+      <div class="points reveal">
+        <div class="point"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-lock-key"></use></svg><b>1. A hard block list</b><p>Inside the browser: payment domains are cut off at the network, DELETE requests are refused unless you allowlist them, and clicks on destructive words are stopped in ten languages.</p></div>
+        <div class="point"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-brain"></use></svg><b>2. A guard model</b><p>A second, faster model reads each proposed action with the page around it. Anything risky is blocked unless you allowed it.</p></div>
+        <div class="point"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list-checks"></use></svg><b>3. Your rules</b><p>Allow or deny by URL, CSS selector or button text, for one app or for all of them.</p></div>
+      </div>
+      <h3 class="reveal" style="font-size:var(--t-h3);margin-top:56px;margin-bottom:16px">Always blocked, even if you allow it</h3>
+      <div class="never reveal">
+        <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-credit-card"></use></svg>Paying for anything, upgrades included</div>
+        <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-trash"></use></svg>Deleting the account or transferring ownership</div>
+        <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-key"></use></svg>Changing the login email, password or 2FA</div>
+        <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-paper-plane-tilt"></use></svg>Emails, invites or SMS to anyone outside @inbox.framefly.app</div>
+        <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-handshake"></use></svg>Granting OAuth access to a third party</div>
+        <div><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-detective"></use></svg>Getting around a captcha or a bot wall</div>
+      </div>
+      <p class="muted reveal" style="margin-top:22px;max-width:70ch">If your app sits behind Cloudflare or a firewall, Framefly doesn't try to sneak past it. It uses fixed outgoing IPs and signs every request with an <code style="font-family:var(--mono);color:var(--fg)">X-Framefly-Agent</code> header, so you can allow it in one rule.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" id="data">
+    <div class="wrap split" style="align-items:start">
+      <div class="reveal">
+        <h2 style="font-size:var(--t-h2)">What we keep, and for how long.</h2>
+        <p class="lead" style="margin-top:18px">Framefly is hosted in the EU. For the data visible in your demo accounts, Framefly is your processor under the GDPR and a data processing agreement is available. You can export or delete everything at any time.</p>
+        <p class="muted" style="margin-top:14px">These are the defaults. Each one can be shortened in the app.</p>
+      </div>
+      <dl class="kv reveal">
+        <dt>Raw captures and takes</dt><dd>30 days</dd>
+        <dt>Exploration screenshots</dt><dd>30 days</dd>
+        <dt>Codes received in the agent inbox</dt><dd>24 hours</dd>
+        <dt>Secrets of an idle app</dt><dd>90 days</dd>
+        <dt>App map</dt><dd>while connected</dd>
+        <dt>Delivered videos</dt><dd>until you delete</dd>
+        <dt>Share page analytics</dt><dd>13 months, no personal data</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" id="ai">
+    <div class="wrap split" style="align-items:start">
+      <div class="reveal">
+        <h2 style="font-size:var(--t-h2)">Labeled as AI, the way the law asks.</h2>
+        <p class="lead" style="margin-top:18px">Since August 2, 2026, article 50 of the EU AI Act requires AI-generated media to be marked. Framefly does it by default, so your video is compliant without you thinking about it.</p>
+      </div>
+      <ul class="checklist reveal">
+        <li class="done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-certificate"></use></svg><span><b>Content Credentials (C2PA)</b> and XMP metadata in every exported file</span></li>
+        <li class="done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-film-slate"></use></svg><span><b>One line on the end card</b>, "Voice generated with AI", styled to match your brand</span></li>
+        <li class="done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-user-focus"></use></svg><span><b>A corner label</b> whenever an AI presenter is on screen. It can't be switched off.</span></li>
+        <li class="done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signature"></use></svg><span><b>Consent first.</b> Cloning a voice or a face starts with you reading a random phrase aloud, and only works for yourself.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" id="subprocessors">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Who helps us run it.</h2>
+        <p>The services Framefly plans to rely on at launch. The final list is published here before launch day, and you'll be told before a new one is added.</p>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="table" style="min-width:560px">
+          <thead><tr><th scope="col">Service</th><th scope="col">What for</th><th scope="col">Where</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Anthropic</th><td>Exploration, planning and the guard model</td><td>US, with standard contractual clauses</td></tr>
+            <tr><th scope="row">Voice and music provider</th><td>Voice-over and music, chosen after a blind listening test</td><td>Published before launch</td></tr>
+            <tr><th scope="row">Presenter provider</th><td>AI presenter, beta</td><td>Published before launch</td></tr>
+            <tr><th scope="row">Hetzner</th><td>Exploration and shoot workers</td><td>EU, Germany</td></tr>
+            <tr><th scope="row">AWS</th><td>Rendering and key management</td><td>EU, Frankfurt</td></tr>
+            <tr><th scope="row">Cloudflare</th><td>Video storage and delivery</td><td>EU jurisdiction</td></tr>
+            <tr><th scope="row">Stripe</th><td>Payments</td><td>EU and US</td></tr>
+            <tr><th scope="row">Postmark</th><td>Transactional email</td><td>US, with standard contractual clauses</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted reveal" style="margin-top:28px">Found a security issue? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a> with "Security" in the subject. You'll get a reply within two working days.</p>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2>Questions about your setup?</h2>
+      <p class="lead">Beta testers go through the connection with the maker, one to one.</p>
+      <div style="margin-top:32px"><a class="btn btn-primary btn-lg" href="beta.html"><span class="btn-label">Apply for the beta</span><span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a></div>
+    </div>
+  </section>
+</main>
+
+<!-- @footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+        <p>Prompt in. Demo video out. Launching <span data-launch-date>October 28</span>, made in France by Vanssay.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul><li><a href="product.html">How it works</a></li><li><a href="styles.html">Styles</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="security.html">Security</a></li><li><a href="beta.html">Beta</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="log.html">Production log</a></li><li><a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a></li><li><a data-contact href="mailto:support@framefly.app">support@framefly.app</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
+      </div>
+    </div>
+    <div class="vanssay">
+      <div class="vanssay-head"><b>More from Vanssay</b><span>Plugins for Framer sites, from the same maker.</span></div>
+      <div class="products">
+        <a class="product" href="https://vanssay.net/reviews.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"></use></svg></span><b>Reviews</b><small>Google and Trustpilot reviews with one combined rating.</small></a>
+        <a class="product" href="https://vanssay.net/instagram.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-instagram-logo"></use></svg></span><b>Instagram Feed</b><small>Your live Instagram feed, synced on its own.</small></a>
+        <a class="product" href="https://vanssay.net/geoblock.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-slash"></use></svg></span><b>Bouncer</b><small>Block countries and VPN traffic on your site.</small></a>
+        <a class="product" href="https://vanssay.net/router.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signpost"></use></svg></span><b>Router</b><small>Send visitors to the right page by country or language.</small></a>
+        <a class="product" href="https://vanssay.net/maintenance.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-wrench"></use></svg></span><b>Maintenance Mode</b><small>A maintenance page you switch on live.</small></a>
+        <a class="product" href="https://vanssay.net/google-reviews-live.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-google-logo"></use></svg></span><b>Google Reviews Live</b><small>Live Google reviews, one-time purchase.</small></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span data-year>2026</span> Framefly. Made by Marin de Vanssay.</span>
+      <a href="https://vanssay.net" target="_blank" rel="noopener">vanssay.net</a>
+    </div>
+  </div>
+</footer>
+<!-- /@footer -->
+<!-- @scripts -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+<!-- /@scripts -->
+</body>
+</html>

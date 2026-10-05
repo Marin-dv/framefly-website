@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /partials/
+
+Sitemap: https://framefly.app/sitemap.xml

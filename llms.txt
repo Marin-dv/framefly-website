@@ -1,0 +1,21 @@
+# Framefly
+
+> Framefly turns a web app into a narrated demo video. An AI agent signs into a demo account, explores the app, writes a storyboard the user approves, films clean takes frame by frame, and delivers every format with voice, captions and music. Launching October 28, 2026. Made by Marin de Vanssay (Vanssay).
+
+## Pages
+
+- [Home](https://framefly.app/): what Framefly does, the launch countdown, and the launch list.
+- [How it works](https://framefly.app/product.html): connecting an app (password, 2FA, magic links, SSO sessions, localhost tunnel), directing with a prompt, storyboard approval, deterministic frame-by-frame capture, voice and captions, delivery, freshness monitoring.
+- [Styles](https://framefly.app/styles.html): twelve video styles and how up to three are mixed by facet.
+- [Pricing](https://framefly.app/pricing.html): 1 credit = 1 video up to 90 s. Free first video; launch packs from $29 (credits never expire); Pro $49/month; Studio $149/month. Beta prices.
+- [Security](https://framefly.app/security.html): the model never sees secrets, three layers of guardrails, EU hosting, retention, AI Act labeling.
+- [Beta](https://framefly.app/beta.html): apply to have an app filmed before launch.
+- [Production log](https://framefly.app/log.html): what has been built and measured so far.
+
+## Key facts
+
+- Works with web apps at launch; Chrome extensions and Framer plugins in beta.
+- Credits are held when a render starts and charged only at delivery; failed renders cost nothing.
+- Never pays, deletes, sends messages to real addresses or bypasses captchas.
+- Every export carries C2PA content credentials.
+- Contact: support@framefly.app

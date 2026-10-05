@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Framefly styles: twelve looks for your demo video</title>
+<meta name="description" content="Twelve video styles for launch videos, feature spotlights, changelogs, onboarding, store listings and social clips. Each one is a full spec you can mix with up to two others.">
+<link rel="canonical" href="https://framefly.app/styles.html">
+<meta property="og:title" content="Framefly styles">
+<meta property="og:description" content="Twelve looks for your demo video, and a mixer to combine them.">
+<meta property="og:url" content="https://framefly.app/styles.html">
+<!-- @head -->
+<meta name="theme-color" content="#09090a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Framefly">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://framefly.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@MarindeVanssay">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+<!-- /@head -->
+</head>
+<body>
+<!-- @nav -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="product.html">Product</a>
+      <a href="styles.html" aria-current="page">Styles</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="log.html">Log</a>
+    </nav>
+    <div class="nav-end">
+      <a class="nav-count" href="index.html#premiere"><span class="firefly" aria-hidden="true"></span><span class="lbl" data-when-waiting>Launch in</span><b data-cd-chip>soon</b></a>
+      <a class="btn btn-primary btn-sm" href="beta.html">Apply for the beta</a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list"></use></svg></button>
+    </div>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <a href="product.html">Product<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="styles.html">Styles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta</a>
+  </div>
+</header>
+<!-- /@nav -->
+
+<main id="main">
+  <header class="page-head wrap">
+    <h1>Twelve styles. Mix any three.</h1>
+    <p class="lead">A style is a spec the renderer follows: pacing, transitions, type, palette, captions, music and camera. Every preview here plays that spec on a made-up app.</p>
+  </header>
+
+  <section class="wrap" aria-label="Style gallery">
+    <div class="filters" role="group" aria-label="Filter by use" data-filters></div>
+    <div class="style-grid" data-style-grid></div>
+    <p class="help" data-empty hidden style="margin-top:20px">No style in this category yet.</p>
+  </section>
+
+  <section class="section" id="mixer">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>The mixer.</h2>
+        <p>Pick a main style and a second one, then choose which style owns each facet. A facet always comes from exactly one style, so two styles can never fight over the same decision.</p>
+      </div>
+      <div class="mixer reveal">
+        <div class="mixer-in">
+          <div class="form-grid">
+            <div class="field">
+              <label class="label" for="mix-a">Main style</label>
+              <div class="control"><select id="mix-a" data-mix="a"></select><svg class="icon caret" aria-hidden="true"><use href="assets/img/icons.svg#i-caret-down"></use></svg></div>
+            </div>
+            <div class="field">
+              <label class="label" for="mix-b">Second style</label>
+              <div class="control"><select id="mix-b" data-mix="b"></select><svg class="icon caret" aria-hidden="true"><use href="assets/img/icons.svg#i-caret-down"></use></svg></div>
+            </div>
+          </div>
+          <div class="facet-rows" data-facets></div>
+          <p class="help">In the app you can add a third reference and hand it any facet, the same way.</p>
+        </div>
+        <div class="mixer-out">
+          <div class="bezel"><div class="bezel-core"><div class="poster" data-mix-poster aria-label="Preview of the mixed style" role="img"></div></div></div>
+          <div class="mix-legend" data-mix-legend></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="beta-band reveal">
+        <div>
+          <h2>Bring your brand kit.</h2>
+          <p>Any style can take your logo, colors and fonts. Brand kits check every color pair for contrast, then apply to captions, titles and the end card.</p>
+          <a class="btn btn-primary btn-lg" href="beta.html"><span class="btn-label">Apply for the beta</span><span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a>
+        </div>
+        <figure class="shot"><div class="bezel"><div class="bezel-core"><img src="assets/img/app/templates.webp" width="1800" height="1360" loading="lazy" alt="The Templates page in the app: a featured Vertical Hook template with its pacing, transitions, camera and captions, and category filters."></div></div></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- @footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+        <p>Prompt in. Demo video out. Launching <span data-launch-date>October 28</span>, made in France by Vanssay.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul><li><a href="product.html">How it works</a></li><li><a href="styles.html">Styles</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="security.html">Security</a></li><li><a href="beta.html">Beta</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="log.html">Production log</a></li><li><a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a></li><li><a data-contact href="mailto:support@framefly.app">support@framefly.app</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
+      </div>
+    </div>
+    <div class="vanssay">
+      <div class="vanssay-head"><b>More from Vanssay</b><span>Plugins for Framer sites, from the same maker.</span></div>
+      <div class="products">
+        <a class="product" href="https://vanssay.net/reviews.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"></use></svg></span><b>Reviews</b><small>Google and Trustpilot reviews with one combined rating.</small></a>
+        <a class="product" href="https://vanssay.net/instagram.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-instagram-logo"></use></svg></span><b>Instagram Feed</b><small>Your live Instagram feed, synced on its own.</small></a>
+        <a class="product" href="https://vanssay.net/geoblock.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-slash"></use></svg></span><b>Bouncer</b><small>Block countries and VPN traffic on your site.</small></a>
+        <a class="product" href="https://vanssay.net/router.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signpost"></use></svg></span><b>Router</b><small>Send visitors to the right page by country or language.</small></a>
+        <a class="product" href="https://vanssay.net/maintenance.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-wrench"></use></svg></span><b>Maintenance Mode</b><small>A maintenance page you switch on live.</small></a>
+        <a class="product" href="https://vanssay.net/google-reviews-live.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-google-logo"></use></svg></span><b>Google Reviews Live</b><small>Live Google reviews, one-time purchase.</small></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span data-year>2026</span> Framefly. Made by Marin de Vanssay.</span>
+      <a href="https://vanssay.net" target="_blank" rel="noopener">vanssay.net</a>
+    </div>
+  </div>
+</footer>
+<!-- /@footer -->
+<!-- @scripts -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+<!-- /@scripts -->
+<script src="assets/js/styles-data.js"></script>
+<script>
+(function () {
+  var FF = window.FF;
+  /* Gallery with category filters */
+  var grid = document.querySelector("[data-style-grid]");
+  var filters = document.querySelector("[data-filters]");
+  var empty = document.querySelector("[data-empty]");
+  var cats = ["All"];
+  FF.styles.forEach(function (t) { if (cats.indexOf(t.category) < 0) cats.push(t.category); grid.appendChild(FF.styleCard(t, { spec: true, appName: "Your app" })); });
+  cats.forEach(function (c, i) {
+    var n = c === "All" ? FF.styles.length : FF.styles.filter(function (t) { return t.category === c; }).length;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", String(i === 0));
+    b.innerHTML = c + ' <span class="count">' + n + "</span>";
+    b.addEventListener("click", function () {
+      filters.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      var shown = 0;
+      grid.querySelectorAll(".style-card").forEach(function (card) { var on = c === "All" || card.getAttribute("data-cat") === c; card.hidden = !on; if (on) shown++; });
+      empty.hidden = shown > 0;
+    });
+    filters.appendChild(b);
+  });
+
+  /* Mixer: each facet comes from exactly one style. */
+  var FACETS = [["pacing", "Pacing"], ["transition", "Transitions"], ["type", "Typography"], ["palette", "Palette"], ["captions", "Captions"], ["camera", "Camera"], ["music", "Music"]];
+  var selA = document.querySelector('[data-mix="a"]'), selB = document.querySelector('[data-mix="b"]');
+  FF.styles.forEach(function (t) { selA.add(new Option(t.name, t.id)); selB.add(new Option(t.name, t.id)); });
+  selA.value = "launchpad"; selB.value = "soft-studio";
+  var owner = { pacing: "a", transition: "a", type: "a", palette: "b", captions: "b", camera: "a", music: "b" };
+  var rows = document.querySelector("[data-facets]");
+  var poster = document.querySelector("[data-mix-poster]");
+  var legend = document.querySelector("[data-mix-legend]");
+  var pv = FF.previewer(poster);
+  function valueName(t, k) { return k === "type" ? FF.typeName(t.type) : k === "palette" ? t.name + " colors" : t[k]; }
+  function render() {
+    var A = FF.styleById(selA.value), B = FF.styleById(selB.value);
+    rows.innerHTML = "";
+    FACETS.forEach(function (f) {
+      var row = document.createElement("div");
+      row.className = "facet-row";
+      row.innerHTML = "<span>" + f[1] + '</span><div class="seg" role="group" aria-label="' + f[1] + ' comes from"></div>';
+      var seg = row.querySelector(".seg");
+      [["a", A], ["b", B]].forEach(function (o) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-pressed", String(owner[f[0]] === o[0]));
+        b.textContent = o[1].name;
+        b.title = valueName(o[1], f[0]);
+        b.addEventListener("click", function () { owner[f[0]] = o[0]; render(); });
+        seg.appendChild(b);
+      });
+      rows.appendChild(row);
+    });
+    var pick = function (k) { return owner[k] === "a" ? A : B; };
+    var look = { name: A.name + " + " + B.name, palette: pick("palette").palette, type: pick("type").type, captions: pick("captions").captions, transition: pick("transition").transition, camera: pick("camera").camera, pacing: pick("pacing").pacing };
+    FF.paintPoster(poster, look, "Your app");
+    legend.innerHTML = FACETS.map(function (f) { return "<span>" + f[1] + ": <b>" + valueName(pick(f[0]), f[0]) + "</b></span>"; }).join("");
+    pv.restart();
+  }
+  selA.addEventListener("change", render); selB.addEventListener("change", render);
+  render();
+  if (FF.onView) FF.onView(poster, function (v) { v ? pv.play() : pv.stop(); });
+})();
+</script>
+</body>
+</html>

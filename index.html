@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Framefly: prompt in, demo video out</title>
+<meta name="description" content="Framefly turns your web app into a narrated demo video. An AI agent explores the app, writes a storyboard you approve, and films clean takes in every format. Launching October 28, 2026.">
+<link rel="canonical" href="https://framefly.app/">
+<meta property="og:title" content="Framefly: prompt in, demo video out">
+<meta property="og:description" content="An AI agent explores your web app, writes the storyboard and films a narrated demo. You approve every scene first. Launching October 28.">
+<meta property="og:url" content="https://framefly.app/">
+<!-- @head -->
+<meta name="theme-color" content="#09090a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Framefly">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://framefly.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@MarindeVanssay">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+<!-- /@head -->
+<link rel="stylesheet" href="assets/css/trailer.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Turns a web app into a narrated demo video: an AI agent explores the app, writes a storyboard you approve, and films clean takes in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}
+</script>
+</head>
+<body>
+<!-- @nav -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="product.html">Product</a>
+      <a href="styles.html">Styles</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="log.html">Log</a>
+    </nav>
+    <div class="nav-end">
+      <a class="nav-count" href="index.html#premiere"><span class="firefly" aria-hidden="true"></span><span class="lbl" data-when-waiting>Launch in</span><b data-cd-chip>soon</b></a>
+      <a class="btn btn-primary btn-sm" href="beta.html">Apply for the beta</a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list"></use></svg></button>
+    </div>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <a href="product.html">Product<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="styles.html">Styles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta</a>
+  </div>
+</header>
+<!-- /@nav -->
+
+<main id="main">
+
+  <!-- ───────── Hero: the pitch and the slate ───────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Prompt in.<br><span class="dim">Demo video out.</span></h1>
+        <p class="lead">Framefly explores your web app, writes the storyboard and films a narrated demo. You approve every scene before it's shot.</p>
+
+        <div data-when-waiting>
+          <form class="capture" data-form="notify" data-done="notify-done" id="notify">
+            <label class="label" for="hero-email">Get one email on launch day</label>
+            <div class="capture-row" data-well="email">
+              <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-envelope-simple"></use></svg>
+              <input id="hero-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@yourapp.com" data-required="email" data-msg="Add your email so we can tell you when it's live.">
+              <button class="btn btn-primary" type="submit"><span class="btn-label">Notify me</span></button>
+            </div>
+            <p class="error-text" data-err="email" hidden><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-warning"></use></svg><span></span></p>
+            <p class="error-text" data-form-error hidden><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-warning"></use></svg><span>That didn't go through. Check your connection and try again.</span></p>
+            <p class="help">No newsletter. One email when Framefly launches.</p>
+            <div aria-hidden="true" style="position:absolute;left:-9999px"><input name="company" tabindex="-1" autocomplete="off"></div>
+          </form>
+          <div class="capture-done" id="notify-done" hidden tabindex="-1" role="status"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg><p><b>You're on the list.</b> One email to <span data-echo-email></span> on launch day, and nothing before.</p></div>
+          <a class="arrow-link hero-alt" href="beta.html">Apply for the beta <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+        </div>
+        <div data-when-live hidden>
+          <a class="btn btn-primary btn-lg" data-app-link href="https://app.framefly.app"><span class="btn-label">Make your first video</span><span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a>
+        </div>
+      </div>
+
+      <figure class="slate" id="premiere" aria-labelledby="slate-cap" title="Press to clap">
+        <div class="slate-sticks" aria-hidden="true"><span class="stick stick-base"></span><span class="stick stick-top"></span><span class="stick-hinge"></span></div>
+        <div class="slate-body">
+          <div class="slate-fields">
+            <div class="slate-field"><span>Production</span><b>Framefly</b></div>
+            <div class="slate-field"><span>Scene</span><b>Launch</b></div>
+            <div class="slate-field"><span>Take</span><b>1</b></div>
+          </div>
+          <div class="led-well">
+            <div class="led" data-led="d h m s f" aria-hidden="true"></div>
+            <div class="led-labels" aria-hidden="true"><span>Days</span><i></i><span>Hrs</span><i></i><span>Min</span><i></i><span>Sec</span><i></i><span>Frm</span></div>
+            <p class="sr-only" data-cd-sr></p>
+          </div>
+          <div class="slate-fields">
+            <div class="slate-field"><span>Director</span><b>Framefly agent</b></div>
+            <div class="slate-field"><span>Final cut</span><b class="you">You</b></div>
+            <div class="slate-field"><span>Date</span><b data-launch-short>28 OCT 26</b></div>
+          </div>
+        </div>
+        <figcaption class="slate-foot" id="slate-cap">
+          <span data-when-waiting>Launches <time data-launch-local datetime="2026-10-28T07:01:00Z">Wednesday, October 28</time></span>
+          <span data-when-live hidden>Now showing. Framefly is live.</span>
+          <span class="tc">24 fps</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────── The trailer ───────── -->
+  <section class="screen-sec" aria-label="Trailer">
+    <div class="wrap">
+      <div class="screen bezel reveal">
+        <div class="bezel-core">
+          <div class="stage" data-stage role="img" aria-label="A 35-second preview. A prompt is typed in Framefly. The agent explores an invoicing app and is blocked when it aims at Delete. The storyboard is edited and approved. A clean take is recorded with a zoom on each click. The video is delivered in four formats.">
+            <div class="comp">
+
+              <!-- Scene 1: the prompt -->
+              <div class="sc sc1">
+                <div class="tr-panel tr-studio"><div class="tr-plate">
+                  <div class="tr-approw"><span class="tr-tile">T</span><b>Tallyhq</b><span class="tr-ok">Connected</span><span class="url">tallyhq.com/app</span></div>
+                  <div class="tr-prompt">
+                    <div class="tr-prompt-top"><span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-magic-wand"></use></svg> Prompt</span><small data-t="words">28 words</small></div>
+                    <p class="tr-typed"><span data-t="typed" data-full="A 40-second launch video for Tallyhq. Open on a paid invoice, then show how fast a new one goes out. Friendly and confident. Vertical cut for X too.">A 40-second launch video for Tallyhq. Open on a paid invoice, then show how fast a new one goes out. Friendly and confident. Vertical cut for X too.</span><i class="tr-caret" hidden></i></p>
+                  </div>
+                  <div class="tr-und">
+                    <div class="tr-und-l"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-sparkle"></use></svg> What the planner understood</div>
+                    <div class="tr-chips">
+                      <span class="tr-chip info" data-t="chip" data-anchor="40-second">Length: 40 s</span>
+                      <span class="tr-chip acc" data-t="chip" data-anchor="paid invoice">Feature: Invoices</span>
+                      <span class="tr-chip acc" data-t="chip" data-anchor="goes out">Feature: Send invoice</span>
+                      <span class="tr-chip" data-t="chip" data-anchor="Friendly">Tone: friendly</span>
+                      <span class="tr-chip" data-t="chip" data-anchor="confident">Tone: confident</span>
+                      <span class="tr-chip info" data-t="chip" data-anchor="Vertical cut">Format: 9:16</span>
+                    </div>
+                  </div>
+                  <div class="tr-foot">
+                    <span class="lbl">Formats</span>
+                    <span class="tr-chip tfmt on">16:9</span><span class="tr-chip tfmt" data-t="fmt916">9:16</span><span class="tr-chip tfmt">1:1</span><span class="tr-chip tfmt">4:5</span>
+                    <span class="cost">1 credit</span>
+                    <span class="tr-rec" data-t="rec"><span class="well"><span class="dot"></span></span><span class="roll"><span data-t="roll"><i>Record</i><i>Rolling</i></span></span></span>
+                  </div>
+                </div></div>
+              </div>
+
+              <!-- Scene 2: exploring -->
+              <div class="sc sc2">
+                <div class="tr-browser">
+                  <div class="tr-chrome">
+                    <div class="tr-dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+                    <div class="tr-url"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-lock-simple"></use></svg><span data-t="url2">tallyhq.com/app/invoices</span></div>
+                    <span class="tr-tally explore"><i></i>EXPLORING</span>
+                  </div>
+                  <div class="tr-screen"><div class="tr-cam" data-t="cam2">
+                    <div class="tr-side">
+                      <div class="brand"><i>T</i>Tallyhq</div>
+                      <div class="tr-nav on" data-t="nav-invoices">Invoices</div>
+                      <div class="tr-nav">Quotes</div>
+                      <div class="tr-nav">Clients</div>
+                      <div class="tr-nav" data-t="nav-payments">Payments</div>
+                      <div class="tr-nav" data-t="nav-reminders">Reminders</div>
+                      <div class="tr-nav">Reports</div>
+                    </div>
+                    <div class="tr-main">
+                      <div class="tr-h"><b data-t="h2">Invoices</b><span class="tr-dark" data-t="btn-new">New invoice</span></div>
+                      <div class="tr-stats">
+                        <div class="tr-stat"><span>Outstanding</span><b>$18,240</b></div>
+                        <div class="tr-stat"><span>Paid this month</span><b>$42,915</b></div>
+                        <div class="tr-stat"><span>Overdue</span><b>3</b></div>
+                      </div>
+                      <div class="tr-table">
+                        <div class="tr-tr th"><span>Client</span><span>Amount</span><span>Due</span><span>Status</span></div>
+                        <div class="tr-tr"><span>Studio Maren</span><span class="amt">$4,200.00</span><span class="due">Oct 2</span><span class="tr-st paid">Paid</span></div>
+                        <div class="tr-tr" data-t="row-over"><span>Northwind Design</span><span class="amt">$7,650.00</span><span class="due">Sep 28</span><span class="tr-st over">Overdue</span><span class="tr-del" data-t="btn-del">Delete</span></div>
+                        <div class="tr-tr"><span>Klara Ceramics</span><span class="amt">$1,180.00</span><span class="due">Oct 9</span><span class="tr-st sent">Sent</span></div>
+                        <div class="tr-tr"><span>Atelier Roux</span><span class="amt">$920.00</span><span class="due">Oct 14</span><span class="tr-st draft">Draft</span></div>
+                      </div>
+                    </div>
+                    <div class="tr-focus" data-t="focus2"></div>
+                    <span class="tr-ripple" data-t="rip2"></span>
+                    <svg class="tr-cursor" data-t="cur2" aria-hidden="true"><use href="assets/img/icons.svg#i-cursor"></use></svg>
+                    <div class="tr-block" data-t="block"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-prohibit"></use></svg> Blocked by guardrails: Delete invoice</div>
+                  </div></div>
+                </div>
+                <div class="tr-panel tr-map"><div class="tr-plate">
+                  <h4>App map</h4>
+                  <div class="tr-count"><b data-t="count">0</b><span>screens mapped</span></div>
+                  <div class="tr-feat">
+                    <div class="excl">Billing<small>excluded</small></div>
+                    <div data-t="feat">Invoices<small>9</small></div>
+                    <div data-t="feat">Invoice builder<small>4</small></div>
+                    <div data-t="feat">Payments<small>5</small></div>
+                    <div data-t="feat">Reminders<small>4</small></div>
+                  </div>
+                  <div class="tr-blocked"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-prohibit"></use></svg> Blocked actions <b data-t="blocked">0</b></div>
+                </div></div>
+              </div>
+
+              <!-- Scene 3: the storyboard -->
+              <div class="sc sc3">
+                <div class="tr-sb-head">
+                  <div><h3>Storyboard</h3><p>Tallyhq, Launchpad style, 16:9 and 9:16. Nothing is filmed until you approve.</p></div>
+                  <div class="tr-len"><b data-t="sbtotal">0:40</b><span>on target</span></div>
+                </div>
+                <div class="tr-panels">
+                  <div class="tr-pan" data-t="panel"><div class="tr-thumb center"><span class="t">Paid in two days.</span></div><div class="tr-pan-body"><div class="tr-pan-top"><span><em>01</em>Cold open</span><small>0:07</small></div><div class="tr-vo">This invoice got paid in two days. Here is how.</div></div></div>
+                  <div class="tr-pan" data-t="panel"><div class="tr-thumb"><div class="w"></div><span class="t">New invoice</span></div><div class="tr-pan-body"><div class="tr-pan-top"><span><em>02</em>New invoice</span><small data-t="dur2">0:12</small></div><div class="tr-vo" data-t="vo2"><span data-t="vo2t" data-new="Pick a client and add your lines. Tallyhq does the math.">Pick a client, add your lines, and Tallyhq works out the taxes and the total for you.</span></div></div></div>
+                  <div class="tr-pan" data-t="panel"><div class="tr-thumb"><div class="w"></div><span class="t">One click to send</span></div><div class="tr-pan-body"><div class="tr-pan-top"><span><em>03</em>Send it</span><small>0:11</small></div><div class="tr-vo">One click sends it, with a friendly reminder already scheduled.</div></div></div>
+                  <div class="tr-pan" data-t="panel"><div class="tr-thumb center"><span class="t">Start free</span></div><div class="tr-pan-body"><div class="tr-pan-top"><span><em>04</em>Sign up</span><small>0:10</small></div><div class="tr-vo">Start free at tallyhq.com. Your first invoice takes a minute.</div></div></div>
+                </div>
+                <div class="tr-approve" data-t="approve"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg><span data-t="bar-a"><b>4 sections, <span data-t="barlen">0:40</span>.</b> Approving starts voice, shoot and edit.</span><span class="gone" data-t="bar-b"><b>Approved.</b> Voice, shoot and edit have started.</span><span class="tr-go" data-t="go"><span data-t="go-l">Approve and record</span><span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></span></div>
+                <svg class="tr-sb-cursor" data-t="cur3" aria-hidden="true"><use href="assets/img/icons.svg#i-cursor"></use></svg>
+              </div>
+
+              <!-- Scene 4: the take -->
+              <div class="sc sc4">
+                <div class="tr-browser">
+                  <div class="tr-chrome">
+                    <div class="tr-dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+                    <div class="tr-url"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-lock-simple"></use></svg><span>tallyhq.com/app/invoices/new</span></div>
+                    <span class="tr-tally rec"><i></i>REC</span>
+                  </div>
+                  <div class="tr-screen"><div class="tr-cam" data-t="cam4">
+                    <div class="tr-side">
+                      <div class="brand"><i>T</i>Tallyhq</div>
+                      <div class="tr-nav on">Invoices</div><div class="tr-nav">Quotes</div><div class="tr-nav">Clients</div><div class="tr-nav">Payments</div><div class="tr-nav">Reminders</div><div class="tr-nav">Reports</div>
+                    </div>
+                    <div class="tr-inv">
+                      <div class="tr-h"><b>New invoice</b><span class="tr-st draft" data-t="inv-status">Draft</span></div>
+                      <div class="tr-form">
+                        <div class="tr-in"><span>Client</span><b>Studio Maren</b></div>
+                        <div class="tr-in"><span>Due</span><b>November 4</b></div>
+                      </div>
+                      <div class="tr-lines" data-t="lines">
+                        <div class="tr-line th"><span>Description</span><span>Qty</span><span class="r">Amount</span></div>
+                        <div class="tr-line"><span>Brand refresh</span><span>1</span><span class="r">$2,400.00</span></div>
+                        <div class="tr-line new" data-t="newline" style="overflow:hidden"><span data-t="nl-desc">Landing page</span><span data-t="nl-qty">1</span><span class="r" data-t="nl-amt">$1,800.00</span></div>
+                        <div class="tr-addline" data-t="addline"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg> Add line</div>
+                      </div>
+                      <div class="tr-total"><div><span>Total</span><b data-t="inv-total">$2,400.00</b></div><span class="tr-teal" data-t="send"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-paper-plane-tilt"></use></svg> Send invoice</span></div>
+                    </div>
+                    <span class="tr-ripple" data-t="rip4"></span>
+                    <svg class="tr-cursor" data-t="cur4" aria-hidden="true"><use href="assets/img/icons.svg#i-cursor"></use></svg>
+                    <div class="tr-toast" data-t="toast"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg> Invoice sent to Studio Maren</div>
+                  </div></div>
+                  <div class="tr-vf"><i></i><i></i><i></i><i></i></div>
+                  <div class="tr-tc"><b data-t="tc">00:00:00:00</b></div>
+                </div>
+                <div class="tr-panel tr-shot-side"><div class="tr-plate">
+                  <h4>Takes</h4>
+                  <div class="tr-take">
+                    <div data-t="take" class="done">01 Cold open<small>99% match</small></div>
+                    <div data-t="take" class="now">02 New invoice<small>REC</small></div>
+                    <div data-t="take">03 Send it<small>queued</small></div>
+                    <div data-t="take">04 Sign up<small>queued</small></div>
+                  </div>
+                  <div class="tr-spec"><div><span>Capture</span><b>2x, 60 fps</b></div><div><span>Page clock</span><b>frozen</b></div><div><span>Randomness</span><b>seeded</b></div><div><span>Cursor</span><b>drawn in post</b></div></div>
+                </div></div>
+              </div>
+
+              <!-- Scene 5: delivery -->
+              <div class="sc sc5">
+                <div class="tr-dl-head" data-t="dlhead">
+                  <div><h3>Tallyhq launch video <span class="tr-ok">Delivered</span></h3><p>0:37, one take cut to four formats, content credentials embedded</p></div>
+                </div>
+                <div class="tr-frames">
+                  <div class="tr-frame" data-t="frame"><div class="tr-fv" style="width:400px;height:225px"><div class="w" style="left:44%;right:-6%;top:16%;bottom:-12%"></div><span class="h" style="left:6%;top:30%;width:34%;font-size:27px">Paid in two days.</span><span class="cap" style="bottom:7%;font-size:12px">Here is how.</span></div><span>16:9</span></div>
+                  <div class="tr-frame" data-t="frame"><div class="tr-fv" style="width:180px;height:320px"><span class="h" style="left:9%;right:9%;top:8%;font-size:22px">Paid in two days.</span><div class="w" style="left:9%;right:9%;top:36%;bottom:22%"></div><span class="cap" style="bottom:8%;font-size:11px">Here is how.</span></div><span>9:16</span></div>
+                  <div class="tr-frame" data-t="frame"><div class="tr-fv" style="width:240px;height:240px"><span class="h" style="left:9%;right:9%;top:9%;font-size:22px">Paid in two days.</span><div class="w" style="left:9%;right:-6%;top:36%;bottom:-8%"></div><span class="cap" style="bottom:7%;font-size:11px">Here is how.</span></div><span>1:1</span></div>
+                  <div class="tr-frame" data-t="frame"><div class="tr-fv" style="width:224px;height:280px"><span class="h" style="left:9%;right:9%;top:8%;font-size:22px">Paid in two days.</span><div class="w" style="left:9%;right:-8%;top:34%;bottom:-6%"></div><span class="cap" style="bottom:7%;font-size:11px">Here is how.</span></div><span>4:5</span></div>
+                </div>
+                <div class="tr-exports">
+                  <span class="tr-exp" data-t="exp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-file-video"></use></svg> tallyhq-16x9.mp4</span>
+                  <span class="tr-exp" data-t="exp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-file-video"></use></svg> tallyhq-9x16.mp4</span>
+                  <span class="tr-exp" data-t="exp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-file-video"></use></svg> tallyhq-1x1.mp4</span>
+                  <span class="tr-exp" data-t="exp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-file-video"></use></svg> tallyhq-4x5.mp4</span>
+                  <span class="tr-exp" data-t="exp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-frame-corners"></use></svg> readme-loop.gif</span>
+                  <span class="tr-exp" data-t="exp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-closed-captioning"></use></svg> captions.srt</span>
+                  <span class="tr-exp pro" data-t="exp"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-scissors"></use></svg> DaVinci Resolve project <em>Pro</em></span>
+                </div>
+              </div>
+
+              <!-- Scene 6: end card -->
+              <div class="sc sc6">
+                <div data-t="endmark"><svg class="tr-end-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg></div>
+                <div class="tr-end-word" data-t="endword">Framefly</div>
+                <div class="tr-end-tag" data-t="endtag">Prompt in. Demo video out.</div>
+                <div class="tr-end-date" data-t="enddate"><span class="firefly"></span>Launches <span data-launch-date>October 28</span></div>
+              </div>
+
+              <div class="tr-cap"><p data-t="cap"></p></div>
+            </div>
+          </div>
+          <p class="player-cap" data-out-cap aria-hidden="true"></p>
+          <div class="player" data-player>
+            <button class="icon-btn" type="button" data-play aria-label="Play the trailer"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-play"></use></svg></button>
+            <div class="scrub"></div>
+            <span class="player-time"><b>0:00</b> / 0:35</span>
+          </div>
+        </div>
+      </div>
+      <p class="screen-note"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-film-slate"></use></svg> A preview built from the Framefly interface. The launch film will be shot by Framefly itself.</p>
+    </div>
+  </section>
+
+  <!-- ───────── How it works: two lanes ───────── -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>You make three decisions. Framefly does the rest.</h2>
+        <p>Connect a demo account, describe the video, approve the storyboard. Nine production stages run on their own, and your credit is only charged when the video is delivered.</p>
+      </div>
+      <div class="lanes reveal" data-in>
+        <div class="lanes-scroll">
+          <div class="lanes-grid">
+            <div class="lane-name"><span class="av"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-user-focus"></use></svg></span><div>You<small>3 decisions</small></div></div>
+            <div class="you-task" style="grid-column:2 / span 1"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-browser"></use></svg>Connect your app and write the prompt<small>A demo account, never your real one.</small></div>
+            <div class="you-task" style="grid-column:5 / span 1"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg>Approve the storyboard<small>Edit words, reorder, cut.</small></div>
+            <div class="you-task" style="grid-column:10 / span 1"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-download-simple"></use></svg>Download, share or revise<small>10 revisions included.</small></div>
+
+            <div class="lane-name"><span class="av ff"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-robot"></use></svg></span><div>Framefly<small>9 stages</small></div></div>
+            <div class="stage-cell"><div class="stage-bar"><span></span></div><span class="stage-title">Preflight</span><span class="stage-desc">Checks it can reach your app and sign in.</span></div>
+            <div class="stage-cell"><div class="stage-bar"><span style="transition-delay:.08s"></span></div><span class="stage-title">Explore</span><span class="stage-desc">Maps screens and features. Never pays, deletes or sends.</span></div>
+            <div class="stage-cell"><div class="stage-bar"><span style="transition-delay:.16s"></span></div><span class="stage-title">Plan</span><span class="stage-desc">Writes sections, voice-over and shots.</span></div>
+            <div class="stage-cell wait"><div class="stage-bar"><span style="transition-delay:.24s"></span></div><span class="stage-title">Storyboard</span><span class="stage-desc">Waits for your approval, unless Autopilot is on.</span></div>
+            <div class="stage-cell"><div class="stage-bar"><span style="transition-delay:.32s"></span></div><span class="stage-title">Voice</span><span class="stage-desc">Narration first, so timing follows real speech.</span></div>
+            <div class="stage-cell"><div class="stage-bar"><span style="transition-delay:.4s"></span></div><span class="stage-title">Shoot</span><span class="stage-desc">Rehearses, then records clean takes.</span></div>
+            <div class="stage-cell"><div class="stage-bar"><span style="transition-delay:.48s"></span></div><span class="stage-title">Edit</span><span class="stage-desc">Zooms, cursor, captions, music and titles.</span></div>
+            <div class="stage-cell"><div class="stage-bar"><span style="transition-delay:.56s"></span></div><span class="stage-title">QA</span><span class="stage-desc">Checks every section: no errors, no spinners, in sync.</span></div>
+            <div class="stage-cell"><div class="stage-bar"><span style="transition-delay:.64s"></span></div><span class="stage-title">Deliver</span><span class="stage-desc">Every format, captions and project files.</span></div>
+
+            <div class="lanes-axis" style="grid-column:2 / -1">
+              <span class="axis-note"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-check"></use></svg>Free</span>
+              <span class="axis-note" style="grid-column:span 3"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-clock-countdown"></use></svg>About 5 min to your storyboard</span>
+              <span class="axis-note" style="grid-column:span 5"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-timer"></use></svg>About 20 min after you approve</span>
+            </div>
+            <div class="credit-track" style="grid-column:2 / -1;grid-template-columns:repeat(9, minmax(92px, 1fr))">
+              <div class="held">No credit</div>
+              <div class="held" style="grid-column:span 7"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-coins"></use></svg>1 credit held. Released in full if anything fails.</div>
+              <div class="charged"><b>Charged</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Capabilities ───────── -->
+  <section class="section" id="capabilities" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Built around the parts that usually break.</h2>
+        <p>Logins, formats, languages, last-minute changes. The dull problems are the ones Framefly was designed around.</p>
+      </div>
+      <div class="bento">
+        <article class="tile t-2x2 tile-lit reveal">
+          <h3>It signs in like a person.</h3>
+          <p>Passwords, 2FA codes, magic links, SSO and localhost. The model never sees a secret: the browser gets the password, the AI only gets a placeholder.</p>
+          <div class="demo access">
+            <div class="access-row"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-key"></use></svg></span><div><b>Email and password</b><small>demo@tallyhq.com</small></div><span class="badge badge-mono">stored encrypted</span></div>
+            <div class="access-row on"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-password"></use></svg></span><div><b>Password and 2FA</b><small>Codes generated from your authenticator secret</small></div><span class="totp" aria-label="Example two-factor code"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="track" cx="12" cy="12" r="9"/><circle class="ring" cx="12" cy="12" r="9" stroke-dasharray="56.55" data-totp-ring/></svg><span data-totp>482 913</span></span></div>
+            <div class="access-row"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-envelope-simple"></use></svg></span><div><b>Email code or magic link</b><small><code>tallyhq-7f3k@inbox.framefly.app</code></small></div><span class="badge badge-mono">agent inbox</span></div>
+            <div class="access-row"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-browser"></use></svg></span><div><b>Imported session</b><small>For Google or Microsoft SSO, one click with the Helper extension</small></div></div>
+            <div class="access-row"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-terminal-window"></use></svg></span><div><b>Local tunnel</b><small><code>npx framefly tunnel 3000</code></small></div><span class="badge badge-mono">localhost</span></div>
+          </div>
+        </article>
+
+        <article class="tile t-2x1 reveal">
+          <h3>One shoot. Every format.</h3>
+          <p>16:9 for your site, 9:16 for Reels and Shorts, 1:1 and 4:5 for feeds. Same take, no extra credit.</p>
+          <div class="demo">
+            <div class="formats" aria-hidden="true"><div class="fmt" data-r="16:9"><span>16:9</span></div><div class="fmt" data-r="9:16"><span>9:16</span></div><div class="fmt" data-r="1:1"><span>1:1</span></div><div class="fmt" data-r="4:5"><span>4:5</span></div></div>
+            <div class="extras"><span class="badge">8 s GIF for your README</span><span class="badge">SRT and VTT captions</span><span class="badge">Share page and embed</span></div>
+          </div>
+        </article>
+
+        <article class="tile reveal" data-voice>
+          <h3>29 languages.</h3>
+          <p>Studio voices, a clone of your own, or your recorded narration.</p>
+          <div class="demo">
+            <div class="wave" data-wave aria-hidden="true"></div>
+            <div class="lang"><span>Speaking</span><b class="lang-word" data-lang>English</b></div>
+          </div>
+        </article>
+
+        <article class="tile tile-dots reveal">
+          <h3>Captions that keep time.</h3>
+          <p>Timed to the voice, word by word, in the style you pick.</p>
+          <div class="demo"><p class="karaoke" data-karaoke>Send the invoice. Get paid in two days.</p></div>
+        </article>
+
+        <article class="tile t-2x1 reveal">
+          <h3>Mix up to three styles.</h3>
+          <p>Pacing from one, captions from another, colors from your brand kit. Each facet comes from exactly one place, so they never clash.</p>
+          <div class="demo mix" aria-hidden="true">
+            <div class="mix-col"><span class="sw" style="background:linear-gradient(135deg,#0c0d0a 55%,#d3f261 55%)"></span><b>Launchpad</b><span class="facet">Pacing</span><span class="facet">Camera</span><span class="facet">Transitions</span></div>
+            <div class="mix-col"><span class="sw" style="background:linear-gradient(135deg,#f3eefe 55%,#7b61ff 55%)"></span><b>Soft Studio</b><span class="facet">Captions</span><span class="facet">Music</span><span class="facet off">Palette</span></div>
+            <div class="mix-col"><span class="sw" style="background:linear-gradient(135deg,#0b1716 55%,#35c7b5 55%)"></span><b>Your brand kit</b><span class="facet">Palette</span><span class="facet">Typography</span><span class="facet off">Music</span></div>
+          </div>
+        </article>
+
+        <article class="tile reveal">
+          <h3>Fix one scene, not the whole video.</h3>
+          <p>Only the sections you change are filmed again. 10 revisions per video.</p>
+          <div class="demo sections-mini" aria-hidden="true">
+            <div>01 Cold open<small>kept</small></div>
+            <div>02 New invoice<small>kept</small></div>
+            <div class="sel">03 "Show the reminder too"<small>re-shoot</small></div>
+            <div>04 Sign up<small>kept</small></div>
+          </div>
+        </article>
+
+        <article class="tile reveal">
+          <h3>Knows when it's out of date.</h3>
+          <p>Ship a redesign and Framefly spots the changed screens, then films only those again.</p>
+          <div class="demo fresh" aria-hidden="true">
+            <div class="fresh-top"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrows-clockwise"></use></svg> 3 screens changed</div>
+            <div class="fresh-pairs"><span></span><span></span><span></span></div>
+          </div>
+        </article>
+
+        <article class="tile t-4x1 reveal">
+          <div class="editors-row">
+            <div>
+              <h3>Open it in your editor.</h3>
+              <p style="margin-top:10px">On Pro and Studio you also get the project: clips, overlays and audio on separate tracks, captions as editable text.</p>
+            </div>
+            <div class="editors">
+              <div class="editor"><b>DaVinci Resolve</b><small>.fcpxml 1.10</small><p>Captions import as an editable track.</p></div>
+              <div class="editor"><b>Premiere Pro</b><small>FCP7 .xml</small><p>Overlays arrive as ProRes 4444.</p></div>
+              <div class="editor"><b>Final Cut Pro</b><small>.fcpxml</small><p>A marker at every section.</p></div>
+              <div class="editor"><b>CapCut</b><small>clips + .srt</small><p>Numbered clips, in order.</p></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Styles ───────── -->
+  <section class="section" id="styles" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Twelve styles to start from.</h2>
+        <p>Each one is a full spec: pacing, transitions, type, palette, captions, music and camera. Every preview below plays its own cuts.</p>
+      </div>
+      <div class="rail" data-style-rail></div>
+      <a class="arrow-link" href="styles.html" style="margin-top:18px">See every style and mix your own <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    </div>
+  </section>
+
+  <!-- ───────── Guardrails ───────── -->
+  <section class="section" id="guardrails" style="padding-top:0">
+    <div class="wrap split">
+      <div class="reveal">
+        <h2 style="font-size:var(--t-h2)">It never pays, deletes or sends.</h2>
+        <p class="lead" style="margin-top:18px">You connect a demo account. Every action the agent proposes passes three checks before the browser runs it.</p>
+        <div class="layers">
+          <div class="layer"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-lock-key"></use></svg></span><div><b>A hard block list</b><p>Checkout pages, delete requests and destructive buttons are stopped inside the browser, in ten languages. It can't be switched off.</p></div></div>
+          <div class="layer"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-brain"></use></svg></span><div><b>A second model on every click</b><p>A fast guard model reads the page and stops anything risky or hard to undo.</p></div></div>
+          <div class="layer"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list-checks"></use></svg></span><div><b>Your own rules</b><p>Allow or deny by button text, URL or selector, for one app or all of them.</p></div></div>
+        </div>
+        <a class="arrow-link" href="security.html" style="margin-top:22px">How your app and secrets are protected <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+      </div>
+      <div class="bezel reveal">
+        <div class="bezel-core log">
+          <div class="log-head">Guardrail log <small>example run on Tallyhq</small></div>
+          <div class="log-body" data-log aria-hidden="true"></div>
+          <div class="secret">fill(<code>"#password"</code>, <code>{{secret.password}}</code>)<br><span class="faint">The model writes a placeholder. The password is filled in by the browser.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Pricing ───────── -->
+  <section class="section" id="pricing" style="padding-top:0">
+    <div class="wrap price-strip">
+      <div class="reveal">
+        <h2 style="font-size:var(--t-h2)">One credit. One video.</h2>
+        <p class="lead" style="margin-top:18px;max-width:46ch">A credit covers a video up to 90 seconds: exploration, storyboard, voice, captions, music, every format and 10 revisions. Hiring a freelancer for the same video can cost $1,000 to $5,000 and a week.</p>
+        <a class="arrow-link" href="pricing.html" style="margin-top:24px">See pricing and what a credit covers <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+      </div>
+      <div class="reveal">
+        <nav class="ladder" aria-label="Plans">
+          <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, 720p, no card</small></span><span class="p">$0</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+          <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire</small></span><span class="p">from $29</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+          <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects, freshness alerts</small></span><span class="p">$49/mo</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+          <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, API</small></span><span class="p">$149/mo</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+        </nav>
+        <p class="help" style="margin-top:14px">Beta prices, in US dollars. You never pay for a video that fails.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Beta ───────── -->
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="beta-band reveal">
+        <div>
+          <h2>Test it before launch day.</h2>
+          <p>We're filming a small group of real apps before <span data-launch-date>October 28</span>. Beta videos are free, and you talk directly to the person building Framefly.</p>
+          <a class="btn btn-primary btn-lg" href="beta.html"><span class="btn-label">Apply for the beta</span><span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a>
+        </div>
+        <div aria-hidden="true" style="display:grid;place-items:center">
+          <div class="ticket">
+            <div class="ticket-main">
+              <span class="mono-label">Test screening</span>
+              <h3>Admit one app</h3>
+              <div class="ticket-rows"><div><span>Venue</span><b>Your app</b></div><div><span>Seat</span><b>Beta</b></div><div><span>Before</span><b data-launch-date>October 28</b></div></div>
+            </div>
+            <div class="ticket-stub"><b>01</b><span>Free during<br>the beta</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── FAQ ───────── -->
+  <section class="section" id="faq">
+    <div class="wrap faq-grid">
+      <div class="reveal">
+        <h2>Questions</h2>
+        <p>Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
+      </div>
+      <div class="faq reveal">
+        <details><summary>What kind of apps does it work with?<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>Web apps at launch: anything that runs in a browser behind a login, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later.</p></div></details>
+        <details><summary>Do I have to give it my real account?<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>No, and you shouldn't. Framefly asks for a dedicated demo account. It can use the account as it is, fill it with realistic sample data if you allow it, or call a reset hook before every shoot so each take starts from the same state.</p></div></details>
+        <details><summary>My app has 2FA, SSO or runs on localhost.<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>For authenticator codes, paste the 2FA secret and Framefly generates the codes. For email codes and magic links, sign the demo account up with a Framefly inbox. For Google or Microsoft SSO, import a session in one click with the Helper extension. For localhost or a staging server, run <code>npx framefly tunnel 3000</code>.</p><p>A free preflight checks all of this before any credit is used. Framefly never tries to get around a captcha or a bot wall. It publishes fixed IPs and a signed header you can allow instead.</p></div></details>
+        <details><summary>What happens if a video fails?<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>Your credit is held when the render starts and only charged at delivery. If anything fails along the way, the credit is released in full. If you're not happy with a delivered video, you get one complete re-shoot for free within 7 days.</p></div></details>
+        <details><summary>Can I edit the video afterwards?<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>Every video includes 10 targeted revisions. Ask for a change on one section ("hold on the total for two more seconds") and only that section is filmed again. Voice, music, captions and brand changes only need a new edit. Pro and Studio also export an editable project for DaVinci Resolve, Premiere Pro or Final Cut Pro.</p></div></details>
+        <details><summary>Is the voice AI? Will people know?<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>Yes, the studio voices and presenters are generated. Every export carries C2PA content credentials, and the end card has one short line saying so, as the EU AI Act requires. You can also record your own narration, section by section, and Framefly aligns the captions to it.</p></div></details>
+        <details><summary>When can I use it?<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>Framefly launches on <span data-launch-weekday>Wednesday, October 28</span>. Beta testers get in before that. Leave your email above and you'll get one message on launch day.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Closing ───────── -->
+  <section class="closing">
+    <div class="wrap">
+      <div class="led-mini" aria-hidden="true"><span class="mono-label">T minus</span><div class="led" data-led="d h m s"></div></div>
+      <h2>See your app on screen on <span data-launch-date>October 28</span>.</h2>
+      <p class="lead">One email on launch day with a link to make your first video for free. That's the only email we'll send.</p>
+      <div data-when-waiting>
+        <form class="capture" data-form="notify" data-done="notify-done-2">
+          <label class="label sr-only" for="end-email">Your email</label>
+          <div class="capture-row" data-well="email">
+            <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-envelope-simple"></use></svg>
+            <input id="end-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@yourapp.com" data-required="email" data-msg="Add your email so we can tell you when it's live.">
+            <button class="btn btn-primary" type="submit"><span class="btn-label">Notify me</span></button>
+          </div>
+          <p class="error-text" data-err="email" hidden><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-warning"></use></svg><span></span></p>
+          <p class="error-text" data-form-error hidden><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-warning"></use></svg><span>That didn't go through. Check your connection and try again.</span></p>
+          <div aria-hidden="true" style="position:absolute;left:-9999px"><input name="company" tabindex="-1" autocomplete="off"></div>
+        </form>
+        <div class="capture-done" id="notify-done-2" hidden tabindex="-1" role="status" style="max-width:470px;margin:36px auto 0;text-align:left"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg><p><b>You're on the list.</b> One email to <span data-echo-email></span> on launch day, and nothing before.</p></div>
+      </div>
+      <div data-when-live hidden style="margin-top:32px">
+        <a class="btn btn-primary btn-lg" data-app-link href="https://app.framefly.app"><span class="btn-label">Make your first video</span><span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- @footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+        <p>Prompt in. Demo video out. Launching <span data-launch-date>October 28</span>, made in France by Vanssay.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul><li><a href="product.html">How it works</a></li><li><a href="styles.html">Styles</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="security.html">Security</a></li><li><a href="beta.html">Beta</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="log.html">Production log</a></li><li><a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a></li><li><a data-contact href="mailto:support@framefly.app">support@framefly.app</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
+      </div>
+    </div>
+    <div class="vanssay">
+      <div class="vanssay-head"><b>More from Vanssay</b><span>Plugins for Framer sites, from the same maker.</span></div>
+      <div class="products">
+        <a class="product" href="https://vanssay.net/reviews.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"></use></svg></span><b>Reviews</b><small>Google and Trustpilot reviews with one combined rating.</small></a>
+        <a class="product" href="https://vanssay.net/instagram.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-instagram-logo"></use></svg></span><b>Instagram Feed</b><small>Your live Instagram feed, synced on its own.</small></a>
+        <a class="product" href="https://vanssay.net/geoblock.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-slash"></use></svg></span><b>Bouncer</b><small>Block countries and VPN traffic on your site.</small></a>
+        <a class="product" href="https://vanssay.net/router.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signpost"></use></svg></span><b>Router</b><small>Send visitors to the right page by country or language.</small></a>
+        <a class="product" href="https://vanssay.net/maintenance.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-wrench"></use></svg></span><b>Maintenance Mode</b><small>A maintenance page you switch on live.</small></a>
+        <a class="product" href="https://vanssay.net/google-reviews-live.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-google-logo"></use></svg></span><b>Google Reviews Live</b><small>Live Google reviews, one-time purchase.</small></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span data-year>2026</span> Framefly. Made by Marin de Vanssay.</span>
+      <a href="https://vanssay.net" target="_blank" rel="noopener">vanssay.net</a>
+    </div>
+  </div>
+</footer>
+<!-- /@footer -->
+<!-- @scripts -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+<!-- /@scripts -->
+<script src="assets/js/vendor/gsap.min.js"></script>
+<script src="assets/js/styles-data.js"></script>
+<script src="assets/js/trailer.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>
