@@ -1,0 +1,204 @@
+<!--
+title: Framefly: prompt in, demo video out
+description: Framefly turns your web app into a demo video. It explores the app, writes a plan you can read and change, then films it in every format. Launching October 28, 2026.
+og_description: Give Framefly a demo account and a brief. It explores your app, writes the video with you and films it. Launching October 28.
+priority: 1.0
+scripts: stage
+head: <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Turns a web app into a demo video: an AI agent explores the app, writes a plan you can read and change, and films it in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}</script>
+-->
+
+<!-- ───────── Hero: the brief goes in, the film comes out ───────── -->
+<section class="hero">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Prompt in.<br><span class="mark">Demo video</span> out.</h1>
+      <p class="lead">Give Framefly a demo account and a brief. It explores your app, writes the video and films it.</p>
+      {{block:notify-hero}}
+      <a class="arrow-link hero-alt" href="beta.html" data-when-waiting>Apply for the beta {{icon:arrow-right}}</a>
+    </div>
+    {{block:hero-film}}
+  </div>
+</section>
+
+<!-- ───────── How it works: the words scroll, the app's own screens stay ───────── -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>You see the whole video before anything is filmed.</h2>
+      <p class="lead">Planning is free. Framefly explores your app, writes the video and waits. Generate is the only button that spends a credit.</p>
+    </div>
+    <div class="steps" data-steps>
+      <ol class="steps-list">
+        <li class="step">
+          <span class="step-n">1</span>
+          <h3>Write the brief</h3>
+          <p>Say who the video is for, what to show and how it ends. Framefly reads it back as you type, and tells you when the brief and your settings disagree.</p>
+          {{shot:studio|Studio in the Framefly app: a brief for a 45-second demo, with the features, length and tone Framefly understood}}
+        </li>
+        <li class="step">
+          <span class="step-n">2</span>
+          <h3>Read the plan</h3>
+          <p>One window holds the whole video: the exact words, a real screenshot for each section, the voice to listen to and the timeline to scale. Change any of it.</p>
+          {{shot:plan|The plan window: the script on the left, the picture in the middle, settings on the right and the timeline below}}
+        </li>
+        <li class="step">
+          <span class="step-n">3</span>
+          <h3>Generate</h3>
+          <p>The plan locks and the same window shows the work: the voice is recorded, your app is filmed section by section, the cut is checked. Stop it and the credit comes back.</p>
+          {{shot:generating|The plan window while a video is generated: section 1 of 6 is being filmed, with the steps and the time left}}
+        </li>
+        <li class="step">
+          <span class="step-n">4</span>
+          <h3>Watch, download, share</h3>
+          <p>The finished video gets its own page. Download every shape with a GIF and caption files, or switch on a public link and an embed.</p>
+          {{shot:video|A finished video's page: the player, downloads, sharing and what the video was made from}}
+        </li>
+        <li class="step">
+          <span class="step-n">5</span>
+          <h3>Point at what should change</h3>
+          <p>Click the picture and say what is wrong. Framefly makes that one section again and keeps the rest. Revisions come with the video.</p>
+          {{shot:video-point|A note pinned on the picture of a finished video, listed for version 2 with one section to make again}}
+        </li>
+      </ol>
+      <div class="steps-stage" aria-hidden="true">
+        {{shot:studio|}}
+        {{shot:plan|}}
+        {{shot:generating|}}
+        {{shot:video|}}
+        {{shot:video-point|}}
+      </div>
+    </div>
+    <a class="arrow-link" href="product.html">Take the full tour {{icon:arrow-right}}</a>
+  </div>
+</section>
+
+<!-- ───────── The canvas ───────── -->
+<section class="section flush-top" id="canvas">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Nothing on the picture has a fixed place.</h2>
+      <p class="lead">This is the plan's picture at a smaller size. Change the backdrop, the captions and the presenter, then drag any of them.</p>
+    </div>
+    <div class="reveal">{{block:stage}}</div>
+  </div>
+</section>
+
+<!-- ───────── What a video is made of ───────── -->
+<section class="section-tight flush-top">
+  <div class="wrap">
+    <div class="figures card reveal">
+      <a href="templates.html"><b>5</b><span>templates, each one a film the pipeline renders today</span></a>
+      <a href="templates.html#captions"><b>20</b><span>caption styles, timed on the voice word by word</span></a>
+      <a href="templates.html#backdrops"><b>18</b><span>backdrops, or a picture of your own</span></a>
+      <a href="templates.html#presenters"><b>9</b><span>presenters, at home in ten rooms</span></a>
+      <a href="templates.html#voices"><b>11</b><span>studio voices, or your own recording</span></a>
+      <a href="templates.html#voices"><b>29</b><span>languages for the voice and the captions</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Capture, measured ───────── -->
+<section class="section" id="capture">
+  <div class="wrap split">
+    <div class="split-copy reveal">
+      <h2>Filmed frame by frame, not screen-recorded.</h2>
+      <p class="lead">A screen recording stutters as soon as the machine is busy. Framefly renders your page one frame at a time on its own clock, at twice the pixel density.</p>
+      <div class="measures">
+        <div class="measure"><b>55 fps</b><s>20 fps</s><p>Unique frames per second, against a browser recording of the same 20-second scenario.</p></div>
+        <div class="measure"><b>17 ms</b><s>933 ms</s><p>Longest freeze. One frame, against almost a full second of frozen picture.</p></div>
+        <div class="measure"><b>3200 x 1800</b><s>1600 x 900</s><p>Frame size at 2x. A real-time recording quietly falls back to 1x.</p></div>
+      </div>
+    </div>
+    <figure class="figure reveal">
+      <img class="crisp" src="assets/img/crispness.webp" width="950" height="1227" alt="The same frame of an interface under a 2.5x zoom, three ways: a browser recording is blurred, a 1x capture is soft, a 2x capture is sharp" loading="lazy" decoding="async">
+      <figcaption>The same frame under a 2.5x zoom: browser recording, frame-by-frame at 1x, frame-by-frame at 2x. Measured on September 25, 2026.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ───────── Guardrails ───────── -->
+<section class="section flush-top" id="guardrails">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>It never pays, deletes or sends.</h2>
+      <p class="lead">You connect a demo account, never your real one. Every action the agent wants to take passes three checks before the browser runs it.</p>
+    </div>
+    <div class="layers reveal">
+      <div class="layer card"><span class="ic">{{icon:lock-key}}</span><h3>A hard block list</h3><p>Checkout pages, delete requests and destructive buttons are stopped inside the browser, in ten languages. It cannot be switched off.</p></div>
+      <div class="layer card"><span class="ic">{{icon:brain}}</span><h3>A guard model</h3><p>A second, faster model reads each proposed action with the page around it, and stops anything risky or hard to undo.</p></div>
+      <div class="layer card"><span class="ic">{{icon:list-checks}}</span><h3>Your own rules</h3><p>Allow or deny by button text, URL or selector, for one app or for all of them.</p></div>
+    </div>
+    <div class="secret card reveal">
+      <code>fill("#password", <em>{{secret.password}}</em>)</code>
+      <p>The model never sees a secret. It writes a placeholder, the browser fills in the real value, and signing in is never filmed.</p>
+    </div>
+    <div class="blocked reveal">
+      <span class="muted">Always blocked, even if you allow it:</span>
+      <span class="chip">Payments and checkout</span><span class="chip">Account deletion</span><span class="chip">Email and password changes</span><span class="chip">Outbound messages</span><span class="chip">Third-party grants</span>
+    </div>
+    <a class="arrow-link" href="security.html" style="margin-top:28px">How your app and your secrets are protected {{icon:arrow-right}}</a>
+  </div>
+</section>
+
+<!-- ───────── Pricing ───────── -->
+<section class="section flush-top" id="pricing">
+  <div class="wrap split wide-left">
+    <div class="split-copy reveal">
+      <h2>One credit. One video.</h2>
+      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions. A freelancer charges $1,000 to $5,000 for the same video, and takes a week.</p>
+      <a class="arrow-link" href="pricing.html">See pricing and what a credit covers {{icon:arrow-right}}</a>
+    </div>
+    <div class="reveal">
+      <nav class="ladder card" aria-label="Plans">
+        <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, 720p, no card</small></span><span class="p">$0</span>{{icon:arrow-right}}</a>
+        <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire</small></span><span class="p">from $29</span>{{icon:arrow-right}}</a>
+        <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects, freshness alerts</small></span><span class="p">$49/mo</span>{{icon:arrow-right}}</a>
+        <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, API</small></span><span class="p">$149/mo</span>{{icon:arrow-right}}</a>
+      </nav>
+      <p class="help" style="margin-top:14px">Beta prices, in US dollars. You never pay for a video that fails.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Beta ───────── -->
+<section class="section-tight flush-top" data-when-waiting>
+  <div class="wrap">
+    <div class="band reveal">
+      <div class="band-copy">
+        <h2>Get your app filmed before launch day.</h2>
+        <p>A small group of real apps is being filmed before <span data-launch-date>October 28</span>. Beta videos are free, and you talk to the person building Framefly.</p>
+        <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta<span class="nub">{{icon:arrow-up-right}}</span></a>
+      </div>
+      <div class="ticket" aria-hidden="true">
+        <div class="ticket-main">
+          <span class="label">Test screening</span>
+          <b>Admit one app</b>
+          <div class="ticket-rows"><div><span>Venue</span><strong>Your app</strong></div><div><span>Seat</span><strong>Beta</strong></div><div><span>Before</span><strong data-launch-date>October 28</strong></div></div>
+        </div>
+        <div class="ticket-stub"><b>01</b><span>Free during<br>the beta</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FAQ ───────── -->
+<section class="section" id="faq">
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <h2>Questions</h2>
+      <p class="muted">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
+    </div>
+    <div class="faq reveal">
+      <details><summary>What kind of apps does it work with?{{icon:plus}}</summary><div class="ans"><p>Web apps at launch: anything that runs in a browser, behind a login or not, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later.</p></div></details>
+      <details><summary>Do I have to give it my real account?{{icon:plus}}</summary><div class="ans"><p>No, and you shouldn't. Framefly asks for a dedicated demo account. It can use the account as it is, fill it with realistic sample data if you allow it, or call a reset hook before every shoot so each take starts from the same state.</p></div></details>
+      <details><summary>My app has 2FA, SSO or runs on localhost.{{icon:plus}}</summary><div class="ans"><p>For authenticator codes, paste the 2FA secret and Framefly generates the codes. For email codes and magic links, sign the demo account up with a Framefly inbox. For Google or Microsoft sign-in, SMS codes and passkeys, import a session from your own browser. For localhost or a staging server, run <code>npx framefly tunnel 3000</code>.</p><p>A free preflight checks all of this before any credit is used. Framefly never tries to get around a captcha or a bot wall. It uses fixed addresses and a signed header you can allow instead.</p></div></details>
+      <details><summary>What happens if a video fails?{{icon:plus}}</summary><div class="ans"><p>Your credit is held when you generate and only charged at delivery. If anything fails along the way, or you stop it, the credit comes back in full. If you are not happy with a delivered video, you get one complete re-shoot for free within 7 days.</p></div></details>
+      <details><summary>Can I change the video afterwards?{{icon:plus}}</summary><div class="ans"><p>Yes. Point at the picture and say what should change, or open the plan again and edit it. Only the sections concerned are filmed again. A new voice, new captions, other music or another look only need a new edit. Ten revisions come with every video, and Pro and Studio also export an editable project for DaVinci Resolve, Premiere Pro or Final Cut Pro.</p></div></details>
+      <details><summary>Is the voice AI? Will people know?{{icon:plus}}</summary><div class="ans"><p>Yes, the studio voices and the presenters are generated. Every export carries content credentials, the end card says so in one line, and a label shows whenever a presenter is on screen, as the EU AI Act asks. You can also record the narration yourself, section by section.</p></div></details>
+      <details data-when-waiting><summary>When can I use it?{{icon:plus}}</summary><div class="ans"><p>Framefly launches on <span data-launch-weekday>Wednesday, October 28</span>. Beta testers get in before that. Leave your email below and you get one message on launch day.</p></div></details>
+    </div>
+  </div>
+</section>
+
+{{block:closing}}

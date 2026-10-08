@@ -1,0 +1,75 @@
+<!--
+title: Framefly templates: five looks for your demo video
+description: The five templates Framefly renders today, each shown with a film made of the same app. Plus 20 caption styles, 18 backdrops, 9 presenters in 10 rooms and 11 voices.
+priority: 0.9
+scripts: stage
+-->
+
+<section class="page-head">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>One app, filmed five ways.</h1>
+    <p class="lead">Every template here is one the pipeline renders today, shown with a film it made of the same product, Instagram Feed. A template that cannot be rendered is not on this page.</p>
+  </div>
+</section>
+
+<section class="section flush-top" id="films">
+  <div class="wrap">
+    {{block:templates}}
+  </div>
+</section>
+
+<section class="section flush-top" id="captions">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Twenty ways to set the words.</h2>
+      <p class="lead">Captions are the script, word for word, timed on the voice. Type a sentence of your own and watch each style say it.</p>
+    </div>
+    <div class="reveal">{{block:captions}}</div>
+  </div>
+</section>
+
+<section class="section flush-top" id="presenters">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Any presenter, in any room.</h2>
+      <p class="lead">A presenter can open your video alone, or sit over your app while it is up. They are cut out, so each one is at home in every room.</p>
+    </div>
+    <div class="reveal">{{block:cast}}</div>
+  </div>
+</section>
+
+<section class="section flush-top" id="backdrops">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Eighteen backdrops to shoot against.</h2>
+      <p class="lead">Five are drawn by the templates themselves. Thirteen are pictures made for Framefly: textures, landscapes and two desktops. Or upload your own.</p>
+    </div>
+    <div class="reveal">{{block:backdrops}}</div>
+  </div>
+</section>
+
+<section class="section flush-top" id="voices">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Eleven voices, 29 languages.</h2>
+      <p class="lead">Pick a studio voice, clone your own after reading a consent phrase aloud, or record the narration yourself. Framefly lines the captions up with it.</p>
+    </div>
+    <div class="reveal">{{block:voices}}</div>
+  </div>
+</section>
+
+<section class="section-tight flush-top">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="split-copy">
+        <h2>Your brand on top of any template.</h2>
+        <p class="lead">A brand kit holds your logo, colours, type and end card. It checks every colour pair for contrast before it reaches a caption.</p>
+        <a class="arrow-link" href="product.html#plan">See where it all comes together {{icon:arrow-right}}</a>
+      </div>
+      {{shot:brand|A brand kit in the Framefly app: identity, colours, and a live preview of the end card}}
+    </div>
+  </div>
+</section>
+
+{{block:closing}}

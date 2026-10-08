@@ -1,0 +1,107 @@
+<!--
+title: Framefly pricing: one credit, one video
+description: Your first video is free. Then pay per video with credits that never expire, from $29, or subscribe to Pro or Studio. A credit is only charged when a video is delivered.
+priority: 0.9
+scripts: pricing
+-->
+
+<section class="page-head">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Pay per video. Never for a failed one.</h1>
+    <p class="lead">One credit makes one video up to 90 seconds, with the plan, voice, captions, music, every format and 10 revisions. Your first video is free.</p>
+  </div>
+</section>
+
+<section class="section flush-top" id="plans">
+  <div class="wrap">
+    <div class="toggle-row">
+      <div class="seg" role="radiogroup" aria-label="Billing period" data-period>
+        <button type="button" role="radio" aria-checked="true" data-cycle="monthly">Monthly</button>
+        <button type="button" role="radio" aria-checked="false" data-cycle="yearly">Yearly, 20% less</button>
+      </div>
+      <p class="help">Beta prices in US dollars, taxes excluded. They are set for launch and may change after it.</p>
+    </div>
+    {{block:plans}}
+    <div class="card" data-preorder hidden style="margin-top:14px;padding:26px 28px;display:grid;gap:12px;justify-items:start">
+      <h2 style="font-size:1.7rem">Pre-order a launch credit.</h2>
+      <p class="muted" style="max-width:62ch">Reserve your first full-quality video now for $29. If Framefly doesn't launch, or you change your mind before your video is delivered, you get a full refund.</p>
+      <a class="btn btn-primary" data-preorder-link href="#">Pre-order for $29</a>
+      <p class="help">Paid through Stripe. The credit is added to your account on launch day and never expires.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section flush-top" id="calculator">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>How much would you spend?</h2>
+      <p class="lead">Say how many videos you expect to make. The estimate uses the prices above and shows the cheapest way to get there.</p>
+    </div>
+    <div class="calc card reveal" data-calc>
+      <div class="calc-in">
+        <div class="field">
+          <label class="field-label" for="calc-n">Videos a month</label>
+          <div class="calc-count"><output for="calc-n" data-calc-n>3</output><input id="calc-n" type="range" min="1" max="20" step="1" value="3"></div>
+        </div>
+        <fieldset>
+          <legend class="field-label">Typical length</legend>
+          <div class="seg" role="radiogroup" aria-label="Typical length" style="justify-self:start"><button type="button" role="radio" aria-checked="true" data-long="0">Up to 90 s</button><button type="button" role="radio" aria-checked="false" data-long="1">90 s to 3 min</button></div>
+          <p class="help">A long video uses one extra credit.</p>
+        </fieldset>
+        <label class="switch-row"><span><b>With a presenter</b><small>One extra credit per video. Pro and Studio only.</small></span><span class="switch"><input type="checkbox" data-calc-presenter><i></i></span></label>
+        <label class="switch-row"><span><b>Pay yearly</b><small>Pro and Studio cost 20% less.</small></span><span class="switch"><input type="checkbox" data-calc-yearly><i></i></span></label>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p class="field-label"><span data-calc-credits>3 credits</span> a month</p>
+        <div class="option" data-opt="launch"><b>Launch packs</b><span class="amount"></span><small></small></div>
+        <div class="option" data-opt="pro"><b>Pro</b><span class="amount"></span><small></small></div>
+        <div class="option" data-opt="studio"><b>Studio</b><span class="amount"></span><small></small></div>
+        <p class="help">Estimates per month at beta prices. Pack credits never expire, so unused ones carry over.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section flush-top">
+  <div class="wrap split">
+    <div class="split-copy reveal">
+      <h2>What one credit covers.</h2>
+      <p class="lead">Everything it takes to go from your app to a finished video, for a standard video up to 90 seconds at 1080p.</p>
+    </div>
+    <ul class="checks reveal" style="grid-template-columns:1fr">
+      <li>{{icon:check-bold}}<span>Exploring your app, and the map of it Framefly keeps for next time</span></li>
+      <li>{{icon:check-bold}}<span>The plan, as many times as you want it written again</span></li>
+      <li>{{icon:check-bold}}<span>Voice, captions and music, in any of 29 languages</span></li>
+      <li>{{icon:check-bold}}<span>Every format from the same take: 16:9, 9:16, 1:1 and 4:5</span></li>
+      <li>{{icon:check-bold}}<span>10 revisions, plus one full re-shoot within 7 days if you are not happy</span></li>
+      <li>{{icon:plus}}<span>A long video, 90 s to 3 min: one extra credit</span></li>
+      <li>{{icon:plus}}<span>A presenter, up to 60 s on screen: one extra credit</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section flush-top" id="compare">
+  <div class="wrap">
+    <div class="head reveal"><h2>Compare plans.</h2></div>
+    <div class="reveal">{{block:compare}}</div>
+  </div>
+</section>
+
+<section class="section flush-top">
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <h2>Billing questions</h2>
+      <p class="muted">Anything else? <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a></p>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>What happens if a video fails?{{icon:plus}}</summary><div class="ans"><p>A credit is held when you generate and charged only at delivery. If the video fails for any reason, or you stop it, the held credit goes straight back to your balance. You never pay for a video that was not delivered.</p></div></details>
+      <details><summary>Do unused credits expire?{{icon:plus}}</summary><div class="ans"><p>Pack credits never expire. Plan credits roll over up to twice your monthly amount, then the oldest expire.</p></div></details>
+      <details><summary>What counts as a revision?{{icon:plus}}</summary><div class="ans"><p>Any targeted change after delivery: filming a section again, a new voice, new captions. Ten are included with each video. Sections the checks flagged are always free to fix.</p></div></details>
+      <details><summary>Why is the trial one video per app?{{icon:plus}}</summary><div class="ans"><p>Every video costs real compute and AI time to make. The free video is limited to one per app domain, and sign-up is through Google or GitHub, so the trial can stay free for everyone.</p></div></details>
+      <details><summary>Can I cancel any time?{{icon:plus}}</summary><div class="ans"><p>Yes. You keep your plan until the end of the period you paid for, and pack credits stay yours.</p></div></details>
+    </div>
+  </div>
+</section>
+
+{{block:closing}}

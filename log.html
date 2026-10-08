@@ -4,17 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Framefly production log: building in public</title>
-<meta name="description" content="What has been built, measured and decided on the way to Framefly's launch, and what is left before launch day.">
+<meta name="description" content="What has been built, measured and decided on the way to Framefly's launch, with the real numbers, and what is left before launch day.">
+
 <link rel="canonical" href="https://framefly.app/log.html">
-<meta property="og:title" content="Framefly production log">
-<meta property="og:description" content="What has been built, measured and decided on the way to launch.">
+<meta property="og:title" content="Framefly production log: building in public">
+<meta property="og:description" content="What has been built, measured and decided on the way to Framefly's launch, with the real numbers, and what is left before launch day.">
 <meta property="og:url" content="https://framefly.app/log.html">
-<!-- @head -->
-<meta name="theme-color" content="#09090a">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
 <meta property="og:site_name" content="Framefly">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://framefly.app/assets/img/og.png">
@@ -22,179 +17,254 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@MarindeVanssay">
-<link rel="stylesheet" href="assets/css/fonts.css">
+<meta name="theme-color" content="#f3f3f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141518" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
-<script>document.documentElement.classList.add("js")</script>
-<!-- /@head -->
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
+
 </head>
-<body>
-<!-- @nav -->
+<body class="page-log">
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+  <div class="nav-bar">
+    <a class="brand" href="index.html" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
     <nav class="nav-links" aria-label="Main">
-      <a href="product.html">Product</a>
-      <a href="styles.html">Styles</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
-      <a href="log.html" aria-current="page">Log</a>
+      <a href="product.html" class="nav-link">Product</a>
+      <a href="templates.html" class="nav-link">Templates</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="security.html" class="nav-link">Security</a>
+      <a href="log.html" class="nav-link" aria-current="page">Log</a>
     </nav>
     <div class="nav-end">
-      <a class="nav-count" href="index.html#premiere"><span class="firefly" aria-hidden="true"></span><span class="lbl" data-when-waiting>Launch in</span><b data-cd-chip>soon</b></a>
-      <a class="btn btn-primary btn-sm" href="beta.html">Apply for the beta</a>
-      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list"></use></svg></button>
+      <a class="nav-count" href="index.html#launch" data-when-waiting><span>Launch in</span><b data-cd-chip>20 days</b></a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"></use></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"></use></svg></button>
+      <a class="btn btn-primary btn-sm nav-cta" href="beta.html" data-when-waiting>Apply for the beta</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="https://app.framefly.app" data-when-live data-app-link hidden>Make your first video</a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list"></use></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-x"></use></svg></button>
     </div>
   </div>
   <div class="menu" id="menu" hidden>
     <a href="product.html">Product<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-    <a href="styles.html">Styles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="templates.html">Templates<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-    <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta</a>
+    <a class="btn btn-primary btn-lg" href="beta.html" data-when-waiting>Apply for the beta</a>
+    <a class="btn btn-primary btn-lg" href="https://app.framefly.app" data-when-live data-app-link hidden>Make your first video</a>
   </div>
 </header>
-<!-- /@nav -->
-
 <main id="main">
-  <header class="page-head wrap wrap-narrow" style="margin-inline:auto">
+<section class="page-head">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
     <h1>Production log.</h1>
-    <p class="lead">Framefly is built in public. This is what has been built, measured and decided so far, with the real numbers, and what's left before launch day. Updates go out on <a class="link" data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">X</a>.</p>
-  </header>
+    <p class="lead">Framefly is built in public. This is what has been built, measured and decided so far, with the real numbers, and what is left before launch day.</p>
+    <a class="arrow-link" data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Updates go out on X <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></a>
+  </div>
+</section>
 
-  <section class="wrap" style="padding-bottom:clamp(80px, 11vw, 150px)">
-    <div class="timeline">
-      <article class="entry next reveal">
-        <div class="entry-date"><b>Up next</b>until <span data-launch-date>October 28</span></div>
-        <div>
-          <h2>The road to launch day</h2>
-          <div class="body"><p>The interface is done and the hard parts of capture are measured. What remains is wiring the real pipeline behind it.</p></div>
-          <ul class="checklist" style="margin-top:20px">
-            <li class="done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg><span><b>The interface</b>, every screen, with realistic data</span></li>
-            <li class="done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg><span><b>Frame-by-frame capture</b>, measured and fixed</span></li>
-            <li class="done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg><span><b>A first real exploration run</b> by the agent</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle-notch"></use></svg><span><b>The full pipeline, end to end</b>: exploration, storyboard, voice, 2x capture and render</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle-notch"></use></svg><span><b>A blind listening test</b> between four voice providers</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle-notch"></use></svg><span><b>A presenter bake-off</b> with the same voice and portrait</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle-notch"></use></svg><span><b>Beta videos</b> for the first test screening apps</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle-notch"></use></svg><span><b>The acceptance test</b>: Framefly films its own launch video</span></li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <div class="entry-date"><b>Sep 28, 2026</b>Naming</div>
-        <div>
-          <h2>It's called Framefly now</h2>
-          <div class="body">
-            <p>The working name had to go. Framefly is what the product does: an agent that moves through your app like a fly on the wall, and turns what it sees into frames. The key-light lime the interface was already built around turned out to be the color of a firefly.</p>
-            <p>The new mark is a viewfinder locked on a subject, with its flight path drawn as onion-skinned frames. Same day: a launch date, October 28, and this site.</p>
-          </div>
-          <div class="tags"><span class="badge">Brand</span><span class="badge">Launch date</span></div>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <div class="entry-date"><b>Sep 25, 2026</b>Capture</div>
-        <div>
-          <h2>Why Framefly doesn't screen-record</h2>
-          <div class="body">
-            <p>The same 20-second scenario was captured five ways. Every real-time method stuttered: 20 to 34 unique frames per second, with freezes of up to 0.9 seconds, because the browser renders and encodes on the same CPU the page needs. Real-time capture also silently dropped 2x density back to 1x.</p>
-            <p>Deterministic capture fixed it: virtual clocks and one rendered frame per 1/60 s of page time gave 55 unique frames per second, no freeze longer than one frame, and true 3200x1800 frames. The first attempt came out with a blank main area, because CSS animations froze with the clock. The fix steps every running animation forward on each frame.</p>
-          </div>
-          <figure class="shot">
-            <div class="bezel"><div class="bezel-core"><img src="assets/img/crispness.webp" width="950" height="1227" loading="lazy" alt="The same frame zoomed 2.5 times: browser recording on top, blurry and blocky; deterministic 1x in the middle, clean but soft; deterministic 2x at the bottom, crisp."></div></div>
-            <figcaption><b>The same frame under a 2.5x camera zoom.</b> Browser recording, deterministic 1x, deterministic 2x.</figcaption>
-          </figure>
-          <div class="tags"><span class="badge badge-mono">55 fps vs 20</span><span class="badge badge-mono">17 ms vs 933 ms</span><span class="badge">Measured</span></div>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <div class="entry-date"><b>Sep 25, 2026</b>Agent</div>
-        <div>
-          <h2>The agent's first real exploration</h2>
-          <div class="body">
-            <p>Pointed at the Framefly interface itself, the agent mapped six screens, ranked them by importance, and wrote a six-section storyboard of about 46 seconds with voice-over lines and more than 40 replayable steps. It took 5 minutes 39 seconds.</p>
-            <p>Along the way it found two of its own broken selectors by replaying its plan, and fixed them. It refused every destructive or financial button and listed each one. Its weak spot: it walked back and forth between screens instead of one continuous path, which wastes camera time. That's the next thing to fix in the planner.</p>
-          </div>
-          <div class="tags"><span class="badge badge-mono">5 min 39 s</span><span class="badge badge-mono">6 screens</span><span class="badge">Guardrails held</span></div>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <div class="entry-date"><b>Sep 25, 2026</b>Voice</div>
-        <div>
-          <h2>Timing comes from real speech</h2>
-          <div class="body">
-            <p>Storyboards first assumed narration at 150 words a minute. Real synthesized speech ran at about 190. So section lengths now come from the generated audio, never from an estimate, and the voice is generated before a single frame is filmed.</p>
-            <p>The voice leaderboards also moved this year, so the provider will be picked by ear: the same six lines through four candidates, labels hidden.</p>
-          </div>
-          <div class="tags"><span class="badge badge-mono">190 wpm</span><span class="badge">Research</span></div>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <div class="entry-date"><b>Sep 25, 2026</b>Interface</div>
-        <div>
-          <h2>Every screen of the product, done</h2>
-          <div class="body">
-            <p>22 screens with realistic data and the main flow working end to end in the browser: type a prompt, watch the agent explore and get blocked on "Delete", edit and approve the storyboard, then follow voice, shoot, edit, QA and delivery. Dark and light themes, a command palette and keyboard shortcuts throughout.</p>
-          </div>
-          <figure class="shot">
-            <div class="bezel"><div class="bezel-core"><img src="assets/img/app/workspace.webp" width="2200" height="1375" loading="lazy" alt="The Framefly workspace with its sidebar, a prompt box, items waiting for a decision and renders in production."></div></div>
-          </figure>
-          <div class="tags"><span class="badge badge-mono">22 screens</span><span class="badge">Design</span></div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="closing" style="padding-top:0">
-    <div class="wrap">
-      <h2>Follow the build to launch day.</h2>
-      <p class="lead">Every number, every decision, posted as it happens.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px">
-        <a class="btn btn-primary btn-lg" data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener"><span class="btn-label">Follow on X</span><span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a>
-        <a class="btn btn-secondary btn-lg" href="index.html#notify">Notify me</a>
+<section class="section-tight flush-top">
+  <div class="wrap">
+    <div class="card reveal" style="padding:clamp(22px,3vw,36px);border-radius:var(--r-panel);display:grid;gap:18px;max-width:860px">
+      <div style="display:grid;gap:8px">
+        <h2 style="font-size:1.8rem">The road to launch day</h2>
+        <p class="muted">The interface is done and the pipeline makes real videos on one machine. What remains is the service around it.</p>
       </div>
+      <ul class="todo">
+        <li class="is-done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle-fill"></use></svg><span>The interface, every screen</span></li>
+        <li class="is-done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle-fill"></use></svg><span>Frame-by-frame capture, measured and fixed</span></li>
+        <li class="is-done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle-fill"></use></svg><span>A first real exploration run by the agent</span></li>
+        <li class="is-done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle-fill"></use></svg><span>Five templates, each rendered on a real app</span></li>
+        <li class="is-done"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle-fill"></use></svg><span>The full pipeline, end to end, started from the app</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle"></use></svg><span>A blind listening test between four voice providers</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle"></use></svg><span>Accounts, billing and hosting behind the app</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle"></use></svg><span>Beta videos for the first test screening apps</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-circle"></use></svg><span>The acceptance test: Framefly films its own launch video</span></li>
+      </ul>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
-<!-- @footer -->
+<section class="section-tight flush-top">
+  <div class="wrap">
+    <div class="log">
+
+      <article class="entry reveal">
+        <time datetime="2026-10-08">Oct 8, 2026</time>
+        <div class="entry-body">
+          <h2>The first video made from the app, end to end</h2>
+          <p>A one-line brief typed in Studio became a 30-second film with nobody stepping in: 4 seconds of preflight, 5 minutes 24 of exploration in 42 browser actions, a four-section plan, 18 minutes of filming at 2x on a laptop, then the edit and the checks. 29 minutes in all.</p>
+          <p>The checks flagged two things, and they were right. The film came out at half the length asked for, and the last line was still being spoken when the picture ended. Both belong to the planner, and both are on the list.</p>
+          <video controls muted loop playsinline preload="none" poster="assets/films/first-render.webp" width="1280" height="720" style="border-radius:var(--r-media);box-shadow:0 0 0 1px var(--line-2),var(--shadow-md);width:100%" aria-label="The first seven seconds of that film: Instagram Feed in a floating window, with captions"><source src="assets/films/first-render.mp4" type="video/mp4"></video>
+          <p class="help">Its first seven seconds, played here without the voice.</p>
+          <div class="tags"><span class="chip">29 min</span><span class="chip">42 actions</span><span class="chip">2 checks flagged</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-08">Oct 8, 2026</time>
+        <div class="entry-body">
+          <h2>A launch film with no cut in it</h2>
+          <p>The fifth template makes the same argument as Launch Film, in one continuous move. One object carries the whole film: a post, the gap in your site, your icon, your product's window, the offer. Every scene opens out of the one before.</p>
+          <p>Its first cut used drawn placeholder posts, and they read as fake. The second uses real posts from an account whose owner agreed. Real content beats a drawing every time.</p>
+          <div class="tags"><span class="chip">Template 5</span><span class="chip">42 s</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-07">Oct 7, 2026</time>
+        <div class="entry-body">
+          <h2>A render server, and a library of pictures</h2>
+          <p>The app can now start a real render. A server runs the nine stages, from preflight to delivery, and streams each step back to the plan's window. It is one machine with no accounts yet, which is exactly what is left to build.</p>
+          <p>The same day the picture library arrived: thirteen backdrops, ten rooms and nine presenters, all generated for Framefly. Nobody in them exists, and the presenters are cut out, so any of them sits in any room.</p>
+          <div class="tags"><span class="chip">9 stages</span><span class="chip">32 pictures</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-07">Oct 7, 2026</time>
+        <div class="entry-body">
+          <h2>The app, rebuilt around a plan</h2>
+          <p>The storyboard step, the render page and the editor for finished videos are gone. In their place is one window per video: the script as a document, the picture as a canvas where everything is dragged, the settings, and a timeline to scale. It is where a video is planned, where it is generated, and where every later version is made.</p>
+          <p>One thing survived from the old editor, because it was the best part: pointing at the picture to say what should change.</p>
+          <div class="tags"><span class="chip">1 window</span><span class="chip">20 caption styles</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-06">Oct 6, 2026</time>
+        <div class="entry-body">
+          <h2>A launch video is not a demo</h2>
+          <p>Three templates in a day: Studio, Dynamic Demo and Launch Film. The third one started life under the wrong name. A film that walks through a product step by step is a demo, whatever the camera does.</p>
+          <p>A launch film argues. It starts from answers, not from a recording: who it is for, what today costs them in hours or money, one claim, three proofs, one action. The product is on screen for seconds, behind a sentence. Its music is written in code, so it is cut to the picture.</p>
+          <div class="tags"><span class="chip">3 templates</span><span class="chip">12 questions before the film</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-05">Oct 5, 2026</time>
+        <div class="entry-body">
+          <h2>The first template, measured before it was built</h2>
+          <p>Mac Demo copies the look of the best desktop screen recordings, so 17 reference videos were measured first: two camera states and nothing in between, a spring near 7 rad/s on zoom and position together, a pointer more than three times the system size.</p>
+          <p>Then the render was put through the same instrument. Reference zoom 2.25, ours 2.25. Reference spring 6.6 to 7.0 rad/s, ours 7.05. The first film of a live site took 2 minutes to explore, 22 to film and 5 to render.</p>
+          <div class="tags"><span class="chip">2.25x</span><span class="chip">7 rad/s</span><span class="chip">Measured</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-28">Sep 28, 2026</time>
+        <div class="entry-body">
+          <h2>It's called Framefly now</h2>
+          <p>The working name had to go. Framefly is what the product does: an agent that moves through your app like a fly on the wall, and turns what it sees into frames. The key-light lime the interface was already built around turned out to be the colour of a firefly.</p>
+          <p>The new mark is a viewfinder locked on a subject, with its flight path drawn as onion-skinned frames. Same day: a launch date, October 28, and this site.</p>
+          <div class="tags"><span class="chip">Brand</span><span class="chip">Launch date</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-25">Sep 25, 2026</time>
+        <div class="entry-body">
+          <h2>Why Framefly doesn't screen-record</h2>
+          <p>The same 20-second scenario was captured five ways. Every real-time method stuttered: 20 to 34 unique frames per second, with freezes of up to 0.9 seconds, because the browser renders and encodes on the same CPU the page needs. Real-time capture also quietly dropped 2x density back to 1x.</p>
+          <p>Frame-by-frame capture fixed it: virtual clocks and one rendered frame per 1/60 s of page time gave 55 unique frames per second, no freeze longer than one frame, and true 3200x1800 frames. The first attempt came out with a blank main area, because CSS animations froze with the clock. The fix steps every running animation forward on each frame.</p>
+          <div class="tags"><span class="chip">55 fps vs 20</span><span class="chip">17 ms vs 933 ms</span><span class="chip">Measured</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-25">Sep 25, 2026</time>
+        <div class="entry-body">
+          <h2>The agent's first real exploration</h2>
+          <p>Pointed at the Framefly interface itself, the agent mapped six screens, ranked them by importance, and wrote a six-section plan of about 46 seconds with voice-over lines and more than 40 replayable steps. It took 5 minutes 39 seconds.</p>
+          <p>Along the way it found two of its own broken selectors by replaying its plan, and fixed them. It refused every destructive or financial button and listed each one. Its weak spot: it walked back and forth between screens instead of one continuous path, which wastes camera time.</p>
+          <div class="tags"><span class="chip">5 min 39 s</span><span class="chip">6 screens</span><span class="chip">Guardrails held</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-25">Sep 25, 2026</time>
+        <div class="entry-body">
+          <h2>Timing comes from real speech</h2>
+          <p>Plans first assumed narration at 150 words a minute. Real synthesized speech ran at about 190. So section lengths now come from the generated audio, never from an estimate, and the voice is generated before a single frame is filmed.</p>
+          <p>The voice leaderboards also moved this year, so the provider will be picked by ear: the same six lines through four candidates, labels hidden.</p>
+          <div class="tags"><span class="chip">190 wpm</span><span class="chip">Research</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="closing" id="launch">
+  <div class="wrap closing" style="padding-block:0">
+    <div data-when-waiting style="display:grid;gap:22px;justify-items:center">
+      <span class="rec"><i></i>Launch day in</span>
+      <div class="timecode" role="timer" aria-live="off"><div><b data-cd="d">00</b><span>Days</span></div><i>:</i><div><b data-cd="h">00</b><span>Hours</span></div><i>:</i><div><b data-cd="m">00</b><span>Min</span></div><i>:</i><div><b data-cd="s">00</b><span>Sec</span></div></div>
+      <p class="sr-only" data-cd-sr></p>
+    </div>
+    <h2 data-when-waiting>Your app, on film, on <span data-launch-date>October 28</span>.</h2>
+    <h2 data-when-live hidden>Framefly is live.</h2>
+    <p class="lead" data-when-waiting>Leave your email and you get one message on launch day, with a link to make your first video for free.</p>
+    <p class="lead" data-when-live hidden>Your first video is free, and no card is needed.</p>
+    <div id="notify" style="display:grid;justify-items:center;width:100%;text-align:left"><div data-when-waiting style="width:100%;max-width:440px">
+  <form class="capture" data-form="notify" data-done="end-done">
+    <label class="field-label sr-only" for="end-email">Your email</label>
+    <div class="capture-row" data-well="email">
+      <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-envelope-simple"></use></svg>
+      <input id="end-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@yourapp.com" data-required="email" data-msg="Add your email so we can tell you when it's live.">
+      <button class="btn btn-primary" type="submit">Notify me</button>
+    </div>
+    <p class="error-text" data-err="email" hidden><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-warning"></use></svg><span></span></p>
+    <p class="error-text" data-form-error hidden><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-warning"></use></svg><span>That didn't go through. Check your connection and try again.</span></p>
+    <p class="help">One email when Framefly launches. No newsletter.</p>
+    <div aria-hidden="true" style="position:absolute;left:-9999px"><input name="company" tabindex="-1" autocomplete="off"></div>
+  </form>
+  <div class="done" id="end-done" hidden tabindex="-1" role="status"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check-circle"></use></svg><p><b>You're on the list.</b> One email to <span data-echo-email></span> on launch day, and nothing before.</p></div>
+</div>
+<div data-when-live hidden>
+  <a class="btn btn-primary btn-lg" data-app-link href="https://app.framefly.app">Make your first video<span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a>
+</div></div>
+  </div>
+</section>
+</main>
 <footer class="footer">
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
-        <p>Prompt in. Demo video out. Launching <span data-launch-date>October 28</span>, made in France by Vanssay.</p>
+        <a class="brand" href="index.html" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+        <p>Prompt in. Demo video out. <span data-when-waiting>Launching <span data-launch-date>October 28</span>.</span> Made in France by Vanssay.</p>
       </div>
-      <div class="foot-col">
-        <h4>Product</h4>
-        <ul><li><a href="product.html">How it works</a></li><li><a href="styles.html">Styles</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="security.html">Security</a></li><li><a href="beta.html">Beta</a></li></ul>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <ul><li><a href="about.html">About</a></li><li><a href="log.html">Production log</a></li><li><a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a></li><li><a data-contact href="mailto:support@framefly.app">support@framefly.app</a></li></ul>
-      </div>
-      <div class="foot-col">
-        <h4>Legal</h4>
-        <ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
-      </div>
+      <nav class="foot-col" aria-label="Product">
+        <h2>Product</h2>
+        <a href="product.html">How it works</a>
+        <a href="templates.html">Templates</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="security.html">Security</a>
+        <a href="beta.html">Beta</a>
+      </nav>
+      <nav class="foot-col" aria-label="Company">
+        <h2>Company</h2>
+        <a href="about.html">About</a>
+        <a href="log.html">Production log</a>
+        <a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a>
+        <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>
+      </nav>
+      <nav class="foot-col" aria-label="Legal">
+        <h2>Legal</h2>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
-    <div class="vanssay">
-      <div class="vanssay-head"><b>More from Vanssay</b><span>Plugins for Framer sites, from the same maker.</span></div>
-      <div class="products">
-        <a class="product" href="https://vanssay.net/reviews.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"></use></svg></span><b>Reviews</b><small>Google and Trustpilot reviews with one combined rating.</small></a>
-        <a class="product" href="https://vanssay.net/instagram.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-instagram-logo"></use></svg></span><b>Instagram Feed</b><small>Your live Instagram feed, synced on its own.</small></a>
-        <a class="product" href="https://vanssay.net/geoblock.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-slash"></use></svg></span><b>Bouncer</b><small>Block countries and VPN traffic on your site.</small></a>
-        <a class="product" href="https://vanssay.net/router.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signpost"></use></svg></span><b>Router</b><small>Send visitors to the right page by country or language.</small></a>
-        <a class="product" href="https://vanssay.net/maintenance.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-wrench"></use></svg></span><b>Maintenance Mode</b><small>A maintenance page you switch on live.</small></a>
-        <a class="product" href="https://vanssay.net/google-reviews-live.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-google-logo"></use></svg></span><b>Google Reviews Live</b><small>Live Google reviews, one-time purchase.</small></a>
-      </div>
+    <div class="foot-vanssay">
+      <p><b>More from Vanssay.</b> Plugins for Framer sites, from the same maker.</p>
+      <div class="products"><a class="product" href="https://vanssay.net/reviews.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"></use></svg><b>Reviews</b><span>Google and Trustpilot reviews with one combined rating.</span></a><a class="product" href="https://vanssay.net/instagram.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-instagram-logo"></use></svg><b>Instagram Feed</b><span>Your live Instagram feed, synced on its own.</span></a><a class="product" href="https://vanssay.net/geoblock.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-slash"></use></svg><b>Bouncer</b><span>Block countries and VPN traffic on your site.</span></a><a class="product" href="https://vanssay.net/router.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signpost"></use></svg><b>Router</b><span>Send visitors to the right page by country or language.</span></a><a class="product" href="https://vanssay.net/maintenance.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-wrench"></use></svg><b>Maintenance Mode</b><span>A maintenance page you switch on live.</span></a><a class="product" href="https://vanssay.net/google-reviews-live.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-google-logo"></use></svg><b>Google Reviews Live</b><span>Live Google reviews, one-time purchase.</span></a></div>
     </div>
     <div class="foot-bottom">
       <span>&copy; <span data-year>2026</span> Framefly. Made by Marin de Vanssay.</span>
@@ -202,10 +272,8 @@
     </div>
   </div>
 </footer>
-<!-- /@footer -->
-<!-- @scripts -->
-<script src="assets/js/config.js"></script>
-<script src="assets/js/site.js"></script>
-<!-- /@scripts -->
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,177 @@
+<!--
+title: How Framefly works: from a brief to a finished video
+description: Connect a demo account, write a brief, read the plan. Framefly explores your app, films it frame by frame, adds voice, captions and music, and delivers every format.
+priority: 0.9
+-->
+
+<section class="page-head">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>From a brief to a finished video.</h1>
+    <p class="lead">Every step, shown with real screens of the app. The films and the pictures in them were made of one product, Instagram Feed.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <nav class="toc" aria-label="On this page">
+    <a href="#connect">Connect</a>
+    <a href="#brief">Brief</a>
+    <a href="#plan">Plan</a>
+    <a href="#generate">Generate</a>
+    <a href="#watch">Watch</a>
+    <a href="#revise">Revise</a>
+    <a href="#fresh">Stay fresh</a>
+  </nav>
+
+  <!-- ───────── Connect ───────── -->
+  <section class="chapter" id="connect" style="border-top:0;padding-top:0">
+    <div class="chapter-head">
+      <h2>Connect your app once.</h2>
+      <p class="lead">Give Framefly a demo account and choose how it signs in. A free preflight checks that it can reach the app, sign in and find no bot wall, before any credit is used.</p>
+    </div>
+    <figure class="figure reveal">
+      {{shot:app-access|An app's access settings: email and password, password and 2FA, email code or magic link, an imported session, a local tunnel}}
+      <figcaption>How the agent signs in. A demo account is asked for every time: guardrails block payments and deletions, but a demo account is the only way to be sure nothing real changes.</figcaption>
+    </figure>
+    <div class="points reveal">
+      <div class="point card"><h3>{{icon:password}}Password and 2FA</h3><p>Paste the authenticator secret and Framefly generates the codes itself.</p></div>
+      <div class="point card"><h3>{{icon:envelope-simple}}Its own inbox</h3><p>Sign the demo account up with a Framefly address. The agent reads the codes and the magic links there.</p></div>
+      <div class="point card"><h3>{{icon:browser}}An imported session</h3><p>For Google or Microsoft sign-in, SMS codes and passkeys: sign in once in your own browser and hand over the session.</p></div>
+      <div class="point card"><h3>{{icon:terminal-window}}Localhost and staging</h3><p><code>npx framefly tunnel 3000</code> opens a tunnel only the agent can use.</p></div>
+    </div>
+    <div class="duo reveal">
+      <figure class="figure">
+        {{shot:connect|The first step of connecting an app: web app, Chrome extension or Framer plugin}}
+        <figcaption>Web apps at launch. Chrome extensions and Framer plugins are in beta.</figcaption>
+      </figure>
+      <div class="rows card" style="padding:8px 24px;align-self:start">
+        <div class="row"><b>Use the account as it is</b><p>After the first exploration you get a precise checklist of what looks empty on camera.</p></div>
+        <div class="row"><b>Let the agent add sample data</b><p>Opt in and it creates believable records through your own interface. It may create and edit. It never deletes.</p></div>
+        <div class="row"><b>Reset before every shoot</b><p>A webhook puts the account back in a known state, so every take starts the same way. Pro and Studio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Brief ───────── -->
+  <section class="chapter" id="brief">
+    <div class="chapter-head">
+      <h2>One brief is all Studio asks for.</h2>
+      <p class="lead">Write what you want in plain words: who it is for, what to show, the tone, how it ends. Pick the app, a template and, if you like, a presenter.</p>
+    </div>
+    <figure class="figure reveal">
+      {{shot:studio|Studio: a written brief, the features and length Framefly understood from it, and a notice that the brief says 45 seconds while the setting says 60}}
+      <figcaption>The brief says 45 seconds, the setting says 60. Framefly points it out and fixes it in one click. Settings win when they disagree.</figcaption>
+    </figure>
+    <div class="points reveal">
+      <div class="point card"><h3>{{icon:sparkle}}Understood as you type</h3><p>Features of your app, length, tone and ending show up as you write, so you know what was read.</p></div>
+      <div class="point card"><h3>{{icon:film-slate}}Planning is free</h3><p>"Plan my video" films nothing and costs nothing. A credit is only held when you press Generate.</p></div>
+      <div class="point card"><h3>{{icon:lightning}}Autopilot, if you want it</h3><p>Switch off "Stop at the plan" and Framefly generates straight away. The plan step is on by default.</p></div>
+    </div>
+  </section>
+
+  <!-- ───────── Plan ───────── -->
+  <section class="chapter" id="plan">
+    <div class="chapter-head">
+      <h2>The whole video, before it exists.</h2>
+      <p class="lead">Framefly explores your app in a real browser and writes the video. Then it opens one window where you read it, hear it and change it. Nothing has been filmed yet.</p>
+    </div>
+    <figure class="figure reveal">
+      {{shot:plan|The plan window with its four parts: script, picture, settings and timeline}}
+      <figcaption>Every change is saved as you make it. A plan has its own address: leave it and find it again in your videos.</figcaption>
+    </figure>
+    <div class="rows card reveal" style="padding:8px 24px">
+      <div class="row"><b>The script</b><p>It reads like a document. Each section has its words (they are also the captions), the screen of your app it is shot on, and the steps Framefly takes there: click, type, show.</p></div>
+      <div class="row"><b>The picture</b><p>The section under the playhead, framed as it will be. It is a canvas: the app's window, the captions, the presenter and anything you add are dragged anywhere and sized from a corner.</p></div>
+      <div class="row"><b>The settings</b><p>Look, captions, voice, music, presenter. None of them sets a position: you place things on the picture.</p></div>
+      <div class="row"><b>The timeline</b><p>The whole video on one line, to scale. Drag a block to move its section, add one at any boundary, scrub to any moment.</p></div>
+    </div>
+    <div class="duo reveal">
+      <figure class="figure">
+        {{shot:plan-captions|The plan window with the caption library open and the Blocks style chosen}}
+        <figcaption>Twenty caption styles. Section lengths come from the recorded voice, never from an estimate.</figcaption>
+      </figure>
+      <figure class="figure">
+        {{shot:plan-presenter|The plan window with a presenter on the full screen in a white studio}}
+        <figcaption>A presenter can open the video alone in a room, or sit over your app. Always labeled as AI-generated.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────── Generate ───────── -->
+  <section class="chapter" id="generate">
+    <div class="chapter-head">
+      <h2>Generate is the only button that spends a credit.</h2>
+      <p class="lead">The plan locks and the same window shows the video being made. You can leave: it carries on, and you get a notice when it is ready.</p>
+    </div>
+    <figure class="figure reveal">
+      {{shot:generating|The plan window while generating: the first section is being filmed, a list shows the voice recorded, filming under way, then the cut, the checks and delivery}}
+      <figcaption>The credit is held when you generate, charged on delivery, and given back if the video fails or you stop it.</figcaption>
+    </figure>
+    <div class="split reveal" style="align-items:start">
+      <div class="split-copy">
+        <h3 style="font-size:1.6rem">Filmed frame by frame, not screen-recorded.</h3>
+        <p class="muted" style="font-size:1.05rem;color:var(--fg-2)">The AI plans, code films. The agent works out what to do once and writes it down as a list of steps. A recorder replays that list on a clock of its own, one frame per sixtieth of a second, at twice the pixel density. A slow machine makes a slower shoot, never a worse picture.</p>
+        <div class="measures">
+          <div class="measure"><b>55 fps</b><s>20 fps</s><p>Unique frames per second, against a browser recording of the same scenario.</p></div>
+          <div class="measure"><b>17 ms</b><s>933 ms</s><p>Longest freeze: one frame, against almost a full second.</p></div>
+        </div>
+      </div>
+      <div class="rows card" style="padding:8px 24px">
+        <div class="row"><b>Stability gates</b><p>Before each take: network idle, the page calm, fonts loaded, images decoded, no spinner in sight.</p></div>
+        <div class="row"><b>A frozen clock</b><p>Dates and random values are pinned, so a take can be filmed again and match.</p></div>
+        <div class="row"><b>A pointer drawn afterwards</b><p>The cursor follows a smooth path computed from the recorded clicks, in the shape the page asked for.</p></div>
+        <div class="row"><b>Checked before delivery</b><p>Every step ran, no black frames, loudness on target, the narration fits the picture. What fails a check is flagged for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Watch ───────── -->
+  <section class="chapter" id="watch">
+    <div class="chapter-head">
+      <h2>Every format, every file.</h2>
+      <p class="lead">One take becomes 16:9, 9:16, 1:1 and 4:5. With each come a looping GIF and caption files. Pro and Studio also get the project for your editor.</p>
+    </div>
+    <figure class="figure reveal">
+      {{shot:video|A finished video's page with its player, its downloads, a switch to share it and what it was made from}}
+      <figcaption>A finished video's own page: watch it, download it, share it. It is not an editor, and it does not need to be.</figcaption>
+    </figure>
+    <div class="points reveal">
+      <div class="point card"><h3>{{icon:download-simple}}Downloads</h3><p>MP4 in each shape, a GIF, SRT and VTT captions, audio stems.</p></div>
+      <div class="point card"><h3>{{icon:globe}}A public link</h3><p>One switch gives the video a page anyone can watch, and an embed for your own site.</p></div>
+      <div class="point card"><h3>{{icon:scissors}}Your editor</h3><p>DaVinci Resolve, Premiere Pro or Final Cut Pro, with captions as editable text. Pro and Studio.</p></div>
+      <div class="point card"><h3>{{icon:seal-check}}Marked as AI-made</h3><p>Content credentials in every file and one line on the end card, as the EU AI Act asks.</p></div>
+    </div>
+  </section>
+
+  <!-- ───────── Revise ───────── -->
+  <section class="chapter" id="revise">
+    <div class="chapter-head">
+      <h2>Point at what should change.</h2>
+      <p class="lead">Switch on "Point for Framefly", click the picture and write what is wrong. The note stays on that spot, at that moment. Only its section is made again.</p>
+    </div>
+    <figure class="figure reveal">
+      {{shot:video-point|A numbered pin on a finished video's picture and its note, listed for version 2 with the button that makes it}}
+      <figcaption>One note, one section made again, the rest kept. Revisions come with the video: no credit.</figcaption>
+    </figure>
+    <div class="rows card reveal" style="padding:8px 24px">
+      <div class="row"><b>Or open the plan again</b><p>The plan's window stays the video's editor for life. Change a line, a screen or a step, and the next version is made from what changed.</p></div>
+      <div class="row"><b>Only what changed is filmed</b><p>New words, another screen, other steps or a note: that section is shot again. A new voice, captions, music, look or order only needs a new edit.</p></div>
+      <div class="row"><b>Ten revisions per video</b><p>And one full re-shoot within 7 days if you are not happy. Sections flagged by the checks are always free to fix.</p></div>
+    </div>
+  </section>
+
+  <!-- ───────── Stay fresh ───────── -->
+  <section class="chapter" id="fresh">
+    <div class="chapter-head">
+      <h2>Your interface changes. Your video keeps up.</h2>
+      <p class="lead">On Pro and Studio, Framefly takes a light look at every connected app each week. When a screen you filmed has changed, you get an alert and re-shoot only the sections that use it.</p>
+    </div>
+    <div class="points reveal">
+      <div class="point card"><h3>{{icon:arrows-clockwise}}Re-shoot on release</h3><p>A GitHub Action can ask for a refresh when you ship, so the video on your landing page matches the product.</p></div>
+      <div class="point card"><h3>{{icon:code}}API, webhooks and a CLI</h3><p>Start videos from your own tools and be told when a plan is ready or a video is delivered. Studio plan.</p></div>
+      <div class="point card"><h3>{{icon:plugs-connected}}Where it goes next</h3><p>Slack, GitHub, YouTube, Google Drive, Framer and more can receive a video the moment it is delivered.</p></div>
+    </div>
+  </section>
+</div>
+
+{{block:closing}}

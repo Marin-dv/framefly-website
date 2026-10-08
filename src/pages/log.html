@@ -1,0 +1,148 @@
+<!--
+title: Framefly production log: building in public
+description: What has been built, measured and decided on the way to Framefly's launch, with the real numbers, and what is left before launch day.
+priority: 0.7
+-->
+
+<section class="page-head">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Production log.</h1>
+    <p class="lead">Framefly is built in public. This is what has been built, measured and decided so far, with the real numbers, and what is left before launch day.</p>
+    <a class="arrow-link" data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Updates go out on X {{icon:arrow-up-right}}</a>
+  </div>
+</section>
+
+<section class="section-tight flush-top">
+  <div class="wrap">
+    <div class="card reveal" style="padding:clamp(22px,3vw,36px);border-radius:var(--r-panel);display:grid;gap:18px;max-width:860px">
+      <div style="display:grid;gap:8px">
+        <h2 style="font-size:1.8rem">The road to launch day</h2>
+        <p class="muted">The interface is done and the pipeline makes real videos on one machine. What remains is the service around it.</p>
+      </div>
+      <ul class="todo">
+        <li class="is-done">{{icon:check-circle-fill}}<span>The interface, every screen</span></li>
+        <li class="is-done">{{icon:check-circle-fill}}<span>Frame-by-frame capture, measured and fixed</span></li>
+        <li class="is-done">{{icon:check-circle-fill}}<span>A first real exploration run by the agent</span></li>
+        <li class="is-done">{{icon:check-circle-fill}}<span>Five templates, each rendered on a real app</span></li>
+        <li class="is-done">{{icon:check-circle-fill}}<span>The full pipeline, end to end, started from the app</span></li>
+        <li>{{icon:circle}}<span>A blind listening test between four voice providers</span></li>
+        <li>{{icon:circle}}<span>Accounts, billing and hosting behind the app</span></li>
+        <li>{{icon:circle}}<span>Beta videos for the first test screening apps</span></li>
+        <li>{{icon:circle}}<span>The acceptance test: Framefly films its own launch video</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight flush-top">
+  <div class="wrap">
+    <div class="log">
+
+      <article class="entry reveal">
+        <time datetime="2026-10-08">Oct 8, 2026</time>
+        <div class="entry-body">
+          <h2>The first video made from the app, end to end</h2>
+          <p>A one-line brief typed in Studio became a 30-second film with nobody stepping in: 4 seconds of preflight, 5 minutes 24 of exploration in 42 browser actions, a four-section plan, 18 minutes of filming at 2x on a laptop, then the edit and the checks. 29 minutes in all.</p>
+          <p>The checks flagged two things, and they were right. The film came out at half the length asked for, and the last line was still being spoken when the picture ended. Both belong to the planner, and both are on the list.</p>
+          <video controls muted loop playsinline preload="none" poster="assets/films/first-render.webp" width="1280" height="720" style="border-radius:var(--r-media);box-shadow:0 0 0 1px var(--line-2),var(--shadow-md);width:100%" aria-label="The first seven seconds of that film: Instagram Feed in a floating window, with captions"><source src="assets/films/first-render.mp4" type="video/mp4"></video>
+          <p class="help">Its first seven seconds, played here without the voice.</p>
+          <div class="tags"><span class="chip">29 min</span><span class="chip">42 actions</span><span class="chip">2 checks flagged</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-08">Oct 8, 2026</time>
+        <div class="entry-body">
+          <h2>A launch film with no cut in it</h2>
+          <p>The fifth template makes the same argument as Launch Film, in one continuous move. One object carries the whole film: a post, the gap in your site, your icon, your product's window, the offer. Every scene opens out of the one before.</p>
+          <p>Its first cut used drawn placeholder posts, and they read as fake. The second uses real posts from an account whose owner agreed. Real content beats a drawing every time.</p>
+          <div class="tags"><span class="chip">Template 5</span><span class="chip">42 s</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-07">Oct 7, 2026</time>
+        <div class="entry-body">
+          <h2>A render server, and a library of pictures</h2>
+          <p>The app can now start a real render. A server runs the nine stages, from preflight to delivery, and streams each step back to the plan's window. It is one machine with no accounts yet, which is exactly what is left to build.</p>
+          <p>The same day the picture library arrived: thirteen backdrops, ten rooms and nine presenters, all generated for Framefly. Nobody in them exists, and the presenters are cut out, so any of them sits in any room.</p>
+          <div class="tags"><span class="chip">9 stages</span><span class="chip">32 pictures</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-07">Oct 7, 2026</time>
+        <div class="entry-body">
+          <h2>The app, rebuilt around a plan</h2>
+          <p>The storyboard step, the render page and the editor for finished videos are gone. In their place is one window per video: the script as a document, the picture as a canvas where everything is dragged, the settings, and a timeline to scale. It is where a video is planned, where it is generated, and where every later version is made.</p>
+          <p>One thing survived from the old editor, because it was the best part: pointing at the picture to say what should change.</p>
+          <div class="tags"><span class="chip">1 window</span><span class="chip">20 caption styles</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-06">Oct 6, 2026</time>
+        <div class="entry-body">
+          <h2>A launch video is not a demo</h2>
+          <p>Three templates in a day: Studio, Dynamic Demo and Launch Film. The third one started life under the wrong name. A film that walks through a product step by step is a demo, whatever the camera does.</p>
+          <p>A launch film argues. It starts from answers, not from a recording: who it is for, what today costs them in hours or money, one claim, three proofs, one action. The product is on screen for seconds, behind a sentence. Its music is written in code, so it is cut to the picture.</p>
+          <div class="tags"><span class="chip">3 templates</span><span class="chip">12 questions before the film</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-10-05">Oct 5, 2026</time>
+        <div class="entry-body">
+          <h2>The first template, measured before it was built</h2>
+          <p>Mac Demo copies the look of the best desktop screen recordings, so 17 reference videos were measured first: two camera states and nothing in between, a spring near 7 rad/s on zoom and position together, a pointer more than three times the system size.</p>
+          <p>Then the render was put through the same instrument. Reference zoom 2.25, ours 2.25. Reference spring 6.6 to 7.0 rad/s, ours 7.05. The first film of a live site took 2 minutes to explore, 22 to film and 5 to render.</p>
+          <div class="tags"><span class="chip">2.25x</span><span class="chip">7 rad/s</span><span class="chip">Measured</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-28">Sep 28, 2026</time>
+        <div class="entry-body">
+          <h2>It's called Framefly now</h2>
+          <p>The working name had to go. Framefly is what the product does: an agent that moves through your app like a fly on the wall, and turns what it sees into frames. The key-light lime the interface was already built around turned out to be the colour of a firefly.</p>
+          <p>The new mark is a viewfinder locked on a subject, with its flight path drawn as onion-skinned frames. Same day: a launch date, October 28, and this site.</p>
+          <div class="tags"><span class="chip">Brand</span><span class="chip">Launch date</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-25">Sep 25, 2026</time>
+        <div class="entry-body">
+          <h2>Why Framefly doesn't screen-record</h2>
+          <p>The same 20-second scenario was captured five ways. Every real-time method stuttered: 20 to 34 unique frames per second, with freezes of up to 0.9 seconds, because the browser renders and encodes on the same CPU the page needs. Real-time capture also quietly dropped 2x density back to 1x.</p>
+          <p>Frame-by-frame capture fixed it: virtual clocks and one rendered frame per 1/60 s of page time gave 55 unique frames per second, no freeze longer than one frame, and true 3200x1800 frames. The first attempt came out with a blank main area, because CSS animations froze with the clock. The fix steps every running animation forward on each frame.</p>
+          <div class="tags"><span class="chip">55 fps vs 20</span><span class="chip">17 ms vs 933 ms</span><span class="chip">Measured</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-25">Sep 25, 2026</time>
+        <div class="entry-body">
+          <h2>The agent's first real exploration</h2>
+          <p>Pointed at the Framefly interface itself, the agent mapped six screens, ranked them by importance, and wrote a six-section plan of about 46 seconds with voice-over lines and more than 40 replayable steps. It took 5 minutes 39 seconds.</p>
+          <p>Along the way it found two of its own broken selectors by replaying its plan, and fixed them. It refused every destructive or financial button and listed each one. Its weak spot: it walked back and forth between screens instead of one continuous path, which wastes camera time.</p>
+          <div class="tags"><span class="chip">5 min 39 s</span><span class="chip">6 screens</span><span class="chip">Guardrails held</span></div>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <time datetime="2026-09-25">Sep 25, 2026</time>
+        <div class="entry-body">
+          <h2>Timing comes from real speech</h2>
+          <p>Plans first assumed narration at 150 words a minute. Real synthesized speech ran at about 190. So section lengths now come from the generated audio, never from an estimate, and the voice is generated before a single frame is filmed.</p>
+          <p>The voice leaderboards also moved this year, so the provider will be picked by ear: the same six lines through four candidates, labels hidden.</p>
+          <div class="tags"><span class="chip">190 wpm</span><span class="chip">Research</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+{{block:closing}}

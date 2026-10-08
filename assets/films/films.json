@@ -1,0 +1,42 @@
+{
+  "launch-continuous": {
+    "seconds": 13.8,
+    "filmSeconds": 42,
+    "full": false,
+    "sound": true,
+    "w": 1920,
+    "h": 1080
+  },
+  "launch-film": {
+    "seconds": 13.8,
+    "filmSeconds": 40,
+    "full": false,
+    "sound": true,
+    "w": 1920,
+    "h": 1080
+  },
+  "mac-demo": {
+    "seconds": 7.6,
+    "filmSeconds": 44,
+    "full": false,
+    "sound": false,
+    "w": 1662,
+    "h": 1080
+  },
+  "studio": {
+    "seconds": 7.6,
+    "filmSeconds": 44,
+    "full": false,
+    "sound": false,
+    "w": 1920,
+    "h": 1080
+  },
+  "dynamic-demo": {
+    "seconds": 11.8,
+    "filmSeconds": 59,
+    "full": false,
+    "sound": false,
+    "w": 1920,
+    "h": 1080
+  }
+}

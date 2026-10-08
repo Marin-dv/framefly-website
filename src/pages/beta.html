@@ -1,0 +1,111 @@
+<!--
+title: Framefly beta: film your app before launch day
+description: Apply for the Framefly beta. A small group of apps get their demo videos before launch day, for free, working directly with the maker.
+priority: 0.8
+-->
+
+<section class="page-head">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Get your app filmed before launch day.</h1>
+    <p class="lead">A small group of real apps is being filmed before <span data-launch-date>October 28</span>. In film, a test screening shows the cut to a real audience before release. This is that, for the tool itself.</p>
+  </div>
+</section>
+
+<section class="section flush-top">
+  <div class="wrap split" style="align-items:start">
+    <div class="split-copy reveal">
+      <div class="ticket" aria-hidden="true" style="margin:8px 0 26px">
+        <div class="ticket-main">
+          <span class="label">Test screening</span>
+          <b>Admit one app</b>
+          <div class="ticket-rows"><div><span>Venue</span><strong>Your app</strong></div><div><span>Seat</span><strong>Beta</strong></div><div><span>Before</span><strong data-launch-date>October 28</strong></div></div>
+        </div>
+        <div class="ticket-stub"><b>01</b><span>Free during<br>the beta</span></div>
+      </div>
+      <div class="rows" style="width:100%">
+        <div class="row"><b>Your videos, free</b><p>Full quality, no watermark, every format, for as long as the beta runs.</p></div>
+        <div class="row"><b>A direct line to the maker</b><p>You talk to the person building Framefly, not a support queue. Your feedback decides what ships first.</p></div>
+        <div class="row"><b>In before everyone else</b><p>Your account is ready on launch day, with your app already connected.</p></div>
+      </div>
+      <h3 style="margin-top:14px">Who it is for</h3>
+      <ul class="checks" style="grid-template-columns:1fr">
+        <li>{{icon:check-bold}}<span>A web app that is live, or close to it</span></li>
+        <li>{{icon:check-bold}}<span>A demo account Framefly can sign into, or one you can create</span></li>
+        <li>{{icon:check-bold}}<span>A reason to need a video soon: a launch, a Product Hunt day, an onboarding flow</span></li>
+      </ul>
+      <p class="muted" style="font-size:15px">Chrome extensions and Framer plugins are welcome too. They run in beta modes, so expect a few rough edges.</p>
+    </div>
+
+    <div class="card reveal" style="padding:clamp(22px,3vw,36px);border-radius:var(--r-panel)" id="apply">
+      <form data-form="beta" data-done="beta-done" style="display:grid;gap:22px">
+        <div>
+          <h2 style="font-size:1.8rem">Apply for the beta</h2>
+          <p class="muted" style="margin-top:6px">Two minutes. You hear back within a few days.</p>
+        </div>
+        <div class="field">
+          <label class="field-label" for="b-email">Work email</label>
+          <input class="control" id="b-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@yourapp.com" data-required="email" data-well="email" data-msg="Add your email so we can reply.">
+          <p class="error-text" data-err="email" hidden>{{icon:warning}}<span></span></p>
+        </div>
+        <div class="field">
+          <label class="field-label" for="b-name">Name <small>optional</small></label>
+          <input class="control" id="b-name" name="name" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label class="field-label" for="b-url">Your app's address</label>
+          <input class="control" id="b-url" name="app_url" type="text" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="app.yourproduct.com" data-required="app_url" data-well="app_url" data-msg="Add the address of the app you'd like filmed.">
+          <p class="help">The login page or the app itself. Localhost is fine, we use a tunnel.</p>
+          <p class="error-text" data-err="app_url" hidden>{{icon:warning}}<span></span></p>
+        </div>
+        <fieldset data-required="runtime" data-msg="Pick what kind of product it is.">
+          <legend class="field-label">What is it?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="runtime" value="web"><span>Web app</span></label>
+            <label class="choice"><input type="radio" name="runtime" value="chrome"><span>Chrome extension</span></label>
+            <label class="choice"><input type="radio" name="runtime" value="framer"><span>Framer plugin</span></label>
+            <label class="choice"><input type="radio" name="runtime" value="other"><span>Something else</span></label>
+          </div>
+          <p class="error-text" data-err="runtime" hidden>{{icon:warning}}<span></span></p>
+        </fieldset>
+        <fieldset>
+          <legend class="field-label">Which videos do you need? <small>pick any</small></legend>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="videos" value="launch"><span>Launch video</span></label>
+            <label class="choice"><input type="checkbox" name="videos" value="product-hunt"><span>Product Hunt</span></label>
+            <label class="choice"><input type="checkbox" name="videos" value="onboarding"><span>Onboarding</span></label>
+            <label class="choice"><input type="checkbox" name="videos" value="changelog"><span>Changelog</span></label>
+            <label class="choice"><input type="checkbox" name="videos" value="store"><span>Store listing</span></label>
+            <label class="choice"><input type="checkbox" name="videos" value="social"><span>Social clips</span></label>
+          </div>
+        </fieldset>
+        <div class="duo">
+          <div class="field">
+            <label class="field-label" for="b-when">When do you ship?</label>
+            <select class="control" id="b-when" name="ship"><option value="live">Already live</option><option value="month" selected>This month</option><option value="quarter">In the next 3 months</option><option value="later">Later</option></select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="b-demo">A demo account?</label>
+            <select class="control" id="b-demo" name="demo_account"><option value="ready">Ready to go</option><option value="can-make" selected>I can make one</option><option value="unsure">Not sure how</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="b-note">Anything we should know? <small>optional</small></label>
+          <textarea class="control" id="b-note" name="note" rows="3"></textarea>
+        </div>
+        <p class="error-text" data-form-error hidden>{{icon:warning}}<span>That didn't go through. Check your connection and send it again. Nothing was lost.</span></p>
+        <div aria-hidden="true" style="position:absolute;left:-9999px"><input name="company" tabindex="-1" autocomplete="off"></div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <button class="btn btn-primary btn-lg" type="submit">Send application</button>
+          <p class="help" style="flex:1;min-width:220px">We only use this to pick beta apps and reply to you. See the <a class="link" href="privacy.html">privacy policy</a>.</p>
+        </div>
+      </form>
+      <div id="beta-done" hidden tabindex="-1" role="status" style="display:grid;gap:14px;justify-items:start">
+        <span class="chip chip-accent">{{icon:check-circle}}Received</span>
+        <h2 style="font-size:1.8rem">Application received.</h2>
+        <p class="muted">Thanks. We reply to <span data-echo-email></span> within a few days. If your app is picked, the next email has a short checklist to get the demo account ready.</p>
+        <a class="arrow-link" href="product.html">Meanwhile, see how it works {{icon:arrow-right}}</a>
+      </div>
+    </div>
+  </div>
+</section>

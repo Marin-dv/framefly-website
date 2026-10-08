@@ -5,14 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Framefly terms and legal notice</title>
 <meta name="description" content="Terms for the Framefly website, the launch list and the beta, and the legal notice.">
+
 <link rel="canonical" href="https://framefly.app/terms.html">
-<meta name="robots" content="noindex">
-<!-- @head -->
-<meta name="theme-color" content="#09090a">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Framefly terms and legal notice">
+<meta property="og:description" content="Terms for the Framefly website, the launch list and the beta, and the legal notice.">
+<meta property="og:url" content="https://framefly.app/terms.html">
 <meta property="og:site_name" content="Framefly">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://framefly.app/assets/img/og.png">
@@ -20,121 +17,133 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@MarindeVanssay">
-<link rel="stylesheet" href="assets/css/fonts.css">
+<meta name="theme-color" content="#f3f3f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141518" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
-<script>document.documentElement.classList.add("js")</script>
-<!-- /@head -->
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
+
 </head>
-<body>
-<!-- @nav -->
+<body class="page-terms">
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+  <div class="nav-bar">
+    <a class="brand" href="index.html" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
     <nav class="nav-links" aria-label="Main">
-      <a href="product.html">Product</a>
-      <a href="styles.html">Styles</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
-      <a href="log.html">Log</a>
+      <a href="product.html" class="nav-link">Product</a>
+      <a href="templates.html" class="nav-link">Templates</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="security.html" class="nav-link">Security</a>
+      <a href="log.html" class="nav-link">Log</a>
     </nav>
     <div class="nav-end">
-      <a class="nav-count" href="index.html#premiere"><span class="firefly" aria-hidden="true"></span><span class="lbl" data-when-waiting>Launch in</span><b data-cd-chip>soon</b></a>
-      <a class="btn btn-primary btn-sm" href="beta.html">Apply for the beta</a>
-      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list"></use></svg></button>
+      <a class="nav-count" href="index.html#launch" data-when-waiting><span>Launch in</span><b data-cd-chip>20 days</b></a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"></use></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"></use></svg></button>
+      <a class="btn btn-primary btn-sm nav-cta" href="beta.html" data-when-waiting>Apply for the beta</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="https://app.framefly.app" data-when-live data-app-link hidden>Make your first video</a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-list"></use></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-x"></use></svg></button>
     </div>
   </div>
   <div class="menu" id="menu" hidden>
     <a href="product.html">Product<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-    <a href="styles.html">Styles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="templates.html">Templates<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-    <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta</a>
+    <a class="btn btn-primary btn-lg" href="beta.html" data-when-waiting>Apply for the beta</a>
+    <a class="btn btn-primary btn-lg" href="https://app.framefly.app" data-when-live data-app-link hidden>Make your first video</a>
   </div>
 </header>
-<!-- /@nav -->
-
 <main id="main">
-  <header class="page-head wrap wrap-narrow" style="margin-inline:auto">
+<section class="page-head">
+  <div class="wrap">
     <h1>Terms and legal notice</h1>
-    <p class="updated">Last updated: September 28, 2026</p>
-  </header>
+    <p class="muted">Last updated: October 9, 2026</p>
+  </div>
+</section>
 
-  <article class="wrap wrap-narrow prose" style="margin-inline:auto;padding-bottom:120px">
-    <p class="note">These terms cover this website, the launch list and the beta. The Framefly product has its own terms of service, published before launch day and accepted when you create an account.</p>
+<section class="section flush-top">
+  <div class="wrap">
+    <div class="prose">
+      <p>These terms cover this website, the launch list and the beta. The Framefly product has its own terms of service, published before launch day and accepted when you create an account.</p>
 
-    <h2>1. Legal notice</h2>
-    <ul>
-      <li><strong>Publisher:</strong> Marin de Vanssay, sole trader (entrepreneur individuel), trading as Vanssay. SIREN 107 304 735, France.</li>
-      <li><strong>Contact:</strong> <a data-contact href="mailto:support@framefly.app">support@framefly.app</a></li>
-      <li><strong>Publication director:</strong> Marin de Vanssay</li>
-      <li><strong>Host:</strong> GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States (GitHub Pages).</li>
-    </ul>
+      <h2>1. Legal notice</h2>
+      <ul>
+        <li>Publisher: Marin de Vanssay, sole trader (entrepreneur individuel), trading as Vanssay. SIREN 107 304 735, France.</li>
+        <li>Contact: <a data-contact href="mailto:support@framefly.app">support@framefly.app</a></li>
+        <li>Publication director: Marin de Vanssay</li>
+        <li>Host: GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States (GitHub Pages).</li>
+      </ul>
 
-    <h2>2. About this website</h2>
-    <p>This site presents a product that hasn't launched yet. It describes how Framefly is designed to work, and the screens shown are from the product's interface. Features, limits, dates and prices may change before or after launch. The trailer on the home page is a preview built from the interface, not a video produced by Framefly.</p>
-    <p>Prices are shown in US dollars, excluding taxes, and are beta prices. Nothing on this site is an offer you can accept here.</p>
+      <h2>2. About this website</h2>
+      <p>This site presents a product that hasn't launched yet. It describes how Framefly is designed to work, and the screens shown are from the product's interface. Features, limits, dates and prices may change before or after launch. The films on this site were produced by Framefly's own pipeline during development, from one app: Instagram Feed, another product by the same publisher. Some are shown as excerpts.</p>
+      <p>Prices are shown in US dollars, excluding taxes, and are beta prices. Nothing on this site is an offer you can accept here.</p>
 
-    <h2>3. The launch list</h2>
-    <p>Signing up means we send you one email when Framefly launches. You can ask to be removed at any time, and every email has a one-click unsubscribe link.</p>
+      <h2>3. The launch list</h2>
+      <p>Signing up means we send you one email when Framefly launches. You can ask to be removed at any time, and every email has a one-click unsubscribe link.</p>
 
-    <h2>4. The beta</h2>
-    <p>Applying doesn't guarantee a place. If your app is picked:</p>
-    <ul>
-      <li>Videos made during the beta are free and yours to use, including commercially.</li>
-      <li>The product is unfinished. Things can break, change or be reset, and we may pause or end the beta at any time.</li>
-      <li>You give Framefly access to a demo account, never a production account with real customer data. You confirm you have the right to let Framefly access the app you connect.</li>
-      <li>Feedback you share can be used to improve Framefly, without payment or obligation.</li>
-      <li>We won't use your app, your videos or your name in public, for example as a showcase, without asking you first.</li>
-    </ul>
+      <h2>4. The beta</h2>
+      <p>Applying doesn't guarantee a place. If your app is picked:</p>
+      <ul>
+        <li>Videos made during the beta are free and yours to use, including commercially.</li>
+        <li>The product is unfinished. Things can break, change or be reset, and we may pause or end the beta at any time.</li>
+        <li>You give Framefly access to a demo account, never a production account with real customer data. You confirm you have the right to let Framefly access the app you connect.</li>
+        <li>Feedback you share can be used to improve Framefly, without payment or obligation.</li>
+        <li>We won't use your app, your videos or your name in public, for example as a showcase, without asking you first.</li>
+      </ul>
 
-    <h2>5. Pre-orders</h2>
-    <p>If a pre-order is offered, it reserves one launch credit for $29. It is paid through Stripe and refundable in full on request until your first video is delivered, or automatically if Framefly doesn't launch. The credit is added to your account on launch day and doesn't expire.</p>
+      <h2>5. Pre-orders</h2>
+      <p>If a pre-order is offered, it reserves one launch credit for $29. It is paid through Stripe and refundable in full on request until your first video is delivered, or automatically if Framefly doesn't launch. The credit is added to your account on launch day and doesn't expire.</p>
 
-    <h2>6. Intellectual property</h2>
-    <p>The Framefly name, logo, website design and text belong to the publisher. The Geist and Geist Mono typefaces are used under the SIL Open Font License, and icons come from Phosphor under the MIT license. Names of other companies and products belong to their owners and are used only to describe compatibility.</p>
+      <h2>6. Intellectual property</h2>
+      <p>The Framefly name, logo, website design and text belong to the publisher. The Gabarito, Geist and Geist Mono typefaces are used under the SIL Open Font License, and icons come from Phosphor under the MIT license. The presenters, rooms and backdrops shown are generated pictures: nobody in them exists. Names of other companies and products belong to their owners and are used only to describe compatibility.</p>
 
-    <h2>7. Liability</h2>
-    <p>This site is provided as is. To the extent the law allows, we aren't liable for indirect loss arising from using it. Nothing in these terms limits your rights as a consumer.</p>
+      <h2>7. Liability</h2>
+      <p>This site is provided as is. To the extent the law allows, we aren't liable for indirect loss arising from using it. Nothing in these terms limits your rights as a consumer.</p>
 
-    <h2>8. Law</h2>
-    <p>These terms are governed by French law. If you are a consumer, the mandatory rules of your country of residence still protect you, and you can use the EU <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">online dispute resolution platform</a>.</p>
-  </article>
+      <h2>8. Law</h2>
+      <p>These terms are governed by French law. If you are a consumer, the mandatory rules of your country of residence still protect you, and you can use the EU online dispute resolution platform.</p>
+    </div>
+  </div>
+</section>
 </main>
-
-<!-- @footer -->
 <footer class="footer">
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="index.html" aria-label="Framefly home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
-        <p>Prompt in. Demo video out. Launching <span data-launch-date>October 28</span>, made in France by Vanssay.</p>
+        <a class="brand" href="index.html" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+        <p>Prompt in. Demo video out. <span data-when-waiting>Launching <span data-launch-date>October 28</span>.</span> Made in France by Vanssay.</p>
       </div>
-      <div class="foot-col">
-        <h4>Product</h4>
-        <ul><li><a href="product.html">How it works</a></li><li><a href="styles.html">Styles</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="security.html">Security</a></li><li><a href="beta.html">Beta</a></li></ul>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <ul><li><a href="about.html">About</a></li><li><a href="log.html">Production log</a></li><li><a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a></li><li><a data-contact href="mailto:support@framefly.app">support@framefly.app</a></li></ul>
-      </div>
-      <div class="foot-col">
-        <h4>Legal</h4>
-        <ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
-      </div>
+      <nav class="foot-col" aria-label="Product">
+        <h2>Product</h2>
+        <a href="product.html">How it works</a>
+        <a href="templates.html">Templates</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="security.html">Security</a>
+        <a href="beta.html">Beta</a>
+      </nav>
+      <nav class="foot-col" aria-label="Company">
+        <h2>Company</h2>
+        <a href="about.html">About</a>
+        <a href="log.html">Production log</a>
+        <a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a>
+        <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>
+      </nav>
+      <nav class="foot-col" aria-label="Legal">
+        <h2>Legal</h2>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
-    <div class="vanssay">
-      <div class="vanssay-head"><b>More from Vanssay</b><span>Plugins for Framer sites, from the same maker.</span></div>
-      <div class="products">
-        <a class="product" href="https://vanssay.net/reviews.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"></use></svg></span><b>Reviews</b><small>Google and Trustpilot reviews with one combined rating.</small></a>
-        <a class="product" href="https://vanssay.net/instagram.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-instagram-logo"></use></svg></span><b>Instagram Feed</b><small>Your live Instagram feed, synced on its own.</small></a>
-        <a class="product" href="https://vanssay.net/geoblock.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-slash"></use></svg></span><b>Bouncer</b><small>Block countries and VPN traffic on your site.</small></a>
-        <a class="product" href="https://vanssay.net/router.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signpost"></use></svg></span><b>Router</b><small>Send visitors to the right page by country or language.</small></a>
-        <a class="product" href="https://vanssay.net/maintenance.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-wrench"></use></svg></span><b>Maintenance Mode</b><small>A maintenance page you switch on live.</small></a>
-        <a class="product" href="https://vanssay.net/google-reviews-live.html" target="_blank" rel="noopener"><span class="ic"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-google-logo"></use></svg></span><b>Google Reviews Live</b><small>Live Google reviews, one-time purchase.</small></a>
-      </div>
+    <div class="foot-vanssay">
+      <p><b>More from Vanssay.</b> Plugins for Framer sites, from the same maker.</p>
+      <div class="products"><a class="product" href="https://vanssay.net/reviews.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"></use></svg><b>Reviews</b><span>Google and Trustpilot reviews with one combined rating.</span></a><a class="product" href="https://vanssay.net/instagram.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-instagram-logo"></use></svg><b>Instagram Feed</b><span>Your live Instagram feed, synced on its own.</span></a><a class="product" href="https://vanssay.net/geoblock.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-shield-slash"></use></svg><b>Bouncer</b><span>Block countries and VPN traffic on your site.</span></a><a class="product" href="https://vanssay.net/router.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-signpost"></use></svg><b>Router</b><span>Send visitors to the right page by country or language.</span></a><a class="product" href="https://vanssay.net/maintenance.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-wrench"></use></svg><b>Maintenance Mode</b><span>A maintenance page you switch on live.</span></a><a class="product" href="https://vanssay.net/google-reviews-live.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-google-logo"></use></svg><b>Google Reviews Live</b><span>Live Google reviews, one-time purchase.</span></a></div>
     </div>
     <div class="foot-bottom">
       <span>&copy; <span data-year>2026</span> Framefly. Made by Marin de Vanssay.</span>
@@ -142,10 +151,8 @@
     </div>
   </div>
 </footer>
-<!-- /@footer -->
-<!-- @scripts -->
-<script src="assets/js/config.js"></script>
-<script src="assets/js/site.js"></script>
-<!-- /@scripts -->
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /tools/
-Disallow: /partials/
+Disallow: /src/
 
 Sitemap: https://framefly.app/sitemap.xml
