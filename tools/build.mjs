@@ -131,7 +131,7 @@ ${kind === "article" ? `<meta property="article:published_time" content="${meta.
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
-<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="dark")t="light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
 ${meta.head ?? ""}
 ${meta.ld ?? ""}${meta.robots?.includes("noindex") ? "" : faqOf(inner)}`;
 

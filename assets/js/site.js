@@ -29,7 +29,7 @@
     new IntersectionObserver(function (es) { es.forEach(function (e) { fn(e.isIntersecting, e); }); }, opts || { threshold: 0.25 }).observe(el);
   };
 
-  /* ───────── Theme: the visitor's choice, else the system's ───────── */
+  /* ───────── Theme: light, unless the visitor chose dark ───────── */
   $$("[data-theme-toggle]").forEach(function (b) {
     var label = function () { b.setAttribute("aria-label", root.getAttribute("data-theme") === "dark" ? "Switch to the light theme" : "Switch to the dark theme"); };
     label();
@@ -40,15 +40,6 @@
       label();
     });
   });
-  if (window.matchMedia) {
-    var mq = window.matchMedia("(prefers-color-scheme: dark)");
-    var follow = function (e) {
-      var saved = null;
-      try { saved = localStorage.getItem("framefly.site.theme"); } catch (x) {}
-      if (!saved) root.setAttribute("data-theme", e.matches ? "dark" : "light");
-    };
-    if (mq.addEventListener) mq.addEventListener("change", follow);
-  }
 
   /* ───────── Countdown, and what changes on launch day ───────── */
   function remaining() {
@@ -326,6 +317,72 @@
     }, { rootMargin: "-35% 0px -60% 0px" });
     Object.keys(map).forEach(function (id) { tio.observe(document.getElementById(id)); });
   }
+
+  /* ───────── Pointer dot: follows the pointer, swells over what can be pressed ───────── */
+  var fine = window.matchMedia && !window.matchMedia("(pointer: coarse)").matches;
+  if (fine) {
+    var dot = document.createElement("div");
+    dot.className = "cursor";
+    dot.setAttribute("aria-hidden", "true");
+    document.body.appendChild(dot);
+    var shown = false;
+    document.addEventListener("mousemove", function (e) {
+      if (!shown) { document.body.classList.add("cursor-on"); shown = true; }
+      dot.style.left = e.clientX + "px";
+      dot.style.top = e.clientY + "px";
+    });
+    document.addEventListener("mouseover", function (e) {
+      dot.classList.toggle("grow", !!(e.target.closest && e.target.closest("[data-hover], a, button, summary, input, select, textarea, label")));
+    });
+    document.documentElement.addEventListener("mouseleave", function () { document.body.classList.remove("cursor-on"); shown = false; });
+  }
+
+  /* ───────── The buttons that matter: letters that roll, ink from where the pointer came in, a pull toward it ───────── */
+  $$(".btn-primary").forEach(function (b) {
+    if (!reduce) {
+      Array.prototype.slice.call(b.childNodes).forEach(function (n) {
+        var text = n.nodeType === 3 ? n.nodeValue.trim() : "";
+        if (!text) return;
+        var roll = document.createElement("span"), sr = document.createElement("span");
+        roll.className = "roll";
+        roll.setAttribute("aria-hidden", "true");
+        text.split("").forEach(function (c, i) {
+          var ch = document.createElement("span");
+          ch.className = "ch";
+          ch.style.setProperty("--i", i);
+          ch.setAttribute("data-c", c === " " ? "\u00a0" : c);
+          ch.textContent = c === " " ? "\u00a0" : c;
+          roll.appendChild(ch);
+        });
+        sr.className = "sr-only";
+        sr.textContent = text;
+        b.replaceChild(roll, n);
+        b.insertBefore(sr, roll);
+      });
+    }
+    var from = function (e) {
+      var r = b.getBoundingClientRect();
+      b.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      b.style.setProperty("--my", (e.clientY - r.top) + "px");
+    };
+    b.addEventListener("pointerenter", from);
+    if (!fine || reduce) return;
+    b.addEventListener("pointermove", function (e) {
+      // measured without the pull, or the button would chase itself
+      var r = b.getBoundingClientRect(), tx = parseFloat(b.style.getPropertyValue("--tx")) || 0, ty = parseFloat(b.style.getPropertyValue("--ty")) || 0;
+      var x = e.clientX - (r.left - tx) - r.width / 2, y = e.clientY - (r.top - ty) - r.height / 2;
+      b.setAttribute("data-pull", "");
+      b.style.setProperty("--tx", (x * 0.16).toFixed(1) + "px");
+      b.style.setProperty("--ty", (y * 0.28).toFixed(1) + "px");
+    });
+    b.addEventListener("pointerleave", function (e) {
+      from(e);
+      b.removeAttribute("data-pull");
+      b.style.setProperty("--tx", "0px");
+      b.style.setProperty("--ty", "0px");
+    });
+    FF.onView(b, function (inView) { b.classList.toggle("in-view", inView); }, { threshold: 0.9 });
+  });
 
   /* ───────── Small things ───────── */
   $$("[data-year]").forEach(function (y) { y.textContent = new Date().getFullYear(); });
