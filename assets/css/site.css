@@ -1132,3 +1132,4 @@ main .capture-row .btn-primary { height: 44px; padding: 0 20px; font-size: 11.5p
 .frame-hand img { width: 30px; height: 30px; transition: transform 0.2s var(--ease-bounce); filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.35)); }
 .frame-hand.grab img { transform: scale(0.88); }
 .frame-hand span { margin: 22px 0 0 4px; padding: 5px 10px; border-radius: 999px; background: var(--accent); color: var(--lime-ink); font: 600 10.5px/1 var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; box-shadow: inset 0 0 0 1.5px var(--lime-ink); }
+.closing-logo { margin-bottom: clamp(22px, 3vw, 40px); }

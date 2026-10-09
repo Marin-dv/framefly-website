@@ -197,6 +197,7 @@ ${group("Demo", "Demos", "A demo shows. Framefly walks through your app click by
   /** The last section of most pages: the countdown, and the one email. */
   closing: (c) => `<section class="closing night closing-band" id="launch">
   <div class="wrap closing" style="padding-block:0">
+    <div class="closing-logo" data-logo3d data-size="120" data-interactive data-shadow></div>
     <div data-when-waiting style="display:grid;gap:22px;justify-items:center">
       <span class="rec"><i></i>Launch day in</span>
       <div class="timecode" role="timer" aria-live="off"><div><b data-cd="d">00</b><span>Days</span></div><i>:</i><div><b data-cd="h">00</b><span>Hours</span></div><i>:</i><div><b data-cd="m">00</b><span>Min</span></div><i>:</i><div><b data-cd="s">00</b><span>Sec</span></div></div>
