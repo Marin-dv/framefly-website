@@ -213,5 +213,69 @@
       });
     });
     render();
+
+    // a hand that drags the window and the caption once, so it is clear the picture can be moved; any touch of yours ends it
+    (function () {
+      if (FF.reduce) return;
+      var hand = document.createElement("div");
+      hand.className = "frame-hand";
+      hand.setAttribute("aria-hidden", "true");
+      hand.innerHTML = '<img src="assets/img/cursors/hand.svg" alt="" width="30" height="30"><span>Drag anything</span>';
+      frame.appendChild(hand);
+      var stopped = false, started = false, timers = [], raf = 0;
+      var wait = function (ms, fn) { timers.push(setTimeout(fn, ms)); };
+      var ease = function (t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+      var at = function (x, y) { hand.style.left = x * 100 + "%"; hand.style.top = y * 100 + "%"; };
+      function glide(from, to, ms, step, done) {
+        var t0 = performance.now();
+        (function f(t) {
+          if (stopped) return;
+          var p = Math.min(1, (t - t0) / ms), e = ease(p);
+          var x = from[0] + (to[0] - from[0]) * e, y = from[1] + (to[1] - from[1]) * e;
+          at(x, y); if (step) step(x, y);
+          if (p < 1) raf = requestAnimationFrame(f); else done();
+        })(t0);
+      }
+      function stop() {
+        if (stopped) return;
+        stopped = true;
+        timers.forEach(clearTimeout); cancelAnimationFrame(raf);
+        hand.classList.remove("on");
+        Object.keys(items).forEach(function (k) { items[k].classList.remove("picked"); });
+        if (started) { s.boxes = {}; Object.keys(items).forEach(place); }
+      }
+      box.addEventListener("pointerdown", stop, true);
+      box.addEventListener("keydown", stop, true);
+      // drag one thing along a path and put it back
+      function move(id, dx, dy, done) {
+        var b = boxOf(id), from = [b.x, b.y], to = [b.x + dx, b.y + dy];
+        hand.classList.add("on"); at(from[0] + 0.12, from[1] - 0.16);
+        glide([from[0] + 0.12, from[1] - 0.16], from, 800, null, function () {
+          items[id].classList.add("picked"); hand.classList.add("grab");
+          wait(250, function () {
+            var put = function (x, y) { (s.boxes[s.format] = s.boxes[s.format] || {})[id] = { x: x, y: y, w: b.w }; place(id); };
+            glide(from, to, 1000, put, function () {
+              wait(350, function () {
+                glide(to, from, 900, put, function () {
+                  hand.classList.remove("grab"); items[id].classList.remove("picked");
+                  if (s.boxes[s.format]) delete s.boxes[s.format][id];
+                  place(id);
+                  wait(250, done);
+                });
+              });
+            });
+          });
+        });
+      }
+      FF.onView(frame, function (inView) {
+        if (!inView || started || stopped) return;
+        started = true;
+        wait(900, function () {
+          move("app", 0.1, -0.07, function () {
+            move("captions", -0.22, -0.2, function () { hand.classList.remove("on"); started = false; stopped = true; });
+          });
+        });
+      }, { threshold: 0.6 });
+    })();
   });
 })();
