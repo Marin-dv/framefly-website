@@ -76,7 +76,7 @@
   }
   function onScroll() {
     if (!st || !st.classList.contains("live")) return;
-    var vh = window.innerHeight, r = st.getBoundingClientRect(), p = Math.min(1, Math.max(0, (vh * 0.88 - r.top) / (vh * 0.62))), n = Math.ceil(p * wds.length);
+    var vh = window.innerHeight, r = st.getBoundingClientRect(), p = Math.min(1, Math.max(0, (vh * 0.55 - r.top) / (r.height + vh * 0.15))), n = Math.ceil(p * wds.length);
     wds.forEach(function (w, i) { w.classList.toggle("on", i < n); });
   }
   var ticking = false;
