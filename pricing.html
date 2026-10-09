@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-root="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Framefly pricing: one credit, one video</title>
 <meta name="description" content="Your first video is free. Then pay per video with credits that never expire, from $29, or subscribe to Pro or Studio. A credit is only charged when a video is delivered.">
-
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://framefly.app/pricing.html">
 <meta property="og:title" content="Framefly pricing: one credit, one video">
 <meta property="og:description" content="Your first video is free. Then pay per video with credits that never expire, from $29, or subscribe to Pro or Studio. A credit is only charged when a video is delivered.">
@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://framefly.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@MarindeVanssay">
 <meta name="theme-color" content="#f3f3f4" media="(prefers-color-scheme: light)">
@@ -23,11 +24,13 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Framefly articles" href="articles/feed.xml">
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
 
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happens if a video fails?","acceptedAnswer":{"@type":"Answer","text":"A credit is held when you generate and charged only at delivery. If the video fails for any reason, or you stop it, the held credit goes straight back to your balance. You never pay for a video that was not delivered."}},{"@type":"Question","name":"Do unused credits expire?","acceptedAnswer":{"@type":"Answer","text":"Pack credits never expire. Plan credits roll over up to twice your monthly amount, then the oldest expire."}},{"@type":"Question","name":"What counts as a revision?","acceptedAnswer":{"@type":"Answer","text":"Any targeted change after delivery: filming a section again, a new voice, new captions. Ten are included with each video. Sections the checks flagged are always free to fix."}},{"@type":"Question","name":"Why is the trial one video per app?","acceptedAnswer":{"@type":"Answer","text":"Every video costs real compute and AI time to make. The free video is limited to one per app domain, and sign-up is through Google or GitHub, so the trial can stay free for everyone."}},{"@type":"Question","name":"Can I cancel any time?","acceptedAnswer":{"@type":"Answer","text":"Yes. You keep your plan until the end of the period you paid for, and pack credits stay yours."}}]}</script>
 </head>
 <body class="page-pricing">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,6 +42,7 @@
       <a href="templates.html" class="nav-link">Templates</a>
       <a href="pricing.html" class="nav-link" aria-current="page">Pricing</a>
       <a href="security.html" class="nav-link">Security</a>
+      <a href="articles/" class="nav-link">Articles</a>
       <a href="log.html" class="nav-link">Log</a>
     </nav>
     <div class="nav-end">
@@ -54,6 +58,7 @@
     <a href="templates.html">Templates<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="articles/">Articles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a class="btn btn-primary btn-lg" href="beta.html" data-when-waiting>Apply for the beta</a>
@@ -245,6 +250,7 @@
       <nav class="foot-col" aria-label="Company">
         <h2>Company</h2>
         <a href="about.html">About</a>
+        <a href="articles/">Articles</a>
         <a href="log.html">Production log</a>
         <a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a>
         <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>
@@ -269,5 +275,6 @@
 <script src="assets/js/data.js" defer></script>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/pricing.js" defer></script>
+<script src="assets/js/track.js" defer></script>
 </body>
 </html>

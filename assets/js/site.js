@@ -5,6 +5,7 @@
   var D = window.FF_DATA || {};
   var LAUNCH = new Date(C.launchAt || "2026-10-28T07:01:00Z").getTime();
   var root = document.documentElement;
+  var ROOT = root.getAttribute("data-root") || ""; // "../" on a page in a folder (an article)
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -13,7 +14,7 @@
   FF.$ = $;
   FF.$$ = $$;
   FF.icon = function (name, cls) {
-    return '<svg class="icon' + (cls ? " " + cls : "") + '" aria-hidden="true"><use href="assets/img/icons.svg#i-' + name + '"></use></svg>';
+    return '<svg class="icon' + (cls ? " " + cls : "") + '" aria-hidden="true"><use href="' + ROOT + 'assets/img/icons.svg#i-' + name + '"></use></svg>';
   };
   var pad = function (n) { return n < 10 ? "0" + n : String(n); };
   var clock = function (s) { s = Math.max(0, s); return Math.floor(s / 60) + ":" + pad(Math.floor(s % 60)); };
@@ -184,7 +185,7 @@
   function fileOf(id, el) {
     var conn = navigator.connection || {};
     var small = conn.saveData || /2g|3g/.test(conn.effectiveType || "") || el.clientWidth * (window.devicePixelRatio || 1) < 1000;
-    return "assets/films/" + id + (small ? ".720" : ".1080") + ".mp4";
+    return ROOT + "assets/films/" + id + (small ? ".720" : ".1080") + ".mp4";
   }
   function Player(el) {
     var v = $("video", el), track = $("[data-track]", el), time = $("[data-time]", el), note = $("[data-note]", el), soundBtn = $("[data-sound-btn]", el);
@@ -258,7 +259,7 @@
         el.setAttribute("data-film", id);
         el.style.setProperty("--ar", t.film.w + " / " + t.film.h);
         v.muted = true;
-        v.poster = "assets/films/" + id + ".webp";
+        v.poster = ROOT + "assets/films/" + id + ".webp";
         v.removeAttribute("src");
         v.load();
         if (note) note.textContent = t.film.full ? "" : "Opening of a " + clock(t.film.filmSeconds) + " film";
@@ -311,7 +312,7 @@
   });
 
   /* ───────── Table of contents (product page) ───────── */
-  var toc = $(".toc");
+  var toc = $(".toc") || $(".rail-toc");
   if (toc && "IntersectionObserver" in window) {
     var links = $$("a", toc), map = {};
     links.forEach(function (a) { var s = document.querySelector(a.getAttribute("href")); if (s) map[s.id] = a; });

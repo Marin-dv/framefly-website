@@ -17,7 +17,9 @@ http
   .createServer((req, res) => {
     let p = decodeURIComponent(new URL(req.url, "http://x").pathname);
     if (p.endsWith("/")) p += "index.html";
-    const file = path.join(root, p);
+    let file = path.join(root, p);
+    // like GitHub Pages: /articles/name answers with articles/name.html
+    if (!path.extname(file) && fs.existsSync(file + ".html")) file += ".html";
     if (!file.startsWith(root)) return res.writeHead(403).end();
     fs.stat(file, (err, st) => {
       if (err || !st.isFile()) {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-root="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://framefly.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@MarindeVanssay">
 <meta name="theme-color" content="#f3f3f4" media="(prefers-color-scheme: light)">
@@ -23,6 +24,7 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Framefly articles" href="articles/feed.xml">
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
@@ -39,6 +41,7 @@
       <a href="templates.html" class="nav-link">Templates</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
       <a href="security.html" class="nav-link">Security</a>
+      <a href="articles/" class="nav-link">Articles</a>
       <a href="log.html" class="nav-link">Log</a>
     </nav>
     <div class="nav-end">
@@ -54,6 +57,7 @@
     <a href="templates.html">Templates<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="articles/">Articles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a class="btn btn-primary btn-lg" href="beta.html" data-when-waiting>Apply for the beta</a>
@@ -67,7 +71,7 @@
     <!-- signed out -->
     <div class="admin-login card" data-admin-login>
       <h1>Admin</h1>
-      <p class="muted">Who is on the launch list and who applied for the beta.</p>
+      <p class="muted">Who signed up, who visits, and where they come from.</p>
       <form data-admin-form novalidate>
         <div class="field">
           <label class="field-label" for="admin-password">Password</label>
@@ -82,37 +86,75 @@
     <div data-admin-app hidden>
       <div class="admin-head">
         <h1>Admin</h1>
+        <div class="seg" role="radiogroup" aria-label="Section">
+          <button type="button" role="radio" aria-checked="true" data-admin-view="signups">Signups</button>
+          <button type="button" role="radio" aria-checked="false" data-admin-view="traffic">Traffic</button>
+        </div>
         <button class="btn btn-secondary btn-sm" type="button" data-admin-out>Sign out</button>
       </div>
-
-      <div class="figures card admin-figures">
-        <a><b data-n="beta">0</b><span>beta applications</span></a>
-        <a><b data-n="betaNew">0</b><span>not looked at yet</span></a>
-        <a><b data-n="notify">0</b><span>on the launch list</span></a>
-        <a><b data-n="week">0</b><span>signups in the last 7 days</span></a>
-      </div>
-      <div class="admin-days card" data-admin-days aria-label="Signups per day, last 30 days"></div>
-
-      <div class="admin-bar">
-        <div class="seg" role="radiogroup" aria-label="List">
-          <button type="button" role="radio" aria-checked="true" data-admin-type="beta">Beta applications</button>
-          <button type="button" role="radio" aria-checked="false" data-admin-type="notify">Launch list</button>
-        </div>
-        <label class="sr-only" for="admin-q">Search</label>
-        <input class="control" id="admin-q" type="search" placeholder="Search email, app, note" data-admin-q>
-        <label class="sr-only" for="admin-status">Status</label>
-        <select class="control" id="admin-status" data-admin-status>
-          <option value="">Any status</option><option value="new">New</option><option value="contacted">Contacted</option><option value="accepted">Accepted</option><option value="declined">Declined</option>
-        </select>
-        <button class="btn btn-secondary btn-sm" type="button" data-admin-export><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-download-simple"></use></svg>Export CSV</button>
-      </div>
-
       <p class="error-text" data-admin-problem hidden><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-warning"></use></svg><span></span></p>
-      <div class="table-scroll"><table data-admin-table><thead></thead><tbody></tbody></table></div>
-      <p class="admin-empty muted" data-admin-empty hidden>Nobody yet.</p>
-      <div class="admin-more">
-        <span class="muted" data-admin-count></span>
-        <button class="btn btn-secondary btn-sm" type="button" data-admin-more hidden>Show more</button>
+
+      <!-- who signed up -->
+      <div data-view="signups">
+        <div class="figures card admin-figures">
+          <a><b data-n="beta">0</b><span>beta applications</span></a>
+          <a><b data-n="betaNew">0</b><span>not looked at yet</span></a>
+          <a><b data-n="notify">0</b><span>on the launch list</span></a>
+          <a><b data-n="week">0</b><span>signups in the last 7 days</span></a>
+        </div>
+        <div class="admin-days card" data-admin-days aria-label="Signups per day, last 30 days"></div>
+
+        <div class="admin-bar">
+          <div class="seg" role="radiogroup" aria-label="List">
+            <button type="button" role="radio" aria-checked="true" data-admin-type="beta">Beta applications</button>
+            <button type="button" role="radio" aria-checked="false" data-admin-type="notify">Launch list</button>
+          </div>
+          <label class="sr-only" for="admin-q">Search</label>
+          <input class="control" id="admin-q" type="search" placeholder="Search email, app, note" data-admin-q>
+          <label class="sr-only" for="admin-status">Status</label>
+          <select class="control" id="admin-status" data-admin-status>
+            <option value="">Any status</option><option value="new">New</option><option value="contacted">Contacted</option><option value="accepted">Accepted</option><option value="declined">Declined</option>
+          </select>
+          <button class="btn btn-secondary btn-sm" type="button" data-admin-export><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-download-simple"></use></svg>Export CSV</button>
+        </div>
+
+        <div class="table-scroll"><table data-admin-table><thead></thead><tbody></tbody></table></div>
+        <p class="admin-empty muted" data-admin-empty hidden>Nobody yet.</p>
+        <div class="admin-more">
+          <span class="muted" data-admin-count></span>
+          <button class="btn btn-secondary btn-sm" type="button" data-admin-more hidden>Show more</button>
+        </div>
+      </div>
+
+      <!-- who visits, and from where -->
+      <div data-view="traffic" hidden>
+        <div class="admin-bar" style="margin-top:0">
+          <div class="seg" role="radiogroup" aria-label="Period">
+            <button type="button" role="radio" aria-checked="false" data-days="7">7 days</button>
+            <button type="button" role="radio" aria-checked="true" data-days="30">30 days</button>
+            <button type="button" role="radio" aria-checked="false" data-days="90">90 days</button>
+          </div>
+          <p class="muted" style="font-size:14px;flex:1;min-width:220px">Counted by your own server, without cookies. Your visits from this browser are left out.</p>
+        </div>
+        <div class="figures card admin-figures">
+          <a><b data-t="views">0</b><span>page views</span></a>
+          <a><b data-t="visitors">0</b><span>visitors, counted once a day</span></a>
+          <a><b data-t="visits">0</b><span>arrivals on the site</span></a>
+          <a><b data-t="rate">0</b><span>signups per 100 visitors</span></a>
+        </div>
+        <div class="admin-days card" data-traffic-days aria-label="Page views per day"></div>
+        <div class="admin-kinds" data-traffic-kinds></div>
+        <div class="duo" style="margin-top:14px">
+          <div>
+            <h2 class="admin-h">Where visits come from</h2>
+            <div class="table-scroll"><table class="admin-small" data-traffic-sources><thead><tr><th scope="col">Source</th><th scope="col">Kind</th><th scope="col" class="admin-right">Arrivals</th></tr></thead><tbody></tbody></table></div>
+          </div>
+          <div>
+            <h2 class="admin-h">Pages</h2>
+            <div class="table-scroll"><table class="admin-small" data-traffic-pages><thead><tr><th scope="col">Page</th><th scope="col" class="admin-right">Views</th></tr></thead><tbody></tbody></table></div>
+          </div>
+        </div>
+        <p class="muted" style="font-size:14px;margin-top:16px">A visitor is counted once per day, so someone who comes back on three days counts three times. An arrival is a page opened from outside the site: a link elsewhere, a search, or the address typed. To see what a link you share brings, add <code>?ref=name</code> to it.</p>
       </div>
     </div>
 
@@ -137,6 +179,7 @@
       <nav class="foot-col" aria-label="Company">
         <h2>Company</h2>
         <a href="about.html">About</a>
+        <a href="articles/">Articles</a>
         <a href="log.html">Production log</a>
         <a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a>
         <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>

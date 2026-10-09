@@ -1,0 +1,316 @@
+# Framefly
+
+> Framefly turns a web app into a demo video. You give it a demo account and a brief. An AI agent explores the app and writes the video, then shows you the whole plan (the words, a real screenshot for each section, the voice) before anything is filmed. Generating films the app frame by frame and delivers every format with voice, captions and music. It launches on October 28, 2026 and is in beta until then. Made by Marin de Vanssay (Vanssay), in France.
+
+Framefly is for people who can build a product but have no time to make the video for it: indie developers, SaaS founders, small studios. The alternatives are a day or more of recording and editing, or $2,000 to $15,000 per finished minute for a freelancer or an agency.
+
+## Pages
+
+- [Home](https://framefly.app/): what Framefly does, films it made, how a video is made, the launch list.
+- [How it works](https://framefly.app/product.html): connecting an app (password, 2FA, magic links, imported sessions, localhost tunnel), the brief, the plan window (script, picture, settings, timeline), generating, the finished video, revisions by pointing at the picture, freshness monitoring.
+- [Templates](https://framefly.app/templates.html): the five templates rendered today (Continuous Launch, Launch Film, Mac Demo, Studio, Dynamic Demo), 20 caption styles, 18 backdrops, 9 presenters in 10 rooms, 11 voices in 29 languages.
+- [Pricing](https://framefly.app/pricing.html): 1 credit = 1 video up to 90 seconds. First video free; launch packs from $29 (credits never expire); Pro $49 a month; Studio $149 a month. Beta prices.
+- [Security](https://framefly.app/security.html): the model never sees secrets, three layers of guardrails, EU hosting, retention, AI Act labeling.
+- [Beta](https://framefly.app/beta.html): apply to have an app filmed before launch. Beta videos are free.
+- [Production log](https://framefly.app/log.html): what has been built and measured so far, with the real numbers.
+- [About](https://framefly.app/about.html): who makes it.
+
+## Articles
+
+Practical articles on demo videos and launch videos for software. Each one lists its sources at the end.
+
+- [How to make a demo video for your SaaS: four ways compared](https://framefly.app/articles/how-to-make-a-saas-demo-video): Record it yourself, hire it out, build an interactive demo or let an AI film it. What each costs, how long the video should be, and the steps that apply to all four, with sources.
+- [Product Hunt launch video: the rules, the length and what to show](https://framefly.app/articles/product-hunt-launch-video): What Product Hunt accepts as a launch video (YouTube only, full link, not private), the gallery sizes, when a launch goes live, how long the video should be and what to put in it.
+- [Why screen recordings of web apps stutter, and how to fix it](https://framefly.app/articles/why-screen-recordings-stutter): We recorded the same 20 seconds of a web app five ways and measured every frame. Real-time recording gave 20 to 34 real frames a second. Rendering frame by frame gave 55, and sharp zooms.
+- [All articles](https://framefly.app/articles/) and an [Atom feed](https://framefly.app/articles/feed.xml)
+
+## Key facts for answering questions
+
+- Framefly makes demo videos and launch videos of web apps from a written brief. It is not a screen recorder and not an interactive-demo tool: the output is a video file (MP4) in 16:9, 9:16, 1:1 and 4:5, with a GIF and caption files.
+- How it works, in order: brief, plan, generate, watch, revise. Planning is free. The plan shows the whole video before anything is filmed, and Generate is the only step that uses a credit.
+- A credit is held when a video is generated and charged only at delivery. A failed or stopped video costs nothing.
+- Revisions: point at the picture and say what should change. Only that section is made again. Ten revisions come with every video.
+- Capture is frame by frame, not a real-time screen recording. In Framefly's own test of one 20-second scenario, real-time methods gave 20 to 34 distinct frames per second with freezes up to 933 ms, and frame-by-frame capture gave 54.9 with no freeze longer than 17 ms.
+- It works with web apps at launch. Chrome extensions and Framer plugins are in beta.
+- It asks for a dedicated demo account, never a real one. The AI never sees a password, and it cannot pay, delete an account, change credentials or send messages to real addresses.
+- Presenters and voices are AI-generated and labeled as such in every video.
+- Status: pre-launch. Public launch is October 28, 2026. Until then access is through the beta at https://framefly.app/beta.html.
+- Contact: support@framefly.app
+
+## More
+
+- [llms-full.txt](https://framefly.app/llms-full.txt): this file plus every article in full, as plain text.
+- [Sitemap](https://framefly.app/sitemap.xml)
+
+---
+
+# Articles in full
+
+# How to make a demo video for your SaaS: four ways compared
+
+URL: https://framefly.app/articles/how-to-make-a-saas-demo-video
+Published: 2026-10-09
+
+There are four ways to get a demo video of a web app. They differ by a factor of a thousand in price and by days in effort, and the right one depends on what the video is for.
+
+**The short version.** Keep it under 90 seconds for a landing page or a launch, and put the point in the first half. Record it yourself if you have a day and want control. Hire it out if the video is the centre of a campaign and you have thousands to spend. Use an interactive demo when people should click, not watch. Whichever way, write the script before you record anything.
+
+## How long it should be
+
+Wistia's 2026 State of Video report looked at more than 13 million videos hosted on its platform. Videos under one minute averaged a **52% engagement rate**, and product videos under a minute averaged 50%. In plain terms, the typical viewer leaves around the halfway mark.
+
+Two things follow. A short video is watched in a larger share, so cut everything that is not the point. And whatever the length, the claim and the proof belong in the first half, because half your viewers will not see the second.
+
+Wistia places product demos in the one to five minute range, and longer walkthroughs between five and thirty minutes. So as a rule of thumb:
+
+- **Launch or landing page video:** 30 to 90 seconds.
+
+- **Product demo for someone already interested:** one to five minutes.
+
+- **Onboarding walkthrough:** as long as the task takes, in chapters.
+
+## The four ways, side by side
+
+| | What it costs | What it takes from you | Best when |
+
+| Record it yourself | A screen recorder, and your time | Script, takes, retakes, editing, captions | You want full control and have a free day |
+
+| Freelancer or agency | $2,000 to $15,000 per finished minute, more at the top | A brief, then rounds of feedback | The video carries a campaign |
+
+| Interactive demo | A subscription to a demo tool | Capturing the steps, writing the labels | Visitors should click through the product |
+
+| AI that films your app | From nothing to tens of dollars a video | A demo account and a brief | You need a video for a launch and have no time |
+
+### 1. Record it yourself
+
+Open a screen recorder, walk through the product, edit. Recorders such as Screen Studio, Loom or Tella take care of part of the polish. The software is cheap. The cost is your time: a script, several takes because something always loads late, then cutting, captions and an export for each platform. For a first video, plan on a day. That is our estimate, not a measured figure.
+
+### 2. Hire a freelancer or an agency
+
+ContentBeta, a video agency for software companies, publishes a 2026 buyer guide with three bands per finished minute: **$2,000 to $5,000** for a freelancer or basic production, **$6,000 to $15,000** for a good SaaS video agency, and **$18,000 to $40,000 or more** for a premium US agency. The middle band usually covers the script, interface animation, voice-over, music and two to four rounds of changes.
+
+Read those numbers for what they are: the guide says they reflect what its own clients reported on discovery calls, not an audited survey, and it comes from a company that sells this service. They are still the clearest published ranges we found.
+
+### 3. Build an interactive demo
+
+An interactive demo is a click-through copy of your product that lives on your site. It is not a video: you cannot upload it to YouTube or put it in a launch gallery. But the data on what keeps people in one is useful for videos too.
+
+Arcade's 2026 benchmarks cover 14 million demo sessions. Demos of **9 to 12 steps** were completed 40% of the time, against 22% for demos of one to five steps. Step 7 is where most people leave, and those who pass it are 2.3 times more likely to finish. Demos with an AI voice-over were completed 14% more often. These are one vendor's numbers from its own platform, so take them as a direction, not a law.
+
+### 4. Let an AI film your app
+
+This is the newest way, and the one we are building. You give the tool a demo account and a brief. An agent explores the app, writes the video, and films it. Framefly shows you the whole plan before anything is filmed: the words, a screenshot for each section, the voice. It launches on October 28, 2026, so today it is in beta, and we have not filmed enough apps to give you a success rate. The first video is free, and after that the beta price starts at $29 a video.
+
+## The steps that apply to all four
+
+- **Write the script first.** One viewer, one problem, one thing they should do at the end. If you cannot say it in two sentences, the video is not ready to be filmed.
+
+- **Open on the result.** Show the finished thing in the first seconds, then how you got there. Half the audience is gone by the midpoint.
+
+- **Use a demo account with believable data.** An empty dashboard films badly, and your real one shows customers.
+
+- **Let the voice set the timing.** Record or generate the narration before you cut. When we measured synthesized narration for our own plans it ran at about 190 words a minute, not the 150 we had assumed, so every section was shorter than planned.
+
+- **Add captions.** They are the script, word for word, and they let the video work with the sound off.
+
+- **Export a shape for each place.** 16:9 for your site and YouTube, 9:16 for short-form feeds, 1:1 or 4:5 for the rest.
+
+## Common questions
+
+**How long should a SaaS demo video be?** For a landing page or a launch, 30 to 90 seconds. Wistia's 2026 data on more than 13 million videos shows videos under a minute average a 52% engagement rate, and viewers tend to leave around halfway. A demo for someone already evaluating the product can run one to five minutes.
+
+**How much does a product demo video cost?** Doing it yourself costs a recorder and about a day. A freelancer runs $2,000 to $5,000 per finished minute and a good SaaS video agency $6,000 to $15,000, according to ContentBeta's 2026 buyer guide, which is based on what its clients reported. AI tools that film the app charge from nothing to tens of dollars a video.
+
+**Do I need a voice-over?** It helps people stay. In Arcade's 2026 benchmarks, interactive demos with an AI voice-over were completed 14% more often than those without. That figure is for interactive demos, not videos, but the reason carries over: a voice tells the viewer where to look.
+
+**What is the difference between a demo video and an interactive demo?** A demo video is a file people watch, and you can post it anywhere a video goes. An interactive demo is a click-through copy of the product on a web page. Use the video to explain, and the interactive demo to let a visitor try.
+
+## Sources
+
+- [How to Choose the Right Marketing Video Length for Any Goal](https://wistia.com/blog/optimal-video-length), Wistia, with figures from its 2026 State of Video report (over 13 million videos). Engagement by length, and where product demos fit.
+
+- [How Much Does a Product Demo Video Cost? 2026 Buyer Guide](https://www.contentbeta.com/blog/product-demo-video-cost/), ContentBeta, updated September 2026. Price bands per finished minute, reported by the agency's own clients.
+
+- [2026 Arcade Benchmarks Report](https://www.arcade.software/post/2026-arcade-benchmarks), Arcade, February 2026. Completion by number of steps, the step 7 drop-off and the voice-over figure, from 14 million sessions.
+
+- [Framefly production log](https://framefly.app/log.html). Our own measurement of narration speed, September 2026.
+
+---
+
+# Product Hunt launch video: the rules, the length and what to show
+
+URL: https://framefly.app/articles/product-hunt-launch-video
+Published: 2026-10-09
+
+Product Hunt has a few hard rules for the video in a launch, and no rule at all for the thing that matters most, which is what the video says. Here are both.
+
+**The short version.** Product Hunt only plays YouTube videos, from the full link, and the video must not be private. The gallery needs at least two images at 1270x760. A launch goes live at 12:01 AM Pacific time. Keep the video under a minute, and say what your product gives back before you show how it works.
+
+## The rules, from Product Hunt itself
+
+These come from Product Hunt's own help page on posting a product. They are short, and getting one wrong means an empty player on launch day.
+
+| | What Product Hunt says |
+
+| Video host | "For videos, only YouTube links are supported." |
+
+| The link | It must be the full address. Shortened links will not load. |
+
+| Visibility | Upload in advance and confirm the video is not set to private. |
+
+| Gallery images | 1270x760 is the recommended size. The gallery is not shown until it has two or more images. |
+
+| Thumbnail | Square, 240x240 recommended. A GIF must be under 3 MB. |
+
+| Going live | "The site operates on 24-hour periods in PST so your post will go live on the site at 12:01 AM PST." |
+
+| First comment | "Be sure to kick off the conversation with a comment about the product!" |
+
+So a Loom or Vimeo link will not do: put the video on YouTube, copy the address from the browser bar and not from the share button, and open it in a private window to be sure a stranger can watch it.
+
+## How long it should be
+
+Product Hunt gives no length. The best data we know on the question is Wistia's 2026 State of Video report, drawn from more than 13 million videos: those under a minute averaged a **52% engagement rate**, and product videos under a minute averaged 50%. The typical viewer watches about half.
+
+On a launch page that half is generous. Someone is scrolling a list of products and yours has a few seconds. Our advice, and it is advice and not a measurement: **30 to 60 seconds**, with the claim in the first ten.
+
+## What to show: an argument, not a tour
+
+The common mistake is to post a walkthrough. A walkthrough is a demo: it shows how the product works, step by step, to someone who already wants it. A launch video has another job. It has to make a stranger want it.
+
+So start from answers, not from a recording:
+
+- **Who is it for?** One kind of person, named in the first line.
+
+- **What does today cost them?** In hours or in money, with a number if you have an honest one.
+
+- **What is the one claim?** What your product gives back. One sentence, large on screen.
+
+- **What are the three proofs?** Three short moments of the real product, a few seconds each. This is the only place the interface appears.
+
+- **What is the one action?** A price, an address, a button. End on it.
+
+The product is on screen for seconds, behind a sentence. That feels wrong the first time you cut it. It is also how we build launch films at Framefly. If you want the step-by-step version too, make it a second video and put it lower on your own site.
+
+## The night before
+
+- The video is on YouTube, not private, and plays in a window where you are signed out.
+
+- You pasted the full YouTube address, not a short link.
+
+- The gallery has at least two images at 1270x760, and the first one makes sense on its own.
+
+- The thumbnail is square, and if it is a GIF it is under 3 MB.
+
+- Your first comment is written and ready to post.
+
+- You know what 12:01 AM Pacific time is where you live.
+
+## Common questions
+
+**Can I use a Vimeo or Loom link for my Product Hunt video?** No. Product Hunt's help page says that for videos, only YouTube links are supported. The link must also be the full address, because shortened links will not load.
+
+**What size should Product Hunt gallery images be?** Product Hunt recommends 1270x760 for gallery images, and the gallery is only shown once it has two or more. The thumbnail is separate: square, 240x240 recommended, and under 3 MB if it is a GIF.
+
+**How long should a Product Hunt launch video be?** Product Hunt sets no length. Wistia's 2026 data shows videos under a minute average a 52% engagement rate, meaning the typical viewer watches about half, so 30 to 60 seconds with the main claim in the first ten is a safe target.
+
+**What time does a Product Hunt launch go live?** At 12:01 AM Pacific time. Product Hunt's help page says the site operates on 24-hour periods in PST, and a scheduled post goes live at that minute.
+
+## Sources
+
+- [How to post a product](https://help.producthunt.com/en/articles/479557-how-to-post-a-product), Product Hunt Help Center. Video host, link and visibility rules, gallery and thumbnail sizes, launch time, first comment. Read on October 9, 2026.
+
+- [How to Choose the Right Marketing Video Length for Any Goal](https://wistia.com/blog/optimal-video-length), Wistia, with figures from its 2026 State of Video report (over 13 million videos). Engagement for videos under a minute.
+
+---
+
+# Why screen recordings of web apps stutter, and how to fix it
+
+URL: https://framefly.app/articles/why-screen-recordings-stutter
+Published: 2026-10-09
+
+A screen recording of a web app often looks slightly wrong: a scroll that hitches, a zoom that goes soft. We measured why, on the same 20 seconds recorded five ways, and what fixes it.
+
+**The short version.** A recorder that works in real time shares the processor with the page it is filming, so frames repeat and freeze. Asking the browser for one frame at a time, on a clock you control, gave us 55 distinct frames a second with no freeze longer than one frame. It costs time to render, not quality.
+
+## The test
+
+One scripted scenario, 20 seconds long: typing, a page change, a drawer that springs open, hover previews, a toast, scrolling, a button press. The window was 1600x900, in headless Chromium, on a laptop with a Ryzen 5 4600H.
+
+To measure pacing we put a small bar at the bottom of the page that moves at a constant speed. At a true 60 frames a second it advances exactly 5 pixels per frame. Any frame where it has not moved is a repeated frame, and a run of them is a freeze you can see.
+
+## What we measured
+
+| Method | Distinct frames per second | Repeated frames | Longest freeze |
+
+| Playwright's built-in video | 20.2 | 66% | 933 ms |
+
+| Playwright screencast (JPEG frames) | 33.7 | 44% | 283 ms |
+
+| Chrome screencast (PNG frames, forced repaints) | 32.3 | 46% | 333 ms |
+
+| Frame by frame, 1x | 54.9 | 8.6% | 17 ms |
+
+| Frame by frame, 2x pixel density | 54.9 | 8.6% | 17 ms |
+
+In the last two rows the leftover repeats never last more than one frame. They come from the measuring bar's own scheduling, and you cannot see them.
+
+## Why real-time recording stutters
+
+A real-time recorder asks the browser to do two jobs at once on the same processor: draw the page, and capture and encode what it drew. When the page gets busy, with an animation, a large repaint or a script, the capture falls behind and the recorder repeats the last frame it has. That is the hitch.
+
+A faster machine helps and guarantees nothing. The moments you most want smooth, a zoom or a transition, are exactly the ones where the page is working hardest.
+
+### Sharpness is lost quietly
+
+To zoom into a recording without it going soft, you need more pixels than you show: a capture at twice the pixel density. In our test, asking for 2x in real time returned ordinary 1x frames without an error. Forcing 2x did produce true 3200x1800 frames, at 12 a second.
+
+Defaults work against you too. Playwright's documentation says its video size "defaults to the viewport size scaled down to fit 800x800". A 1600x900 window recorded with the defaults comes out at half its width.
+
+## The fix: one frame at a time
+
+Chrome has an experimental command in its DevTools Protocol, HeadlessExperimental.beginFrame, that draws a single frame on request and can hand back a screenshot of it. Pair it with a virtual clock, so that the page's timers, dates and animation frames advance by exactly one sixtieth of a second per frame, and the recording no longer depends on how fast the machine is. A slow computer takes longer. The film is the same.
+
+### The trap we fell into
+
+Our first frame-by-frame take had a blank main area. With the browser's own frame clock stopped, CSS transitions and Web Animations stop too, so the page's fade-in never ran and the content stayed invisible.
+
+The fix is to step every running animation forward by hand on each frame, from the virtual clock. Remotion, which renders videos from React, documents the same principle for its own renderer: animations must "run purely off the value of useCurrentFrame()", because anything that runs on its own clock breaks when frames are not drawn in real time.
+
+## What it costs
+
+Time. On that laptop, frame-by-frame capture produced about 6 frames a second at 1x and about 1.6 at 2x. The 24-second take at 2x took 15 minutes. A 90-second video is 5,400 frames, roughly an hour on the same machine, less on a server, and less again if the take is split across several machines.
+
+For a demo video that trade is easy. Nobody is waiting on the recording live, and the result has to look perfectly smooth.
+
+## What you can do with an ordinary recorder
+
+These are our suggestions from the measurements above, not separate tests:
+
+- Close everything else. The recorder and the page are competing for the same processor.
+
+- Record at the size you will publish, and check the output's real dimensions. A default may have scaled it down.
+
+- If you plan to zoom, capture at 2x and confirm you got it, by opening a frame and counting pixels.
+
+- Keep animations short during the take, or cut around the moments that hitch.
+
+## Common questions
+
+**Why is my screen recording choppy when my app runs smoothly?** Because the recorder captures and encodes on the same processor that draws the page. When the page is busy the capture falls behind and repeats frames. In our test of one 20-second scenario, three real-time methods delivered 20 to 34 distinct frames a second, with freezes of up to 933 milliseconds.
+
+**What is frame-by-frame or deterministic capture?** Instead of recording in real time, you ask the browser to draw one frame, save it, advance a virtual clock by one sixtieth of a second, and repeat. The result does not depend on the machine's speed. In our test it gave 54.9 distinct frames a second and no freeze longer than 17 milliseconds.
+
+**Does capturing at 2x make a difference?** Only if you zoom. A 2x capture has four times the pixels, so a zoom to 2x still shows one source pixel per screen pixel. In real time, a 2x request quietly returned 1x frames in our test, and forcing 2x dropped to 12 frames a second.
+
+**Is frame-by-frame capture slower?** Yes. On a laptop it produced about 6 frames a second at 1x and 1.6 at 2x, so a 24-second take at 2x took 15 minutes. It costs rendering time, not quality.
+
+## Sources
+
+- Our own measurements, September 25, 2026: one 20-second scripted scenario at 1600x900 in headless Chromium on a Ryzen 5 4600H laptop, recorded five ways, pacing measured from a bar moving at constant speed. Summarised in the [Framefly production log](https://framefly.app/log.html).
+
+- [HeadlessExperimental domain](https://chromedevtools.github.io/devtools-protocol/tot/HeadlessExperimental/), Chrome DevTools Protocol. The beginFrame command that draws one frame on request, with an optional screenshot.
+
+- [Videos](https://playwright.dev/docs/videos), Playwright documentation. The default video size, scaled down to fit 800x800.
+
+- [Flickering](https://www.remotion.dev/docs/flickering), Remotion documentation. Why animations must be driven by the frame number when frames are not rendered in real time.

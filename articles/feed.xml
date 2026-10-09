@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Framefly articles</title>
+  <subtitle>Demo videos and launch videos for software, and how to make them.</subtitle>
+  <link href="https://framefly.app/articles/feed.xml" rel="self"/>
+  <link href="https://framefly.app/articles/"/>
+  <id>https://framefly.app/articles/</id>
+  <updated>2026-10-09T08:00:00Z</updated>
+  <author><name>Framefly</name></author>
+  <entry>
+    <title>How to make a demo video for your SaaS: four ways compared</title>
+    <link href="https://framefly.app/articles/how-to-make-a-saas-demo-video"/>
+    <id>https://framefly.app/articles/how-to-make-a-saas-demo-video</id>
+    <published>2026-10-09T08:00:00Z</published>
+    <updated>2026-10-09T08:00:00Z</updated>
+    <summary>Record it yourself, hire it out, build an interactive demo or let an AI film it. What each costs, how long the video should be, and the steps that apply to all four, with sources.</summary>
+  </entry>
+  <entry>
+    <title>Product Hunt launch video: the rules, the length and what to show</title>
+    <link href="https://framefly.app/articles/product-hunt-launch-video"/>
+    <id>https://framefly.app/articles/product-hunt-launch-video</id>
+    <published>2026-10-09T08:00:00Z</published>
+    <updated>2026-10-09T08:00:00Z</updated>
+    <summary>What Product Hunt accepts as a launch video (YouTube only, full link, not private), the gallery sizes, when a launch goes live, how long the video should be and what to put in it.</summary>
+  </entry>
+  <entry>
+    <title>Why screen recordings of web apps stutter, and how to fix it</title>
+    <link href="https://framefly.app/articles/why-screen-recordings-stutter"/>
+    <id>https://framefly.app/articles/why-screen-recordings-stutter</id>
+    <published>2026-10-09T08:00:00Z</published>
+    <updated>2026-10-09T08:00:00Z</updated>
+    <summary>We recorded the same 20 seconds of a web app five ways and measured every frame. Real-time recording gave 20 to 34 real frames a second. Rendering frame by frame gave 55, and sharp zooms.</summary>
+  </entry>
+</feed>

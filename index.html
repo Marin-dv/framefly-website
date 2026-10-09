@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-root="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Framefly: prompt in, demo video out</title>
 <meta name="description" content="Framefly turns your web app into a demo video. It explores the app, writes a plan you can read and change, then films it in every format. Launching October 28, 2026.">
-
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://framefly.app/">
 <meta property="og:title" content="Framefly: prompt in, demo video out">
 <meta property="og:description" content="Give Framefly a demo account and a brief. It explores your app, writes the video with you and films it. Launching October 28.">
@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://framefly.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@MarindeVanssay">
 <meta name="theme-color" content="#f3f3f4" media="(prefers-color-scheme: light)">
@@ -23,11 +24,13 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Framefly articles" href="articles/feed.xml">
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Turns a web app into a demo video: an AI agent explores the app, writes a plan you can read and change, and films it in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://framefly.app/#org","name":"Framefly","url":"https://framefly.app","logo":"https://framefly.app/assets/img/icon-512.png","email":"support@framefly.app","founder":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"},"sameAs":["https://x.com/MarindeVanssay"]},{"@type":"WebSite","@id":"https://framefly.app/#site","url":"https://framefly.app","name":"Framefly","description":"Prompt in. Demo video out.","publisher":{"@id":"https://framefly.app/#org"},"inLanguage":"en"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What kind of apps does it work with?","acceptedAnswer":{"@type":"Answer","text":"Web apps at launch: anything that runs in a browser, behind a login or not, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later."}},{"@type":"Question","name":"Do I have to give it my real account?","acceptedAnswer":{"@type":"Answer","text":"No, and you shouldn't. Framefly asks for a dedicated demo account. It can use the account as it is, fill it with realistic sample data if you allow it, or call a reset hook before every shoot so each take starts from the same state."}},{"@type":"Question","name":"What happens if a video fails?","acceptedAnswer":{"@type":"Answer","text":"Your credit is held when you generate and only charged at delivery. If anything fails along the way, or you stop it, the credit comes back in full. If you are not happy with a delivered video, you get one complete re-shoot for free within 7 days."}},{"@type":"Question","name":"Can I change the video afterwards?","acceptedAnswer":{"@type":"Answer","text":"Yes. Point at the picture and say what should change, or open the plan again and edit it. Only the sections concerned are filmed again. A new voice, new captions, other music or another look only need a new edit. Ten revisions come with every video, and Pro and Studio also export an editable project for DaVinci Resolve, Premiere Pro or Final Cut Pro."}},{"@type":"Question","name":"Is the voice AI? Will people know?","acceptedAnswer":{"@type":"Answer","text":"Yes, the studio voices and the presenters are generated. Every export carries content credentials, the end card says so in one line, and a label shows whenever a presenter is on screen, as the EU AI Act asks. You can also record the narration yourself, section by section."}},{"@type":"Question","name":"When can I use it?","acceptedAnswer":{"@type":"Answer","text":"Framefly launches on Wednesday, October 28 . Beta testers get in before that. Leave your email below and you get one message on launch day."}}]}</script>
 </head>
 <body class="page-index">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,6 +42,7 @@
       <a href="templates.html" class="nav-link">Templates</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
       <a href="security.html" class="nav-link">Security</a>
+      <a href="articles/" class="nav-link">Articles</a>
       <a href="log.html" class="nav-link">Log</a>
     </nav>
     <div class="nav-end">
@@ -54,6 +58,7 @@
     <a href="templates.html">Templates<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="articles/">Articles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a class="btn btn-primary btn-lg" href="beta.html" data-when-waiting>Apply for the beta</a>
@@ -315,6 +320,18 @@
   </div>
 </section>
 
+<!-- ───────── Articles ───────── -->
+<section class="section flush-top" id="articles">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Before you make the video.</h2>
+      <p class="lead">Short articles on what works for a demo or a launch video, each with its sources.</p>
+    </div>
+    <div class="reveal"><div class="artlist three"><a class="artcard card" href="articles/how-to-make-a-saas-demo-video"><span class="chip chip-line">Guide</span><h3>How to make a demo video for your SaaS: four ways compared</h3><p>Record it yourself, hire it out, build an interactive demo or let an AI film it. What each costs, how long the video should be, and the steps that apply to all four, with sources.</p><span class="artcard-meta"><time datetime="2026-10-09">9 October 2026</time><span>6 min read</span></span></a><a class="artcard card" href="articles/product-hunt-launch-video"><span class="chip chip-line">Launch</span><h3>Product Hunt launch video: the rules, the length and what to show</h3><p>What Product Hunt accepts as a launch video (YouTube only, full link, not private), the gallery sizes, when a launch goes live, how long the video should be and what to put in it.</p><span class="artcard-meta"><time datetime="2026-10-09">9 October 2026</time><span>4 min read</span></span></a><a class="artcard card" href="articles/why-screen-recordings-stutter"><span class="chip chip-line">Measured</span><h3>Why screen recordings of web apps stutter, and how to fix it</h3><p>We recorded the same 20 seconds of a web app five ways and measured every frame. Real-time recording gave 20 to 34 real frames a second. Rendering frame by frame gave 55, and sharp zooms.</p><span class="artcard-meta"><time datetime="2026-10-09">9 October 2026</time><span>5 min read</span></span></a></div></div>
+    <a class="arrow-link" href="articles/" style="margin-top:24px">All articles <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+  </div>
+</section>
+
 <!-- ───────── FAQ ───────── -->
 <section class="section" id="faq">
   <div class="wrap faq-grid">
@@ -384,6 +401,7 @@
       <nav class="foot-col" aria-label="Company">
         <h2>Company</h2>
         <a href="about.html">About</a>
+        <a href="articles/">Articles</a>
         <a href="log.html">Production log</a>
         <a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a>
         <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>
@@ -408,5 +426,6 @@
 <script src="assets/js/data.js" defer></script>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/stage.js" defer></script>
+<script src="assets/js/track.js" defer></script>
 </body>
 </html>

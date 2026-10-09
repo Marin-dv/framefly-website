@@ -19,12 +19,15 @@ The built files are committed, so GitHub Pages needs no build step.
 | Path | What it is |
 |---|---|
 | `src/pages/*.html` | One file per page: its own HTML, with title and description in a comment at the top |
+| `src/articles/*.html` | One file per article, built to `articles/<name>.html` and read at `framefly.app/articles/<name>` |
+| `src/llms.md` | The text of `llms.txt`; the list of articles is filled in by the build |
 | `src/partials/` | The nav and the footer, shared by every page |
 | `src/data.mjs` | Templates, captions, backdrops, presenters, voices, plans, prices. A copy of the app's data (`Framefly.app/app/src/data`): change it here when the app changes |
 | `src/blocks.mjs` | The parts of a page made from that data (film players, the canvas, plan cards...) |
 | `assets/css/site.css` | The design system, on the app's tokens. Light and dark are both first-class |
 | `assets/js/site.js` | Theme, countdown, forms, film players |
 | `assets/js/stage.js` | The interactive canvas, the caption library and the presenter rooms: small copies of the app's own components |
+| `assets/js/track.js` | Counts a page view on our own API: no cookie, totals per day. Your own visits stop counting once you have signed in to the admin on that browser, or opened any page with `?notrack=1` |
 | `assets/js/config.js` | **The launch date and the form wiring** (below) |
 
 In a page, `{{icon:name}}` is a Phosphor icon, `{{shot:name|what it shows}}` a screenshot of the app in both themes, `{{block:name}}` a block from `src/blocks.mjs`. The build also writes `assets/js/data.js`, `assets/img/icons.svg` (only the icons used, read from the app's Phosphor package) and `sitemap.xml`.
@@ -42,7 +45,8 @@ In a page, `{{icon:name}}` is a Phosphor icon, `{{shot:name|what it shows}}` a s
 | `log.html` | The production log (build in public) |
 | `about.html` | The maker and the other Vanssay products |
 | `privacy.html`, `terms.html` | Privacy policy, terms and legal notice for the pre-launch site |
-| `admin.html` | The admin: who is on the launch list, who applied for the beta. Not indexed, and it shows nothing without the password |
+| `articles/` | The articles and their list |
+| `admin.html` | The admin: signups (launch list, beta applications) and traffic (views, visitors, pages, where visits come from). Not indexed, and it shows nothing without the password |
 | `404.html` | Served by GitHub Pages for any unknown URL |
 | `styles.html` | Redirects to `templates.html` (the page's old address) |
 
@@ -68,6 +72,43 @@ The forms `POST` JSON with `Content-Type: application/json`:
 Any 2xx answer counts as success; anything else shows the inline error with the data kept in the form. The endpoint must allow CORS from `https://framefly.app`. A `company` field is a hidden honeypot: submissions that fill it are dropped in the browser.
 
 `preorderUrl` (a Stripe Payment Link) shows the $29 pre-order card on the pricing page when set.
+
+## Articles
+
+An article is one file in `src/articles/`, named after its address (`product-hunt-launch-video.html` is read at `/articles/product-hunt-launch-video`). It starts with its facts, then its HTML:
+
+```html
+<!--
+title: Product Hunt launch video: the rules, the length and what to show
+description: One or two sentences for search results.
+lead: The opening paragraph, under the title.
+date: 2026-10-09
+updated: 2026-10-20
+category: Launch
+-->
+
+<div class="note"><b>The short version.</b> The answer, in three sentences.</div>
+<h2 id="rules">A section</h2>
+<p>...</p>
+<h2 id="faq">Common questions</h2>
+<details><summary>A question, ending with a question mark?</summary><p>Its answer.</p></details>
+<h2 id="sources">Sources</h2>
+<ol class="sources"><li><a href="https://..." target="_blank" rel="noopener">Title</a>, publisher, date. What it supports.</li></ol>
+```
+
+`updated` and `category` are optional. Every `<h2 id>` becomes a line of the "On this page" rail. The build adds the byline, the date and reading time, the beta invitation, and the structured data: Article, breadcrumbs, and an FAQ made from the `<details>` (so an answer in the data is exactly the answer on the page). It refuses an article without a `sources` section. It then lists the article on `articles/`, on the home page, in `sitemap.xml`, `articles/feed.xml`, `llms.txt` and `llms-full.txt`.
+
+The house rules for an article: one question per article, the answer first, a number only with its source, a source only if it was read and says what the article says it does, and a plain statement of our own interest in the byline. "We estimate" when it is an estimate.
+
+To publish: write the file, `node tools/build.mjs`, `git push`, then `node tools/indexnow.mjs` to tell Bing and the other IndexNow engines.
+
+## Search engines and AI assistants
+
+- `sitemap.xml`, `articles/feed.xml`, `llms.txt` and `llms-full.txt` are written by the build. Do not edit them by hand.
+- `robots.txt` lets everything public be read and names the AI crawlers, so there is no doubt they may quote the site.
+- Every page has a canonical address, Open Graph tags and structured data (Organization and WebSite on the home page, SoftwareApplication, FAQPage wherever there are questions, Article and BreadcrumbList on articles).
+- Google: add the site in Search Console and give it `https://framefly.app/sitemap.xml` once.
+- Bing, and through it ChatGPT search and Copilot: `node tools/indexnow.mjs` after a push. The key is the `.txt` file with a long hexadecimal name at the root. Do not delete it.
 
 ## Films
 

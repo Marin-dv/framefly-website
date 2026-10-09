@@ -19,9 +19,7 @@ Framefly is for people who can build a product but have no time to make the vide
 
 Practical articles on demo videos and launch videos for software. Each one lists its sources at the end.
 
-- [How to make a demo video for your SaaS: four ways compared](https://framefly.app/articles/how-to-make-a-saas-demo-video): Record it yourself, hire it out, build an interactive demo or let an AI film it. What each costs, how long the video should be, and the steps that apply to all four, with sources.
-- [Product Hunt launch video: the rules, the length and what to show](https://framefly.app/articles/product-hunt-launch-video): What Product Hunt accepts as a launch video (YouTube only, full link, not private), the gallery sizes, when a launch goes live, how long the video should be and what to put in it.
-- [Why screen recordings of web apps stutter, and how to fix it](https://framefly.app/articles/why-screen-recordings-stutter): We recorded the same 20 seconds of a web app five ways and measured every frame. Real-time recording gave 20 to 34 real frames a second. Rendering frame by frame gave 55, and sharp zooms.
+{{articles}}
 - [All articles](https://framefly.app/articles/) and an [Atom feed](https://framefly.app/articles/feed.xml)
 
 ## Key facts for answering questions

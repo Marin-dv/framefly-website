@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-root="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://framefly.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@MarindeVanssay">
 <meta name="theme-color" content="#f3f3f4" media="(prefers-color-scheme: light)">
@@ -23,11 +24,13 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Framefly articles" href="articles/feed.xml">
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
 <base href="/">
+
 </head>
 <body class="page-404">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,6 +42,7 @@
       <a href="templates.html" class="nav-link">Templates</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
       <a href="security.html" class="nav-link">Security</a>
+      <a href="articles/" class="nav-link">Articles</a>
       <a href="log.html" class="nav-link">Log</a>
     </nav>
     <div class="nav-end">
@@ -54,6 +58,7 @@
     <a href="templates.html">Templates<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="articles/">Articles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a class="btn btn-primary btn-lg" href="beta.html" data-when-waiting>Apply for the beta</a>
@@ -88,6 +93,7 @@
       <nav class="foot-col" aria-label="Company">
         <h2>Company</h2>
         <a href="about.html">About</a>
+        <a href="articles/">Articles</a>
         <a href="log.html">Production log</a>
         <a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a>
         <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>
@@ -111,5 +117,6 @@
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/data.js" defer></script>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/track.js" defer></script>
 </body>
 </html>

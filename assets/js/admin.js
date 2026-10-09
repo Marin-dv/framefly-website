@@ -78,6 +78,7 @@
         if (!r.ok) return fail(r.status === 429 ? "Too many attempts. Wait 15 minutes before trying again." : r.j.error || "That did not work.");
         input.value = "";
         keep(r.j.token);
+        try { localStorage.setItem("framefly.notrack", "1"); } catch (x) {}
         show(true);
         refresh();
       })
@@ -224,6 +225,55 @@
       a.click();
       setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
     }).catch(function (e) { problem(e.message); });
+  });
+
+  /* ───────── traffic ───────── */
+  var days = 30, seen = false;
+  var KIND = { search: "Search engine", ai: "AI assistant", social: "Social, community", campaign: "Tagged link", direct: "Direct", site: "Other site", other: "Other" };
+  var sourceName = function (s) { return s === "direct" ? "Direct (typed, bookmark, app)" : s.indexOf("tag:") === 0 ? "?ref=" + s.slice(4) : s; };
+  function traffic() {
+    return api("/admin/traffic?days=" + days).then(function (r) {
+      seen = true;
+      var set = function (k, v) { box.querySelector('[data-t="' + k + '"]').textContent = v; };
+      var signups = r.signups.beta + r.signups.notify;
+      set("views", r.totals.views);
+      set("visitors", r.totals.visitors);
+      set("visits", r.totals.visits);
+      set("rate", r.totals.visitors ? (Math.round((signups / r.totals.visitors) * 1000) / 10).toString() : "0");
+      // one bar per day, days with nothing included
+      var by = {}, max = 1, wrap = $("[data-traffic-days]");
+      r.days.forEach(function (d) { by[d.day] = d; max = Math.max(max, d.views); });
+      wrap.textContent = "";
+      for (var i = days - 1; i >= 0; i--) {
+        var key = new Date(Date.now() - i * 864e5).toISOString().slice(0, 10), d = by[key];
+        wrap.appendChild(el("div", { class: "admin-day", title: key + ": " + (d ? d.views + " views, " + d.visitors + " visitors" : "nothing") }, [d ? el("i", { class: "b", style: "height:" + (d.views / max) * 100 + "%" }) : el("i", { class: "z" })]));
+      }
+      // arrivals by family of source
+      var kinds = {}, order = ["search", "ai", "social", "campaign", "site", "direct", "other"], kw = $("[data-traffic-kinds]");
+      r.sources.forEach(function (s) { kinds[s.kind] = (kinds[s.kind] || 0) + s.visits; });
+      kw.textContent = "";
+      order.forEach(function (k) { if (kinds[k]) kw.appendChild(el("span", { class: "chip chip-line" }, [el("b", { text: String(kinds[k]) }), el("span", { text: KIND[k] })])); });
+      var fill = function (sel, rows, none, span) {
+        var body = $(sel).tBodies[0];
+        body.textContent = "";
+        rows.forEach(function (tr) { body.appendChild(tr); });
+        if (!rows.length) body.appendChild(el("tr", {}, [el("td", { colspan: String(span), class: "muted", text: none })]));
+      };
+      fill("[data-traffic-sources]", r.sources.map(function (s) { return el("tr", {}, [el("td", { text: sourceName(s.source) }), el("td", { class: "muted", text: KIND[s.kind] || s.kind }), el("td", { class: "admin-right", text: String(s.visits) })]); }), "No visit counted yet.", 3);
+      fill("[data-traffic-pages]", r.pages.map(function (p) { return el("tr", {}, [el("td", { text: p.path }), el("td", { class: "admin-right", text: String(p.views) })]); }), "No page viewed yet.", 2);
+    });
+  }
+  Array.prototype.forEach.call(box.querySelectorAll("[data-days]"), function (b) {
+    b.addEventListener("click", function () { FF.choose(b.parentNode, b); days = +b.getAttribute("data-days"); traffic().catch(function (e) { problem(e.message); }); });
+  });
+  Array.prototype.forEach.call(box.querySelectorAll("[data-admin-view]"), function (b) {
+    b.addEventListener("click", function () {
+      FF.choose(b.parentNode, b);
+      var view = b.getAttribute("data-admin-view");
+      Array.prototype.forEach.call(box.querySelectorAll("[data-view]"), function (v) { v.hidden = v.getAttribute("data-view") !== view; });
+      problem("");
+      if (view === "traffic") traffic().catch(function (e) { problem(e.message); });
+    });
   });
 
   if (!API) { $("[data-admin-error]").hidden = false; $("[data-admin-error] span").textContent = "No API address in assets/js/config.js."; }

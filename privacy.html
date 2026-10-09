@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-root="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Framefly privacy policy</title>
 <meta name="description" content="What personal data the Framefly website collects through its launch list and beta form, why, for how long, and your rights.">
-
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://framefly.app/privacy.html">
 <meta property="og:title" content="Framefly privacy policy">
 <meta property="og:description" content="What personal data the Framefly website collects through its launch list and beta form, why, for how long, and your rights.">
@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://framefly.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@MarindeVanssay">
 <meta name="theme-color" content="#f3f3f4" media="(prefers-color-scheme: light)">
@@ -23,6 +24,7 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Framefly articles" href="articles/feed.xml">
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
@@ -39,6 +41,7 @@
       <a href="templates.html" class="nav-link">Templates</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
       <a href="security.html" class="nav-link">Security</a>
+      <a href="articles/" class="nav-link">Articles</a>
       <a href="log.html" class="nav-link">Log</a>
     </nav>
     <div class="nav-end">
@@ -54,6 +57,7 @@
     <a href="templates.html">Templates<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="pricing.html">Pricing<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="security.html">Security<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    <a href="articles/">Articles<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="log.html">Production log<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a href="about.html">About<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     <a class="btn btn-primary btn-lg" href="beta.html" data-when-waiting>Apply for the beta</a>
@@ -71,7 +75,7 @@
 <section class="section flush-top">
   <div class="wrap">
     <div class="prose">
-      <p>The short version: this site sets no cookies, runs no analytics and loads nothing from other companies. The only personal data it collects is what you type into the launch list or the beta form, and it's used for that and nothing else.</p>
+      <p>The short version: this site sets no cookies and loads nothing from other companies. It counts its own page views as totals per day, without knowing who you are. The only personal data it collects is what you type into the launch list or the beta form, and it's used for that and nothing else.</p>
 
       <h2>Who is responsible</h2>
       <p>Marin de Vanssay, sole trader, operating framefly.app, is the controller of the data described here. For any privacy request, write to <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
@@ -85,12 +89,16 @@
       <h3>What we don't collect</h3>
       <ul>
         <li>No cookies and no local storage for tracking.</li>
-        <li>No analytics, no advertising pixels, no session recording.</li>
+        <li>No analytics from another company, no advertising pixels, no session recording.</li>
         <li>No third-party fonts, scripts or videos. Fonts, code and films are served from this site.</li>
       </ul>
       <p>If you switch between the light and the dark theme, your browser remembers that choice on your device. It is never sent to us.</p>
       <p>Our host, GitHub Pages, keeps technical logs of requests, including IP addresses, to run and protect its service. We don't receive or use those logs.</p>
       <p>Our own server, which receives the forms, keeps the same kind of technical log for a short time and counts requests per address in memory to stop abuse. Your address is not stored with what you send.</p>
+
+      <h2>Counting visits</h2>
+      <p>We count how many times each page is opened and which site a visit came from (a search engine, for example), as totals per day. The numbers tell us whether the site is read. They say nothing about you.</p>
+      <p>To count a visitor once a day, our server works out a one-way code from your address and your browser. The code is replaced every day at midnight, so it cannot be used to recognise you the next day, and your address itself is never stored. No cookie is set and nothing is kept on your device for this. Basis: our legitimate interest in knowing how the site is used.</p>
 
       <h2>Why, and on what basis</h2>
       <ul>
@@ -140,6 +148,7 @@
       <nav class="foot-col" aria-label="Company">
         <h2>Company</h2>
         <a href="about.html">About</a>
+        <a href="articles/">Articles</a>
         <a href="log.html">Production log</a>
         <a data-x href="https://x.com/MarindeVanssay" target="_blank" rel="noopener">Follow on X</a>
         <a data-contact href="mailto:support@framefly.app">support@framefly.app</a>
@@ -163,5 +172,6 @@
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/data.js" defer></script>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/track.js" defer></script>
 </body>
 </html>

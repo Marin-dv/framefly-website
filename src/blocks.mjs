@@ -182,6 +182,11 @@ ${group("Demo", "Demos", "A demo shows. Framefly walks through your app click by
   <tbody>${data.subprocessors.map(([a, b, c]) => `<tr><th scope="row">${a}</th><td>${b}</td><td>${c}</td></tr>`).join("")}</tbody>
 </table></div>`,
 
+  /** Every article, newest first. */
+  articles: ({ articles, longDate, esc }) => (articles.length ? `<div class="artlist">${articles.map((a) => `<a class="artcard card" href="articles/${a.slug}"><span class="chip chip-line">${esc(a.category ?? "Guide")}</span><h2>${esc(a.title)}</h2><p>${esc(a.description)}</p><span class="artcard-meta"><time datetime="${a.date}">${longDate(a.date)}</time><span>${a.minutes} min read</span></span></a>`).join("")}</div>` : '<p class="muted">The first articles are being written.</p>'),
+  /** The three latest, for the home page. */
+  "articles-latest": ({ articles, longDate, esc }) => `<div class="artlist three">${articles.slice(0, 3).map((a) => `<a class="artcard card" href="articles/${a.slug}"><span class="chip chip-line">${esc(a.category ?? "Guide")}</span><h3>${esc(a.title)}</h3><p>${esc(a.description)}</p><span class="artcard-meta"><time datetime="${a.date}">${longDate(a.date)}</time><span>${a.minutes} min read</span></span></a>`).join("")}</div>`,
+
   /** The last section of most pages: the countdown, and the one email. */
   closing: (c) => `<section class="closing" id="launch">
   <div class="wrap closing" style="padding-block:0">
