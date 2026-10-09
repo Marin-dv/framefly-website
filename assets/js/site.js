@@ -318,24 +318,7 @@
     Object.keys(map).forEach(function (id) { tio.observe(document.getElementById(id)); });
   }
 
-  /* ───────── Pointer dot: follows the pointer, swells over what can be pressed ───────── */
   var fine = window.matchMedia && !window.matchMedia("(pointer: coarse)").matches;
-  if (fine) {
-    var dot = document.createElement("div");
-    dot.className = "cursor";
-    dot.setAttribute("aria-hidden", "true");
-    document.body.appendChild(dot);
-    var shown = false;
-    document.addEventListener("mousemove", function (e) {
-      if (!shown) { document.body.classList.add("cursor-on"); shown = true; }
-      dot.style.left = e.clientX + "px";
-      dot.style.top = e.clientY + "px";
-    });
-    document.addEventListener("mouseover", function (e) {
-      dot.classList.toggle("grow", !!(e.target.closest && e.target.closest("[data-hover], a, button, summary, input, select, textarea, label")));
-    });
-    document.documentElement.addEventListener("mouseleave", function () { document.body.classList.remove("cursor-on"); shown = false; });
-  }
 
   /* ───────── The buttons that matter: letters that roll, ink from where the pointer came in, a pull toward it ───────── */
   $$(".btn-primary").forEach(function (b) {

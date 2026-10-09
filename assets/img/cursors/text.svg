@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 20 28">
+  <!-- Framefly's text cursor: an I-beam with round ends, near-black with a white edge, in the family of
+       the arrow and the hand. Hotspot in the middle (10, 14). -->
+  <defs>
+    <filter id="s" x="-60%" y="-30%" width="220%" height="160%">
+      <feDropShadow dx="0" dy="1.2" stdDeviation="1.1" flood-color="#000" flood-opacity=".3"/>
+    </filter>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#s)">
+    <path d="M10 5.2V22.8M6.6 4.6c1.9 0 3.4.5 3.4 1.6c0-1.1 1.5-1.6 3.4-1.6M6.6 23.4c1.9 0 3.4-.5 3.4-1.6c0 1.1 1.5 1.6 3.4 1.6" stroke="#fff" stroke-width="5.4"/>
+    <path d="M10 5.2V22.8M6.6 4.6c1.9 0 3.4.5 3.4 1.6c0-1.1 1.5-1.6 3.4-1.6M6.6 23.4c1.9 0 3.4-.5 3.4-1.6c0 1.1 1.5 1.6 3.4 1.6" stroke="#131417" stroke-width="2.1"/>
+  </g>
+</svg>
