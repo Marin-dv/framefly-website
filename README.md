@@ -42,6 +42,7 @@ In a page, `{{icon:name}}` is a Phosphor icon, `{{shot:name|what it shows}}` a s
 | `log.html` | The production log (build in public) |
 | `about.html` | The maker and the other Vanssay products |
 | `privacy.html`, `terms.html` | Privacy policy, terms and legal notice for the pre-launch site |
+| `admin.html` | The admin: who is on the launch list, who applied for the beta. Not indexed, and it shows nothing without the password |
 | `404.html` | Served by GitHub Pages for any unknown URL |
 | `styles.html` | Redirects to `templates.html` (the page's old address) |
 
@@ -50,7 +51,8 @@ In a page, `{{icon:name}}` is a Phosphor icon, `{{shot:name|what it shows}}` a s
 Both are in `assets/js/config.js`:
 
 - **`launchAt`**: the launch moment in UTC. Every countdown and date reads it. To postpone, change this one line. When it is reached the site switches on its own: the forms and the beta invitations give way to a "Make your first video" button pointing at `appUrl`.
-- **`formEndpoint`**: where the "Notify me" and beta forms send their data. **It is empty right now.** While it is empty, the forms show their success state and log the payload to the console on a local preview; on framefly.app they open a pre-filled email to `contactEmail` instead, so no signup is lost. Wire it before launch.
+- **`formEndpoint`**: where the "Notify me" and beta forms send their data. It points at the Framefly API (`Framefly.app/api`, live at `api.vanssay.net/framefly`), which only answers framefly.app: on a local preview the forms show their error state. If it is ever emptied, the forms fall back to a pre-filled email to `contactEmail` on framefly.app, so no signup is lost.
+- **`apiBase`**: the same API, for the admin page (`admin.html`). Its password is set on the server, see `Framefly.app/api/README.md`.
 
 The forms `POST` JSON with `Content-Type: application/json`:
 

@@ -6,10 +6,13 @@ window.FRAMEFLY = {
   // Product Hunt day) and 08:01 in Paris. Every countdown, date and "launch day" label on the site reads this.
   launchAt: "2026-10-28T07:01:00Z",
 
+  // The Framefly API (Framefly.app/api). The admin page talks to it.
+  apiBase: "https://api.vanssay.net/framefly",
+
   // Where the "Notify me" and beta forms POST their JSON (see README.md for the payload).
-  // Empty means not wired yet: on framefly.app the forms fall back to an email draft, anywhere else
+  // Empty would mean not wired: on framefly.app the forms then fall back to an email draft, anywhere else
   // (local preview) they show the success state and log the payload to the console.
-  formEndpoint: "",
+  formEndpoint: "https://api.vanssay.net/framefly/forms",
 
   // Where the site points once the countdown reaches zero.
   appUrl: "https://app.framefly.app",

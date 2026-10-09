@@ -1,0 +1,64 @@
+<!--
+title: Framefly admin
+robots: noindex, nofollow
+sitemap: no
+scripts: admin
+-->
+
+<section class="section-tight admin" data-admin>
+  <div class="wrap">
+
+    <!-- signed out -->
+    <div class="admin-login card" data-admin-login>
+      <h1>Admin</h1>
+      <p class="muted">Who is on the launch list and who applied for the beta.</p>
+      <form data-admin-form novalidate>
+        <div class="field">
+          <label class="field-label" for="admin-password">Password</label>
+          <input class="control" id="admin-password" type="password" autocomplete="current-password" required>
+        </div>
+        <p class="error-text" data-admin-error hidden>{{icon:warning}}<span></span></p>
+        <button class="btn btn-primary btn-lg" type="submit">Sign in</button>
+      </form>
+    </div>
+
+    <!-- signed in -->
+    <div data-admin-app hidden>
+      <div class="admin-head">
+        <h1>Admin</h1>
+        <button class="btn btn-secondary btn-sm" type="button" data-admin-out>Sign out</button>
+      </div>
+
+      <div class="figures card admin-figures">
+        <a><b data-n="beta">0</b><span>beta applications</span></a>
+        <a><b data-n="betaNew">0</b><span>not looked at yet</span></a>
+        <a><b data-n="notify">0</b><span>on the launch list</span></a>
+        <a><b data-n="week">0</b><span>signups in the last 7 days</span></a>
+      </div>
+      <div class="admin-days card" data-admin-days aria-label="Signups per day, last 30 days"></div>
+
+      <div class="admin-bar">
+        <div class="seg" role="radiogroup" aria-label="List">
+          <button type="button" role="radio" aria-checked="true" data-admin-type="beta">Beta applications</button>
+          <button type="button" role="radio" aria-checked="false" data-admin-type="notify">Launch list</button>
+        </div>
+        <label class="sr-only" for="admin-q">Search</label>
+        <input class="control" id="admin-q" type="search" placeholder="Search email, app, note" data-admin-q>
+        <label class="sr-only" for="admin-status">Status</label>
+        <select class="control" id="admin-status" data-admin-status>
+          <option value="">Any status</option><option value="new">New</option><option value="contacted">Contacted</option><option value="accepted">Accepted</option><option value="declined">Declined</option>
+        </select>
+        <button class="btn btn-secondary btn-sm" type="button" data-admin-export>{{icon:download-simple}}Export CSV</button>
+      </div>
+
+      <p class="error-text" data-admin-problem hidden>{{icon:warning}}<span></span></p>
+      <div class="table-scroll"><table data-admin-table><thead></thead><tbody></tbody></table></div>
+      <p class="admin-empty muted" data-admin-empty hidden>Nobody yet.</p>
+      <div class="admin-more">
+        <span class="muted" data-admin-count></span>
+        <button class="btn btn-secondary btn-sm" type="button" data-admin-more hidden>Show more</button>
+      </div>
+    </div>
+
+  </div>
+</section>
