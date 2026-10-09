@@ -187,8 +187,15 @@ ${group("Demo", "Demos", "A demo shows. Framefly walks through your app click by
   /** The three latest, for the home page. */
   "articles-latest": ({ articles, longDate, esc }) => `<div class="artlist three">${articles.slice(0, 3).map((a) => `<a class="artcard card" href="articles/${a.slug}"><span class="chip chip-line">${esc(a.category ?? "Guide")}</span><h3>${esc(a.title)}</h3><p>${esc(a.description)}</p><span class="artcard-meta"><time datetime="${a.date}">${longDate(a.date)}</time><span>${a.minutes} min read</span></span></a>`).join("")}</div>`,
 
+
+  /** Three films as cards on a night band: the film plays when it is on screen. */
+  "home-templates": ({ data, esc }) => `<div class="rx-tpl reveal" data-rx-films>${["launch-continuous", "studio", "dynamic-demo"].map((id) => data.templates.find((t) => t.id === id)).map((t) => `<article class="rx-card"><div class="rx-frame"><video src="assets/films/${t.id}.preview.mp4" poster="assets/films/${t.id}.small.webp" muted loop playsinline preload="none" aria-label="Excerpt of the ${esc(t.name)} template"></video></div><h3>${t.name}<small>${esc(t.line)}</small></h3><div class="rx-facts">${Object.entries(t.facts).map(([k, v]) => `<div><span>${k}</span>${esc(v.replace(", scored to the cut", ""))}</div>`).join("")}</div></article>`).join("")}</div>`,
+
+  /** The three latest articles as rows. */
+  "reads-latest": ({ articles, icon, esc }) => `<div class="rx-reads reveal">${articles.slice(0, 3).map((a) => `<a href="articles/${a.slug}"><span class="rx-slate">${esc(a.category ?? "Guide")}</span><h3>${esc(a.title)}</h3>${icon("arrow-up-right")}</a>`).join("")}</div>`,
+
   /** The last section of most pages: the countdown, and the one email. */
-  closing: (c) => `<section class="closing" id="launch">
+  closing: (c) => `<section class="closing night closing-band" id="launch">
   <div class="wrap closing" style="padding-block:0">
     <div data-when-waiting style="display:grid;gap:22px;justify-items:center">
       <span class="rec"><i></i>Launch day in</span>

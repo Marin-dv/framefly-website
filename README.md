@@ -26,6 +26,7 @@ The built files are committed, so GitHub Pages needs no build step.
 | `src/blocks.mjs` | The parts of a page made from that data (film players, the canvas, plan cards...) |
 | `assets/css/site.css` | The design system, on the app's tokens. Light and dark are both first-class |
 | `assets/js/site.js` | Theme, countdown, forms, film players |
+| `assets/js/home.js` | The home page's own motion: the desktop of files, the statement lit word by word, the two frame-rate lanes, the cost calculator, the template films |
 | `assets/js/stage.js` | The interactive canvas, the caption library and the presenter rooms: small copies of the app's own components |
 | `assets/js/track.js` | Counts a page view on our own API: no cookie, totals per day. Your own visits stop counting once you have signed in to the admin on that browser, or opened any page with `?notrack=1` |
 | `assets/js/config.js` | **The launch date and the form wiring** (below) |

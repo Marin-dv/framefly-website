@@ -3,7 +3,7 @@ title: Framefly: prompt in, demo video out
 description: Framefly turns your web app into a demo video. It explores the app, writes a plan you can read and change, then films it in every format. Launching October 28, 2026.
 og_description: Give Framefly a demo account and a brief. It explores your app, writes the video with you and films it. Launching October 28.
 priority: 1.0
-scripts: stage
+scripts: stage, home
 head: <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Turns a web app into a demo video: an AI agent explores the app, writes a plan you can read and change, and films it in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}</script>
 -->
 
@@ -12,20 +12,77 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
   <div class="aurora" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1>Prompt in.<br><span class="mark">Demo video</span> out.</h1>
+      <p class="rx-eyebrow">An AI film crew for your web app<span data-when-waiting> · Beta open now</span></p>
+      <h1>Prompt in.<br>Demo video<br><span class="mark">out.</span></h1>
       <p class="lead">Give Framefly a demo account and a brief. It explores your app, writes the video and films it.</p>
       {{block:notify-hero}}
-      <a class="arrow-link hero-alt" href="beta.html" data-when-waiting>Apply for the beta {{icon:arrow-right}}</a>
+      <a class="btn btn-primary" href="beta.html" data-when-waiting>Apply for the beta<span class="nub">{{icon:arrow-up-right}}</span></a>
+      <p class="rx-note" data-when-waiting>A small group of real apps is being filmed before <span data-launch-date>October 28</span>. <b>Beta videos are free.</b></p>
     </div>
     {{block:hero-film}}
   </div>
 </section>
 
-<!-- ───────── How it works: the words scroll, the app's own screens stay ───────── -->
-<section class="section" id="how">
+<!-- ───────── (01) The desktop ───────── -->
+<section class="rx-sec" id="desk-sec">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>You see the whole video before anything is filmed.</h2>
+    <div class="rx-head reveal">
+      <p class="rx-slate">(01) · A folder you may know</p>
+      <h2>One demo video,<br><span class="mark">made by hand.</span></h2>
+      <p class="lead">Two scripts, fourteen takes, three files called final. Move them around, then hand the pile to Framefly.</p>
+    </div>
+    <div class="rx-desk" id="desk" data-state="mess">
+      <div class="rx-desk-bar"><i></i><i></i><i></i><span class="rx-slate">Desktop / demo-video</span><span class="rx-slate" id="desk-count" aria-live="polite">11 files · 14 takes · 1 sticky note</span></div>
+      <div class="rx-desk-area" id="desk-area">
+        <div class="dk-file" style="--x:3%;--y:7%;--r:-5deg"><b>DOC</b><span>script_v1.docx<small>Monday, 09:12</small></span></div>
+        <div class="dk-file" style="--x:25%;--y:31%;--r:3deg"><b>DOC</b><span>script_v3_shorter.docx<small>Monday, 16:40</small></span></div>
+        <div class="dk-file" style="--x:43%;--y:5%;--r:4deg"><b>MOV</b><span>take_01.mov<small>Tuesday, 10:03</small></span></div>
+        <div class="dk-file" style="--x:60%;--y:23%;--r:-4deg"><b>MOV</b><span>take_07_cough.mov<small>Tuesday, 14:51</small></span></div>
+        <div class="dk-file" style="--x:37%;--y:53%;--r:-2deg"><b>MOV</b><span>take_14_ok_i_guess.mov<small>Wednesday, 23:48</small></span></div>
+        <div class="dk-file" style="--x:5%;--y:60%;--r:5deg"><b>WAV</b><span>voiceover_redo.wav<small>Thursday, 08:30</small></span></div>
+        <div class="dk-file" style="--x:68%;--y:62%;--r:3deg"><b>MP3</b><span>music_royalty_free_2.mp3<small>Thursday, 11:15</small></span></div>
+        <div class="dk-file" style="--x:50%;--y:77%;--r:-6deg"><b>SRT</b><span>captions_fixed.srt<small>Thursday, 17:02</small></span></div>
+        <div class="dk-file final" style="--x:13%;--y:81%;--r:-3deg"><b>MP4</b><span>demo_final.mp4<small>Thursday, 19:30</small></span></div>
+        <div class="dk-file final" style="--x:74%;--y:5%;--r:6deg"><b>MP4</b><span>demo_final_v2.mp4<small>Friday, 10:20</small></span></div>
+        <div class="dk-file final" style="--x:77%;--y:41%;--r:-5deg"><b>MP4</b><span>demo_FINAL_real.mp4<small>Friday, 18:44</small></span></div>
+        <div class="dk-file sticky" style="--x:47%;--y:28%;--r:4deg">The button moved in Friday's release. Record it all again?</div>
+        <div class="dk-file dk-rec" style="--x:2%;--y:30%;--r:-2deg"><header><i></i><i></i><i></i>Screen recorder</header><div><span><span class="rx-dot" aria-hidden="true"></span>Rec 00:31</span>Take 14</div></div>
+        <div class="dk-done" id="desk-done" aria-hidden="true">
+          <div class="dk-brief"><span class="rx-slate">brief.txt</span><p>A launch film for Instagram Feed with no cut in it, for people who built their own site and post every week. End on Start free.</p></div>
+          <div class="dk-flight" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="dk-film"><video src="assets/films/launch-continuous.preview.mp4" poster="assets/films/launch-continuous.small.webp" muted loop playsinline preload="none" aria-label="The film Framefly made from that brief"></video><p>instagram-feed-launch.mp4<small>0:42</small></p></div>
+        </div>
+      </div>
+      <div class="rx-desk-foot">
+        <button class="btn btn-primary" type="button" id="desk-go">Hand it to Framefly</button>
+        <button class="btn btn-secondary" type="button" id="desk-back" hidden>Put the mess back</button>
+        <span class="rx-note" id="desk-note">Invented file names. A familiar week.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rx-sec acid rx-verdict">
+  <div class="wrap">
+    <p class="rx-slate">What really happened</p>
+    <h2>The app was ready.<span class="rx-it">The video is what took the week.</span></h2>
+  </div>
+</section>
+
+<!-- ───────── (02) Statement ───────── -->
+<section class="rx-sec">
+  <div class="wrap">
+    <p class="rx-slate">(02) · What Framefly does</p>
+    <p class="rx-statement" id="statement">Give it a demo account and a brief. It explores your app, writes the video and films it. You read the whole plan before a single frame is shot.</p>
+  </div>
+</section>
+
+<!-- ───────── (03) How it works: the words scroll, the app's own screens stay ───────── -->
+<section class="rx-sec flush-top" id="how">
+  <div class="wrap">
+    <div class="rx-head reveal">
+      <p class="rx-slate">(03) · The method</p>
+      <h2>You see the whole video<br><span class="mark">before anything is filmed.</span></h2>
       <p class="lead">Planning is free. Framefly explores your app, writes the video and waits. Generate is the only button that spends a credit.</p>
     </div>
     <div class="steps" data-steps>
@@ -73,21 +130,32 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
   </div>
 </section>
 
-<!-- ───────── The canvas ───────── -->
-<section class="section flush-top" id="canvas">
+<!-- ───────── (04) Templates ───────── -->
+<section class="rx-sec night" id="films">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>Nothing on the picture has a fixed place.</h2>
-      <p class="lead">This is the plan's picture at a smaller size. Change the backdrop, the captions and the presenter, then drag any of them.</p>
+    <div class="rx-head reveal">
+      <p class="rx-slate">(04) · Templates</p>
+      <h2>Start from a template.<br><span class="mark">Each one is a real film.</span></h2>
+      <p class="lead">Every template is a film the pipeline renders today. These three were all made for the same app.</p>
     </div>
-    <div class="reveal">{{block:stage}}</div>
+    {{block:home-templates}}
+    <div class="rx-more reveal">
+      <a class="btn btn-primary" href="templates.html">See all templates<span class="nub">{{icon:arrow-up-right}}</span></a>
+      <span class="rx-note">Three of five shown here. <b>Every template, with its camera, pacing and formats, has its own page.</b></span>
+    </div>
   </div>
 </section>
 
-<!-- ───────── What a video is made of ───────── -->
-<section class="section-tight flush-top">
+<!-- ───────── (05) The canvas, and what a video is made of ───────── -->
+<section class="rx-sec" id="canvas">
   <div class="wrap">
-    <div class="figures card reveal">
+    <div class="rx-head reveal">
+      <p class="rx-slate">(05) · What a video is made of</p>
+      <h2>Nothing on the picture<br><span class="mark">has a fixed place.</span></h2>
+      <p class="lead">This is the plan's picture at a smaller size. Change the backdrop, the captions and the presenter, then drag any of them.</p>
+    </div>
+    <div class="reveal">{{block:stage}}</div>
+    <div class="figures card reveal" style="margin-top:clamp(36px,5vw,64px)">
       <a href="templates.html"><b>5</b><span>templates, each one a film the pipeline renders today</span></a>
       <a href="templates.html#captions"><b>20</b><span>caption styles, timed on the voice word by word</span></a>
       <a href="templates.html#backdrops"><b>18</b><span>backdrops, or a picture of your own</span></a>
@@ -98,108 +166,151 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
   </div>
 </section>
 
-<!-- ───────── Capture, measured ───────── -->
-<section class="section" id="capture">
-  <div class="wrap split">
-    <div class="split-copy reveal">
-      <h2>Filmed frame by frame, not screen-recorded.</h2>
+<!-- ───────── (06) Capture, measured ───────── -->
+<section class="rx-sec flush-top" id="capture">
+  <div class="wrap">
+    <div class="rx-head reveal">
+      <p class="rx-slate">(06) · Capture, measured</p>
+      <h2>Filmed frame by frame,<br><span class="mark">not screen-recorded.</span></h2>
       <p class="lead">A screen recording stutters as soon as the machine is busy. Framefly renders your page one frame at a time on its own clock, at twice the pixel density.</p>
-      <div class="measures">
+    </div>
+    <div class="split">
+      <div class="measures reveal">
         <div class="measure"><b>55 fps</b><s>20 fps</s><p>Unique frames per second, against a browser recording of the same 20-second scenario.</p></div>
         <div class="measure"><b>17 ms</b><s>933 ms</s><p>Longest freeze. One frame, against almost a full second of frozen picture.</p></div>
         <div class="measure"><b>3200 x 1800</b><s>1600 x 900</s><p>Frame size at 2x. A real-time recording quietly falls back to 1x.</p></div>
       </div>
+      <div class="rx-lanes reveal" id="lanes" aria-label="The same cursor movement shown at the two measured frame rates">
+        <div class="rx-lane">
+          <div class="rx-lane-top"><span class="rx-slate"><b>Browser recording</b> · 20 fps</span><span class="rx-slate state" id="lane-state"></span></div>
+          <div class="rx-rail"><i id="lane-bad"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M5 3v19l5-4.5 3.6 7.5 3.4-1.6-3.6-7.4 6.6-.5z"/></svg></i></div>
+        </div>
+        <div class="rx-lane good">
+          <div class="rx-lane-top"><span class="rx-slate"><b>Framefly</b> · 55 fps</span><span class="rx-slate">frame by frame</span></div>
+          <div class="rx-rail"><i id="lane-good"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M5 3v19l5-4.5 3.6 7.5 3.4-1.6-3.6-7.4 6.6-.5z"/></svg></i></div>
+        </div>
+        <p class="rx-note">The same movement, drawn at the two frame rates we measured on September 25, 2026. The top lane also holds still for 933 ms now and then, the longest freeze in that recording.</p>
+      </div>
     </div>
-    <figure class="figure reveal">
+    <figure class="figure rx-crisp reveal">
       <img class="crisp" src="assets/img/crispness.webp" width="950" height="1227" alt="The same frame of an interface under a 2.5x zoom, three ways: a browser recording is blurred, a 1x capture is soft, a 2x capture is sharp" loading="lazy" decoding="async">
       <figcaption>The same frame under a 2.5x zoom: browser recording, frame-by-frame at 1x, frame-by-frame at 2x. Measured on September 25, 2026.</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ───────── Guardrails ───────── -->
-<section class="section flush-top" id="guardrails">
+<!-- ───────── (07) Your cost ───────── -->
+<section class="rx-sec flush-top" id="cost">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>It never pays, deletes or sends.</h2>
+    <div class="rx-head reveal">
+      <p class="rx-slate">(07) · Your cost</p>
+      <h2>Count what a demo video<br><span class="mark">costs you by hand.</span></h2>
+      <p class="lead">Three sliders, your numbers. A freelancer charges $1,000 to $5,000 for the same video, and takes a week.</p>
+    </div>
+    <div class="rx-calc reveal">
+      <div class="rx-panel">
+        <div class="rx-knob"><label class="rx-slate" for="c-hours">Hours you spend on one video</label><output id="o-hours" for="c-hours">10 h</output><input id="c-hours" type="range" min="1" max="40" step="1" value="10"></div>
+        <div class="rx-knob"><label class="rx-slate" for="c-rate">What an hour of yours is worth</label><output id="o-rate" for="c-rate">$60</output><input id="c-rate" type="range" min="20" max="250" step="5" value="60"></div>
+        <div class="rx-knob"><label class="rx-slate" for="c-videos">Videos you need in a year</label><output id="o-videos" for="c-videos">6</output><input id="c-videos" type="range" min="1" max="36" step="1" value="6"></div>
+      </div>
+      <div>
+        <div class="rx-duo">
+          <div><span class="rx-slate">By hand</span><b id="o-hand">$3,600</b><small id="o-hand-h">60 hours a year</small></div>
+          <div><span class="rx-slate">With Framefly</span><b id="o-ff">$308</b><small id="o-ff-h">$128 of credits, 3 hours of yours</small></div>
+        </div>
+        <div class="rx-back"><span class="rx-slate">What you get back every year, your hours counted at your rate</span><b><span id="o-back">$3,292</span></b><span class="lead" id="o-back-h">That is 57 hours of your time, for $128 of credits.</span></div>
+        <p class="rx-calc-note">Framefly side: launch packs at beta prices ($29 for 1 video, $99 for 5, $249 for 15), the cheapest mix for your count, plus half an hour of your time per video for the brief and the plan. That half hour is our assumption.</p>
+        <a class="btn btn-primary" href="pricing.html">See what a credit covers<span class="nub">{{icon:arrow-up-right}}</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── (08) Guardrails ───────── -->
+<section class="rx-sec night" id="guardrails">
+  <div class="wrap">
+    <div class="rx-head reveal">
+      <p class="rx-slate">(08) · Guardrails</p>
+      <h2>It never pays,<br><span class="mark">deletes or sends.</span></h2>
       <p class="lead">You connect a demo account, never your real one. Every action the agent wants to take passes three checks before the browser runs it.</p>
     </div>
     <div class="layers reveal">
-      <div class="layer card"><span class="ic">{{icon:lock-key}}</span><h3>A hard block list</h3><p>Checkout pages, delete requests and destructive buttons are stopped inside the browser, in ten languages. It cannot be switched off.</p></div>
-      <div class="layer card"><span class="ic">{{icon:brain}}</span><h3>A guard model</h3><p>A second, faster model reads each proposed action with the page around it, and stops anything risky or hard to undo.</p></div>
-      <div class="layer card"><span class="ic">{{icon:list-checks}}</span><h3>Your own rules</h3><p>Allow or deny by button text, URL or selector, for one app or for all of them.</p></div>
+      <div class="layer card"><span class="ic">{{icon:lock-key}}</span><span class="rx-slate">Check 1</span><h3>A hard block list</h3><p>Checkout pages, delete requests and destructive buttons are stopped inside the browser, in ten languages. It cannot be switched off.</p></div>
+      <div class="layer card"><span class="ic">{{icon:brain}}</span><span class="rx-slate">Check 2</span><h3>A guard model</h3><p>A second, faster model reads each proposed action with the page around it, and stops anything risky or hard to undo.</p></div>
+      <div class="layer card"><span class="ic">{{icon:list-checks}}</span><span class="rx-slate">Check 3</span><h3>Your own rules</h3><p>Allow or deny by button text, URL or selector, for one app or for all of them.</p></div>
     </div>
     <div class="secret card reveal">
       <code>fill("#password", <em>{{secret.password}}</em>)</code>
       <p>The model never sees a secret. It writes a placeholder, the browser fills in the real value, and signing in is never filmed.</p>
     </div>
     <div class="blocked reveal">
-      <span class="muted">Always blocked, even if you allow it:</span>
-      <span class="chip">Payments and checkout</span><span class="chip">Account deletion</span><span class="chip">Email and password changes</span><span class="chip">Outbound messages</span><span class="chip">Third-party grants</span>
+      <span class="rx-slate">Always blocked, even if you allow it:</span>
+      <span class="chip" style="--rot:-2deg">Payments and checkout</span><span class="chip" style="--rot:1.5deg">Account deletion</span><span class="chip" style="--rot:-1deg">Email and password changes</span><span class="chip" style="--rot:2deg">Outbound messages</span><span class="chip" style="--rot:-1.5deg">Third-party grants</span>
     </div>
     <a class="arrow-link" href="security.html" style="margin-top:28px">How your app and your secrets are protected {{icon:arrow-right}}</a>
   </div>
 </section>
 
-<!-- ───────── Pricing ───────── -->
-<section class="section flush-top" id="pricing">
-  <div class="wrap split wide-left">
-    <div class="split-copy reveal">
-      <h2>One credit. One video.</h2>
-      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions. A freelancer charges $1,000 to $5,000 for the same video, and takes a week.</p>
-      <a class="arrow-link" href="pricing.html">See pricing and what a credit covers {{icon:arrow-right}}</a>
+<!-- ───────── (09) Pricing ───────── -->
+<section class="rx-sec" id="pricing">
+  <div class="wrap">
+    <div class="rx-head reveal">
+      <p class="rx-slate">(09) · Pricing</p>
+      <h2>One credit.<br><span class="mark">One video.</span></h2>
+      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions.</p>
     </div>
-    <div class="reveal">
-      <nav class="ladder card" aria-label="Plans">
-        <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, 720p, no card</small></span><span class="p">$0</span>{{icon:arrow-right}}</a>
-        <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire</small></span><span class="p">from $29</span>{{icon:arrow-right}}</a>
-        <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects, freshness alerts</small></span><span class="p">$49/mo</span>{{icon:arrow-right}}</a>
-        <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, API</small></span><span class="p">$149/mo</span>{{icon:arrow-right}}</a>
-      </nav>
-      <p class="help" style="margin-top:14px">Beta prices, in US dollars. You never pay for a video that fails.</p>
+    <nav class="ladder card reveal" aria-label="Plans">
+      <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, up to 45 s, 720p with a watermark. No card required.</small></span><span class="p">$0</span>{{icon:arrow-right}}</a>
+      <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire. 1080p, no watermark, all formats from one shoot.</small></span><span class="p">from $29</span>{{icon:arrow-right}}</a>
+      <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects for Resolve, Premiere and Final Cut, freshness alerts.</small></span><span class="p">$49/mo</span>{{icon:arrow-right}}</a>
+      <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, your own presenter, API and webhooks.</small></span><span class="p">$149/mo</span>{{icon:arrow-right}}</a>
+    </nav>
+    <p class="rx-note" style="margin-top:18px">Beta prices, in US dollars. <b>You never pay for a video that fails.</b></p>
+  </div>
+</section>
+
+<!-- ───────── (10) Beta ───────── -->
+<section class="rx-sec acid" id="beta" data-when-waiting>
+  <div class="wrap rx-beta">
+    <div>
+      <p class="rx-slate">(10) · Test screening · doors close in</p>
+      <div class="rx-count" aria-hidden="true">
+        <div><b data-cd="d">00</b><span>days</span></div><div><b data-cd="h">00</b><span>hours</span></div><div><b data-cd="m">00</b><span>minutes</span></div><div><b data-cd="s">00</b><span>seconds</span></div>
+      </div>
+      <h2>Get your app filmed<span class="rx-it">before launch day.</span></h2>
+      <p class="lead" style="margin-block:20px 28px">A small group of real apps is being filmed before <span data-launch-date>October 28</span>. Beta videos are free, and you talk to the person building Framefly.</p>
+      <a class="btn btn-primary" href="beta.html">Apply for the beta<span class="nub">{{icon:arrow-up-right}}</span></a>
+    </div>
+    <div class="rx-ticket" aria-hidden="true">
+      <div class="rx-ticket-main">
+        <span class="rx-slate">Test screening</span>
+        <b>Admit one app</b>
+        <dl><dt>Venue</dt><dd>Your app</dd><dt>Seat</dt><dd>Beta</dd><dt>Before</dt><dd data-launch-date>October 28</dd></dl>
+      </div>
+      <div class="rx-ticket-stub"><b>01</b><span>Free during<br>the beta</span></div>
     </div>
   </div>
 </section>
 
-<!-- ───────── Beta ───────── -->
-<section class="section-tight flush-top" data-when-waiting>
+<!-- ───────── (11) Articles ───────── -->
+<section class="rx-sec" id="articles">
   <div class="wrap">
-    <div class="band reveal">
-      <div class="band-copy">
-        <h2>Get your app filmed before launch day.</h2>
-        <p>A small group of real apps is being filmed before <span data-launch-date>October 28</span>. Beta videos are free, and you talk to the person building Framefly.</p>
-        <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta<span class="nub">{{icon:arrow-up-right}}</span></a>
-      </div>
-      <div class="ticket" aria-hidden="true">
-        <div class="ticket-main">
-          <span class="label">Test screening</span>
-          <b>Admit one app</b>
-          <div class="ticket-rows"><div><span>Venue</span><strong>Your app</strong></div><div><span>Seat</span><strong>Beta</strong></div><div><span>Before</span><strong data-launch-date>October 28</strong></div></div>
-        </div>
-        <div class="ticket-stub"><b>01</b><span>Free during<br>the beta</span></div>
-      </div>
+    <div class="rx-head reveal">
+      <p class="rx-slate">(11) · Before you make the video</p>
+      <h2>Three articles,<br><span class="mark">each with its sources.</span></h2>
     </div>
-  </div>
-</section>
-
-<!-- ───────── Articles ───────── -->
-<section class="section flush-top" id="articles">
-  <div class="wrap">
-    <div class="head reveal">
-      <h2>Before you make the video.</h2>
-      <p class="lead">Short articles on what works for a demo or a launch video, each with its sources.</p>
-    </div>
-    <div class="reveal">{{block:articles-latest}}</div>
+    {{block:reads-latest}}
     <a class="arrow-link" href="articles/" style="margin-top:24px">All articles {{icon:arrow-right}}</a>
   </div>
 </section>
 
-<!-- ───────── FAQ ───────── -->
-<section class="section" id="faq">
+<!-- ───────── (12) FAQ ───────── -->
+<section class="rx-sec flush-top" id="faq">
   <div class="wrap faq-grid">
     <div class="reveal">
-      <h2>Questions</h2>
-      <p class="muted">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
+      <p class="rx-slate" style="margin-bottom:18px">(12) · Questions</p>
+      <h2>The ones people<br><span class="mark">really ask.</span></h2>
+      <p class="lead" style="margin-top:20px">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
     </div>
     <div class="faq reveal">
       <details><summary>What kind of apps does it work with?{{icon:plus}}</summary><div class="ans"><p>Web apps at launch: anything that runs in a browser, behind a login or not, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later.</p></div></details>
