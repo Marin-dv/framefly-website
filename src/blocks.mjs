@@ -49,19 +49,10 @@ export const blocks = {
 
   "notify-hero": (c) => notify(c, "hero", "Get one email on launch day", false, false),
 
-  /** Prompt in, video out: the brief the app keeps with each film, then the film. */
+  /** The hero's proof: one film, playing. The first template's film leads with what the product gives back. */
   "hero-film": (c) => {
-    const { data, icon, esc } = c;
-    const first = data.templates[0];
-    return `<div class="inout" data-inout>
-  <div class="brief card">
-    <div class="brief-top"><span class="brief-label">${icon("magic-wand")}Video brief</span><span class="brief-app"><i class="glyph">I</i>Instagram Feed</span></div>
-    <p class="brief-text" data-brief>${esc(first.brief)}</p>
-    <div class="brief-pills" role="radiogroup" aria-label="Template">
-      ${data.templates.map((t, i) => `<button type="button" role="radio" aria-checked="${i === 0}" data-template="${t.id}">${t.name}</button>`).join("")}
-    </div>
-  </div>
-  <div class="flight" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    const first = c.data.templates[0];
+    return `<div class="inout">
   <div class="viewfinder"><span class="vf" aria-hidden="true"></span>${player(c, first, { autoplay: true })}</div>
 </div>`;
   },

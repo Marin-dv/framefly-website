@@ -264,29 +264,6 @@
   }
   var players = $$("[data-player]").map(function (el) { el._player = Player(el); return el._player; });
 
-  /* ───────── Hero: pick a template, the brief and the film change together ───────── */
-  $$("[data-inout]").forEach(function (box) {
-    var brief = $("[data-brief]", box), pl = $("[data-player]", box), typing = 0;
-    $$("[data-template]", box).forEach(function (b) {
-      b.addEventListener("click", function () {
-        var t = films[b.getAttribute("data-template")];
-        if (!t) return;
-        FF.choose(b.parentNode, b);
-        pl._player.show(t.id);
-        clearInterval(typing);
-        if (reduce) { brief.textContent = t.brief; return; }
-        // the brief is typed in, as it is in Studio
-        var i = 0;
-        brief.textContent = "";
-        typing = setInterval(function () {
-          i += 4;
-          brief.textContent = t.brief.slice(0, i);
-          if (i >= t.brief.length) clearInterval(typing);
-        }, 16);
-      });
-    });
-  });
-
   /* ───────── How it works: the step in the middle of the window shows its picture ───────── */
   $$("[data-steps]").forEach(function (box) {
     var steps = $$(".step", box), shots = $$(".steps-stage .shot", box);

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Framefly: prompt in, demo video out</title>
-<meta name="description" content="Framefly turns your web app into a demo video. It explores the app, writes a plan you can read and change, then films it in every format. Launching October 28, 2026.">
+<title>Framefly: a demo video of your real app, filmed behind the login</title>
+<meta name="description" content="Framefly logs in to your app with a demo account, films the screens behind the login and gives you the demo video. No recording, no editing. From $29 a video. Launching October 28, 2026.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://framefly.app/">
-<meta property="og:title" content="Framefly: prompt in, demo video out">
-<meta property="og:description" content="Give Framefly a demo account and a brief. It explores your app, writes the video with you and films it. Launching October 28.">
+<meta property="og:title" content="Framefly: a demo video of your real app, filmed behind the login">
+<meta property="og:description" content="Framefly logs in to your app and films the screens behind the login. No recording, no editing. From $29 a video. Launching October 28.">
 <meta property="og:url" content="https://framefly.app/">
 <meta property="og:site_name" content="Framefly">
 <meta property="og:type" content="website">
@@ -29,7 +29,7 @@
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="dark")t="light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Turns a web app into a demo video: an AI agent explores the app, writes a plan you can read and change, and films it in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Logs in to a web app with a demo account and films it: an AI agent explores the app, writes a plan you can read and change, and delivers the demo video in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://framefly.app/#org","name":"Framefly","url":"https://framefly.app","logo":"https://framefly.app/assets/img/icon-512.png","email":"support@framefly.app","founder":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"},"sameAs":["https://x.com/MarindeVanssay"]},{"@type":"WebSite","@id":"https://framefly.app/#site","url":"https://framefly.app","name":"Framefly","description":"Prompt in. Demo video out.","publisher":{"@id":"https://framefly.app/#org"},"inLanguage":"en"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What kind of apps does it work with?","acceptedAnswer":{"@type":"Answer","text":"Web apps at launch: anything that runs in a browser, behind a login or not, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later."}},{"@type":"Question","name":"Do I have to give it my real account?","acceptedAnswer":{"@type":"Answer","text":"No, and you shouldn't. Framefly asks for a dedicated demo account. It can use the account as it is, fill it with realistic sample data if you allow it, or call a reset hook before every shoot so each take starts from the same state."}},{"@type":"Question","name":"What happens if a video fails?","acceptedAnswer":{"@type":"Answer","text":"Your credit is held when you generate and only charged at delivery. If anything fails along the way, or you stop it, the credit comes back in full. If you are not happy with a delivered video, you get one complete re-shoot for free within 7 days."}},{"@type":"Question","name":"Can I change the video afterwards?","acceptedAnswer":{"@type":"Answer","text":"Yes. Point at the picture and say what should change, or open the plan again and edit it. Only the sections concerned are filmed again. A new voice, new captions, other music or another look only need a new edit. Ten revisions come with every video, and Pro and Studio also export an editable project for DaVinci Resolve, Premiere Pro or Final Cut Pro."}},{"@type":"Question","name":"Is the voice AI? Will people know?","acceptedAnswer":{"@type":"Answer","text":"Yes, the studio voices and the presenters are generated. Every export carries content credentials, the end card says so in one line, and a label shows whenever a presenter is on screen, as the EU AI Act asks. You can also record the narration yourself, section by section."}},{"@type":"Question","name":"When can I use it?","acceptedAnswer":{"@type":"Answer","text":"Framefly launches on Wednesday, October 28 . Beta testers get in before that. Leave your email below and you get one message on launch day."}}]}</script>
 </head>
 <body class="page-index">
@@ -66,13 +66,17 @@
   </div>
 </header>
 <main id="main">
-<!-- ───────── Hero: the brief goes in, the film comes out ───────── -->
+<!-- ───────── Hero: what you gain (signups, time, money) and what it does (logs in) ───────── -->
 <section class="hero">
   <div class="aurora" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1>Prompt in.<br><span class="mark">Demo video</span> out.</h1>
-      <p class="lead">Give Framefly a demo account and a brief. It explores your app, writes the video and films it.</p>
+      <h1>Get <span class="mark">more signups</span> with a demo video of your real app.</h1>
+      <p class="lead">Framefly <strong>logs in to your app</strong> with a demo account and films the screens behind the login. You record nothing and edit nothing.</p>
+      <ul class="gains">
+        <li><b>From $29</b><span>a video. A freelancer charges $2,000 to $5,000 per finished minute.</span></li>
+        <li><b>About 30 min</b><span>from your app to the finished video, not a day of recording and editing.</span></li>
+      </ul>
       <div data-when-waiting style="width:100%;max-width:440px">
   <form class="capture" data-form="notify" data-done="hero-done">
     <label class="field-label" for="hero-email">Get one email on launch day</label>
@@ -93,15 +97,7 @@
 </div>
       <a class="arrow-link hero-alt" href="beta.html" data-when-waiting>Apply for the beta <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     </div>
-    <div class="inout" data-inout>
-  <div class="brief card">
-    <div class="brief-top"><span class="brief-label"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-magic-wand"></use></svg>Video brief</span><span class="brief-app"><i class="glyph">I</i>Instagram Feed</span></div>
-    <p class="brief-text" data-brief>A launch film for Instagram Feed with no cut in it, for people who built their own site and post every week. The claim: post on Instagram and your website updates itself. Open on the account and its real posts, lead with what keeping the site current by hand costs (26 hours a year), prove it three times, give the price, end on Start free.</p>
-    <div class="brief-pills" role="radiogroup" aria-label="Template">
-      <button type="button" role="radio" aria-checked="true" data-template="launch-continuous">Continuous Launch</button><button type="button" role="radio" aria-checked="false" data-template="launch-film">Launch Film</button><button type="button" role="radio" aria-checked="false" data-template="mac-demo">Mac Demo</button><button type="button" role="radio" aria-checked="false" data-template="studio">Studio</button><button type="button" role="radio" aria-checked="false" data-template="dynamic-demo">Dynamic Demo</button>
-    </div>
-  </div>
-  <div class="flight" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="inout">
   <div class="viewfinder"><span class="vf" aria-hidden="true"></span><div class="player" data-player data-film="launch-continuous" data-sound="true" data-autoplay style="--ar:1920 / 1080">
   <div class="player-screen">
     <video playsinline muted loop preload="none" poster="assets/films/launch-continuous.webp" width="1920" height="1080" aria-label="Continuous Launch: a film of Instagram Feed made by Framefly"></video>
@@ -284,7 +280,7 @@
   <div class="wrap split wide-left">
     <div class="split-copy reveal">
       <h2>One credit. One video.</h2>
-      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions. A freelancer charges $1,000 to $5,000 for the same video, and takes a week.</p>
+      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions. A freelancer charges $2,000 to $5,000 per finished minute for the same kind of video.</p>
       <a class="arrow-link" href="pricing.html">See pricing and what a credit covers <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
     </div>
     <div class="reveal">
