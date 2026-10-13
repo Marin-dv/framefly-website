@@ -36,7 +36,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav" id="nav">
   <div class="nav-bar">
-    <a class="brand" href="index.html" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+    <a class="brand" href="/" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
     <nav class="nav-links" aria-label="Main">
       <a href="product.html" class="nav-link">Product</a>
       <a href="templates.html" class="nav-link">Templates</a>
@@ -46,7 +46,7 @@
       <a href="log.html" class="nav-link">Log</a>
     </nav>
     <div class="nav-end">
-      <a class="nav-count" href="index.html#launch" data-when-waiting><span>Launch in</span><b data-cd-chip>20 days</b></a>
+      <a class="nav-count" href="/#launch" data-when-waiting><span>Launch in</span><b data-cd-chip>20 days</b></a>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"></use></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-sun"></use></svg></button>
       <a class="btn btn-primary btn-sm nav-cta" href="beta.html" data-when-waiting>Apply for the beta</a>
       <a class="btn btn-primary btn-sm nav-cta" href="https://app.framefly.app" data-when-live data-app-link hidden>Make your first video</a>
@@ -117,10 +117,10 @@
 </section>
 
 <!-- ───────── How it works: the words scroll, the app's own screens stay ───────── -->
-<section class="section" id="how">
+<section class="rx-sec" id="how">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>You see the whole video before anything is filmed.</h2>
+    <div class="rx-head reveal">
+      <h2>You see the whole video<br><span class="mark">before anything is filmed.</span></h2>
       <p class="lead">Planning is free. Framefly explores your app, writes the video and waits. Generate is the only button that spends a credit.</p>
     </div>
     <div class="steps" data-steps>
@@ -168,11 +168,26 @@
   </div>
 </section>
 
-<!-- ───────── The canvas ───────── -->
-<section class="section flush-top" id="canvas">
+<!-- ───────── Templates: three of them, each a real film ───────── -->
+<section class="rx-sec night" id="films">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>Nothing on the picture has a fixed place.</h2>
+    <div class="rx-head reveal">
+      <h2>Start from a template.<br><span class="mark">Each one is a real film.</span></h2>
+      <p class="lead">Every template is a film the pipeline renders today. These three were all made for the same app.</p>
+    </div>
+    <div class="rx-tpl reveal" data-rx-films><article class="rx-card"><div class="rx-frame"><video src="assets/films/launch-continuous.preview.mp4" poster="assets/films/launch-continuous.small.webp" muted loop playsinline preload="none" aria-label="Excerpt of the Continuous Launch template"></video></div><h3>Continuous Launch<small>One argument, one object, no cut.</small></h3><div class="rx-facts"><div><span>Pacing</span>Brisk</div><div><span>Transitions</span>Morph</div><div><span>Camera</span>Dolly</div><div><span>Captions</span>None</div><div><span>Music</span>Electronic, 120 BPM</div><div><span>Formats</span>16:9</div></div></article><article class="rx-card"><div class="rx-frame"><video src="assets/films/studio.preview.mp4" poster="assets/films/studio.small.webp" muted loop playsinline preload="none" aria-label="Excerpt of the Studio template"></video></div><h3>Studio<small>A floating window, captions word by word.</small></h3><div class="rx-facts"><div><span>Pacing</span>Standard</div><div><span>Transitions</span>Zoom</div><div><span>Camera</span>Spring zoom, 2x</div><div><span>Captions</span>Karaoke</div><div><span>Music</span>None</div><div><span>Formats</span>16:9, 9:16, 1:1, 4:5</div></div></article><article class="rx-card"><div class="rx-frame"><video src="assets/films/dynamic-demo.preview.mp4" poster="assets/films/dynamic-demo.small.webp" muted loop playsinline preload="none" aria-label="Excerpt of the Dynamic Demo template"></video></div><h3>Dynamic Demo<small>A dark stage, a tilted window, title cards.</small></h3><div class="rx-facts"><div><span>Pacing</span>Standard</div><div><span>Transitions</span>Cut</div><div><span>Camera</span>Dolly</div><div><span>Captions</span>None</div><div><span>Music</span>Minimal electronic, 104 BPM</div><div><span>Formats</span>16:9, 9:16, 1:1, 4:5</div></div></article></div>
+    <div class="rx-more reveal">
+      <a class="btn btn-primary" href="templates.html">See all templates<span class="nub"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></span></a>
+      <span class="rx-note">Three of five shown here. <b>Every template, with its camera, pacing and formats, has its own page.</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── The canvas, and what a video is made of ───────── -->
+<section class="rx-sec" id="canvas">
+  <div class="wrap">
+    <div class="rx-head reveal">
+      <h2>Nothing on the picture<br><span class="mark">has a fixed place.</span></h2>
       <p class="lead">This is the plan's picture at a smaller size. Change the backdrop, the captions and the presenter, then drag any of them.</p>
     </div>
     <div class="reveal"><div class="canvas" data-stage>
@@ -215,13 +230,7 @@
     </div>
   </div>
 </div></div>
-  </div>
-</section>
-
-<!-- ───────── What a video is made of ───────── -->
-<section class="section-tight flush-top">
-  <div class="wrap">
-    <div class="figures card reveal">
+    <div class="figures card reveal" style="margin-top:clamp(36px,5vw,64px)">
       <a href="templates.html"><b>5</b><span>templates, each one a film the pipeline renders today</span></a>
       <a href="templates.html#captions"><b>20</b><span>caption styles, timed on the voice word by word</span></a>
       <a href="templates.html#backdrops"><b>18</b><span>backdrops, or a picture of your own</span></a>
@@ -233,10 +242,10 @@
 </section>
 
 <!-- ───────── Capture, measured ───────── -->
-<section class="section" id="capture">
+<section class="rx-sec flush-top" id="capture">
   <div class="wrap split">
     <div class="split-copy reveal">
-      <h2>Filmed frame by frame, not screen-recorded.</h2>
+      <h2>Filmed frame by frame,<br><span class="mark" style="white-space:nowrap">not screen-recorded.</span></h2>
       <p class="lead">A screen recording stutters as soon as the machine is busy. Framefly renders your page one frame at a time on its own clock, at twice the pixel density.</p>
       <div class="measures">
         <div class="measure"><b>55 fps</b><s>20 fps</s><p>Unique frames per second, against a browser recording of the same 20-second scenario.</p></div>
@@ -252,10 +261,10 @@
 </section>
 
 <!-- ───────── Guardrails ───────── -->
-<section class="section flush-top" id="guardrails">
+<section class="rx-sec night" id="guardrails">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>It never pays, deletes or sends.</h2>
+    <div class="rx-head reveal">
+      <h2>It never pays,<br><span class="mark">deletes or sends.</span></h2>
       <p class="lead">You connect a demo account, never your real one. Every action the agent wants to take passes three checks before the browser runs it.</p>
     </div>
     <div class="layers reveal">
@@ -276,22 +285,19 @@
 </section>
 
 <!-- ───────── Pricing ───────── -->
-<section class="section flush-top" id="pricing">
-  <div class="wrap split wide-left">
-    <div class="split-copy reveal">
-      <h2>One credit. One video.</h2>
-      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions. A freelancer charges $2,000 to $5,000 per finished minute for the same kind of video.</p>
-      <a class="arrow-link" href="pricing.html">See pricing and what a credit covers <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+<section class="rx-sec" id="pricing">
+  <div class="wrap">
+    <div class="rx-head reveal">
+      <h2>One credit.<br><span class="mark">One video.</span></h2>
+      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions.</p>
     </div>
-    <div class="reveal">
-      <nav class="ladder card" aria-label="Plans">
-        <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, 720p, no card</small></span><span class="p">$0</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-        <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire</small></span><span class="p">from $29</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-        <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects, freshness alerts</small></span><span class="p">$49/mo</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-        <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, API</small></span><span class="p">$149/mo</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
-      </nav>
-      <p class="help" style="margin-top:14px">Beta prices, in US dollars. You never pay for a video that fails.</p>
-    </div>
+    <nav class="ladder card reveal" aria-label="Plans">
+      <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, up to 45 s, 720p with a watermark. No card required.</small></span><span class="p">$0</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+      <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire. 1080p, no watermark, all formats from one shoot.</small></span><span class="p">from $29</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+      <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects for Resolve, Premiere and Final Cut, freshness alerts.</small></span><span class="p">$49/mo</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+      <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, your own presenter, API and webhooks.</small></span><span class="p">$149/mo</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
+    </nav>
+    <p class="rx-note" style="margin-top:18px">Beta prices, in US dollars. <b>You never pay for a video that fails.</b></p>
   </div>
 </section>
 
@@ -317,23 +323,22 @@
 </section>
 
 <!-- ───────── Articles ───────── -->
-<section class="section flush-top" id="articles">
+<section class="rx-sec" id="articles">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>Before you make the video.</h2>
-      <p class="lead">Short articles on what works for a demo or a launch video, each with its sources.</p>
+    <div class="rx-head reveal">
+      <h2>Three articles,<br><span class="mark">each with its sources.</span></h2>
     </div>
-    <div class="reveal"><div class="artlist three"><a class="artcard card" href="articles/how-to-make-a-saas-demo-video"><span class="chip chip-line">Guide</span><h3>How to make a demo video for your SaaS: four ways compared</h3><p>Record it yourself, hire it out, build an interactive demo or let an AI film it. What each costs, how long the video should be, and the steps that apply to all four, with sources.</p><span class="artcard-meta"><time datetime="2026-10-09">9 October 2026</time><span>6 min read</span></span></a><a class="artcard card" href="articles/product-hunt-launch-video"><span class="chip chip-line">Launch</span><h3>Product Hunt launch video: the rules, the length and what to show</h3><p>What Product Hunt accepts as a launch video (YouTube only, full link, not private), the gallery sizes, when a launch goes live, how long the video should be and what to put in it.</p><span class="artcard-meta"><time datetime="2026-10-09">9 October 2026</time><span>4 min read</span></span></a><a class="artcard card" href="articles/why-screen-recordings-stutter"><span class="chip chip-line">Measured</span><h3>Why screen recordings of web apps stutter, and how to fix it</h3><p>We recorded the same 20 seconds of a web app five ways and measured every frame. Real-time recording gave 20 to 34 real frames a second. Rendering frame by frame gave 55, and sharp zooms.</p><span class="artcard-meta"><time datetime="2026-10-09">9 October 2026</time><span>5 min read</span></span></a></div></div>
+    <div class="rx-reads reveal"><a href="articles/how-to-make-a-saas-demo-video"><span class="rx-slate">Guide</span><h3>How to make a demo video for your SaaS: four ways compared</h3><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></a><a href="articles/product-hunt-launch-video"><span class="rx-slate">Launch</span><h3>Product Hunt launch video: the rules, the length and what to show</h3><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></a><a href="articles/why-screen-recordings-stutter"><span class="rx-slate">Measured</span><h3>Why screen recordings of web apps stutter, and how to fix it</h3><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"></use></svg></a></div>
     <a class="arrow-link" href="articles/" style="margin-top:24px">All articles <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"></use></svg></a>
   </div>
 </section>
 
 <!-- ───────── FAQ ───────── -->
-<section class="section" id="faq">
+<section class="rx-sec flush-top" id="faq">
   <div class="wrap faq-grid">
     <div class="reveal">
-      <h2>Questions</h2>
-      <p class="muted">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
+      <h2>The ones people<br><span class="mark">really ask.</span></h2>
+      <p class="lead" style="margin-top:20px">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
     </div>
     <div class="faq reveal">
       <details><summary>What kind of apps does it work with?<svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-plus"></use></svg></summary><div class="ans"><p>Web apps at launch: anything that runs in a browser, behind a login or not, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later.</p></div></details>
@@ -347,7 +352,7 @@
   </div>
 </section>
 
-<section class="closing" id="launch">
+<section class="closing night closing-band" id="launch">
   <div class="wrap closing" style="padding-block:0">
     <div data-when-waiting style="display:grid;gap:22px;justify-items:center">
       <span class="rec"><i></i>Launch day in</span>
@@ -383,7 +388,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="index.html" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
+        <a class="brand" href="/" aria-label="Framefly home"><svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg><span>Framefly</span></a>
         <p>Prompt in. Demo video out. <span data-when-waiting>Launching <span data-launch-date>October 28</span>.</span> Made in France by Vanssay.</p>
       </div>
       <nav class="foot-col" aria-label="Product">
@@ -422,6 +427,7 @@
 <script src="assets/js/data.js" defer></script>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/stage.js" defer></script>
+<script src="assets/js/home.js" defer></script>
 <script src="assets/js/track.js" defer></script>
 </body>
 </html>

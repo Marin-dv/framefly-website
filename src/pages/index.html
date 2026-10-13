@@ -3,7 +3,7 @@ title: Framefly: a demo video of your real app, filmed behind the login
 description: Framefly logs in to your app with a demo account, films the screens behind the login and gives you the demo video. No recording, no editing. From $29 a video. Launching October 28, 2026.
 og_description: Framefly logs in to your app and films the screens behind the login. No recording, no editing. From $29 a video. Launching October 28.
 priority: 1.0
-scripts: stage
+scripts: stage, home
 head: <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Logs in to a web app with a demo account and films it: an AI agent explores the app, writes a plan you can read and change, and delivers the demo video in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}</script>
 -->
 
@@ -26,10 +26,10 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
 </section>
 
 <!-- ───────── How it works: the words scroll, the app's own screens stay ───────── -->
-<section class="section" id="how">
+<section class="rx-sec" id="how">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>You see the whole video before anything is filmed.</h2>
+    <div class="rx-head reveal">
+      <h2>You see the whole video<br><span class="mark">before anything is filmed.</span></h2>
       <p class="lead">Planning is free. Framefly explores your app, writes the video and waits. Generate is the only button that spends a credit.</p>
     </div>
     <div class="steps" data-steps>
@@ -77,21 +77,30 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
   </div>
 </section>
 
-<!-- ───────── The canvas ───────── -->
-<section class="section flush-top" id="canvas">
+<!-- ───────── Templates: three of them, each a real film ───────── -->
+<section class="rx-sec night" id="films">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>Nothing on the picture has a fixed place.</h2>
-      <p class="lead">This is the plan's picture at a smaller size. Change the backdrop, the captions and the presenter, then drag any of them.</p>
+    <div class="rx-head reveal">
+      <h2>Start from a template.<br><span class="mark">Each one is a real film.</span></h2>
+      <p class="lead">Every template is a film the pipeline renders today. These three were all made for the same app.</p>
     </div>
-    <div class="reveal">{{block:stage}}</div>
+    {{block:home-templates}}
+    <div class="rx-more reveal">
+      <a class="btn btn-primary" href="templates.html">See all templates<span class="nub">{{icon:arrow-up-right}}</span></a>
+      <span class="rx-note">Three of five shown here. <b>Every template, with its camera, pacing and formats, has its own page.</b></span>
+    </div>
   </div>
 </section>
 
-<!-- ───────── What a video is made of ───────── -->
-<section class="section-tight flush-top">
+<!-- ───────── The canvas, and what a video is made of ───────── -->
+<section class="rx-sec" id="canvas">
   <div class="wrap">
-    <div class="figures card reveal">
+    <div class="rx-head reveal">
+      <h2>Nothing on the picture<br><span class="mark">has a fixed place.</span></h2>
+      <p class="lead">This is the plan's picture at a smaller size. Change the backdrop, the captions and the presenter, then drag any of them.</p>
+    </div>
+    <div class="reveal">{{block:stage}}</div>
+    <div class="figures card reveal" style="margin-top:clamp(36px,5vw,64px)">
       <a href="templates.html"><b>5</b><span>templates, each one a film the pipeline renders today</span></a>
       <a href="templates.html#captions"><b>20</b><span>caption styles, timed on the voice word by word</span></a>
       <a href="templates.html#backdrops"><b>18</b><span>backdrops, or a picture of your own</span></a>
@@ -103,10 +112,10 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
 </section>
 
 <!-- ───────── Capture, measured ───────── -->
-<section class="section" id="capture">
+<section class="rx-sec flush-top" id="capture">
   <div class="wrap split">
     <div class="split-copy reveal">
-      <h2>Filmed frame by frame, not screen-recorded.</h2>
+      <h2>Filmed frame by frame,<br><span class="mark" style="white-space:nowrap">not screen-recorded.</span></h2>
       <p class="lead">A screen recording stutters as soon as the machine is busy. Framefly renders your page one frame at a time on its own clock, at twice the pixel density.</p>
       <div class="measures">
         <div class="measure"><b>55 fps</b><s>20 fps</s><p>Unique frames per second, against a browser recording of the same 20-second scenario.</p></div>
@@ -122,10 +131,10 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
 </section>
 
 <!-- ───────── Guardrails ───────── -->
-<section class="section flush-top" id="guardrails">
+<section class="rx-sec night" id="guardrails">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>It never pays, deletes or sends.</h2>
+    <div class="rx-head reveal">
+      <h2>It never pays,<br><span class="mark">deletes or sends.</span></h2>
       <p class="lead">You connect a demo account, never your real one. Every action the agent wants to take passes three checks before the browser runs it.</p>
     </div>
     <div class="layers reveal">
@@ -146,22 +155,19 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
 </section>
 
 <!-- ───────── Pricing ───────── -->
-<section class="section flush-top" id="pricing">
-  <div class="wrap split wide-left">
-    <div class="split-copy reveal">
-      <h2>One credit. One video.</h2>
-      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions. A freelancer charges $2,000 to $5,000 per finished minute for the same kind of video.</p>
-      <a class="arrow-link" href="pricing.html">See pricing and what a credit covers {{icon:arrow-right}}</a>
+<section class="rx-sec" id="pricing">
+  <div class="wrap">
+    <div class="rx-head reveal">
+      <h2>One credit.<br><span class="mark">One video.</span></h2>
+      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions.</p>
     </div>
-    <div class="reveal">
-      <nav class="ladder card" aria-label="Plans">
-        <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, 720p, no card</small></span><span class="p">$0</span>{{icon:arrow-right}}</a>
-        <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire</small></span><span class="p">from $29</span>{{icon:arrow-right}}</a>
-        <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects, freshness alerts</small></span><span class="p">$49/mo</span>{{icon:arrow-right}}</a>
-        <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, API</small></span><span class="p">$149/mo</span>{{icon:arrow-right}}</a>
-      </nav>
-      <p class="help" style="margin-top:14px">Beta prices, in US dollars. You never pay for a video that fails.</p>
-    </div>
+    <nav class="ladder card reveal" aria-label="Plans">
+      <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, up to 45 s, 720p with a watermark. No card required.</small></span><span class="p">$0</span>{{icon:arrow-right}}</a>
+      <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire. 1080p, no watermark, all formats from one shoot.</small></span><span class="p">from $29</span>{{icon:arrow-right}}</a>
+      <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects for Resolve, Premiere and Final Cut, freshness alerts.</small></span><span class="p">$49/mo</span>{{icon:arrow-right}}</a>
+      <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, your own presenter, API and webhooks.</small></span><span class="p">$149/mo</span>{{icon:arrow-right}}</a>
+    </nav>
+    <p class="rx-note" style="margin-top:18px">Beta prices, in US dollars. <b>You never pay for a video that fails.</b></p>
   </div>
 </section>
 
@@ -187,23 +193,22 @@ head: <script type="application/ld+json">{"@context":"https://schema.org","@type
 </section>
 
 <!-- ───────── Articles ───────── -->
-<section class="section flush-top" id="articles">
+<section class="rx-sec" id="articles">
   <div class="wrap">
-    <div class="head reveal">
-      <h2>Before you make the video.</h2>
-      <p class="lead">Short articles on what works for a demo or a launch video, each with its sources.</p>
+    <div class="rx-head reveal">
+      <h2>Three articles,<br><span class="mark">each with its sources.</span></h2>
     </div>
-    <div class="reveal">{{block:articles-latest}}</div>
+    {{block:reads-latest}}
     <a class="arrow-link" href="articles/" style="margin-top:24px">All articles {{icon:arrow-right}}</a>
   </div>
 </section>
 
 <!-- ───────── FAQ ───────── -->
-<section class="section" id="faq">
+<section class="rx-sec flush-top" id="faq">
   <div class="wrap faq-grid">
     <div class="reveal">
-      <h2>Questions</h2>
-      <p class="muted">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
+      <h2>The ones people<br><span class="mark">really ask.</span></h2>
+      <p class="lead" style="margin-top:20px">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
     </div>
     <div class="faq reveal">
       <details><summary>What kind of apps does it work with?{{icon:plus}}</summary><div class="ans"><p>Web apps at launch: anything that runs in a browser, behind a login or not, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later.</p></div></details>
