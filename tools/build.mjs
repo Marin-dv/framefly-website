@@ -186,7 +186,7 @@ for (const a of articles) {
   <p class="article-meta"><time datetime="${a.date}">${longDate(a.date)}</time>${a.updated !== a.date ? `<span>Updated <time datetime="${a.updated}">${longDate(a.updated)}</time></span>` : ""}<span>${a.minutes} min read</span></p>
 ${a.body}
   <div class="endcta card" data-when-waiting>
-    <p><b>Framefly films your app for you.</b> Give it a demo account and a brief; it writes the video, shows you the plan, then films it. It launches on <span data-launch-date>October 28</span>, and a few apps are being filmed before that.</p>
+    <p><b>Framefly films your app for you.</b> Give it a demo account and a brief; it writes the video, shows you the plan, then films it. It launches on <span data-launch-date>November 30</span>, and a few apps are being filmed before that.</p>
     <a class="btn btn-primary" href="beta.html">Apply for the beta</a>
   </div>
   <div class="endcta card" data-when-live hidden>

@@ -1,6 +1,6 @@
 # Framefly
 
-> Framefly turns a web app into a demo video. You give it a demo account and a brief. An AI agent explores the app and writes the video, then shows you the whole plan (the words, a real screenshot for each section, the voice) before anything is filmed. Generating films the app frame by frame and delivers every format with voice, captions and music. It launches on October 28, 2026 and is in beta until then. Made by Marin de Vanssay (Vanssay), in France.
+> Framefly turns a web app into a demo video. You give it a demo account and a brief. An AI agent explores the app and writes the video, then shows you the whole plan (the words, a real screenshot for each section, the voice) before anything is filmed. Generating films the app frame by frame and delivers every format with voice, captions and music. It launches on November 30, 2026 and is in beta until then. Made by Marin de Vanssay (Vanssay), in France.
 
 Framefly is for people who can build a product but have no time to make the video for it: indie developers, SaaS founders, small studios. The alternatives are a day or more of recording and editing, or $2,000 to $15,000 per finished minute for a freelancer or an agency.
 
@@ -32,7 +32,7 @@ Practical articles on demo videos and launch videos for software. Each one lists
 - It works with web apps at launch. Chrome extensions and Framer plugins are in beta.
 - It asks for a dedicated demo account, never a real one. The AI never sees a password, and it cannot pay, delete an account, change credentials or send messages to real addresses.
 - Presenters and voices are AI-generated and labeled as such in every video.
-- Status: pre-launch. Public launch is October 28, 2026. Until then access is through the beta at https://framefly.app/beta.html.
+- Status: pre-launch. Public launch is November 30, 2026. Until then access is through the beta at https://framefly.app/beta.html.
 - Contact: support@framefly.app
 
 ## More

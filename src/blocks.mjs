@@ -193,7 +193,7 @@ ${group("Demo", "Demos", "A demo shows. Framefly walks through your app click by
       <div class="timecode" role="timer" aria-live="off"><div><b data-cd="d">00</b><span>Days</span></div><i>:</i><div><b data-cd="h">00</b><span>Hours</span></div><i>:</i><div><b data-cd="m">00</b><span>Min</span></div><i>:</i><div><b data-cd="s">00</b><span>Sec</span></div></div>
       <p class="sr-only" data-cd-sr></p>
     </div>
-    <h2 data-when-waiting>Your app, on film, on <span data-launch-date>October 28</span>.</h2>
+    <h2 data-when-waiting>Your app, on film, on <span data-launch-date>November 30</span>.</h2>
     <h2 data-when-live hidden>Framefly is live.</h2>
     <p class="lead" data-when-waiting>Leave your email and you get one message on launch day, with a link to make your first video for free.</p>
     <p class="lead" data-when-live hidden>Your first video is free, and no card is needed.</p>

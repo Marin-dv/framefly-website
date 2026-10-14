@@ -3,7 +3,7 @@
   "use strict";
   var C = window.FRAMEFLY || {};
   var D = window.FF_DATA || {};
-  var LAUNCH = new Date(C.launchAt || "2026-10-28T07:01:00Z").getTime();
+  var LAUNCH = new Date(C.launchAt || "2026-11-30T08:01:00Z").getTime();
   var root = document.documentElement;
   var ROOT = root.getAttribute("data-root") || ""; // "../" on a page in a folder (an article)
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
