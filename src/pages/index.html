@@ -1,225 +1,121 @@
 <!--
-title: Framefly: a demo video of your real app, filmed behind the login
-description: Framefly logs in to your app with a demo account, films the screens behind the login and gives you the demo video. No recording, no editing. From $29 a video. Launching September 1, 2027.
-og_description: Framefly logs in to your app and films the screens behind the login. No recording, no editing. From $29 a video. Launching September 1.
+title: Framefly : dix versions de ta vidéo, le budget sur la meilleure
+description: Envoie la vidéo de ton app. Framefly en fait dix variantes, les teste sur Meta Ads, mesure laquelle fait venir des utilisateurs et déplace le budget sur les gagnantes. Abonnement dès 29 € par mois.
+og_description: Une vidéo envoyée, dix variantes testées sur Meta Ads, le budget qui suit les gagnantes. Dès 29 € par mois.
 priority: 1.0
-scripts: stage, home
-head: <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"MultimediaApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Logs in to a web app with a demo account and films it: an AI agent explores the app, writes a plan you can read and change, and delivers the demo video in every format.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First video free"},"creator":{"@type":"Person","name":"Marin de Vanssay","url":"https://vanssay.net"}}</script>
+lang: fr
+scripts: pitch
+head: <link rel="stylesheet" href="assets/css/pitch.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Framefly","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://framefly.app","description":"Un abonnement : tu envoies la vidéo de ton app, l'IA en fait des variantes, les teste sur Meta Ads et déplace le budget vers celles qui font venir des utilisateurs.","offers":[{"@type":"Offer","name":"Starter","price":"29","priceCurrency":"EUR"},{"@type":"Offer","name":"Growth","price":"79","priceCurrency":"EUR"},{"@type":"Offer","name":"Studio","price":"199","priceCurrency":"EUR"}]}</script>
 -->
 
-<!-- ───────── Hero: what you gain (signups, time, money) and what it does (logs in) ───────── -->
+<!-- ───────── Hero ───────── -->
 <section class="hero">
   <div class="aurora" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1>Get <span class="mark">more signups</span> with a demo video of your real app.</h1>
-      <p class="lead">Framefly <strong>logs in to your app</strong> with a demo account and films the screens behind the login. You record nothing and edit nothing.</p>
+      <h1>Une vidéo. <span class="mark">Dix versions.</span> Le budget sur la meilleure.</h1>
+      <p class="lead">Envoie la vidéo de ton app. Framefly en fait dix variantes, les teste sur Meta Ads, mesure laquelle fait vraiment venir des utilisateurs, et <strong>déplace ton budget</strong> sur les gagnantes.</p>
       <ul class="gains">
-        <li><b>From $29</b><span>a video. A freelancer charges $2,000 to $5,000 per finished minute.</span></li>
-        <li><b>About 30 min</b><span>from your app to the finished video, not a day of recording and editing.</span></li>
+        <li><b>10 variantes</b><span>par vidéo envoyée : accroche, texte, voix, fond, cadrage.</span></li>
+        <li><b>Dès 29 €</b><span>par mois, sans engagement. Le budget pub reste le tien.</span></li>
       </ul>
-      {{block:notify-hero}}
-      <a class="arrow-link hero-alt" href="beta.html" data-when-waiting>Apply for the beta {{icon:arrow-right}}</a>
-    </div>
-    {{block:hero-film}}
-  </div>
-</section>
-
-<!-- ───────── How it works: the words scroll, the app's own screens stay ───────── -->
-<section class="rx-sec" id="how">
-  <div class="wrap">
-    <div class="rx-head reveal">
-      <h2>You see the whole video<br><span class="mark">before anything is filmed.</span></h2>
-      <p class="lead">Planning is free. Framefly explores your app, writes the video and waits. Generate is the only button that spends a credit.</p>
-    </div>
-    <div class="steps" data-steps>
-      <ol class="steps-list">
-        <li class="step">
-          <span class="step-n">1</span>
-          <h3>Write the brief</h3>
-          <p>Say who the video is for, what to show and how it ends. Framefly reads it back as you type, and tells you when the brief and your settings disagree.</p>
-          {{shot:studio|Studio in the Framefly app: a brief for a 45-second demo, with the features, length and tone Framefly understood}}
-        </li>
-        <li class="step">
-          <span class="step-n">2</span>
-          <h3>Read the plan</h3>
-          <p>One window holds the whole video: the exact words, a real screenshot for each section, the voice to listen to and the timeline to scale. Change any of it.</p>
-          {{shot:plan|The plan window: the script on the left, the picture in the middle, settings on the right and the timeline below}}
-        </li>
-        <li class="step">
-          <span class="step-n">3</span>
-          <h3>Generate</h3>
-          <p>The plan locks and the same window shows the work: the voice is recorded, your app is filmed section by section, the cut is checked. Stop it and the credit comes back.</p>
-          {{shot:generating|The plan window while a video is generated: section 1 of 6 is being filmed, with the steps and the time left}}
-        </li>
-        <li class="step">
-          <span class="step-n">4</span>
-          <h3>Watch, download, share</h3>
-          <p>The finished video gets its own page. Download every shape with a GIF and caption files, or switch on a public link and an embed.</p>
-          {{shot:video|A finished video's page: the player, downloads, sharing and what the video was made from}}
-        </li>
-        <li class="step">
-          <span class="step-n">5</span>
-          <h3>Point at what should change</h3>
-          <p>Click the picture and say what is wrong. Framefly makes that one section again and keeps the rest. Revisions come with the video.</p>
-          {{shot:video-point|A note pinned on the picture of a finished video, listed for version 2 with one section to make again}}
-        </li>
-      </ol>
-      <div class="steps-stage" aria-hidden="true">
-        {{shot:studio|}}
-        {{shot:plan|}}
-        {{shot:generating|}}
-        {{shot:video|}}
-        {{shot:video-point|}}
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#dashboard">Voir le dashboard en action<span class="nub">{{icon:arrow-down}}</span></a>
+        <a class="arrow-link" href="#variantes">Voir les dix variantes {{icon:arrow-right}}</a>
       </div>
     </div>
-    <a class="arrow-link" href="product.html">Take the full tour {{icon:arrow-right}}</a>
+    {{block:hero-fan}}
   </div>
 </section>
 
-<!-- ───────── Templates: three of them, each a real film ───────── -->
-<section class="rx-sec night" id="films">
+<!-- ───────── Le problème ───────── -->
+<section class="rx-sec" id="probleme">
   <div class="wrap">
     <div class="rx-head reveal">
-      <h2>Start from a template.<br><span class="mark">Each one is a real film.</span></h2>
-      <p class="lead">Every template is a film the pipeline renders today. These three were all made for the same app.</p>
+      <h2>Tu sais faire une vidéo.<br><span class="mark">Tu ne sais pas laquelle marche.</span></h2>
+      <p class="lead">Nos entretiens avec des éditeurs d'apps disent la même chose : la vidéo est le canal, mais tester une deuxième version coûte un remontage, un tournage ou un freelance. Alors on publie une version et on passe à la suite.</p>
     </div>
-    {{block:home-templates}}
-    <div class="rx-more reveal">
-      <a class="btn btn-primary" href="templates.html">See all templates<span class="nub">{{icon:arrow-up-right}}</span></a>
-      <span class="rx-note">Three of five shown here. <b>Every template, with its camera, pacing and formats, has its own page.</b></span>
+    <div class="points reveal">
+      <div class="point card"><h3>{{icon:film-strip}}Une seule version</h3><p>Une accroche, un fond, une voix. Les autres idées restent dans un coin de la tête, faute de temps.</p></div>
+      <div class="point card"><h3>{{icon:currency-eur}}Tester coûte cher</h3><p>Changer de personne ou de voix double la production. Les tests sont abandonnés avant d'avoir commencé.</p></div>
+      <div class="point card"><h3>{{icon:chart-line-up}}Les vues ne disent pas tout</h3><p>Une vidéo virale peut ne faire presque aucune installation. Ce qui compte, c'est le coût par installation.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ───────── The canvas, and what a video is made of ───────── -->
-<section class="rx-sec" id="canvas">
+<!-- ───────── Les variantes ───────── -->
+<section class="rx-sec night" id="variantes">
   <div class="wrap">
     <div class="rx-head reveal">
-      <h2>Nothing on the picture<br><span class="mark">has a fixed place.</span></h2>
-      <p class="lead">This is the plan's picture at a smaller size. Change the backdrop, the captions and the presenter, then drag any of them.</p>
+      <h2>Une vidéo en entrée.<br><span class="mark">Dix variantes en sortie.</span></h2>
+      <p class="lead">Voici le principe, avec une seule photo : la même personne, dix fonds, dix accroches. Les trois premières sont celles qui gagnent dans notre démo.</p>
     </div>
-    <div class="reveal">{{block:stage}}</div>
-    <div class="figures card reveal" style="margin-top:clamp(36px,5vw,64px)">
-      <a href="templates.html"><b>5</b><span>templates, each one a film the pipeline renders today</span></a>
-      <a href="templates.html#captions"><b>20</b><span>caption styles, timed on the voice word by word</span></a>
-      <a href="templates.html#backdrops"><b>18</b><span>backdrops, or a picture of your own</span></a>
-      <a href="templates.html#presenters"><b>9</b><span>presenters, at home in ten rooms</span></a>
-      <a href="templates.html#voices"><b>11</b><span>studio voices, or your own recording</span></a>
-      <a href="templates.html#voices"><b>29</b><span>languages for the voice and the captions</span></a>
+    <div class="reveal">{{block:variants}}</div>
+    <div class="vchips reveal" aria-label="Ce que l'IA peut changer">
+      <span>Accroche</span><span>Texte et sous-titres</span><span>Voix off</span><span>Fond</span><span>Musique</span><span>Cadrage 9:16, 4:5, 1:1</span><span>Durée</span><span>Appel à l'action</span>
+    </div>
+    <p class="vnote reveal">Ici, une photo avec dix fonds, pour montrer l'idée. Sur une vraie vidéo, la personne reste celle de ton tournage : l'IA change le reste, sans inventer de visage ni de témoignage.</p>
+  </div>
+</section>
+
+<!-- ───────── Le dashboard, plein écran ───────── -->
+<section class="tour-intro" id="dashboard">
+  <div class="wrap">
+    <div class="rx-head reveal" style="margin-bottom:0">
+      <h2>Le dashboard,<br><span class="mark">en plein écran.</span></h2>
+      <p class="lead">Scrolle : une vidéo est envoyée, dix variantes sont testées, le budget change de main. C'est l'outil, tel que tu l'utiliseras.</p>
+      <p class="rx-slate">Données de démonstration · tu peux aussi ouvrir <a class="link" href="dashboard.html">le dashboard seul</a></p>
     </div>
   </div>
 </section>
 
-<!-- ───────── Capture, measured ───────── -->
-<section class="rx-sec flush-top" id="capture">
-  <div class="wrap split">
-    <div class="split-copy reveal">
-      <h2>Filmed frame by frame,<br><span class="mark" style="white-space:nowrap">not screen-recorded.</span></h2>
-      <p class="lead">A screen recording stutters as soon as the machine is busy. Framefly renders your page one frame at a time on its own clock, at twice the pixel density.</p>
-      <div class="measures">
-        <div class="measure"><b>55 fps</b><s>20 fps</s><p>Unique frames per second, against a browser recording of the same 20-second scenario.</p></div>
-        <div class="measure"><b>17 ms</b><s>933 ms</s><p>Longest freeze. One frame, against almost a full second of frozen picture.</p></div>
-        <div class="measure"><b>3200 x 1800</b><s>1600 x 900</s><p>Frame size at 2x. A real-time recording quietly falls back to 1x.</p></div>
-      </div>
+<div class="tour" data-tour>
+  <div class="tour-stick">
+    <iframe class="tour-frame" src="dashboard.html?step=0" title="Le dashboard Framefly, en démonstration" loading="eager"></iframe>
+    <div class="tour-bar" aria-live="polite">
+      <div class="tour-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="tour-cap" data-tour-cap></p>
+      <span class="tour-hint">Scrolle pour avancer</span>
     </div>
-    <figure class="figure reveal">
-      <img class="crisp" src="assets/img/crispness.webp" width="950" height="1227" alt="The same frame of an interface under a 2.5x zoom, three ways: a browser recording is blurred, a 1x capture is soft, a 2x capture is sharp" loading="lazy" decoding="async">
-      <figcaption>The same frame under a 2.5x zoom: browser recording, frame-by-frame at 1x, frame-by-frame at 2x. Measured on September 25, 2026.</figcaption>
-    </figure>
   </div>
-</section>
+</div>
 
-<!-- ───────── Guardrails ───────── -->
-<section class="rx-sec night" id="guardrails">
+<!-- ───────── Les règles du jeu ───────── -->
+<section class="rx-sec" id="controle">
   <div class="wrap">
     <div class="rx-head reveal">
-      <h2>It never pays,<br><span class="mark">deletes or sends.</span></h2>
-      <p class="lead">You connect a demo account, never your real one. Every action the agent wants to take passes three checks before the browser runs it.</p>
+      <h2>L'IA décide.<br><span class="mark">Toi, tu fixes les limites.</span></h2>
+      <p class="lead">Déplacer de l'argent publicitaire se fait avec des garde-fous, pas à l'aveugle.</p>
     </div>
-    <div class="layers reveal">
-      <div class="layer card"><span class="ic">{{icon:lock-key}}</span><h3>A hard block list</h3><p>Checkout pages, delete requests and destructive buttons are stopped inside the browser, in ten languages. It cannot be switched off.</p></div>
-      <div class="layer card"><span class="ic">{{icon:brain}}</span><h3>A guard model</h3><p>A second, faster model reads each proposed action with the page around it, and stops anything risky or hard to undo.</p></div>
-      <div class="layer card"><span class="ic">{{icon:list-checks}}</span><h3>Your own rules</h3><p>Allow or deny by button text, URL or selector, for one app or for all of them.</p></div>
+    <div class="points four reveal">
+      <div class="point card"><h3>{{icon:toggle-left}}Deux modes</h3><p><b>Validation</b> : l'IA propose, tu confirmes. <b>Automatique</b> : elle agit dans les limites que tu as fixées.</p></div>
+      <div class="point card"><h3>{{icon:shield-check}}Plafonds</h3><p>Budget total, budget de test par variante, arrêt automatique au-delà d'un coût par installation. Jamais un euro de plus que prévu.</p></div>
+      <div class="point card"><h3>{{icon:user-check}}Pas de faux humain</h3><p>On part de ta vraie vidéo. Pas de faux témoignage, pas de visage inventé. Tout élément généré par IA est étiqueté (Meta, TikTok, AI Act).</p></div>
+      <div class="point card"><h3>{{icon:lock-key}}Ton compte, tes vidéos</h3><p>Le budget est payé directement à Meta, sans commission de notre part. Tu déconnectes Framefly quand tu veux.</p></div>
     </div>
-    <div class="secret card reveal">
-      <code>fill("#password", <em>{{secret.password}}</em>)</code>
-      <p>The model never sees a secret. It writes a placeholder, the browser fills in the real value, and signing in is never filmed.</p>
-    </div>
-    <div class="blocked reveal">
-      <span class="muted">Always blocked, even if you allow it:</span>
-      <span class="chip">Payments and checkout</span><span class="chip">Account deletion</span><span class="chip">Email and password changes</span><span class="chip">Outbound messages</span><span class="chip">Third-party grants</span>
-    </div>
-    <a class="arrow-link" href="security.html" style="margin-top:28px">How your app and your secrets are protected {{icon:arrow-right}}</a>
   </div>
 </section>
 
-<!-- ───────── Pricing ───────── -->
-<section class="rx-sec" id="pricing">
+<!-- ───────── Tarifs ───────── -->
+<section class="rx-sec night" id="tarifs">
   <div class="wrap">
     <div class="rx-head reveal">
-      <h2>One credit.<br><span class="mark">One video.</span></h2>
-      <p class="lead">A credit covers a video up to 90 seconds: exploring your app, the plan, voice, captions, music, every format and 10 revisions.</p>
+      <h2>Un abonnement.<br><span class="mark">Un outil qui s'améliore chaque mois.</span></h2>
+      <p class="lead">Le prix dépend du nombre de vidéos et de variantes, pas de ton budget publicitaire. 7 jours d'essai gratuit, sans engagement.</p>
     </div>
-    <nav class="ladder card reveal" aria-label="Plans">
-      <a href="pricing.html#plans"><span><b>Trial</b><small>Your first video, up to 45 s, 720p with a watermark. No card required.</small></span><span class="p">$0</span>{{icon:arrow-right}}</a>
-      <a href="pricing.html#plans"><span><b>Launch packs</b><small>1, 5 or 15 credits that never expire. 1080p, no watermark, all formats from one shoot.</small></span><span class="p">from $29</span>{{icon:arrow-right}}</a>
-      <a href="pricing.html#plans"><span><b>Pro</b><small>4 videos a month, editable projects for Resolve, Premiere and Final Cut, freshness alerts.</small></span><span class="p">$49/mo</span>{{icon:arrow-right}}</a>
-      <a href="pricing.html#plans"><span><b>Studio</b><small>15 videos a month, 5 seats, your own presenter, API and webhooks.</small></span><span class="p">$149/mo</span>{{icon:arrow-right}}</a>
-    </nav>
-    <p class="rx-note" style="margin-top:18px">Beta prices, in US dollars. <b>You never pay for a video that fails.</b></p>
+    {{block:plans-fr}}
+    <p class="vnote reveal">Un freelance ou un créateur UGC coûte environ 100 à 200 € par vidéo. <a class="link" href="pricing.html">Voir le détail des offres</a>.</p>
   </div>
 </section>
 
-<!-- ───────── Beta ───────── -->
-<section class="section-tight flush-top" data-when-waiting>
-  <div class="wrap">
-    <div class="band reveal">
-      <div class="band-copy">
-        <h2>Get your app filmed before launch day.</h2>
-        <p>A small group of real apps is being filmed before <span data-launch-date>September 1</span>. Beta videos are free, and you talk to the person building Framefly.</p>
-        <a class="btn btn-primary btn-lg" href="beta.html">Apply for the beta<span class="nub">{{icon:arrow-up-right}}</span></a>
-      </div>
-      <div class="ticket" aria-hidden="true">
-        <div class="ticket-main">
-          <span class="label">Test screening</span>
-          <b>Admit one app</b>
-          <div class="ticket-rows"><div><span>Venue</span><strong>Your app</strong></div><div><span>Seat</span><strong>Beta</strong></div><div><span>Before</span><strong data-launch-date>September 1</strong></div></div>
-        </div>
-        <div class="ticket-stub"><b>01</b><span>Free during<br>the beta</span></div>
-      </div>
+<!-- ───────── Fin ───────── -->
+<section class="closing acid closing-band">
+  <div class="wrap closing" style="padding-block:0">
+    <h2>Ta meilleure vidéo<br>existe déjà.</h2>
+    <p class="lead">Elle est probablement cachée dans les variantes que tu n'as jamais testées.</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="dashboard.html">Ouvrir le dashboard<span class="nub">{{icon:arrow-up-right}}</span></a>
+      <a class="btn btn-secondary btn-lg" data-contact href="mailto:support@framefly.app">Nous écrire</a>
     </div>
   </div>
 </section>
-
-<!-- ───────── Articles ───────── -->
-<section class="rx-sec" id="articles">
-  <div class="wrap">
-    <div class="rx-head reveal">
-      <h2>Three articles,<br><span class="mark">each with its sources.</span></h2>
-    </div>
-    {{block:reads-latest}}
-    <a class="arrow-link" href="articles/" style="margin-top:24px">All articles {{icon:arrow-right}}</a>
-  </div>
-</section>
-
-<!-- ───────── FAQ ───────── -->
-<section class="rx-sec flush-top" id="faq">
-  <div class="wrap faq-grid">
-    <div class="reveal">
-      <h2>The ones people<br><span class="mark">really ask.</span></h2>
-      <p class="lead" style="margin-top:20px">Something missing? Write to <a class="link" data-contact href="mailto:support@framefly.app">support@framefly.app</a>.</p>
-    </div>
-    <div class="faq reveal">
-      <details><summary>What kind of apps does it work with?{{icon:plus}}</summary><div class="ans"><p>Web apps at launch: anything that runs in a browser, behind a login or not, including apps built with Lovable, Bolt, Replit or v0. Chrome extensions and Framer plugins are in beta. Figma, VS Code and Webflow come later.</p></div></details>
-      <details><summary>Do I have to give it my real account?{{icon:plus}}</summary><div class="ans"><p>No, and you shouldn't. Framefly asks for a dedicated demo account. It can use the account as it is, fill it with realistic sample data if you allow it, or call a reset hook before every shoot so each take starts from the same state.</p></div></details>
-      <details><summary>My app has 2FA, SSO or runs on localhost.{{icon:plus}}</summary><div class="ans"><p>For authenticator codes, paste the 2FA secret and Framefly generates the codes. For email codes and magic links, sign the demo account up with a Framefly inbox. For Google or Microsoft sign-in, SMS codes and passkeys, import a session from your own browser. For localhost or a staging server, run <code>npx framefly tunnel 3000</code>.</p><p>A free preflight checks all of this before any credit is used. Framefly never tries to get around a captcha or a bot wall. It uses fixed addresses and a signed header you can allow instead.</p></div></details>
-      <details><summary>What happens if a video fails?{{icon:plus}}</summary><div class="ans"><p>Your credit is held when you generate and only charged at delivery. If anything fails along the way, or you stop it, the credit comes back in full. If you are not happy with a delivered video, you get one complete re-shoot for free within 7 days.</p></div></details>
-      <details><summary>Can I change the video afterwards?{{icon:plus}}</summary><div class="ans"><p>Yes. Point at the picture and say what should change, or open the plan again and edit it. Only the sections concerned are filmed again. A new voice, new captions, other music or another look only need a new edit. Ten revisions come with every video, and Pro and Studio also export an editable project for DaVinci Resolve, Premiere Pro or Final Cut Pro.</p></div></details>
-      <details><summary>Is the voice AI? Will people know?{{icon:plus}}</summary><div class="ans"><p>Yes, the studio voices and the presenters are generated. Every export carries content credentials, the end card says so in one line, and a label shows whenever a presenter is on screen, as the EU AI Act asks. You can also record the narration yourself, section by section.</p></div></details>
-      <details data-when-waiting><summary>When can I use it?{{icon:plus}}</summary><div class="ans"><p>Framefly launches on <span data-launch-weekday>Wednesday, September 1</span>. Beta testers get in before that. Leave your email below and you get one message on launch day.</p></div></details>
-    </div>
-  </div>
-</section>
-
-{{block:closing}}

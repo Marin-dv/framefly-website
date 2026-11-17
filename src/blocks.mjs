@@ -44,7 +44,47 @@ function notify({ icon }, id, label, sr = false, help = true) {
 </div>`;
 }
 
+/** The ten variants of one photo: same person, ten backdrops, ten hooks. The numbers match the demo dashboard. */
+export const VARIANTS = [
+  { n: 3, bg: "scenes/loft", room: "Loft", hook: "Cette appli corrige ta posture", fmt: "9:16", role: "win" },
+  { n: 8, bg: "scenes/startup", room: "Startup", hook: "Teste-le 7 jours gratuitement", fmt: "9:16", role: "win" },
+  { n: 5, bg: "scenes/white-studio", room: "Studio blanc", hook: "3 minutes. Pas de matériel.", fmt: "9:16", role: "win" },
+  { n: 1, bg: "backgrounds/bokeh", room: "Bokeh", hook: "Ton dos te fait mal au bureau ?", fmt: "9:16", role: "mid" },
+  { n: 4, bg: "backgrounds/ocean", room: "Océan", hook: "Tu t'assois mal depuis des années", fmt: "4:5", role: "mid" },
+  { n: 6, bg: "scenes/rooftop", room: "Toit-terrasse", hook: "Arrête de rester voûté", fmt: "9:16", role: "mid" },
+  { n: 9, bg: "backgrounds/coast", room: "Côte", hook: "Ton cou après 8 h d'écran", fmt: "9:16", role: "mid" },
+  { n: 2, bg: "scenes/home-office", room: "Bureau à domicile", hook: "Fais ça toutes les 2 heures", fmt: "9:16", role: "cut" },
+  { n: 7, bg: "backgrounds/ink", room: "Encre", hook: "Le geste que tu fais mal", fmt: "1:1", role: "cut" },
+  { n: 10, bg: "scenes/night-office", room: "Bureau de nuit", hook: "Posture : le test en 20 s", fmt: "9:16", role: "cut" },
+].sort((a, b) => a.n - b.n);
+const frame = (v, { label = true, eager = false } = {}) => `<figure class="vf${label ? "" : " vf-bare"}" data-role="${v.role}">
+  <div class="vf-screen">
+    <img class="vf-bg" src="assets/library/${v.bg}.jpg" alt="" width="1920" height="1080" ${eager ? "" : 'loading="lazy" '}decoding="async">
+    <img class="vf-p" src="assets/library/presenters/maya.webp" alt="" width="800" height="1000" ${eager ? "" : 'loading="lazy" '}decoding="async">
+    <span class="vf-n">V${String(v.n).padStart(2, "0")}</span><span class="vf-fmt">${v.fmt}</span>
+    <b class="vf-hook">${v.hook}</b>
+  </div>${label ? `
+  <figcaption><b>${v.room}</b><span>${v.hook}</span></figcaption>` : ""}
+</figure>`;
+
 export const blocks = {
+  /** Ten variants of one photo, with the original beside them. */
+  variants: () => `<div class="vgrid">
+  <figure class="vf vf-source"><div class="vf-screen"><img class="vf-bg" src="assets/library/scenes/white-studio.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async"><img class="vf-p" src="assets/library/presenters/maya.webp" alt="La vidéo d'origine : une personne devant un fond uni" width="800" height="1000" loading="lazy" decoding="async"><span class="vf-n">Original</span><b class="vf-hook">Ta vidéo</b></div><figcaption><b>Ce que tu envoies</b><span>Une seule vidéo, comme tu la publies aujourd'hui</span></figcaption></figure>
+  <div class="vgrid-arrow" aria-hidden="true">{{icon:arrow-right}}</div>
+  <div class="vgrid-set">${VARIANTS.map((v) => frame(v)).join("")}</div>
+</div>`,
+
+  /** Four variants fanned out, for the hero. */
+  "hero-fan": () => `<div class="fan" aria-hidden="true">${[VARIANTS[2], VARIANTS[7], VARIANTS[4], VARIANTS[0]].map((v, i) => `<div class="fan-i fan-${i}">${frame(v, { label: false, eager: true })}</div>`).join("")}<span class="fan-tag">Une vidéo, dix versions</span></div>`,
+
+  /** The three subscription plans. */
+  "plans-fr": () => `<div class="pf-plans reveal">${[
+    { name: "Starter", price: 29, who: "Fondateur solo, une app", feats: ["1 app", "5 vidéos sources", "Jusqu'à 50 variantes par mois", "Test et réallocation sur Meta Ads", "Tableau de bord et rapport hebdomadaire"] },
+    { name: "Growth", price: 79, who: "Petite équipe, une à trois apps", feats: ["3 apps", "20 vidéos sources", "Jusqu'à 250 variantes par mois", "Liaison à l'outil d'abonnements : essais et abonnements réels", "Mode validation ou automatique", "Support par e-mail"], hot: true },
+    { name: "Studio", price: 199, who: "Équipe marketing, studio multi-apps", feats: ["10 apps", "60 vidéos sources", "Variantes illimitées, usage raisonnable", "Plusieurs membres d'équipe", "Rapports personnalisés", "Support prioritaire"] },
+  ].map((p) => `<article class="pf-plan card${p.hot ? " hot" : ""}">${p.hot ? '<span class="chip chip-accent">Le plus choisi</span>' : ""}<h3>${p.name}</h3><p class="pf-who">${p.who}</p><p class="pf-price"><b>${p.price} €</b><span>par mois</span></p><ul>${p.feats.map((f) => `<li>{{icon:check-bold}}${f}</li>`).join("")}</ul></article>`).join("")}</div>`,
+
   vanssay: ({ data, icon }) => `<div class="products">${data.vanssay.map((p) => `<a class="product" href="${p.href}" target="_blank" rel="noopener">${icon(p.icon)}<b>${p.name}</b><span>${p.line}</span></a>`).join("")}</div>`,
 
   "notify-hero": (c) => notify(c, "hero", "Get one email on launch day", false, false),

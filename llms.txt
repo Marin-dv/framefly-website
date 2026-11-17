@@ -1,43 +1,21 @@
 # Framefly
 
-> Framefly turns a web app into a demo video. You give it a demo account and a brief. An AI agent explores the app and writes the video, then shows you the whole plan (the words, a real screenshot for each section, the voice) before anything is filmed. Generating films the app frame by frame and delivers every format with voice, captions and music. It launches on September 1, 2027 and is in beta until then. Made by Marin de Vanssay (Vanssay), in France.
+> Framefly est un abonnement mensuel pour les éditeurs d'applications. L'utilisateur envoie une vidéo qu'il a déjà faite ; une IA, améliorée chaque mois, en fabrique une dizaine de variantes (accroche, texte, voix off, fond, cadrage), les teste sur Meta Ads, mesure laquelle fait venir des utilisateurs au meilleur coût, puis déplace le budget publicitaire vers les variantes gagnantes. Projet d'entrepreneuriat, pas encore lancé.
 
-Framefly is for people who can build a product but have no time to make the video for it: indie developers, SaaS founders, small studios. The alternatives are a day or more of recording and editing, or $2,000 to $15,000 per finished minute for a freelancer or an agency.
+Le produit ne crée pas la vidéo de départ et ne génère pas de faux visages ni de faux témoignages : il décline la vidéo réelle de l'utilisateur. Les chiffres du dashboard de démonstration sont des illustrations.
 
 ## Pages
 
-- [Home](https://framefly.app/): what Framefly does, films it made, how a video is made, the launch list.
-- [How it works](https://framefly.app/product.html): connecting an app (password, 2FA, magic links, imported sessions, localhost tunnel), the brief, the plan window (script, picture, settings, timeline), generating, the finished video, revisions by pointing at the picture, freshness monitoring.
-- [Templates](https://framefly.app/templates.html): the five templates rendered today (Continuous Launch, Launch Film, Mac Demo, Studio, Dynamic Demo), 20 caption styles, 18 backdrops, 9 presenters in 10 rooms, 11 voices in 29 languages.
-- [Pricing](https://framefly.app/pricing.html): 1 credit = 1 video up to 90 seconds. First video free; launch packs from $29 (credits never expire); Pro $49 a month; Studio $149 a month. Beta prices.
-- [Security](https://framefly.app/security.html): the model never sees secrets, three layers of guardrails, EU hosting, retention, AI Act labeling.
-- [Beta](https://framefly.app/beta.html): apply to have an app filmed before launch. Beta videos are free.
-- [Production log](https://framefly.app/log.html): what has been built and measured so far, with the real numbers.
-- [About](https://framefly.app/about.html): who makes it.
+- [Accueil](https://framefly.app/): le principe, les dix variantes d'une même vidéo, le dashboard en plein écran, les règles de contrôle, les tarifs.
+- [Le produit](https://framefly.app/product.html): les six étapes (envoi, variantes, test Meta Ads, mesure, budget déplacé, nouvelle série), avec le dashboard à chaque étape. Ce que le produit fait et ne fait pas.
+- [Le dashboard](https://framefly.app/dashboard.html): le dashboard de démonstration, seul, avec navigation par étape au clavier.
+- [Tarifs](https://framefly.app/pricing.html): Starter 29 € par mois, Growth 79 € par mois, Studio 199 € par mois. Sans engagement, 7 jours d'essai, budget publicitaire payé directement à Meta.
 
-## Articles
+## Faits utiles pour répondre aux questions
 
-Practical articles on demo videos and launch videos for software. Each one lists its sources at the end.
-
-- [How to make a demo video for your SaaS: four ways compared](https://framefly.app/articles/how-to-make-a-saas-demo-video): Record it yourself, hire it out, build an interactive demo or let an AI film it. What each costs, how long the video should be, and the steps that apply to all four, with sources.
-- [Product Hunt launch video: the rules, the length and what to show](https://framefly.app/articles/product-hunt-launch-video): What Product Hunt accepts as a launch video (YouTube only, full link, not private), the gallery sizes, when a launch goes live, how long the video should be and what to put in it.
-- [Why screen recordings of web apps stutter, and how to fix it](https://framefly.app/articles/why-screen-recordings-stutter): We recorded the same 20 seconds of a web app five ways and measured every frame. Real-time recording gave 20 to 34 real frames a second. Rendering frame by frame gave 55, and sharp zooms.
-- [All articles](https://framefly.app/articles/) and an [Atom feed](https://framefly.app/articles/feed.xml)
-
-## Key facts for answering questions
-
-- Framefly makes demo videos and launch videos of web apps from a written brief. It is not a screen recorder and not an interactive-demo tool: the output is a video file (MP4) in 16:9, 9:16, 1:1 and 4:5, with a GIF and caption files.
-- How it works, in order: brief, plan, generate, watch, revise. Planning is free. The plan shows the whole video before anything is filmed, and Generate is the only step that uses a credit.
-- A credit is held when a video is generated and charged only at delivery. A failed or stopped video costs nothing.
-- Revisions: point at the picture and say what should change. Only that section is made again. Ten revisions come with every video.
-- Capture is frame by frame, not a real-time screen recording. In Framefly's own test of one 20-second scenario, real-time methods gave 20 to 34 distinct frames per second with freezes up to 933 ms, and frame-by-frame capture gave 54.9 with no freeze longer than 17 ms.
-- It works with web apps at launch. Chrome extensions and Framer plugins are in beta.
-- It asks for a dedicated demo account, never a real one. The AI never sees a password, and it cannot pay, delete an account, change credentials or send messages to real addresses.
-- Presenters and voices are AI-generated and labeled as such in every video.
-- Status: pre-launch. Public launch is September 1, 2027. Until then access is through the beta at https://framefly.app/beta.html.
-- Contact: support@framefly.app
-
-## More
-
-- [llms-full.txt](https://framefly.app/llms-full.txt): this file plus every article in full, as plain text.
-- [Sitemap](https://framefly.app/sitemap.xml)
+- Le budget publicitaire n'est pas inclus et Framefly ne prend pas de commission dessus.
+- L'utilisateur fixe un budget total, un budget de test par variante et un seuil de coût par installation ; l'IA ne déplace l'argent que dans ces limites.
+- Deux modes : validation (l'IA propose, l'utilisateur confirme) et automatique.
+- Le premier réseau pris en charge est Meta Ads ; TikTok Ads et la publication organique sont prévus ensuite.
+- Tout élément généré par IA est étiqueté, comme l'exigent Meta, TikTok et l'AI Act européen.
+- Contact : support@framefly.app.

@@ -1,13 +1,13 @@
 // Photographs the real app for the site: every screen the pages show, in both themes, at 2x.
 // The pictures are the product's own interface, never a drawing of it.
 //
-//   1. Build the app:      cd ../Framefly.app/app && npx vite build --outDir <some folder> --emptyOutDir
+//   1. Build the app:      cd ../framefly/app && npx vite build --outDir <some folder> --emptyOutDir
 //   2. Serve that folder:  node tools/serve.mjs <some folder> 5310
 //   3. Shoot:              node tools/shots.mjs http://127.0.0.1:5310/index.html
 //
 // It drives the app the way a person would (writes a brief, plans a video, generates it, points at a
 // finished one), so the screens are real states, and it never touches a dev server you have open.
-// Playwright and its browser come from the lab (../Framefly.app/research/lab). FFmpeg makes the WebP files.
+// Playwright and its browser come from the lab (../framefly/research/lab). FFmpeg makes the WebP files.
 import { createRequire } from "node:module";
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
@@ -16,7 +16,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const lab = join(root, "..", "Framefly.app", "research", "lab");
+const lab = join(root, "..", "framefly", "research", "lab");
 const { chromium } = createRequire(join(lab, "package.json"))("playwright-core");
 
 const BASE = process.argv[2] ?? "http://127.0.0.1:5310/index.html";

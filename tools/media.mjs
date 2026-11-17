@@ -1,4 +1,4 @@
-// Brings the site's films, pictures and fonts over from the app repo (../Framefly.app).
+// Brings the site's films, pictures and fonts over from the app repo (../framefly).
 // Run it again whenever a film is rendered again or the picture library changes:
 //
 //   node tools/media.mjs              films (the cleared excerpts) and the library
@@ -14,7 +14,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const app = join(root, "..", "Framefly.app");
+const app = join(root, "..", "framefly");
 const lab = join(app, "research", "outputs", "instagram-desktop");
 const pub = join(app, "app", "public");
 const args = process.argv.slice(2);

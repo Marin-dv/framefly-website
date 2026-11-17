@@ -1,6 +1,8 @@
 # framefly.app
 
-The launch site for Framefly (the demo-video product in `../Framefly.app/`). Plain HTML, CSS and vanilla JS at the root, served by GitHub Pages (`CNAME` is `framefly.app`). No framework and no third-party request: fonts, icons, films and code all come from this repo.
+**November 2026: the site presents the new Framefly (an app's own video, ten AI variants, tested on Meta Ads, budget moved to the winners), in French, for the entrepreneurship presentation.** Pages: `index`, `product`, `pricing`, and the hand-written demo `dashboard.html` (not built from `src/`; the home page drives it by scroll through an iframe, see `assets/js/pitch.js` and `assets/css/pitch.css`). The sections below describe the earlier demo-video product's site; its pages (templates, security, beta, log, about) and articles were removed.
+
+The previous version of this site: the launch site for Framefly (the demo-video product in `../framefly/`). Plain HTML, CSS and vanilla JS at the root, served by GitHub Pages (`CNAME` is `framefly.app`). No framework and no third-party request: fonts, icons, films and code all come from this repo.
 
 Everything the site shows is the app's own: its design tokens and typefaces, real screenshots of its screens, the films its pipeline rendered, its picture library, its prices.
 
@@ -22,7 +24,7 @@ The built files are committed, so GitHub Pages needs no build step.
 | `src/articles/*.html` | One file per article, built to `articles/<name>.html` and read at `framefly.app/articles/<name>` |
 | `src/llms.md` | The text of `llms.txt`; the list of articles is filled in by the build |
 | `src/partials/` | The nav and the footer, shared by every page |
-| `src/data.mjs` | Templates, captions, backdrops, presenters, voices, plans, prices. A copy of the app's data (`Framefly.app/app/src/data`): change it here when the app changes |
+| `src/data.mjs` | Templates, captions, backdrops, presenters, voices, plans, prices. A copy of the app's data (`../framefly/app/src/data`): change it here when the app changes |
 | `src/blocks.mjs` | The parts of a page made from that data (film players, the canvas, plan cards...) |
 | `assets/css/site.css` | The design system, on the app's tokens. Light and dark are both first-class |
 | `assets/js/site.js` | Theme, countdown, forms, film players |
@@ -56,8 +58,8 @@ In a page, `{{icon:name}}` is a Phosphor icon, `{{shot:name|what it shows}}` a s
 Both are in `assets/js/config.js`:
 
 - **`launchAt`**: the launch moment in UTC. Every countdown and date reads it. To postpone, change this one line. When it is reached the site switches on its own: the forms and the beta invitations give way to a "Make your first video" button pointing at `appUrl`.
-- **`formEndpoint`**: where the "Notify me" and beta forms send their data. It points at the Framefly API (`Framefly.app/api`, live at `api.vanssay.net/framefly`), which only answers framefly.app: on a local preview the forms show their error state. If it is ever emptied, the forms fall back to a pre-filled email to `contactEmail` on framefly.app, so no signup is lost.
-- **`apiBase`**: the same API, for the admin page (`admin.html`). Its password is set on the server, see `Framefly.app/api/README.md`.
+- **`formEndpoint`**: where the "Notify me" and beta forms send their data. It points at the Framefly API (`../framefly/api`, live at `api.vanssay.net/framefly`), which only answers framefly.app: on a local preview the forms show their error state. If it is ever emptied, the forms fall back to a pre-filled email to `contactEmail` on framefly.app, so no signup is lost.
+- **`apiBase`**: the same API, for the admin page (`admin.html`). Its password is set on the server, see `../framefly/api/README.md`.
 
 The forms `POST` JSON with `Content-Type: application/json`:
 
@@ -119,7 +121,7 @@ node tools/media.mjs films --full   # the whole films
 node tools/build.mjs                # the pages read assets/films/films.json
 ```
 
-`tools/media.mjs` encodes the lab's originals (`Framefly.app/research/outputs/instagram-desktop`) for the web and says why two things are held back today:
+`tools/media.mjs` encodes the lab's originals (`../framefly/research/outputs/instagram-desktop`) for the web and says why two things are held back today:
 
 - **Excerpts, not whole films.** Every film was shot on a take that loads @nike's Instagram profile, and the research notes say a public video should use an account whose owner agreed. Each film is cut just before those posts appear. Once the films are shot again on a cleared account, or you decide the posts can be shown, run it with `--full`.
 - **The demos are silent.** Their narration is an ElevenLabs voice made on a plan that does not allow commercial use. The two launch films keep their sound: their music is written by the lab's own code. Set `sound: true` on a demo once its voice is recorded again on a paid plan.
@@ -131,7 +133,7 @@ It also copies the picture library (presenters, rooms, backdrops) and the three 
 `assets/app/*.webp` are the app's real screens, in both themes, at 2x. To take them again after the interface changes:
 
 ```bash
-cd ../Framefly.app/app && npx vite build --outDir /some/folder --emptyOutDir
+cd ../framefly/app && npx vite build --outDir /some/folder --emptyOutDir
 node tools/serve.mjs /some/folder 5310
 node tools/shots.mjs http://127.0.0.1:5310/index.html
 ```

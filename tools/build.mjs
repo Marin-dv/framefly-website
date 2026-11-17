@@ -127,7 +127,7 @@ ${kind === "article" ? `<meta property="article:published_time" content="${meta.
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="alternate" type="application/atom+xml" title="Framefly articles" href="articles/feed.xml">
+${articles.length ? '<link rel="alternate" type="application/atom+xml" title="Framefly articles" href="articles/feed.xml">' : ""}
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
@@ -142,7 +142,7 @@ ${meta.ld ?? ""}${meta.robots?.includes("noindex") ? "" : faqOf(inner)}`;
   let html = bare
     ? `<!doctype html>\n<html lang="en">\n<head>\n${head}\n</head>\n<body>\n${inner}\n</body>\n</html>\n`
     : `<!doctype html>
-<html lang="en" data-root="${up}">
+<html lang="${meta.lang ?? "en"}" data-root="${up}">
 <head>
 ${head}
 </head>
@@ -172,6 +172,9 @@ for (const file of pages) {
   if (file === "index.html") meta.ld = (meta.ld ?? "") + ld({ "@context": "https://schema.org", "@graph": [org, { "@type": "WebSite", "@id": `${SITE}/#site`, url: SITE, name: "Framefly", description: data.brand.tagline, publisher: { "@id": `${SITE}/#org` }, inLanguage: "en" }] });
   page({ file, meta, body });
 }
+
+// the demo dashboard is a hand-written page at the root (dashboard.html), listed here for the sitemap
+sitemap.push({ url: `${SITE}/dashboard.html`, priority: "0.8" });
 
 // ── articles: each one, then the list of them ──
 for (const a of articles) {
@@ -203,7 +206,7 @@ ${a.body}
   const article = ld({ "@context": "https://schema.org", "@type": "Article", headline: a.title, description: a.description, datePublished: a.date, dateModified: a.updated, inLanguage: "en", mainEntityOfPage: a.url, image: `${SITE}/assets/img/og.png`, author: { "@type": "Organization", name: "Framefly", url: SITE }, publisher: org });
   page({ file: `articles/${a.slug}.html`, kind: "article", meta: { ...a, url: a.url, priority: "0.7", ld: article + crumbs([["Framefly", `${SITE}/`], ["Articles", `${SITE}/articles/`], [a.title, a.url]]) }, body });
 }
-page({
+if (articles.length) page({
   file: "articles/index.html",
   meta: { title: "Framefly articles: demo videos, launch videos and how to make them", description: "Practical articles on making demo videos and launch videos for software: what works, what it costs, how long it should be, with sources.", priority: "0.8", updated: articles[0]?.updated, ld: crumbs([["Framefly", `${SITE}/`], ["Articles", `${SITE}/articles/`]]) },
   body: `<section class="page-head"><div class="aurora" aria-hidden="true"></div><div class="wrap"><h1>Articles</h1><p class="lead">How to make a demo video or a launch video for software: what works, how long it should be, what it costs. Every number comes with its source.</p></div></section>
@@ -228,7 +231,7 @@ writeFileSync(join(root, "assets", "js", "data.js"), `/* Written by tools/build.
 
 // ── the icons the site uses, from the app's Phosphor package ──
 for (const f of readdirSync(join(root, "assets", "js")).filter((f) => f.endsWith(".js"))) for (const m of read(join(root, "assets", "js", f)).matchAll(/icon\("([a-z0-9-]+)"/g)) icons.add(m[1]);
-const defs = join(root, "..", "Framefly.app", "app", "node_modules", "@phosphor-icons", "react", "dist", "defs");
+const defs = join(root, "..", "framefly", "app", "node_modules", "@phosphor-icons", "react", "dist", "defs");
 const spriteFile = join(root, "assets", "img", "icons.svg");
 if (existsSync(defs)) {
   const kebab = (k) => k.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase());
@@ -264,7 +267,7 @@ if (existsSync(defs)) {
 // ── for search engines ──
 writeFileSync(join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap.map((p) => `  <url><loc>${p.url}</loc>${p.lastmod ? `<lastmod>${p.lastmod}</lastmod>` : ""}<priority>${p.priority}</priority></url>`).join("\n")}\n</urlset>\n`);
 const xml = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-writeFileSync(
+if (articles.length) writeFileSync(
   join(root, "articles", "feed.xml"),
   `<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">\n  <title>Framefly articles</title>\n  <subtitle>Demo videos and launch videos for software, and how to make them.</subtitle>\n  <link href="${SITE}/articles/feed.xml" rel="self"/>\n  <link href="${SITE}/articles/"/>\n  <id>${SITE}/articles/</id>\n  <updated>${articles[0]?.updated ?? "2026-10-09"}T08:00:00Z</updated>\n  <author><name>Framefly</name></author>\n${articles.map((a) => `  <entry>\n    <title>${xml(a.title)}</title>\n    <link href="${a.url}"/>\n    <id>${a.url}</id>\n    <published>${a.date}T08:00:00Z</published>\n    <updated>${a.updated}T08:00:00Z</updated>\n    <summary>${xml(a.description)}</summary>\n  </entry>`).join("\n")}\n</feed>\n`,
 );

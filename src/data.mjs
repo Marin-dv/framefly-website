@@ -1,5 +1,5 @@
 // What the pages are made of. Every list here is a copy of the app's own data
-// (../Framefly.app/app/src/data): when the app changes, change it here too and run
+// (../framefly/app/src/data): when the app changes, change it here too and run
 // `node tools/build.mjs`. Nothing below is invented for the site.
 
 /** app/src/brand.ts */
