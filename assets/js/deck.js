@@ -25,6 +25,28 @@
     "Les gagnantes lancent une nouvelle série. La boucle continue."
   ];
 
+  // ── where each slide sits in the pitch: the course's five parts, written once here ──
+  var SECS = ["Problème", "Solution", "Démo", "Lancement", "Conclusion"];
+  var WHY = ["Why", "What", "How", "How", ""];
+  function chrome(stage) {
+    var all = $$(".slide", stage), main = all.filter(function (s) { return !s.hasAttribute("data-annex"); }).length;
+    all.forEach(function (s, n) {
+      var sec = +s.getAttribute("data-sec"), annex = s.getAttribute("data-annex"), label = s.getAttribute("data-label") || "";
+      var num = $(".s-num", s);
+      if (num) num.textContent = annex ? annex : pad(n + 1) + " / " + pad(main);
+      if (s.classList.contains("demo") || (!sec && !annex) || $(".s-top", s)) return;
+      var top = document.createElement("div");
+      top.className = "s-top";
+      top.innerHTML = annex
+        ? '<span class="slate"><b>' + annex.slice(1) + "</b>Annexe<span>· " + label + '</span></span><span class="lbl">Pour les questions du jury</span>'
+        : '<span class="slate"><b>' + sec + "</b>" + SECS[sec - 1] + (WHY[sec - 1] ? " (" + WHY[sec - 1] + ")" : "") + "<span>· " + label + "</span></span>" +
+          '<span class="secs" aria-hidden="true">' + SECS.map(function (t, k) { return "<i" + (k + 1 === sec ? ' class="on"' : k + 1 < sec ? ' class="past"' : "") + ">" + t + "</i>"; }).join("") + "</span>";
+      s.insertBefore(top, s.firstChild);
+    });
+    return main;
+  }
+  var MAIN = chrome($("[data-stage]"));
+
   // ── a deck view: one stage, its slides, the slide and the step it shows ──
   function View(stage, opts) {
     this.stage = stage;
@@ -41,10 +63,6 @@
     this.fit();
     if ("ResizeObserver" in window) new ResizeObserver(this.fit).observe(this.box);
     window.addEventListener("resize", this.fit);
-    this.slides.forEach(function (s, n) {
-      var num = $(".s-num", s);
-      if (num) num.textContent = pad(n + 1) + " / " + pad(self.slides.length);
-    });
   }
   View.prototype.count = function (i) {
     var s = this.slides[i];
@@ -66,7 +84,7 @@
     $$("[data-f]", this.slides[i]).forEach(function (e) { e.classList.toggle("in", +e.getAttribute("data-f") <= f); });
     this.i = i; this.f = f;
     var bar = $(".bar i", this.stage);
-    if (bar) bar.style.width = (n > 1 ? (i / (n - 1)) * 100 : 100) + "%";
+    if (bar) bar.style.width = (MAIN > 1 ? Math.min(1, i / (MAIN - 1)) * 100 : 100) + "%";
     // the live dashboard: load it one slide ahead, then step it
     this.slides.forEach(function (s, k) {
       var fr = $("iframe[data-src]", s);
@@ -89,6 +107,7 @@
     $$(".demo-dots i", s).forEach(function (d, k) { d.className = k < f ? "past" : k === f ? "on" : ""; });
   };
   View.prototype.after = function (i, f) {
+    if (i === MAIN - 1 && f >= this.count(i)) return [i, f]; // the pitch ends on its conclusion: the appendices open with A
     return f < this.count(i) ? [i, f + 1] : i < this.slides.length - 1 ? [i + 1, 0] : [i, f];
   };
   View.prototype.before = function (i, f) {
@@ -134,7 +153,8 @@
       if (k === "ArrowRight" || k === "ArrowDown" || k === "PageDown" || k === "Enter" || (k === " " && !e.shiftKey)) { e.preventDefault(); next(); }
       else if (k === "ArrowLeft" || k === "ArrowUp" || k === "PageUp" || k === "Backspace" || (k === " " && e.shiftKey)) { e.preventDefault(); prev(); }
       else if (k === "Home") { e.preventDefault(); go([0, 0]); }
-      else if (k === "End") { e.preventDefault(); go([view.slides.length - 1, 0]); }
+      else if (k === "End") { e.preventDefault(); go([MAIN - 1, 0]); }
+      else if (k === "a" || k === "A") go([Math.min(MAIN, view.slides.length - 1), 0]);
       else if (k === "f" || k === "F") fullscreen();
       else if (k === "n" || k === "N") { notesOn = !notesOn; notes(); }
       else if (k === "p" || k === "P") presenterWindow();
