@@ -136,11 +136,11 @@ ${meta.head ?? ""}
 ${meta.ld ?? ""}${meta.robots?.includes("noindex") ? "" : faqOf(inner)}`;
 
   // every page counts its own view, except the admin (whoever opens it is the owner, not a visitor)
-  const scripts = ["config", "data", "site", ...(meta.scripts ? meta.scripts.split(",").map((s) => s.trim()) : []), ...(meta.track === "no" ? [] : ["track"])].map((s) => `<script src="assets/js/${s}.js" defer></script>`).join("\n");
+  const scripts = ["config", "data", "site", "present", ...(meta.scripts ? meta.scripts.split(",").map((s) => s.trim()) : []), ...(meta.track === "no" ? [] : ["track"])].map((s) => `<script src="assets/js/${s}.js" defer></script>`).join("\n");
   const navFile = file.startsWith("articles/") ? "articles/" : file;
   const nav = partial("nav").replace(`href="${navFile}" class="nav-link"`, `href="${navFile}" class="nav-link" aria-current="page"`);
   let html = bare
-    ? `<!doctype html>\n<html lang="en">\n<head>\n${head}\n</head>\n<body>\n${inner}\n</body>\n</html>\n`
+    ? `<!doctype html>\n<html lang="${meta.lang ?? "en"}">\n<head>\n${head}\n</head>\n<body>\n${inner}\n</body>\n</html>\n`
     : `<!doctype html>
 <html lang="${meta.lang ?? "en"}" data-root="${up}">
 <head>

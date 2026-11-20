@@ -988,3 +988,12 @@ main .capture-row .btn-primary { height: 44px; padding: 0 20px; font-size: 11.5p
 
 /* the capture section keeps its heading inside half a column */
 #capture h2 { font-size: clamp(2rem, 3.2vw, 2.9rem); }
+
+/* pitch mode (assets/js/present.js): the way back to the deck, bottom left, above the dashboard tour's bar */
+.pitch-back { position: fixed; left: 18px; bottom: 18px; z-index: 90; display: flex; align-items: center; gap: 4px; padding: 5px; border-radius: 999px; background: #12150a; color: #f4f4f6; box-shadow: 0 14px 34px -12px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.12); transition: bottom 0.4s var(--ease); }
+.pitch-back a { display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 14px 0 12px; border-radius: 999px; background: #d3f261; color: #12150a; font: 600 12.5px/1 var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.pitch-back a .icon { width: 17px; height: 17px; }
+.pitch-back kbd { padding: 4px 7px; border-radius: 6px; background: rgba(18, 21, 10, 0.14); font-size: 10.5px; letter-spacing: 0.04em; }
+.pitch-back button { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #8b8c97; cursor: pointer; }
+.pitch-back button:hover { color: #f4f4f6; background: rgba(255, 255, 255, 0.08); }
+body.tour-on .pitch-back { bottom: 84px; }
