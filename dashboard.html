@@ -1,357 +1,335 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="framefly">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Framefly : le dashboard (démo)</title>
-<meta name="description" content="Le dashboard Framefly, en démo : une vidéo envoyée, dix variantes, un test sur Meta Ads et le budget qui suit les gagnantes.">
+<meta name="description" content="Le dashboard Framefly, en démo : une vidéo envoyée, dix variantes testées sur Meta Ads, et le budget qui suit les gagnantes, avec vos plafonds.">
 <link rel="canonical" href="https://framefly.app/dashboard.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/gabarito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css">
-<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}if(t!=="dark")t="light";d.setAttribute("data-theme",t);d.classList.add("js")})()</script>
-<style>
-  /* The demo dashboard. It runs on the site's own tokens. Every number on it is an illustration. */
-  html { font-size: clamp(11px, 0.94vw, 15.5px); scroll-behavior: auto; }
-  body { height: 100vh; overflow: hidden; background: var(--bg); }
-  .d-app { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); height: 100vh; }
-
-  /* rail */
-  .d-rail { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 1.1rem 0; background: var(--s1); box-shadow: inset -1px 0 0 var(--line); }
-  .d-rail .mark-svg { width: 2.2rem; height: 2.2rem; margin-bottom: 1rem; }
-  .d-ico { display: grid; place-items: center; gap: 0.15rem; width: 3.4rem; padding: 0.55rem 0 0.4rem; border-radius: 1rem; color: var(--fg-3); font: 500 0.62rem/1 var(--f-sans); }
-  .d-ico svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-  .d-ico.on { background: var(--accent-soft-2); color: var(--accent-fg); }
-  .d-rail .d-avatar { margin-top: auto; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: linear-gradient(135deg, #d3f261, #6bd0a1); color: #12150a; display: grid; place-items: center; font: 800 0.72rem/1 var(--f-display); }
-
-  /* main */
-  .d-main { display: grid; grid-template-rows: auto auto minmax(0, 1fr); min-width: 0; height: 100vh; padding: 1rem 1.4rem 1.2rem; gap: 0.9rem; }
-  .d-top { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
-  .d-title { font: 800 1.35rem/1.1 var(--f-display); letter-spacing: -0.02em; }
-  .d-sub { color: var(--fg-3); font-size: 0.82rem; }
-  .d-grow { flex: 1; }
-  .d-chip { display: inline-flex; align-items: center; gap: 0.4rem; height: 1.7rem; padding: 0 0.75rem; border-radius: 999px; font: 600 0.72rem/1 var(--f-sans); background: var(--s3); color: var(--fg-2); white-space: nowrap; }
-  .d-chip i { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--fg-4); }
-  .d-chip.ok { background: var(--ok-soft); color: var(--ok); } .d-chip.ok i { background: var(--ok); }
-  .d-chip.warn { background: var(--warn-soft); color: var(--warn); } .d-chip.warn i { background: var(--warn); }
-  .d-chip.bad { background: var(--bad-soft); color: var(--bad); } .d-chip.bad i { background: var(--bad); }
-  .d-chip.win { background: var(--accent); color: var(--accent-ink); } .d-chip.win i { background: var(--accent-ink); }
-  .d-chip.live i { animation: d-pulse 1.4s ease-in-out infinite; }
-  @keyframes d-pulse { 50% { opacity: 0.25; } }
-  .d-seg { display: inline-flex; padding: 0.2rem; border-radius: 999px; background: var(--s3); }
-  .d-seg button { height: 1.8rem; padding: 0 0.85rem; border-radius: 999px; font: 600 0.74rem/1 var(--f-sans); color: var(--fg-3); }
-  .d-seg button.on { background: var(--s1); color: var(--fg); box-shadow: var(--shadow-sm); }
-  .d-btn { display: inline-flex; align-items: center; height: 2.2rem; padding: 0 1.1rem; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font: 700 0.8rem/1 var(--f-sans); }
-
-  /* stepper */
-  .d-steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.4rem; }
-  .d-step { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.7rem; border-radius: 0.8rem; background: var(--s1); box-shadow: inset 0 0 0 1px var(--line); color: var(--fg-3); font: 600 0.74rem/1.2 var(--f-sans); text-align: left; transition: background 0.3s, color 0.3s; min-width: 0; }
-  .d-step b { display: grid; place-items: center; flex: none; width: 1.35rem; height: 1.35rem; border-radius: 50%; background: var(--s3); font: 700 0.68rem/1 var(--f-mono); }
-  .d-step span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .d-step.done { color: var(--fg-2); } .d-step.done b { background: var(--ok-soft); color: var(--ok); }
-  .d-step.on { background: var(--accent); color: var(--accent-ink); box-shadow: none; } .d-step.on b { background: var(--accent-ink); color: var(--accent); }
-
-  /* body */
-  .d-body { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 0.9rem; min-height: 0; }
-  .d-col { display: grid; gap: 0.9rem; min-height: 0; align-content: start; grid-auto-rows: min-content; }
-  .d-col.left { grid-template-rows: auto minmax(0, 1fr); }
-  .d-col.right { grid-template-rows: auto minmax(0, 1fr) minmax(0, 1.1fr); }
-  .d-card { background: var(--s1); border-radius: 1.1rem; box-shadow: inset 0 0 0 1px var(--line), var(--shadow-sm); padding: 0.9rem 1.05rem; min-height: 0; min-width: 0; display: flex; flex-direction: column; }
-  .d-h { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.6rem; }
-  .d-h b { font: 700 0.95rem/1.2 var(--f-display); letter-spacing: -0.01em; }
-  .d-h span { color: var(--fg-3); font-size: 0.74rem; }
-
-  /* kpis */
-  .d-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.7rem; }
-  .d-kpi { background: var(--s1); border-radius: 1.1rem; box-shadow: inset 0 0 0 1px var(--line), var(--shadow-sm); padding: 0.8rem 1rem; display: grid; gap: 0.25rem; }
-  .d-kpi small { color: var(--fg-3); font: 500 0.7rem/1.2 var(--f-sans); }
-  .d-kpi strong { font: 800 1.7rem/1 var(--f-display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-  .d-kpi em { font: 600 0.7rem/1.2 var(--f-sans); font-style: normal; color: var(--fg-3); min-height: 0.9rem; }
-  .d-kpi em.up { color: var(--ok); }
-  .d-bar { height: 0.32rem; border-radius: 999px; background: var(--s3); overflow: hidden; margin-top: 0.15rem; }
-  .d-bar i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: inherit; transition: width 0.9s var(--ease); }
-
-  /* source */
-  .d-source { display: flex; align-items: center; gap: 0.9rem; }
-  .d-src-th { width: 2.7rem; flex: none; }
-  .d-source .meta { display: grid; gap: 0.15rem; min-width: 0; }
-  .d-source .meta b { font: 700 0.92rem/1.2 var(--f-sans); }
-  .d-source .meta span { color: var(--fg-3); font-size: 0.74rem; }
-  .d-drop { margin-left: auto; display: flex; align-items: center; gap: 0.6rem; }
-  .d-spin { width: 1rem; height: 1rem; border-radius: 50%; border: 2px solid var(--s4); border-top-color: var(--accent-fg); animation: d-rot 0.8s linear infinite; }
-  @keyframes d-rot { to { transform: rotate(360deg); } }
-
-  /* variants table */
-  .d-table { display: grid; grid-auto-rows: max-content; min-height: 0; overflow: hidden; align-content: start; }
-  .d-row { display: grid; grid-template-columns: minmax(0, 3.1fr) 5.3rem minmax(0, 1.5fr) 3.6rem 4rem 3.2rem 4.3rem; gap: 0.7rem; align-items: center; padding: 0.3rem 0.2rem; box-shadow: 0 1px 0 var(--line); font-size: 0.78rem; font-variant-numeric: tabular-nums; transition: opacity 0.5s, background 0.4s; }
-  .d-row.hd { white-space: nowrap; color: var(--fg-3); font: 600 0.66rem/1 var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; padding-block: 0.1rem 0.45rem; }
-  .d-row .num { text-align: right; }
-  .d-row.cut { opacity: 0.45; }
-  .d-row.win { background: var(--accent-soft); border-radius: 0.7rem; box-shadow: none; }
-  .d-row.fresh { animation: d-in 0.7s var(--ease) both; }
-  @keyframes d-in { from { opacity: 0; transform: translateY(0.6rem); } }
-  .d-v { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
-  .d-v > div { min-width: 0; }
-  .d-v b { display: block; font: 600 0.78rem/1.25 var(--f-sans); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .d-v span { color: var(--fg-3); font: 400 0.66rem/1.2 var(--f-mono); }
-  .d-budget { display: grid; gap: 0.2rem; }
-  .d-budget small { font: 600 0.7rem/1 var(--f-mono); color: var(--fg-2); }
-
-  /* thumbnails: the same person, a different backdrop and hook */
-  .th { position: relative; width: 1.45rem; aspect-ratio: 9 / 16; border-radius: 0.35rem; overflow: hidden; flex: none; background: #cfd2d8 center / cover; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1); }
-  .th img { position: absolute; left: -20%; bottom: -4%; width: 150%; max-width: none; height: auto; }
-  .th b { position: absolute; left: 6%; right: 6%; bottom: 5%; font: 800 0.27rem/1.1 var(--f-display); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.6); text-transform: uppercase; letter-spacing: 0; }
-
-  /* chart */
-  .d-chart { flex: 1; min-height: 0; position: relative; }
-  .d-chart svg { width: 100%; height: 100%; display: block; overflow: visible; }
-  .d-legend { display: flex; gap: 0.9rem; font-size: 0.68rem; color: var(--fg-3); margin-top: 0.4rem; flex-wrap: wrap; }
-  .d-legend i { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 0.18rem; margin-right: 0.3rem; vertical-align: -0.05rem; }
-
-  /* feed */
-  .d-feed { display: grid; gap: 0.45rem; overflow: hidden; align-content: start; min-height: 0; }
-  .d-ev { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 0.6rem; font-size: 0.76rem; line-height: 1.35; animation: d-in 0.6s var(--ease) both; }
-  .d-ev time { font: 500 0.66rem/1.5 var(--f-mono); color: var(--fg-3); }
-  .d-ev p { color: var(--fg-2); }
-  .d-ev p b { color: var(--fg); font-weight: 650; }
-  .d-ask { margin-top: 0.4rem; padding: 0.6rem 0.7rem; border-radius: 0.8rem; background: var(--accent-soft-2); box-shadow: inset 0 0 0 1px var(--accent-line); display: grid; gap: 0.5rem; font-size: 0.74rem; animation: d-in 0.6s var(--ease) both; }
-  .d-ask div { display: flex; gap: 0.4rem; }
-  .d-ask button { height: 1.7rem; padding: 0 0.8rem; border-radius: 999px; font: 700 0.7rem/1 var(--f-sans); background: var(--fg); color: var(--bg); }
-  .d-ask button.alt { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--line-3); }
-  .d-empty { color: var(--fg-3); font-size: 0.8rem; padding: 0.4rem 0; }
-
-  .d-demo { position: fixed; right: 0.9rem; bottom: 0.6rem; font: 500 0.64rem/1 var(--f-mono); color: var(--fg-3); letter-spacing: 0.05em; pointer-events: none; }
-
-  @media (max-width: 1000px) {
-    body { overflow: auto; height: auto; }
-    .d-app { height: auto; grid-template-columns: 1fr; }
-    .d-rail { display: none; }
-    .d-main { height: auto; }
-    .d-body { grid-template-columns: 1fr; }
-    .d-col.left, .d-col.right { grid-template-rows: none; }
-    .d-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .d-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .d-row { grid-template-columns: minmax(0, 2fr) 4.6rem minmax(0, 1fr) 3rem; }
-    .d-row > :nth-child(n+5) { display: none; }
-    .d-chart { min-height: 11rem; }
-    html { font-size: 14px; }
-  }
-</style>
+<link rel="stylesheet" href="assets/dashboard/dashboard.css">
+<link rel="stylesheet" href="assets/dashboard/apexcharts.css">
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("framefly.site.theme")}catch(e){}d.setAttribute("data-theme",t==="dark"?"framefly-dark":"framefly")})()</script>
 </head>
-<body>
-<div class="d-app">
-  <aside class="d-rail" aria-label="Navigation de la démo">
-    <svg class="mark-svg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg>
-    <span class="d-ico on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</span>
-    <span class="d-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>Vidéos</span>
-    <span class="d-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a1.8 1.8 0 0 1 0 3.5h-3a1.8 1.8 0 0 0 0 3.5h4"/></svg>Budget</span>
-    <span class="d-ico"><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0zM12 17v4"/></svg>Liens</span>
-    <span class="d-avatar">MD</span>
+<body class="h-screen overflow-hidden [@media(max-height:600px)]:h-auto [@media(max-height:600px)]:overflow-auto bg-base-200 font-sans text-base-content max-lg:h-auto max-lg:overflow-auto">
+
+<div class="grid h-screen grid-cols-[4.75rem_minmax(0,1fr)] [@media(max-height:600px)]:h-auto max-lg:h-auto max-lg:grid-cols-1">
+
+  <!-- Navigation -->
+  <aside class="flex flex-col items-center gap-1 border-r border-base-300 bg-base-100 py-4 max-lg:hidden" aria-label="Navigation de la démo">
+    <svg class="mb-4 size-9" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#d3f261"/><g fill="none" stroke="#12150a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12V9.5a2 2 0 0 1 2-2H12M20 7.5h2.5a2 2 0 0 1 2 2V12M24.5 20v2.5a2 2 0 0 1-2 2H20M12 24.5H9.5a2 2 0 0 1-2-2V20"/></g><g fill="#12150a"><circle cx="11.6" cy="20.3" r=".95"/><circle cx="13.9" cy="17.4" r="1.3"/><circle cx="16.8" cy="15.4" r="1.75"/><circle cx="20.4" cy="14.4" r="2.7"/></g></svg>
+    <nav class="flex flex-col gap-1">
+      <a class="btn btn-ghost h-auto min-h-0 w-16 flex-col flex-nowrap gap-1 rounded-2xl bg-primary/30 px-0 py-2 text-[0.62rem] font-medium hover:bg-primary/40" aria-current="page"><svg class="size-5 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-squares-four"/></svg>Dashboard</a>
+      <a class="btn btn-ghost h-auto min-h-0 w-16 flex-col flex-nowrap gap-1 rounded-2xl px-0 py-2 text-[0.62rem] font-medium text-base-content/60"><svg class="size-5 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-film-strip"/></svg>Vidéos</a>
+      <a class="btn btn-ghost h-auto min-h-0 w-16 flex-col flex-nowrap gap-1 rounded-2xl px-0 py-2 text-[0.62rem] font-medium text-base-content/60"><svg class="size-5 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-scan"/></svg>Publications</a>
+      <a class="btn btn-ghost h-auto min-h-0 w-16 flex-col flex-nowrap gap-1 rounded-2xl px-0 py-2 text-[0.62rem] font-medium text-base-content/60"><svg class="size-5 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-wallet"/></svg>Budget</a>
+      <a class="btn btn-ghost h-auto min-h-0 w-16 flex-col flex-nowrap gap-1 rounded-2xl px-0 py-2 text-[0.62rem] font-medium text-base-content/60"><svg class="size-5 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-plug"/></svg>Connexions</a>
+    </nav>
+    <div class="avatar placeholder mt-auto"><div class="w-9 rounded-full bg-primary text-xs font-extrabold text-primary-content"><span>MD</span></div></div>
   </aside>
 
-  <div class="d-main">
-    <header class="d-top">
-      <div>
-        <div class="d-title">Posturo · Campagne Meta Ads</div>
-        <div class="d-sub">Application d'exemple. Budget du mois : 1 200 €</div>
+  <main class="flex min-h-0 min-w-0 flex-col gap-3 px-5 py-4 max-lg:h-auto max-lg:px-4">
+
+    <!-- En-tête -->
+    <header class="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div class="min-w-0">
+        <h1 class="font-display text-[1.35rem] font-extrabold leading-tight tracking-tight">Posturo · Campagne Meta Ads</h1>
+        <p class="mt-0.5 flex items-center gap-1.5 text-xs text-base-content/60"><span class="size-1.5 rounded-full bg-success"></span>Meta Ads et abonnements connectés<span class="text-base-content/30">·</span>données de démonstration</p>
       </div>
-      <span class="d-chip ok"><i></i>Meta Ads connecté</span>
-      <span class="d-chip ok"><i></i>Abonnements connectés</span>
-      <span class="d-grow"></span>
-      <div class="d-seg" role="group" aria-label="Mode"><button type="button" data-mode="validation" class="on">Validation</button><button type="button" data-mode="auto">Automatique</button></div>
-      <span class="d-btn">Envoyer une vidéo</span>
+      <span class="flex-1"></span>
+      <div class="join" role="group" aria-label="Mode de décision" title="Validation : vous approuvez chaque déplacement de budget. Conseillé les 2 à 4 premières semaines.">
+        <button type="button" data-mode="validation" class="btn join-item btn-sm">Validation</button>
+        <button type="button" data-mode="auto" class="btn join-item btn-sm">Automatique</button>
+      </div>
+      <button type="button" id="restart" class="btn btn-primary btn-sm gap-2"><svg class="size-4 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-upload-simple"/></svg>Envoyer une vidéo</button>
     </header>
 
-    <nav class="d-steps" id="steps" aria-label="Étapes"></nav>
+    <!-- Étapes -->
+    <ul class="steps steps-horizontal w-full shrink-0 text-[0.7rem] [&>li]:min-h-0 [&>li]:grid-rows-[1.9rem_auto]" id="steps" aria-label="Étapes"></ul>
 
-    <div class="d-body">
-      <div class="d-col left">
-        <div class="d-kpis" id="kpis"></div>
-        <section class="d-card" style="gap:0.5rem">
-          <div class="d-source" id="source"></div>
-          <div class="d-table" id="table" role="table" aria-label="Variantes"></div>
-        </section>
-      </div>
-      <div class="d-col right">
-        <section class="d-card" style="padding-bottom:0.75rem">
-          <div class="d-h"><b>Plafonds</b><span>fixés par vous</span></div>
-          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.6rem;font-size:0.72rem;color:var(--fg-3)">
-            <div>Budget<br><b style="color:var(--fg);font:800 1.05rem/1.4 var(--f-display)">1 200 €</b></div>
-            <div>Test par variante<br><b style="color:var(--fg);font:800 1.05rem/1.4 var(--f-display)">30 €</b></div>
-            <div>Arrêt si coût / install &gt;<br><b style="color:var(--fg);font:800 1.05rem/1.4 var(--f-display)">4,50 €</b></div>
+    <!-- Résultats -->
+    <div class="stats w-full shrink-0 border border-base-300 bg-base-100 max-lg:stats-vertical" id="kpis"></div>
+
+    <div class="grid min-h-0 flex-1 grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] gap-3 max-lg:grid-cols-1">
+
+      <!-- Gauche : variantes, puis règles -->
+      <div class="flex min-h-0 min-w-0 flex-col gap-3">
+        <section class="card min-h-0 flex-1 border border-base-300 bg-base-100">
+          <div class="card-body min-h-0 gap-2 px-5 py-3.5">
+            <div class="flex items-center gap-3" id="source"></div>
+            <div class="min-h-0 flex-1 overflow-y-auto">
+              <table class="table table-sm [&_td]:py-1.5" aria-label="Variantes">
+                <thead>
+                  <tr class="border-base-300 text-[0.66rem] uppercase tracking-wider text-base-content/50">
+                    <th class="pl-0">Variante</th><th>Statut</th><th>Budget</th><th class="text-right">Dépensé</th><th class="text-right max-lg:hidden">Rét. 3 s</th><th class="text-right">€ / essai</th><th class="pr-0 text-right">€ / abonné</th>
+                  </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+              </table>
+              <p id="empty" class="hidden py-6 text-center text-sm text-base-content/60">Analyse en cours. Les variantes apparaîtront ici, et seules les 3 meilleures vous seront montrées.</p>
+              <button type="button" id="more" class="btn btn-ghost btn-sm mt-0.5 w-full font-medium text-base-content/70"></button>
+            </div>
           </div>
         </section>
-        <section class="d-card">
-          <div class="d-h"><b>Où va le budget</b><span id="chart-sub">par jour</span></div>
-          <div class="d-chart" id="chart"></div>
-          <div class="d-legend"><span><i style="background:var(--accent)"></i>Gagnantes</span><span><i style="background:var(--s4)"></i>En test</span><span><i style="background:var(--bad);opacity:.55"></i>Coupées</span></div>
+
+        <section class="card shrink-0 border border-base-300 bg-base-100">
+          <div class="card-body gap-2.5 px-5 py-3.5">
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
+              <h2 class="font-display text-sm font-bold">Vos règles</h2>
+              <span class="flex-1"></span>
+              <ul class="flex flex-wrap gap-x-4 gap-y-1 text-[0.7rem] text-base-content/60">
+                <li class="flex items-center gap-1"><svg class="size-3.5 text-success fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-check"/></svg>Mention « généré par IA »</li>
+                <li class="flex items-center gap-1"><svg class="size-3.5 text-success fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-check"/></svg>Relecture avant publication</li>
+                <li class="flex items-center gap-1"><svg class="size-3.5 text-success fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-check"/></svg>Droits d'usage confirmés</li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-4 divide-x divide-base-300 max-sm:grid-cols-2 max-sm:divide-x-0 max-sm:gap-y-3" id="rules"></div>
+          </div>
         </section>
-        <section class="d-card">
-          <div class="d-h"><b>Décisions de l'IA</b><span id="feed-sub"></span></div>
-          <div class="d-feed" id="feed"></div>
+      </div>
+
+      <!-- Droite : décisions, puis budget -->
+      <div class="flex min-h-0 min-w-0 flex-col gap-3">
+        <section class="card min-h-0 flex-1 border border-base-300 bg-base-100">
+          <div class="card-body min-h-0 gap-2.5 px-5 py-3.5">
+            <div class="flex items-baseline gap-2"><h2 class="font-display text-sm font-bold">Décisions de l'IA</h2><span class="text-xs text-base-content/50" id="feed-sub"></span></div>
+            <div id="ask" aria-live="polite"></div>
+            <div class="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto pr-1" id="feed"></div>
+          </div>
+        </section>
+
+        <section class="card shrink-0 border border-base-300 bg-base-100">
+          <div class="card-body gap-0 px-5 pb-1 pt-3.5">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <h2 class="font-display text-sm font-bold">Où va le budget</h2><span class="text-xs text-base-content/50" id="chart-sub">par jour</span>
+              <span class="flex-1"></span>
+              <span class="flex items-center gap-1.5 text-[0.7rem] text-base-content/60"><span class="size-2 rounded-sm" id="lg-win"></span>Gagnantes</span>
+              <span class="flex items-center gap-1.5 text-[0.7rem] text-base-content/60"><span class="size-2 rounded-sm" id="lg-mid"></span>En test</span>
+            </div>
+            <div id="chart" class="h-[8.5rem]" role="img" aria-label="Part du budget de chaque jour allant aux variantes gagnantes et aux variantes en test"></div>
+          </div>
         </section>
       </div>
     </div>
-  </div>
+  </main>
 </div>
-<div class="d-demo">DONNÉES DE DÉMONSTRATION</div>
 
+<script src="assets/dashboard/apexcharts.min.js"></script>
 <script>
 (function () {
   "use strict";
   var P = "assets/library/";
   var STEPS = ["Envoi", "Variantes", "Test Meta", "Mesure", "Budget déplacé", "Nouvelle boucle"];
-  var BUDGET = 1200, TEST = 30, CPI_CUT = 4.5;
-  // 10 variants of the same photo, each on its own backdrop. fin = what the test settles on.
+  var BUDGET = 1200, TEST = 30, CPT_CUT = 15, MAX_SHIFT = 12, HOURS_PER_VARIANT = 2, GOAL = 15;
+  // 10 variantes de la même photo. cpi = coût par installation, tr = installation → essai, pr = essai → abonné. Tous les chiffres sont illustratifs.
   var V = [
-    { n: 1,  hook: "Ton dos te fait mal au bureau ?", bg: "backgrounds/bokeh", fmt: "9:16", cpi: 2.9,  h3: 38, ctr: 1.4, role: "mid" },
-    { n: 2,  hook: "Fais ça toutes les 2 heures",     bg: "scenes/home-office", fmt: "9:16", cpi: 4.7, h3: 29, ctr: 0.9, role: "cut" },
-    { n: 3,  hook: "Cette appli corrige ta posture",  bg: "scenes/loft", fmt: "9:16", cpi: 1.62, h3: 54, ctr: 2.9, role: "win" },
-    { n: 4,  hook: "Tu t'assois mal depuis des années", bg: "backgrounds/ocean", fmt: "4:5", cpi: 3.1, h3: 36, ctr: 1.3, role: "mid" },
-    { n: 5,  hook: "3 minutes. Pas de matériel.",     bg: "scenes/white-studio", fmt: "9:16", cpi: 2.05, h3: 46, ctr: 2.4, role: "win" },
-    { n: 6,  hook: "Arrête de rester voûté",          bg: "scenes/rooftop", fmt: "9:16", cpi: 3.4, h3: 33, ctr: 1.1, role: "mid" },
-    { n: 7,  hook: "Le geste que tu fais mal",        bg: "backgrounds/ink", fmt: "1:1", cpi: 5.1, h3: 24, ctr: 0.7, role: "cut" },
-    { n: 8,  hook: "Teste-le 7 jours gratuitement",   bg: "scenes/startup", fmt: "9:16", cpi: 1.85, h3: 49, ctr: 2.6, role: "win" },
-    { n: 9,  hook: "Ton cou après 8 h d'écran",       bg: "backgrounds/coast", fmt: "9:16", cpi: 3.6, h3: 34, ctr: 1.2, role: "mid" },
-    { n: 10, hook: "Posture : le test en 20 s",       bg: "scenes/night-office", fmt: "9:16", cpi: 5.4, h3: 22, ctr: 0.6, role: "cut" }
+    { n: 1,  img: "variants/v01", hook: "Ton dos te fait mal au bureau ?",   bg: "backgrounds/bokeh",   fmt: "9:16", cpi: 2.9,  h3: 38, tr: 0.36, pr: 0.36, role: "mid" },
+    { n: 2,  img: "variants/v02", hook: "Fais ça toutes les 2 heures",       bg: "scenes/home-office",  fmt: "9:16", cpi: 4.7,  h3: 29, tr: 0.30, pr: 0.34, role: "cut" },
+    { n: 3,  img: "variants/v03", hook: "Cette appli corrige ta posture",    bg: "scenes/loft",         fmt: "9:16", cpi: 1.62, h3: 54, tr: 0.44, pr: 0.40, role: "win" },
+    { n: 4,  img: "variants/v04", hook: "Tu t'assois mal depuis des années", bg: "backgrounds/ocean",   fmt: "4:5",  cpi: 3.1,  h3: 36, tr: 0.35, pr: 0.36, role: "mid" },
+    { n: 5,  img: "variants/original", hook: "3 minutes. Pas de matériel.",       bg: "scenes/white-studio", fmt: "9:16", cpi: 2.05, h3: 46, tr: 0.42, pr: 0.39, role: "win" },
+    { n: 6,  img: "variants/v06", hook: "Arrête de rester voûté",            bg: "scenes/rooftop",      fmt: "9:16", cpi: 3.4,  h3: 33, tr: 0.34, pr: 0.35, role: "mid" },
+    { n: 7,  img: "variants/v07", hook: "Le geste que tu fais mal",          bg: "backgrounds/ink",     fmt: "1:1",  cpi: 5.1,  h3: 24, tr: 0.28, pr: 0.33, role: "cut" },
+    { n: 8,  img: "variants/v08", hook: "Teste-le 7 jours gratuitement",     bg: "scenes/startup",      fmt: "9:16", cpi: 1.85, h3: 49, tr: 0.43, pr: 0.40, role: "win" },
+    { n: 9,  img: "variants/v09", hook: "Ton cou après 8 h d'écran",         bg: "backgrounds/coast",   fmt: "9:16", cpi: 3.6,  h3: 34, tr: 0.35, pr: 0.36, role: "mid" },
+    { n: 10, img: "variants/v10", hook: "Posture : le test en 20 s",         bg: "scenes/night-office", fmt: "9:16", cpi: 5.4,  h3: 22, tr: 0.27, pr: 0.33, role: "cut" }
   ];
   var GEN2 = [
-    { n: 11, hook: "Cette appli corrige ta posture, 2 sem. après", bg: "scenes/living-room", fmt: "9:16", from: "V03" },
-    { n: 12, hook: "Teste-le 7 jours : même corps, voix 2",       bg: "scenes/garden", fmt: "9:16", from: "V08" },
-    { n: 13, hook: "3 minutes. Pas de matériel. (accroche B)",    bg: "backgrounds/glass", fmt: "4:5", from: "V05" }
+    { n: 11, img: "variants/v03", hook: "Cette appli corrige ta posture, 2 sem. après", bg: "scenes/living-room", fmt: "9:16", from: "V03" },
+    { n: 12, img: "variants/v08", hook: "Teste-le 7 jours : même corps, voix 2",        bg: "scenes/garden",      fmt: "9:16", from: "V08" },
+    { n: 13, img: "variants/original", hook: "3 minutes. Pas de matériel. (accroche B)",     bg: "backgrounds/glass",  fmt: "4:5",  from: "V05" }
   ];
-  var share3 = { win: { 3: 0.32, 8: 0.24, 5: 0.18 }, mid: 0.065 };
-  function final(v) { return v.role === "win" ? share3.win[v.n] : v.role === "mid" ? share3.mid : 0; }
+  var SHARE = { win: { 3: 0.32, 8: 0.24, 5: 0.18 }, mid: 0.065 };
+  var final = function (v) { return v.role === "win" ? SHARE.win[v.n] : v.role === "mid" ? SHARE.mid : 0; };
+  var cpt = function (v) { return v.cpi / v.tr; };          // coût par essai gratuit
+  var cpa = function (v) { return cpt(v) / v.pr; };         // coût par abonné
 
-  var step = 0, mode = "validation", applied = false;
+  var step = 0, mode = "validation", applied = false, showAll = false, chart = null;
   var $ = function (s) { return document.querySelector(s); };
   var fmt = function (x, d) { return Number(x).toLocaleString("fr-FR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); };
+  var pad = function (n) { return String(n).padStart(2, "0"); };
 
-  function thumb(v, cls) { return '<span class="th ' + (cls || "") + '" style="background-image:url(' + P + v.bg + '.thumb.jpg)"><img src="' + P + 'presenters/maya.webp" alt="" loading="eager"><b>' + v.hook.split(" ").slice(0, 4).join(" ") + '</b></span>'; }
+  // the variant pictures are the ones on the home page (assets/library/variants, made with fal.ai)
+  function thumb(v, cls) { return '<span class="th ' + (cls || "") + '" style="background-image:url(' + P + v.img + '.thumb.jpg)"></span>'; }
 
-  // what each variant shows at the current step
+  function moved() { return step >= 5 || (step === 4 && (mode === "auto" || applied)); }
   function state(v) {
-    var s = step, f = final(v), o = { share: 0, spend: 0, inst: 0, status: "Prête", cls: "", p: 0 };
+    var s = step, f = final(v), o = { share: 0, spend: 0, status: "Prête", p: 0 };
     if (s >= 2) { o.share = 0.1; o.spend = s === 2 ? TEST * 0.45 : TEST; o.p = s === 2 ? 0.55 : 1; o.status = "En test"; }
     if (s >= 3) o.status = v.role === "win" ? "Gagnante" : v.role === "cut" ? "À couper" : "En test";
-    if (s >= 4) { o.share = f; o.spend = TEST + f * (BUDGET - TEST * 10); o.status = v.role === "win" ? "Gagnante" : v.role === "cut" ? "Coupée" : "En test"; }
-    o.inst = o.spend / v.cpi;
-    if (s >= 3) o.cls = v.role === "win" ? "win" : (s >= 4 && v.role === "cut") ? "cut" : "";
+    if (s >= 4 && moved()) { o.share = f; o.spend = TEST + f * (BUDGET - TEST * 10); o.status = v.role === "win" ? "Gagnante" : v.role === "cut" ? "Coupée" : "En test"; }
+    o.inst = o.spend / v.cpi; o.trials = o.inst * v.tr; o.clients = o.trials * v.pr;
     return o;
   }
   function totals() {
-    var spend = 0, inst = 0;
-    V.forEach(function (v) { var o = state(v); spend += o.spend; inst += o.inst; });
-    return { spend: spend, inst: inst, cpi: inst ? spend / inst : 0 };
+    var t = { spend: 0, inst: 0, trials: 0, clients: 0 };
+    V.forEach(function (v) { var o = state(v); t.spend += o.spend; t.inst += o.inst; t.trials += o.trials; t.clients += o.clients; });
+    t.cpa = t.clients ? t.spend / t.clients : 0; t.cpt = t.trials ? t.spend / t.trials : 0;
+    return t;
   }
-  var eqInst = V.reduce(function (a, v) { return a + (BUDGET / 10) / v.cpi; }, 0);
-  var eqCpi = BUDGET / eqInst;
+  // référence : le même budget réparti à égalité entre les 10 variantes, sans optimisation
+  var base = V.reduce(function (a, v) { var i = (BUDGET / 10) / v.cpi; a.trials += i * v.tr; a.clients += i * v.tr * v.pr; return a; }, { trials: 0, clients: 0 });
+  base.cpa = BUDGET / base.clients; base.cpt = BUDGET / base.trials;
 
   function renderSteps() {
     $("#steps").innerHTML = STEPS.map(function (t, i) {
-      return '<button type="button" class="d-step ' + (i === step ? "on" : i < step ? "done" : "") + '" data-s="' + i + '"><b>' + (i < step ? "✓" : i + 1) + '</b><span>' + t + '</span></button>';
+      return '<li class="step ' + (i <= step ? "step-primary" : "") + '" data-content="' + (i < step ? "✓" : i + 1) + '"><button type="button" data-s="' + i + '" class="' + (i === step ? "font-semibold" : "text-base-content/50") + '"' + (i === step ? ' aria-current="step"' : "") + '>' + t + '</button></li>';
     }).join("");
   }
 
+  function stat(title, value, desc, extra) {
+    return '<div class="stat gap-0 px-5 py-2.5"><div class="stat-title text-xs">' + title + '</div><div class="stat-value font-display text-[1.5rem] leading-tight tabular-nums">' + value + '</div>' + (extra || "") + '<div class="stat-desc whitespace-normal text-[0.7rem] ' + (desc.up ? "font-medium text-success" : "") + '">' + (desc.t || "&nbsp;") + '</div></div>';
+  }
   function renderKpis() {
-    var t = totals(), s = step;
-    var k = [];
-    k.push('<div class="d-kpi"><small>Budget dépensé</small><strong>' + fmt(t.spend) + ' €</strong><div class="d-bar"><i style="width:' + (t.spend / BUDGET * 100) + '%"></i></div><em>sur ' + fmt(BUDGET) + ' € ce mois-ci</em></div>');
-    k.push('<div class="d-kpi"><small>Installations</small><strong>' + (s >= 2 ? fmt(t.inst) : "—") + '</strong><em>' + (s >= 4 ? "au lieu de " + fmt(eqInst) + " en répartition égale" : s >= 2 ? "test en cours" : "&nbsp;") + '</em></div>');
-    k.push('<div class="d-kpi"><small>Coût par installation</small><strong>' + (s >= 2 ? fmt(t.cpi, 2) + ' €' : "—") + '</strong><em class="' + (s >= 4 ? "up" : "") + '">' + (s >= 4 ? "−" + fmt((1 - t.cpi / eqCpi) * 100) + " % vs répartition égale (" + fmt(eqCpi, 2) + " €)" : "&nbsp;") + '</em></div>');
-    k.push('<div class="d-kpi"><small>Installations gagnées</small><strong class="' + (s >= 4 ? "" : "") + '">' + (s >= 4 ? "+" + fmt(t.inst - eqInst) : "—") + '</strong><em class="' + (s >= 4 ? "up" : "") + '">' + (s >= 4 ? "+" + fmt((t.inst / eqInst - 1) * 100) + " % pour le même budget" : "&nbsp;") + '</em></div>');
-    $("#kpis").innerHTML = k.join("");
+    var t = totals(), s = step, done = moved();
+    var gain = done ? (1 - t.cpa / base.cpa) * 100 : 0;
+    var goal = s < 2 ? "" : '<progress class="progress progress-primary my-1 h-1 w-full max-w-[12rem]" value="' + Math.max(0, Math.min(100, gain / GOAL * 100)) + '" max="100" aria-label="Avancement vers l\'objectif de 30 jours"></progress>';
+    $("#kpis").innerHTML = [
+      stat("Abonnés payants", s >= 2 ? fmt(t.clients) : "-", done ? { up: true, t: "+" + fmt((t.clients / base.clients - 1) * 100) + " % vs " + fmt(base.clients) + " sans optimisation" } : { t: s >= 2 ? "test en cours" : "" }),
+      stat("Coût par abonné", s >= 2 ? fmt(t.cpa, 1) + " €" : "-", done ? { up: true, t: "−" + fmt(gain) + " % · objectif 30 j : −" + GOAL + " %" } : { t: "objectif 30 j : −" + GOAL + " %" }, goal),
+      stat("Essais gratuits", s >= 2 ? fmt(t.trials) : "-", s >= 2 ? { t: fmt(t.cpt, 1) + " € par essai" + (done ? " · avant " + fmt(base.cpt, 1) + " €" : "") } : { t: "" }),
+      stat("Temps gagné", s >= 1 ? "≈ " + fmt((s >= 5 ? 13 : 10) * HOURS_PER_VARIANT) + " h" : "-", s >= 1 ? { t: "de montage, " + (s >= 5 ? 13 : 10) + " variantes" } : { t: "" })
+    ].join("");
   }
 
   function renderSource() {
-    var orig = { hook: "Original", bg: "scenes/white-studio" };
-    var msg = step === 0 ? '<span class="d-spin"></span><span class="d-chip warn live"><i></i>Analyse de la vidéo…</span>' : '<span class="d-chip ' + (step >= 5 ? "win" : "ok") + '"><i></i>' + (step >= 5 ? "13 variantes, 3 nouvelles" : "10 variantes") + '</span>';
-    $("#source").innerHTML = thumb(orig, "d-src-th") + '<div class="meta"><b>demo-posture-45s.mp4</b><span>Vidéo source · 45 s · 1080×1920 · envoyée par vous</span></div><div class="d-drop">' + msg + '</div>';
+    var orig = { img: "variants/original" };
+    var msg = step === 0
+      ? '<span class="flex items-center gap-2 text-xs text-base-content/60"><span class="loading loading-spinner loading-xs text-primary"></span>Analyse de la vidéo…</span>'
+      : '<span class="badge ' + (step >= 5 ? "badge-primary" : "badge-ghost") + ' badge-sm">' + (step >= 5 ? "13 variantes · 3 nouvelles" : "10 variantes") + '</span>';
+    $("#source").innerHTML = thumb(orig, "lg") +
+      '<div class="grid min-w-0 gap-0.5"><b class="truncate text-sm font-semibold">demo-posture-45s.mp4</b><span class="truncate text-xs text-base-content/55" title="Reel du 12 mars, Short du 2 avril, Reel du 19 avril">45 s · 9:16 · inspirée de vos 3 meilleures publications</span></div>' +
+      '<div class="ml-auto shrink-0">' + msg + '</div>';
   }
 
+  function badge(status) {
+    var cls = { "Gagnante": "badge-primary", "En test": "badge-ghost", "À couper": "badge-warning badge-outline", "Coupée": "badge-ghost text-base-content/50", "Prête": "badge-ghost", "Nouvelle": "badge-primary badge-outline" }[status] || "badge-ghost";
+    return '<span class="badge badge-sm whitespace-nowrap ' + cls + '">' + status + '</span>';
+  }
+  function row(v) {
+    var o = state(v), tested = step >= 2, measured = step >= 3, dim = moved() && v.role === "cut" ? " opacity-50" : "";
+    return '<tr class="border-base-200' + dim + '"><td class="pl-0"><div class="flex min-w-0 items-center gap-3">' + thumb(v) + '<div class="min-w-0"><b class="block max-w-[16rem] truncate text-[0.8rem] font-medium">' + v.hook + '</b><span class="text-[0.68rem] text-base-content/50">V' + pad(v.n) + " · " + v.fmt + '</span></div></div></td>' +
+      '<td>' + badge(o.status) + '</td>' +
+      '<td><div class="flex items-center gap-2"><progress class="progress progress-primary h-1 w-12" value="' + (o.share * 100) + '" max="32"></progress><span class="w-8 text-[0.72rem] tabular-nums text-base-content/70">' + fmt(o.share * 100) + ' %</span></div></td>' +
+      '<td class="text-right tabular-nums">' + (tested ? fmt(o.spend) + " €" : "-") + '</td>' +
+      '<td class="text-right tabular-nums max-lg:hidden">' + (tested ? fmt(v.h3 * (0.6 + 0.4 * o.p)) + " %" : "-") + '</td>' +
+      '<td class="text-right tabular-nums">' + (measured ? fmt(cpt(v), 1) + " €" : tested ? "…" : "-") + '</td>' +
+      '<td class="pr-0 text-right font-semibold tabular-nums">' + (measured ? fmt(cpa(v), 1) + " €" : tested ? "…" : "-") + '</td></tr>';
+  }
+  function newRow(g) {
+    return '<tr class="fresh border-base-200"><td class="pl-0"><div class="flex items-center gap-3">' + thumb(g) + '<div class="min-w-0"><b class="block max-w-[16rem] truncate text-[0.8rem] font-medium">' + g.hook + '</b><span class="text-[0.68rem] text-base-content/50">V' + g.n + " · issue de " + g.from + '</span></div></div></td><td>' + badge("Nouvelle") + '</td><td class="text-[0.72rem] text-base-content/50">-</td><td class="text-right text-base-content/50">-</td><td class="text-right text-base-content/50 max-lg:hidden">-</td><td class="text-right text-base-content/50">-</td><td class="pr-0 text-right text-base-content/50">-</td></tr>';
+  }
+  // Moins de tri : 3 variantes visibles, les autres à la demande.
   function renderTable() {
-    var head = '<div class="d-row hd" role="row"><span>Variante</span><span>Statut</span><span>Budget</span><span class="num">Dépensé</span><span class="num">Rét. 3 s</span><span class="num">CTR</span><span class="num">€/inst.</span></div>';
-    if (step === 0) { $("#table").innerHTML = head + '<div class="d-empty">Dépose une vidéo : Framefly en fait des variantes, les teste, et garde les meilleures.</div>'; return; }
-    var rows = [], gen = step >= 5 ? GEN2 : [];
-    gen.forEach(function (g) {
-      rows.push('<div class="d-row fresh" role="row"><div class="d-v">' + thumb(g) + '<div><b>' + g.hook + '</b><span>V' + g.n + " · " + g.fmt + " · issue de " + g.from + '</span></div></div><span><span class="d-chip win"><i></i>Nouvelle</span></span><div class="d-budget"><small>0 %</small><div class="d-bar"><i></i></div></div><span class="num">—</span><span class="num">—</span><span class="num">—</span><span class="num">—</span></div>');
-    });
-    V.forEach(function (v) {
-      var o = state(v), tested = step >= 2;
-      var chip = o.status === "Gagnante" ? "win" : o.status === "En test" ? "live" : o.status === "À couper" ? "warn" : o.status === "Coupée" ? "bad" : "";
-      var h3 = tested ? fmt(v.h3 * (0.6 + 0.4 * o.p)) + " %" : "—";
-      var ctr = tested ? fmt(v.ctr * (0.6 + 0.4 * o.p), 1) + " %" : "—";
-      var cpi = step >= 3 ? fmt(v.cpi, 2) + " €" : tested ? "…" : "—";
-      rows.push('<div class="d-row ' + o.cls + '" role="row"><div class="d-v">' + thumb(v) + '<div><b>' + v.hook + '</b><span>V' + String(v.n).padStart(2, "0") + " · " + v.fmt + '</span></div></div><span><span class="d-chip ' + chip + '"><i></i>' + o.status + '</span></span><div class="d-budget"><small>' + fmt(o.share * 100) + ' %</small><div class="d-bar"><i style="width:' + (o.share * 100 / 0.32 * 0.95) + '%"></i></div></div><span class="num">' + (tested ? fmt(o.spend) + " €" : "—") + '</span><span class="num">' + h3 + '</span><span class="num">' + ctr + '</span><span class="num"><b>' + cpi + '</b></span></div>');
-    });
-    $("#table").innerHTML = head + rows.join("");
+    $("thead").classList.toggle("hidden", step === 0);
+    if (step === 0) { $("#rows").innerHTML = ""; $("#empty").classList.remove("hidden"); $("#more").classList.add("hidden"); return; }
+    $("#empty").classList.add("hidden");
+    var ordered = V.slice();
+    if (step >= 3) { var rank = { win: 0, mid: 1, cut: 2 }; ordered.sort(function (a, b) { return rank[a.role] - rank[b.role] || cpa(a) - cpa(b); }); }
+    var top = ordered.slice(0, 3), rest = ordered.slice(3), gen = step >= 5 ? GEN2 : [], rows = [];
+    top.forEach(function (v) { rows.push(row(v)); });
+    if (showAll) { gen.forEach(function (g) { rows.push(newRow(g)); }); rest.forEach(function (v) { rows.push(row(v)); }); }
+    $("#rows").innerHTML = rows.join("");
+    var more = $("#more");
+    more.classList.remove("hidden");
+    more.innerHTML = showAll ? 'Réduire<svg class="size-4 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-caret-up"/></svg>' : 'Voir les ' + (rest.length + gen.length) + ' autres variantes<svg class="size-4 fill-current" aria-hidden="true"><use href="assets/img/icons.svg#i-caret-down"/></svg>';
   }
 
+  function renderRules() {
+    var t = totals();
+    var items = [
+      ["Budget du mois", fmt(BUDGET) + " €", '<span class="ml-1.5 font-sans text-[0.7rem] font-normal text-base-content/50">' + fmt(t.spend) + ' € dépensés</span>'],
+      ["Test par variante", fmt(TEST) + " €", ""],
+      ["Arrêt si € / essai >", fmt(CPT_CUT) + " €", ""],
+      ["Déplacement max", MAX_SHIFT + " pts / jour", ""]
+    ];
+    $("#rules").innerHTML = items.map(function (i, k) { return '<div class="' + (k ? "pl-4" : "pr-4") + ' max-sm:pl-0"><div class="text-[0.7rem] text-base-content/55">' + i[0] + '</div><div class="font-display text-base font-bold leading-snug tabular-nums">' + i[1] + i[2] + '</div></div>'; }).join("");
+  }
+
+  var COLORS = { light: { win: "#a7cc1f", mid: "#dfe2d8", text: "#7a7f70", grid: "#eceee6" }, dark: { win: "#d3f261", mid: "#3a4031", text: "#8f9585", grid: "#262b1e" } };
   function renderChart() {
-    var days = step >= 4 ? 7 : step >= 2 ? 3 : 0, el = $("#chart");
+    var days = moved() ? 7 : step >= 2 ? 3 : 0, el = $("#chart");
+    var dark = document.documentElement.getAttribute("data-theme") === "framefly-dark", c = COLORS[dark ? "dark" : "light"];
+    $("#lg-win").style.background = c.win; $("#lg-mid").style.background = c.mid;
     $("#chart-sub").textContent = days ? "jours 1 à " + days : "par jour";
-    if (!days) { el.innerHTML = '<div class="d-empty">Le test commence quand les variantes sont prêtes.</div>'; return; }
-    var W = 360, H = 150, bw = 30, gap = (W - 7 * bw) / 6, out = '<svg viewBox="0 0 ' + W + ' ' + (H + 18) + '" preserveAspectRatio="none" role="img" aria-label="Répartition du budget par jour">';
+    if (chart) { chart.destroy(); chart = null; }
+    if (!days) { el.innerHTML = '<p class="flex h-full items-center justify-center text-sm text-base-content/50">Le test commence quand les variantes sont prêtes.</p>'; return; }
+    el.innerHTML = "";
+    var win = [], cats = [];
     for (var d = 0; d < days; d++) {
-      var t = d < 3 ? 0 : d === 3 ? 0.5 : 1, x = d * (bw + gap), y = H;
-      var parts = [];
-      V.forEach(function (v) {
-        var f = final(v), sh = 0.1 + (f - 0.1) * t, cls = v.role === "win" ? "win" : (v.role === "cut" && t === 1) ? "cut" : "mid";
-        parts.push({ sh: sh, cls: cls });
-      });
-      ["win", "mid", "cut"].forEach(function (c) {
-        var sh = parts.filter(function (p) { return p.cls === c; }).reduce(function (a, p) { return a + p.sh; }, 0);
-        if (c === "mid") sh = parts.filter(function (p) { return p.cls === "mid"; }).reduce(function (a, p) { return a + p.sh; }, 0);
-        var h = sh * H; y -= h;
-        var fill = c === "win" ? "var(--accent)" : c === "cut" ? "var(--bad)" : "var(--s4)";
-        if (h > 0.2) out += '<rect x="' + x + '" y="' + y + '" width="' + bw + '" height="' + h + '" rx="3" fill="' + fill + '" ' + (c === "cut" ? 'opacity=".55"' : "") + '/>';
-      });
-      out += '<text x="' + (x + bw / 2) + '" y="' + (H + 13) + '" text-anchor="middle" font-size="9" fill="var(--fg-3)" font-family="Geist Mono, monospace">J' + (d + 1) + '</text>';
+      var t = d < 3 ? 0 : d === 3 ? 0.5 : 1, w = 0;
+      V.forEach(function (v) { if (v.role === "win") w += 0.1 + (final(v) - 0.1) * t; });
+      win.push(Math.round(w * 100)); cats.push("J" + (d + 1));
     }
-    el.innerHTML = out + "</svg>";
+    chart = new ApexCharts(el, {
+      chart: { type: "bar", height: "100%", toolbar: { show: false }, animations: { speed: 400 }, fontFamily: "Geist, sans-serif", foreColor: c.text, background: "transparent", parentHeightOffset: 0 },
+      series: [{ name: "Gagnantes", data: win }],
+      colors: [c.win], plotOptions: { bar: { borderRadius: 4, borderRadiusApplication: "end", columnWidth: "48%", colors: { backgroundBarColors: [c.mid], backgroundBarRadius: 4 } } },
+      dataLabels: { enabled: false }, stroke: { width: 0 }, legend: { show: false },
+      grid: { borderColor: c.grid, strokeDashArray: 3, padding: { left: 0, right: 4, top: -8, bottom: -4 } },
+      xaxis: { categories: cats, axisBorder: { show: false }, axisTicks: { show: false }, labels: { style: { fontSize: "11px" } } },
+      yaxis: { min: 0, max: 100, tickAmount: 2, labels: { formatter: function (x) { return x + " %"; }, style: { fontSize: "11px" } } },
+      states: { hover: { filter: { type: "none" } } },
+      tooltip: { theme: dark ? "dark" : "light", y: { formatter: function (x) { return x + " % aux gagnantes, " + (100 - x) + " % en test"; } } }
+    });
+    chart.render();
   }
 
-  function ev(t, html) { return '<div class="d-ev"><time>' + t + '</time><p>' + html + '</p></div>'; }
+  function ev(t, title, why) { return '<div class="fresh grid grid-cols-[2.6rem_minmax(0,1fr)] gap-2 text-xs"><span class="pt-px text-[0.68rem] font-medium tabular-nums text-base-content/45">' + t + '</span><p class="leading-snug"><b class="font-semibold">' + title + '</b>' + (why ? '<br><span class="text-base-content/60">' + why + '</span>' : "") + '</p></div>'; }
   function renderFeed() {
-    var e = [];
-    if (step >= 1) e.push(ev("09:02", "<b>10 variantes prêtes</b> : accroche, texte, voix off, fond et cadrage changés. Rien n'est publié sans votre accord."));
-    if (step >= 2) e.push(ev("09:10", "<b>Test lancé sur Meta Ads</b> : 30 € par variante, trois jours."));
-    if (step >= 3) { e.push(ev("J+3", "<b>V03, V08, V05</b> sont devant : rétention à 3 s de 46 à 54 %, 1,62 € à 2,05 € par installation.")); e.push(ev("J+3", "<b>V02, V07, V10</b> dépassent le seuil de 4,50 € par installation.")); }
-    if (step >= 4) e.push(ev("J+3", "<b>Budget déplacé</b> : V03 10 → 32 %, V08 → 24 %, V05 → 18 %. Trois variantes arrêtées."));
-    if (step >= 5) e.push(ev("J+7", "<b>8 nouvelles variantes</b> d'abord créées à partir de V03, V08 et V05 : nouvelles accroches, même corps de vidéo."));
-    var ask = "";
-    if (step === 4) ask = mode === "validation" && !applied
-      ? '<div class="d-ask"><span><b>En attente de votre validation.</b> Appliquer ce déplacement de budget ?</span><div><button type="button" id="apply">Appliquer</button><button type="button" class="alt">Modifier</button></div></div>'
-      : '<div class="d-ask"><span><b>' + (mode === "auto" ? "Appliqué automatiquement" : "Validé par vous") + '</b> dans vos plafonds.</span></div>';
-    $("#feed-sub").textContent = mode === "auto" ? "mode automatique" : "mode validation";
-    $("#feed").innerHTML = (e.length ? e.reverse().join("") : '<div class="d-empty">Les décisions apparaissent ici, avec leur raison.</div>') + ask;
-    var b = $("#apply"); if (b) b.onclick = function () { applied = true; renderFeed(); };
+    var e = [], wins = V.filter(function (v) { return v.role === "win"; }), cuts = V.filter(function (v) { return v.role === "cut"; });
+    var range = function (a, f, d) { var x = a.map(f); return fmt(Math.min.apply(0, x), d) + " à " + fmt(Math.max.apply(0, x), d); };
+    if (step >= 1) e.push(ev("09:02", "10 variantes prêtes", "Accroche, texte, voix, fond et cadrage changés. Framefly teste les 10 et ne vous montre que les 3 meilleures."));
+    if (step >= 2) e.push(ev("09:10", "Test lancé sur Meta Ads", fmt(TEST) + " € par variante pendant 3 jours, optimisé sur l'essai gratuit."));
+    if (step >= 3) {
+      e.push(ev("J+3", "V03, V08, V05 sont devant", range(wins, cpt, 1) + " € par essai, contre " + fmt(base.cpt, 1) + " € en moyenne. Rétention à 3 s de " + range(wins, function (v) { return v.h3; }) + " %."));
+      e.push(ev("J+3", "V02, V07, V10 à couper", "Plus de " + CPT_CUT + " € par essai, votre seuil d'arrêt."));
+    }
+    if (moved()) e.push(ev("J+3", "Budget déplacé", "V03 → 32 %, V08 → 24 %, V05 → 18 %, en " + MAX_SHIFT + " points par jour au plus. Trois variantes arrêtées."));
+    if (step >= 5) e.push(ev("J+7", "3 nouvelles variantes", "Créées à partir de V03, V08 et V05 : nouvelles accroches, même corps de vidéo."));
+    $("#ask").innerHTML = step === 4 && mode === "validation" && !applied
+      ? '<div role="alert" class="fresh flex flex-col gap-2 rounded-box bg-primary/25 p-3 text-xs"><p class="leading-snug"><b class="font-semibold">À valider : déplacer le budget vers V03, V08 et V05.</b><br><span class="text-base-content/65">V03 → 32 %, V08 → 24 %, V05 → 18 %. Trois variantes arrêtées.</span></p><div class="flex gap-2"><button type="button" id="apply" class="btn btn-neutral btn-xs">Appliquer</button><button type="button" id="detail" class="btn btn-ghost btn-xs">Voir le détail</button></div></div>'
+      : "";
+    $("#feed-sub").textContent = mode === "auto" ? "mode automatique, dans vos règles" : "mode validation";
+    $("#feed").innerHTML = e.length ? e.reverse().join("") : '<p class="text-sm text-base-content/50">Les décisions apparaissent ici, avec leur raison.</p>';
+    var b = $("#apply"); if (b) b.onclick = function () { applied = true; render(); };
+    var dt = $("#detail"); if (dt) dt.onclick = function () { showAll = true; renderTable(); };
   }
 
-  function render() { renderSteps(); renderKpis(); renderSource(); renderTable(); renderChart(); renderFeed(); }
+  function renderMode() {
+    document.querySelectorAll("[data-mode]").forEach(function (b) {
+      var on = b.getAttribute("data-mode") === mode;
+      b.className = "btn join-item btn-sm " + (on ? "btn-neutral" : "border-base-300 bg-base-100 font-normal");
+      b.setAttribute("aria-pressed", on);
+    });
+  }
+  function render() { renderSteps(); renderKpis(); renderSource(); renderTable(); renderRules(); renderChart(); renderFeed(); renderMode(); }
   function set(n) { n = Math.max(0, Math.min(5, n)); if (n === step) return; if (n < 4) applied = false; step = n; render(); }
 
-  // controls
   document.addEventListener("click", function (e) {
     var s = e.target.closest("[data-s]"); if (s) { set(+s.getAttribute("data-s")); stopAuto(); return; }
-    var m = e.target.closest("[data-mode]"); if (m) { mode = m.getAttribute("data-mode"); applied = false; document.querySelectorAll("[data-mode]").forEach(function (b) { b.classList.toggle("on", b === m); }); renderFeed(); }
+    var m = e.target.closest("[data-mode]"); if (m) { mode = m.getAttribute("data-mode"); applied = false; render(); return; }
+    if (e.target.closest("#more")) { showAll = !showAll; renderTable(); return; }
+    if (e.target.closest("#restart")) { stopAuto(); applied = false; showAll = false; step = 0; render(); }
   });
   document.addEventListener("keydown", function (e) {
+    if (e.target.closest && e.target.closest("button") && e.key === " ") return;
     if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") { e.preventDefault(); set(step + 1); stopAuto(); }
     if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); set(step - 1); stopAuto(); }
   });
+  // protocole avec le site : étape pilotée par le défilement, thème clair/sombre
   window.addEventListener("message", function (e) {
     var d = e.data || {};
     if (d.type === "step") { stopAuto(); set(+d.step); }
-    if (d.type === "theme") document.documentElement.setAttribute("data-theme", d.value === "dark" ? "dark" : "light");
+    if (d.type === "theme") { document.documentElement.setAttribute("data-theme", d.value === "dark" ? "framefly-dark" : "framefly"); renderChart(); }
   });
 
-  // alone on its own page it plays itself; with ?step=N it stays on that step; inside the site the scroll drives it
   var q = new URLSearchParams(location.search), timer = null, embedded = window.parent !== window;
   function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
-  if (q.has("step")) { step = Math.max(0, Math.min(5, +q.get("step") || 0)); }
-  if (q.get("mode") === "auto") { mode = "auto"; document.querySelectorAll("[data-mode]").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-mode") === "auto"); }); }
+  if (q.has("step")) step = Math.max(0, Math.min(5, +q.get("step") || 0));
+  if (q.get("mode") === "auto") mode = "auto";
   render();
   if (!q.has("step") && !embedded && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     timer = setInterval(function () { if (step >= 5) { stopAuto(); return; } set(step + 1); }, 3200);

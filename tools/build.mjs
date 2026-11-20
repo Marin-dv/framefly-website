@@ -231,6 +231,8 @@ writeFileSync(join(root, "assets", "js", "data.js"), `/* Written by tools/build.
 
 // ── the icons the site uses, from the app's Phosphor package ──
 for (const f of readdirSync(join(root, "assets", "js")).filter((f) => f.endsWith(".js"))) for (const m of read(join(root, "assets", "js", f)).matchAll(/icon\("([a-z0-9-]+)"/g)) icons.add(m[1]);
+// the hand-written demo dashboard points at the sprite directly
+if (existsSync(join(root, "dashboard.html"))) for (const m of read(join(root, "dashboard.html")).matchAll(/icons\.svg#i-([a-z0-9-]+)/g)) icons.add(m[1]);
 const defs = join(root, "..", "framefly", "app", "node_modules", "@phosphor-icons", "react", "dist", "defs");
 const spriteFile = join(root, "assets", "img", "icons.svg");
 if (existsSync(defs)) {

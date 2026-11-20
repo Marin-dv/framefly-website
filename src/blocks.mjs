@@ -44,33 +44,42 @@ function notify({ icon }, id, label, sr = false, help = true) {
 </div>`;
 }
 
-/** The ten variants of one photo: same person, ten backdrops, ten hooks. The numbers match the demo dashboard. */
+/** The ten variants of one photo: the same person placed in ten settings (pictures made with fal.ai, masters and prompts in ../framefly/research/outputs/variants), ten hooks, ten caption styles from the app's library, three framings. The numbers match the demo dashboard. */
 export const VARIANTS = [
-  { n: 3, bg: "scenes/loft", room: "Loft", hook: "Cette appli corrige ta posture", fmt: "9:16", role: "win" },
-  { n: 8, bg: "scenes/startup", room: "Startup", hook: "Teste-le 7 jours gratuitement", fmt: "9:16", role: "win" },
-  { n: 5, bg: "scenes/white-studio", room: "Studio blanc", hook: "3 minutes. Pas de matériel.", fmt: "9:16", role: "win" },
-  { n: 1, bg: "backgrounds/bokeh", room: "Bokeh", hook: "Ton dos te fait mal au bureau ?", fmt: "9:16", role: "mid" },
-  { n: 4, bg: "backgrounds/ocean", room: "Océan", hook: "Tu t'assois mal depuis des années", fmt: "4:5", role: "mid" },
-  { n: 6, bg: "scenes/rooftop", room: "Toit-terrasse", hook: "Arrête de rester voûté", fmt: "9:16", role: "mid" },
-  { n: 9, bg: "backgrounds/coast", room: "Côte", hook: "Ton cou après 8 h d'écran", fmt: "9:16", role: "mid" },
-  { n: 2, bg: "scenes/home-office", room: "Bureau à domicile", hook: "Fais ça toutes les 2 heures", fmt: "9:16", role: "cut" },
-  { n: 7, bg: "backgrounds/ink", room: "Encre", hook: "Le geste que tu fais mal", fmt: "1:1", role: "cut" },
-  { n: 10, bg: "scenes/night-office", room: "Bureau de nuit", hook: "Posture : le test en 20 s", fmt: "9:16", role: "cut" },
+  { n: 3, bg: "scenes/loft", img: "variants/v03", cap: "pop", room: "Loft", hook: "Cette appli corrige ta posture", fmt: "9:16", role: "win" },
+  { n: 8, bg: "scenes/startup", img: "variants/v08", cap: "block", room: "Startup", hook: "Teste-le 7 jours gratuitement", fmt: "9:16", role: "win" },
+  { n: 5, bg: "scenes/white-studio", img: "variants/original", cap: "marker", room: "Studio blanc", hook: "3 minutes. Pas de matériel.", fmt: "9:16", role: "win" },
+  { n: 1, bg: "backgrounds/bokeh", img: "variants/v01", cap: "subtitle", room: "Bokeh", hook: "Ton dos te fait mal au bureau ?", fmt: "9:16", role: "mid" },
+  { n: 4, bg: "backgrounds/ocean", img: "variants/v04", cap: "label", room: "Océan", hook: "Tu t'assois mal depuis des années", fmt: "4:5", role: "mid" },
+  { n: 6, bg: "scenes/rooftop", img: "variants/v06", cap: "punch", room: "Toit-terrasse", hook: "Arrête de rester voûté", fmt: "9:16", role: "mid" },
+  { n: 9, bg: "backgrounds/coast", img: "variants/v09", cap: "glass", room: "Côte", hook: "Ton cou après 8 h d'écran", fmt: "9:16", role: "mid" },
+  { n: 2, bg: "scenes/home-office", img: "variants/v02", cap: "cc", room: "Bureau à domicile", hook: "Fais ça toutes les 2 heures", fmt: "9:16", role: "cut" },
+  { n: 7, bg: "backgrounds/ink", img: "variants/v07", cap: "clean", room: "Encre", hook: "Le geste que tu fais mal", fmt: "1:1", role: "cut" },
+  { n: 10, bg: "scenes/night-office", img: "variants/v10", cap: "lower", room: "Bureau de nuit", hook: "Posture : le test en 20 s", fmt: "9:16", role: "cut" },
 ].sort((a, b) => a.n - b.n);
-const frame = (v, { label = true, eager = false } = {}) => `<figure class="vf${label ? "" : " vf-bare"}" data-role="${v.role}">
+const CAPTION_NAMES = { pop: "Pop", block: "Blocks", marker: "Marker", subtitle: "Subtitle", label: "Label", punch: "Punch", glass: "Glass", cc: "Closed caption", clean: "Clean", lower: "Lower third" };
+/** The hook as its caption style draws it: every word in its own span, the longest word marked. */
+const hook = (text, cap) => {
+  const words = text.split(" "), key = words.reduce((k, w, i) => (w.length > words[k].length ? i : k), 0);
+  return `<b class="vf-hook cap-${cap}"><span class="t">${words.map((w, i) => `<i${i === key ? ' class="k"' : ""}>${w}</i>`).join(" ")}</span></b>`;
+};
+const frame = (v, { label = true, eager = false } = {}) => {
+  const lazy = eager ? "" : 'loading="lazy" ', [w, h] = v.fmt === "9:16" ? [540, 968] : v.fmt === "4:5" ? [540, 670] : [540, 540];
+  return `<figure class="vf${label ? "" : " vf-bare"}" data-role="${v.role}" data-fmt="${v.fmt}">
   <div class="vf-screen">
-    <img class="vf-bg" src="assets/library/${v.bg}.jpg" alt="" width="1920" height="1080" ${eager ? "" : 'loading="lazy" '}decoding="async">
-    <img class="vf-p" src="assets/library/presenters/maya.webp" alt="" width="800" height="1000" ${eager ? "" : 'loading="lazy" '}decoding="async">
+    ${v.fmt === "9:16" ? "" : `<img class="vf-fill" src="assets/library/${v.img}.thumb.jpg" alt="" ${lazy}decoding="async">`}
+    <img class="vf-img" src="assets/library/${v.img}.jpg" alt="" width="${w}" height="${h}" ${lazy}decoding="async">
     <span class="vf-n">V${String(v.n).padStart(2, "0")}</span><span class="vf-fmt">${v.fmt}</span>
-    <b class="vf-hook">${v.hook}</b>
+    ${hook(v.hook, v.cap)}
   </div>${label ? `
-  <figcaption><b>${v.room}</b><span>${v.hook}</span></figcaption>` : ""}
+  <figcaption><b>${v.room}</b><span>Sous-titres ${CAPTION_NAMES[v.cap]} · ${v.fmt}</span></figcaption>` : ""}
 </figure>`;
+};
 
 export const blocks = {
   /** Ten variants of one photo, with the original beside them. */
   variants: () => `<div class="vgrid">
-  <figure class="vf vf-source"><div class="vf-screen"><img class="vf-bg" src="assets/library/scenes/white-studio.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async"><img class="vf-p" src="assets/library/presenters/maya.webp" alt="La vidéo d'origine : une personne devant un fond uni" width="800" height="1000" loading="lazy" decoding="async"><span class="vf-n">Original</span><b class="vf-hook">Ta vidéo</b></div><figcaption><b>Ce que tu envoies</b><span>Une seule vidéo, comme tu la publies aujourd'hui</span></figcaption></figure>
+  <figure class="vf vf-source" data-fmt="9:16"><div class="vf-screen"><img class="vf-img" src="assets/library/variants/original.jpg" alt="La vidéo d'origine : une personne assise dans un studio blanc" width="540" height="968" loading="lazy" decoding="async"><span class="vf-n">Original</span>${hook("Ta vidéo", "subtitle")}</div><figcaption><b>Ce que tu envoies</b><span>Une seule vidéo, comme tu la publies aujourd'hui</span></figcaption></figure>
   <div class="vgrid-arrow" aria-hidden="true">{{icon:arrow-right}}</div>
   <div class="vgrid-set">${VARIANTS.map((v) => frame(v)).join("")}</div>
 </div>`,
